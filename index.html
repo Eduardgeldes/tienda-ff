@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diamond Store - Free Fire</title>
+    
+    <!-- Adsense Verification -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8397347098508270" crossorigin="anonymous"></script>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap');
+
+        :root {
+            --ff-yellow: #ffcc00;
+            --ff-blue: #00f2ff;
+            --bg-dark: #0a0e17;
+            --card-bg: rgba(22, 27, 34, 0.9);
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            background-image: linear-gradient(rgba(10, 14, 23, 0.95), rgba(10, 14, 23, 0.95)), url('https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            font-family: 'Roboto', sans-serif;
+            min-height: 100vh;
+        }
+
+        .gaming-font { font-family: 'Orbitron', sans-serif; }
+
+        .glass-morphism {
+            background: rgba(22, 27, 34, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .diamond-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .diamond-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 0 30px rgba(0, 242, 255, 0.3);
+            border-color: var(--ff-blue);
+        }
+
+        .hidden-section { display: none !important; }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        input {
+            background: rgba(0, 0, 0, 0.5) !important;
+            border: 1px solid rgba(0, 242, 255, 0.2) !important;
+            color: white !important;
+        }
+
+        .status-pill {
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 9px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .status-pendiente { background: rgba(234, 179, 8, 0.2); color: #eab308; border: 1px solid #eab308; }
+        .status-completado { background: rgba(34, 197, 94, 0.2); color: #22c55e; border: 1px solid #22c55e; }
+        .status-rechazado { background: rgba(233, 68, 68, 0.2); color: #ef4444; border: 1px solid #ef4444; }
+
+        .tab-btn.active {
+            border-bottom: 2px solid var(--ff-blue);
+            color: var(--ff-blue);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navegación -->
+    <nav id="main-nav" class="hidden-section p-4 glass-morphism sticky top-0 z-50 shadow-2xl">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-2 cursor-pointer" onclick="showSection('home')">
+                <i class="fas fa-gem text-cyan-400 text-2xl"></i>
+                <span class="gaming-font text-xl font-bold tracking-widest">FF <span class="text-cyan-400">STORE</span></span>
+            </div>
+            
+            <div class="flex items-center gap-4">
+                <div class="hidden md:flex gap-6 mr-4">
+                    <button onclick="showSection('home')" class="hover:text-cyan-400 text-[10px] font-bold uppercase tracking-wider transition">Tienda</button>
+                    <button onclick="showSection('history')" class="hover:text-cyan-400 text-[10px] font-bold uppercase tracking-wider transition">Mis Pedidos</button>
+                    <button id="admin-nav-btn" onclick="showSection('admin-panel')" class="hidden-section hover:text-red-400 text-[10px] font-bold uppercase tracking-wider transition border-b border-red-500/0 hover:border-red-500">Panel Admin</button>
+                </div>
+                <button onclick="handleLogout()" class="text-[10px] bg-red-500/20 text-red-400 border border-red-500/30 px-3 py-1 rounded font-bold">SALIR</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-4 py-8">
+        
+        <!-- Pantalla Inicial -->
+        <section id="welcome-screen" class="min-h-[80vh] flex flex-col items-center justify-center fade-in">
+            <div class="text-center mb-10">
+                <i class="fas fa-gem text-cyan-400 text-7xl mb-6 animate-pulse"></i>
+                <h1 class="gaming-font text-4xl md:text-6xl mb-4 text-white">DIAMOND <span class="text-cyan-400">STORE</span></h1>
+            </div>
+            <div class="flex flex-col gap-4 w-full max-w-xs">
+                <button onclick="showSection('login-form')" class="bg-cyan-500 text-black font-bold py-4 rounded-2xl hover:bg-white transition uppercase tracking-widest">Iniciar Sesión</button>
+                <button onclick="showSection('register-form')" class="border border-cyan-500 text-cyan-500 font-bold py-4 rounded-2xl hover:bg-cyan-500 hover:text-black transition uppercase tracking-widest">Registrarse</button>
+            </div>
+        </section>
+
+        <!-- Formularios de Acceso -->
+        <section id="login-form" class="hidden-section fade-in">
+             <div class="max-w-md mx-auto glass-morphism p-10 rounded-3xl text-center">
+                <h2 class="gaming-font text-2xl mb-8 uppercase text-cyan-400">Entrar</h2>
+                <form id="loginForm" class="space-y-5">
+                    <input type="email" id="loginEmail" required class="w-full p-4 rounded-xl outline-none" placeholder="Email">
+                    <input type="password" id="loginPass" required class="w-full p-4 rounded-xl outline-none" placeholder="Contraseña">
+                    <button type="submit" class="w-full bg-cyan-500 py-4 rounded-xl font-bold text-black uppercase tracking-widest">Ingresar</button>
+                    <button type="button" onclick="showSection('welcome-screen')" class="text-gray-500 text-[10px] mt-2 uppercase font-bold">Volver</button>
+                </form>
+            </div>
+        </section>
+
+        <section id="register-form" class="hidden-section fade-in">
+             <div class="max-w-md mx-auto glass-morphism p-10 rounded-3xl text-center">
+                <h2 class="gaming-font text-2xl mb-8 uppercase text-cyan-400">Nueva Cuenta</h2>
+                <form id="registerForm" class="space-y-5">
+                    <input type="text" id="regUser" required class="w-full p-4 rounded-xl outline-none" placeholder="Nombre de usuario">
+                    <input type="email" id="regEmail" required class="w-full p-4 rounded-xl outline-none" placeholder="Email">
+                    <input type="password" id="regPass" required class="w-full p-4 rounded-xl outline-none" placeholder="Contraseña">
+                    <button type="submit" class="w-full bg-cyan-500 py-4 rounded-xl font-bold text-black uppercase tracking-widest">Registrar</button>
+                    <button type="button" onclick="showSection('welcome-screen')" class="text-gray-500 text-[10px] mt-2 uppercase font-bold">Volver</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Tienda de Diamantes -->
+        <section id="home" class="hidden-section fade-in">
+            <div class="text-center mb-8">
+                <h1 class="gaming-font text-3xl mb-2">TIENDA <span class="text-cyan-400">DIAMANTES</span></h1>
+            </div>
+
+            <div class="max-w-md mx-auto mb-10 glass-morphism p-6 rounded-3xl text-center">
+                <label class="block text-[9px] text-gray-500 mb-2 uppercase font-bold tracking-widest">ID de Jugador</label>
+                <input type="number" id="playerID" class="w-full p-3 rounded-xl text-2xl tracking-[4px] text-center font-bold outline-none" placeholder="ID JUGADOR">
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="diamond-card p-6 rounded-2xl text-center">
+                    <i class="fas fa-gem text-cyan-400 text-2xl mb-4"></i>
+                    <h3 class="gaming-font text-xs">110 DIAMANTES</h3>
+                    <div class="text-2xl font-bold my-4">$1.10</div>
+                    <button onclick="openPaymentModal('110 Diamantes', 1.10)" class="w-full bg-cyan-500 text-black py-3 rounded-xl font-bold uppercase text-[10px]">Comprar</button>
+                </div>
+                <div class="diamond-card p-6 rounded-2xl text-center">
+                    <i class="fas fa-gem text-cyan-400 text-3xl mb-4"></i>
+                    <h3 class="gaming-font text-xs">530 DIAMANTES</h3>
+                    <div class="text-2xl font-bold my-4">$5.50</div>
+                    <button onclick="openPaymentModal('530 Diamantes', 5.50)" class="w-full bg-cyan-500 text-black py-3 rounded-xl font-bold uppercase text-[10px]">Comprar</button>
+                </div>
+                <div class="diamond-card p-6 rounded-2xl text-center">
+                    <i class="fas fa-gem text-cyan-400 text-2xl mb-4"></i>
+                    <h3 class="gaming-font text-xs">1080 DIAMANTES</h3>
+                    <div class="text-2xl font-bold my-4">$11.00</div>
+                    <button onclick="openPaymentModal('1080 Diamantes', 11.00)" class="w-full bg-cyan-500 text-black py-3 rounded-xl font-bold uppercase text-[10px]">Comprar</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Mis Pedidos -->
+        <section id="history" class="hidden-section fade-in">
+            <h2 class="gaming-font text-xl text-center mb-6 text-cyan-400 uppercase">Mis Pedidos</h2>
+            <div id="user-history-list" class="space-y-4 max-w-2xl mx-auto"></div>
+        </section>
+
+        <!-- Panel de Administración -->
+        <section id="admin-panel" class="hidden-section fade-in">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
+                <h2 class="gaming-font text-2xl text-red-500 uppercase">Panel Admin (Eduard)</h2>
+                <button onclick="fetchAdminOrders()" class="bg-white/10 px-4 py-2 rounded text-[10px] font-bold uppercase hover:bg-white/20 transition">Refrescar</button>
+            </div>
+            <div id="admin-orders-list" class="space-y-4 max-w-4xl mx-auto"></div>
+        </section>
+
+    </main>
+
+    <!-- Modal de Selección de Pago -->
+    <div id="payment-modal" class="fixed inset-0 bg-black/95 hidden items-center justify-center z-[110] p-4 backdrop-blur-md">
+        <div class="bg-slate-900 border border-cyan-400/30 p-6 rounded-3xl max-w-md w-full shadow-2xl">
+             <div class="flex border-b border-white/10 mb-6">
+                <button onclick="switchTab('stripe')" id="tab-stripe" class="tab-btn active flex-1 py-3 gaming-font text-[10px] uppercase transition-all">Tarjeta</button>
+                <button onclick="switchTab('manual')" id="tab-manual" class="tab-btn flex-1 py-3 gaming-font text-[10px] uppercase transition-all">Manual (BS/Zinli)</button>
+             </div>
+
+             <!-- Método Stripe -->
+             <div id="content-stripe">
+                 <p class="text-[10px] text-gray-500 text-center mb-4 uppercase">Pago Seguro con Stripe</p>
+                 <div id="card-element" class="bg-black/30 p-3 rounded-lg border border-white/10 mb-4"></div>
+                 <div id="card-errors" class="text-red-500 text-[10px] mb-4 text-center uppercase"></div>
+                 <button id="btnConfirmPayment" class="w-full bg-cyan-500 py-4 rounded-xl font-bold text-black uppercase tracking-widest hover:bg-white transition">Pagar ahora</button>
+             </div>
+
+             <!-- Método Manual -->
+             <div id="content-manual" class="hidden-section text-center">
+                 <div class="space-y-4 text-left bg-black/40 p-5 rounded-xl mb-4 border border-white/5">
+                    <div>
+                        <p class="text-cyan-400 text-[10px] font-bold uppercase mb-1">Pago Móvil (BDV 0102):</p>
+                        <p class="text-xs font-bold tracking-wider">C.I: 29824660 | 04162923781</p>
+                    </div>
+                    <hr class="opacity-10">
+                    <div>
+                        <p class="text-yellow-400 text-[10px] font-bold uppercase mb-1">Zinli:</p>
+                        <p class="text-xs font-bold tracking-wider">eduardgeldes6@gmail.com</p>
+                    </div>
+                 </div>
+                 <input type="text" id="manualReference" class="w-full p-4 rounded-xl mb-4 text-center font-bold tracking-widest" placeholder="NRO DE REFERENCIA">
+                 <button onclick="submitManualPayment()" class="w-full bg-yellow-500 py-4 rounded-xl font-bold text-black uppercase tracking-widest">Reportar Pago</button>
+             </div>
+
+             <button onclick="document.getElementById('payment-modal').style.display='none'" class="w-full text-gray-500 text-[10px] mt-4 uppercase font-bold">Cancelar</button>
+        </div>
+    </div>
+
+    <!-- Modal de Notificaciones -->
+    <div id="modal" class="fixed inset-0 bg-black/90 hidden items-center justify-center z-[120] p-4">
+        <div class="bg-slate-900 border border-white/10 p-8 rounded-3xl max-w-sm w-full text-center">
+            <div id="modal-icon" class="text-5xl mb-4"></div>
+            <h3 id="modal-title" class="gaming-font text-lg mb-2"></h3>
+            <p id="modal-msg" class="text-gray-400 text-sm mb-6"></p>
+            <button onclick="document.getElementById('modal').style.display='none'" class="w-full bg-white text-black py-3 rounded-xl font-bold uppercase text-xs">Cerrar</button>
+        </div>
+    </div>
+
+    <!-- Lógica Principal -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+        import { getFirestore, doc, setDoc, getDoc, collection, addDoc, getDocs, updateDoc, query, where } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+        // --- CLAVE PÚBLICA DE STRIPE ---
+        // Pega aquí tu pk_test_... o pk_live_...
+        const stripe = Stripe('pk_test_51S7l1QJv0N5PwzTitxeI8Fv9Y1QV4Lur4bvh9axxaGky0TlV34TfKW8PfJnVYf4M38fnACj2n8CyfY4kwDv4lm3h008c6PxRHk'); 
+        
+        const elements = stripe.elements();
+        const card = elements.create('card', {
+            style: {
+                base: {
+                    color: '#ffffff',
+                    fontFamily: '"Roboto", sans-serif',
+                    fontSize: '16px',
+                    '::placeholder': { color: '#aab7c4' }
+                },
+                invalid: { color: '#fa755a', iconColor: '#fa755a' }
+            }
+        });
+        card.mount('#card-element');
+
+        // Configuración de Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyBoBvAcaLGnPw69fwrfz_Al0L76foB1JtQ",
+            authDomain: "recaga-de-diamante-de-fre-fi.firebaseapp.com",
+            projectId: "recaga-de-diamante-de-fre-fi",
+            storageBucket: "recaga-de-diamante-de-fre-fi.firebasestorage.app",
+            messagingSenderId: "9751063285",
+            appId: "1:9751063285:web:c1b3f8fd7c280f2d1773bc"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        const MASTER_ADMIN = "eduardgeldes6@gmail.com"; 
+        const BACKEND_URL = "http://localhost:3000"; // URL de tu servidor Node.js
+
+        let currentUser = null;
+        let selectedPack = null;
+
+        // Lógica de Pago con tu Backend
+        const payButton = document.getElementById('btnConfirmPayment');
+        payButton.addEventListener('click', async () => {
+            if (!selectedPack) return;
+            
+            payButton.disabled = true;
+            payButton.textContent = "PROCESANDO...";
+            document.getElementById('card-errors').textContent = "";
+
+            try {
+                // 1. Obtener Client Secret desde tu backend
+                const response = await fetch(`${BACKEND_URL}/create-payment-intent`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        amount: Math.round(selectedPack.price * 100), // Stripe usa centavos
+                        customerEmail: currentUser.email
+                    })
+                });
+
+                const data = await response.json();
+                if (data.error) throw new Error(data.error);
+
+                // 2. Confirmar Pago con Stripe
+                const result = await stripe.confirmCardPayment(data.clientSecret, {
+                    payment_method: {
+                        card: card,
+                        billing_details: { email: currentUser.email }
+                    }
+                });
+
+                if (result.error) {
+                    document.getElementById('card-errors').textContent = result.error.message;
+                } else if (result.paymentIntent.status === 'succeeded') {
+                    // 3. Guardar pedido en Firebase
+                    await addDoc(collection(db, "pedidos"), {
+                        userId: currentUser.uid,
+                        userEmail: currentUser.email,
+                        playerID: selectedPack.playerID,
+                        pack: selectedPack.pack,
+                        price: selectedPack.price,
+                        reference: result.paymentIntent.id,
+                        method: 'Stripe',
+                        status: 'completado',
+                        createdAt: Date.now(),
+                        date: new Date().toLocaleString()
+                    });
+
+                    document.getElementById('payment-modal').style.display = 'none';
+                    showModal("Pago Exitoso", "Tu recarga será procesada en breve.", "✅");
+                    showSection('history');
+                }
+            } catch (err) {
+                console.error(err);
+                document.getElementById('card-errors').textContent = "Error al conectar con el servidor de pagos.";
+            } finally {
+                payButton.disabled = false;
+                payButton.textContent = "Pagar ahora";
+            }
+        });
+
+        // Auth Listener
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                currentUser = user;
+                if(user.email.toLowerCase() === MASTER_ADMIN.toLowerCase()) {
+                    document.getElementById('admin-nav-btn').classList.remove('hidden-section');
+                }
+                document.getElementById('main-nav').classList.remove('hidden-section');
+                showSection('home');
+            } else {
+                currentUser = null;
+                document.getElementById('main-nav').classList.add('hidden-section');
+                showSection('welcome-screen');
+            }
+        });
+
+        // Navegación Global
+        window.showSection = (id) => {
+            document.querySelectorAll('section').forEach(s => s.classList.add('hidden-section'));
+            document.getElementById(id).classList.remove('hidden-section');
+            if (id === 'history') fetchHistory();
+            if (id === 'admin-panel') fetchAdminOrders();
+        };
+
+        window.switchTab = (type) => {
+            document.getElementById('content-stripe').classList.toggle('hidden-section', type !== 'stripe');
+            document.getElementById('content-manual').classList.toggle('hidden-section', type !== 'manual');
+            document.getElementById('tab-stripe').classList.toggle('active', type === 'stripe');
+            document.getElementById('tab-manual').classList.toggle('active', type === 'manual');
+        };
+
+        window.openPaymentModal = (pack, price) => {
+            const pid = document.getElementById('playerID').value;
+            if(!pid || pid.length < 5) return showModal("ID Requerido", "Ingresa un ID de jugador válido primero.", "⚠️");
+            selectedPack = { pack, price, playerID: pid };
+            document.getElementById('payment-modal').style.display = 'flex';
+        };
+
+        // Pagos Manuales
+        window.submitManualPayment = async () => {
+            const ref = document.getElementById('manualReference').value;
+            if(!ref) return showModal("Error", "Debes ingresar el número de referencia.", "⚠️");
+            
+            await addDoc(collection(db, "pedidos"), {
+                userId: currentUser.uid,
+                userEmail: currentUser.email,
+                playerID: selectedPack.playerID,
+                pack: selectedPack.pack,
+                price: selectedPack.price,
+                reference: ref,
+                method: 'Manual (BS/Zinli)',
+                status: 'pendiente',
+                createdAt: Date.now(),
+                date: new Date().toLocaleString()
+            });
+            document.getElementById('payment-modal').style.display = 'none';
+            showModal("Reportado", "Eduard validará tu pago en unos minutos.", "⏳");
+            showSection('history');
+        };
+
+        // Panel de Control Eduard
+        window.fetchAdminOrders = async () => {
+            const container = document.getElementById('admin-orders-list');
+            container.innerHTML = '<p class="text-center opacity-30">Cargando...</p>';
+            const snap = await getDocs(collection(db, "pedidos"));
+            container.innerHTML = "";
+            snap.forEach(d => {
+                const o = d.data();
+                container.innerHTML += `
+                    <div class="glass-morphism p-4 rounded-xl flex justify-between items-center mb-2 border-l-4 ${o.status === 'pendiente' ? 'border-yellow-500' : 'border-green-500'}">
+                        <div class="text-left">
+                            <p class="text-xs font-bold text-cyan-400">${o.pack} - ID: ${o.playerID}</p>
+                            <p class="text-[9px] text-gray-400">REF: ${o.reference} | ${o.userEmail}</p>
+                        </div>
+                        ${o.status === 'pendiente' ? `<button onclick="updateOrderStatus('${d.id}', 'completado')" class="bg-green-600 px-4 py-1 rounded text-[10px] font-bold">LISTO</button>` : `<span class="status-pill status-completado">ENTREGADO</span>`}
+                    </div>`;
+            });
+        };
+
+        window.updateOrderStatus = async (id, s) => {
+            await updateDoc(doc(db, "pedidos", id), { status: s });
+            fetchAdminOrders();
+        };
+
+        async function fetchHistory() {
+            const container = document.getElementById('user-history-list');
+            container.innerHTML = "";
+            const q = query(collection(db, "pedidos"), where("userId", "==", currentUser.uid));
+            const snap = await getDocs(q);
+            snap.forEach(d => {
+                const o = d.data();
+                container.innerHTML += `
+                    <div class="glass-morphism p-3 rounded-lg flex justify-between items-center mb-2">
+                        <span class="text-xs font-bold">${o.pack}</span>
+                        <span class="status-pill status-${o.status}">${o.status}</span>
+                    </div>`;
+            });
+        }
+
+        // Auth Forms
+        window.handleLogout = () => signOut(auth);
+        document.getElementById('loginForm').onsubmit = (e) => {
+            e.preventDefault();
+            signInWithEmailAndPassword(auth, document.getElementById('loginEmail').value, document.getElementById('loginPass').value)
+                .catch(() => showModal("Error", "Credenciales incorrectas.", "❌"));
+        };
+        document.getElementById('registerForm').onsubmit = async (e) => {
+            e.preventDefault();
+            const u = document.getElementById('regUser').value, em = document.getElementById('regEmail').value, ps = document.getElementById('regPass').value;
+            const cred = await createUserWithEmailAndPassword(auth, em, ps);
+            await setDoc(doc(db, "users", cred.user.uid), { username: u, email: em });
+        };
+
+        window.showModal = (t, m, i) => {
+            document.getElementById('modal-title').innerText = t;
+            document.getElementById('modal-msg').innerText = m;
+            document.getElementById('modal-icon').innerText = i;
+            document.getElementById('modal').style.display = 'flex';
+        };
+    </script>
+</body>
+</html>
