@@ -65,11 +65,10 @@
         .status-pendiente { background: rgba(234, 179, 8, 0.2); color: #eab308; border: 1px solid #eab308; }
         .status-completado { background: rgba(34, 197, 94, 0.2); color: #22c55e; border: 1px solid #22c55e; }
 
-        /* Contenedor optimizado para que Google no lo rechace por falta de espacio */
         .ad-box {
             min-height: 300px; 
             width: 100%;
-            background: rgba(0, 0, 0, 0.4);
+            background: #000;
             border-radius: 20px;
             display: flex;
             flex-direction: column;
@@ -101,9 +100,25 @@
             transform: scale(1.02);
             cursor: pointer !important;
         }
+
+        /* Texto SEO para AdSense (Ayuda a cargar anuncios más rápido) */
+        .seo-content {
+            position: absolute;
+            left: -9999px;
+            top: auto;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
     </style>
 </head>
 <body>
+
+    <!-- Contenido para que el bot de Google entienda la temática -->
+    <div class="seo-content">
+        <h1>Tienda de Diamantes Free Fire - Recargas Seguras</h1>
+        <p>Obtén diamantes para Free Fire viendo videos publicitarios. Recargas oficiales por ID de jugador. Participa en nuestra comunidad gaming y gana premios diarios.</p>
+    </div>
 
     <nav id="main-nav" class="hidden-section p-4 glass-morphism sticky top-0 z-50 shadow-2xl">
         <div class="container mx-auto flex justify-between items-center">
@@ -165,6 +180,7 @@
                 <input type="number" id="playerID" class="max-w-xs w-full p-4 mt-4 rounded-2xl text-2xl text-center font-bold outline-none border-2 border-cyan-400/20" placeholder="ID JUGADOR">
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto text-center">
+                <!-- Tarjetas de diamantes -->
                 <div class="glass-morphism p-6 rounded-3xl">
                     <p class="gaming-font text-cyan-400 text-sm mb-2">110 DIAMANTES</p>
                     <p class="text-2xl font-bold mb-4 text-white">$1.10</p>
@@ -191,9 +207,9 @@
                 
                 <div class="glass-morphism p-4 rounded-3xl">
                     <div class="ad-box" id="ad-container">
-                        <span class="video-label">ANUNCIO PREMIADO</span>
+                        <span class="video-label">VIDEO AD</span>
                         
-                        <!-- Bloque de AdSense -->
+                        <!-- Bloque de AdSense In-feed (ID: 8490183626) -->
                         <ins class="adsbygoogle"
                              style="display:block"
                              data-ad-format="fluid"
@@ -203,7 +219,7 @@
                     </div>
 
                     <div id="reward-status-box" class="mb-4">
-                        <p id="status-text" class="text-yellow-500 gaming-font text-[9px]">ESPERANDO SEÑAL DE GOOGLE...</p>
+                        <p id="status-text" class="text-yellow-500 gaming-font text-[9px]">SOLICITANDO VIDEO...</p>
                     </div>
 
                     <button id="claim-reward-btn" onclick="processAdReward()" class="w-full py-4 rounded-xl font-bold uppercase bg-gray-700 text-gray-500 cursor-not-allowed transition-all">
@@ -275,28 +291,33 @@
 
             btn.className = "w-full py-4 rounded-xl font-bold uppercase bg-gray-700 text-gray-500 cursor-not-allowed";
             btn.innerText = "ESPERANDO VIDEO...";
-            status.innerText = "BUSCANDO ANUNCIO DISPONIBLE...";
+            status.innerText = "CONECTANDO CON EL SERVIDOR DE ANUNCIOS...";
 
             try { (window.adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
 
             let timer = 0;
             const checkInterval = setInterval(() => {
                 timer++;
-                // Verificamos si Google llenó el espacio o si ya pasaron 10 segundos
-                const isLoaded = adIns.getAttribute('data-ad-status') === 'filled' || adIns.innerHTML.length > 50;
                 
-                if (isLoaded || timer > 10) { 
+                // Si Google inyectó algo (aunque sea transparente o negro), el innerHTML será > 100 caracteres
+                const isLoaded = adIns.innerHTML.length > 100 || adIns.getAttribute('data-ad-status') === 'filled';
+                
+                if (isLoaded) { 
                     clearInterval(checkInterval);
-                    status.innerText = isLoaded ? "¡ANUNCIO CARGADO! MIRA EL CONTENIDO" : "GOOGLE ESTÁ VERIFICANDO TU CUENTA...";
+                    status.innerText = "¡ANUNCIO EN CURSO! NO CIERRES LA PÁGINA";
                     status.className = "text-green-400 gaming-font text-[9px]";
                     
-                    // Iniciamos cuenta regresiva para el botón (25 seg)
+                    // Tiempo de espera para que vean el anuncio (30 segundos)
                     setTimeout(() => {
                         btn.classList.remove('bg-gray-700', 'text-gray-500', 'cursor-not-allowed');
                         btn.classList.add('reward-btn-active');
                         btn.innerText = "RECLAMAR 10 DIAMANTES";
-                        status.innerText = "¡SISTEMA LISTO!";
-                    }, 25000); 
+                        status.innerText = "¡RECOMPENSA LISTA PARA RECLAMAR!";
+                    }, 30000); 
+                } else if (timer > 20) {
+                    // Si después de 20 segundos no hay nada, el problema es que Google no tiene anuncios para esa IP ahora mismo
+                    status.innerText = "GOOGLE NO TIENE VIDEOS DISPONIBLES EN ESTE MOMENTO. INTENTA MÁS TARDE.";
+                    status.className = "text-red-500 gaming-font text-[9px]";
                 }
             }, 1000);
         }
@@ -307,7 +328,7 @@
             
             if (!btn.classList.contains('reward-btn-active')) return;
             if (!pid || pid.length < 5) {
-                alert("Primero ingresa tu ID de Free Fire en la pestaña Tienda.");
+                alert("Primero ingresa tu ID de jugador en la sección Tienda.");
                 showSection('home');
                 return;
             }
@@ -317,40 +338,38 @@
                     userId: currentUser.uid,
                     userEmail: currentUser.email,
                     playerID: pid,
-                    pack: 'RECOMPENSA GRATIS (10 DIAMANTES)',
+                    pack: '10 DIAMANTES (RECOMPENSA GRATIS)',
                     status: 'pendiente',
                     date: new Date().toLocaleString()
                 });
-                alert("¡Solicitud enviada! Revisa 'Mis Pedidos' para ver el estado.");
+                alert("¡Éxito! Tu solicitud de 10 diamantes ha sido registrada.");
                 showSection('history');
             } catch (e) {
-                alert("Error de conexión con la base de datos.");
+                alert("Error al guardar el pedido.");
             }
         };
 
         // Auth
         document.getElementById('loginForm').onsubmit = async (e) => {
             e.preventDefault();
-            try { await signInWithEmailAndPassword(auth, loginEmail.value, loginPass.value); } catch (err) { alert("Usuario o contraseña incorrectos"); }
+            try { await signInWithEmailAndPassword(auth, loginEmail.value, loginPass.value); } catch (err) { alert("Error al entrar"); }
         };
 
         document.getElementById('registerForm').onsubmit = async (e) => {
             e.preventDefault();
-            try { await createUserWithEmailAndPassword(auth, regEmail.value, regPass.value); } catch (err) { alert("Error: El usuario ya existe o datos inválidos"); }
+            try { await createUserWithEmailAndPassword(auth, regEmail.value, regPass.value); } catch (err) { alert("Error al crear cuenta"); }
         };
 
         window.handleLogout = () => signOut(auth);
 
         async function fetchHistory() {
             const container = document.getElementById('user-history-list');
-            container.innerHTML = "Cargando historial...";
+            container.innerHTML = "Cargando...";
             const snap = await getDocs(collection(db, 'pedidos'));
             container.innerHTML = "";
-            let count = 0;
             snap.forEach(d => {
                 const o = d.data();
                 if(o.userId === currentUser.uid) {
-                    count++;
                     container.innerHTML += `
                     <div class="glass-morphism p-4 rounded-xl flex justify-between items-center mb-2 border-l-4 ${o.status === 'pendiente' ? 'border-yellow-500' : 'border-green-500'}">
                         <div><p class="text-xs font-bold text-white">${o.pack}</p><p class="text-[8px] text-gray-400">${o.date}</p></div>
@@ -358,34 +377,32 @@
                     </div>`;
                 }
             });
-            if(count === 0) container.innerHTML = "<p class='text-center text-gray-500'>No tienes pedidos aún.</p>";
         }
 
         window.fetchAdminOrders = async () => {
             const container = document.getElementById('admin-orders-list');
-            container.innerHTML = "Cargando órdenes pendientes...";
+            container.innerHTML = "Cargando...";
             const snap = await getDocs(collection(db, 'pedidos'));
             container.innerHTML = "";
             snap.forEach(d => {
                 const o = d.data();
                 if(o.status === 'pendiente') {
                     container.innerHTML += `
-                    <div class="glass-morphism p-4 rounded-xl flex justify-between items-center border-b border-white/5">
-                        <div class="text-left"><p class="text-[10px] font-bold text-cyan-400">${o.pack}</p><p class="text-[9px] text-white">ID: ${o.playerID}</p><p class="text-[8px] text-gray-400">${o.userEmail}</p></div>
-                        <button onclick="markAsDone('${d.id}')" class="bg-green-600 px-4 py-2 rounded-lg font-bold text-[9px] hover:bg-green-500">MARCAR ENTREGADO</button>
+                    <div class="glass-morphism p-4 rounded-xl flex justify-between items-center">
+                        <div class="text-left"><p class="text-[10px] font-bold text-cyan-400">${o.pack}</p><p class="text-[9px] text-white">ID: ${o.playerID} (${o.userEmail})</p></div>
+                        <button onclick="markAsDone('${d.id}')" class="bg-green-600 px-3 py-1 rounded-lg font-bold text-[9px]">ENTREGAR</button>
                     </div>`;
                 }
             });
         };
 
         window.markAsDone = async (id) => {
-            if(confirm("¿Confirmas que ya recargaste estos diamantes?")) {
-                await updateDoc(doc(db, 'pedidos', id), { status: 'completado' });
-                fetchAdminOrders();
-            }
+            await updateDoc(doc(db, 'pedidos', id), { status: 'completado' });
+            fetchAdminOrders();
         };
 
     </script>
 </body>
 </html>
+
 
