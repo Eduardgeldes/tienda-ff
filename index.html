@@ -171,10 +171,11 @@
         <section id="ads-rewards" class="hidden-section fade-in">
             <div class="max-w-xl mx-auto text-center">
                 <h2 class="gaming-font text-2xl text-yellow-400 mb-2 tracking-widest">DIAMANTES GRATIS</h2>
-                <p class="text-gray-400 text-xs mb-6 px-4">Mira la publicidad completa para validar tu recompensa.</p>
+                <p class="text-gray-400 text-xs mb-6 px-4">Debes ver el anuncio completo para poder reclamar tus diamantes.</p>
                 
                 <div class="glass-morphism p-6 rounded-3xl">
                     <div class="ad-box" id="ad-container">
+                        <!-- ESPACIO PARA ANUNCIO -->
                         <ins class="adsbygoogle"
                              style="display:block; min-width:250px; min-height:250px"
                              data-ad-client="ca-pub-8397347098508270"
@@ -183,12 +184,12 @@
                              data-full-width-responsive="true"></ins>
                     </div>
 
-                    <div id="reward-timer-box" class="mb-4">
-                        <p id="timer-text" class="text-cyan-400 gaming-font text-lg">SINCRONIZANDO ANUNCIO...</p>
+                    <div id="reward-status-box" class="mb-4">
+                        <p id="status-text" class="text-cyan-400 gaming-font text-sm">ESPERANDO RESPUESTA DE GOOGLE...</p>
                     </div>
 
-                    <button id="claim-reward-btn" disabled onclick="processAdReward()" class="w-full py-4 rounded-xl font-bold uppercase transition-all bg-gray-700 text-gray-400 cursor-not-allowed">
-                        Cargando...
+                    <button id="claim-reward-btn" onclick="processAdReward()" class="w-full py-4 rounded-xl font-bold uppercase transition-all bg-gray-600 text-gray-300 cursor-not-allowed">
+                        RECLAMO BLOQUEADO
                     </button>
                 </div>
             </div>
@@ -213,7 +214,6 @@
         import { getAuth, onAuthStateChanged, signOut, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
         import { getFirestore, doc, setDoc, collection, addDoc, getDocs, updateDoc, query } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-        // Firebase Config
         const firebaseConfig = {
             apiKey: "AIzaSyBoBvAcaLGnPw69fwrfz_Al0L76foB1JtQ",
             authDomain: "recaga-de-diamante-de-fre-fi.firebaseapp.com",
@@ -231,18 +231,16 @@
         const MASTER_ADMIN = "eduardgeldes6@gmail.com";
         const getOrdersPath = () => collection(db, 'pedidos');
 
-        // Navegación
         window.showSection = (id) => {
             document.querySelectorAll('section').forEach(s => s.classList.add('hidden-section'));
             const target = document.getElementById(id);
             if(target) target.classList.remove('hidden-section');
             
-            if (id === 'ads-rewards') startAdProcess();
+            if (id === 'ads-rewards') checkAdAvailability();
             if (id === 'history') fetchHistory();
             if (id === 'admin-panel') fetchAdminOrders();
         };
 
-        // Auth
         onAuthStateChanged(auth, (user) => {
             currentUser = user;
             if (user) {
@@ -255,6 +253,85 @@
             }
         });
 
+        // VERIFICACIÓN ESTRICTA DE ANUNCIO REAL
+        function checkAdAvailability() {
+            const pid = document.getElementById('playerID').value;
+            if(!pid || pid.length < 5) {
+                showSection('home');
+                return alert("Ingresa tu ID de jugador primero.");
+            }
+
+            const btn = document.getElementById('claim-reward-btn');
+            const status = document.getElementById('status-text');
+            const adIns = document.querySelector('ins.adsbygoogle');
+
+            // Resetear UI a estado bloqueado
+            btn.className = "w-full py-4 rounded-xl font-bold uppercase transition-all bg-gray-600 text-gray-300 cursor-not-allowed";
+            btn.innerText = "ESPERANDO ANUNCIO...";
+            status.innerText = "SOLICITANDO PUBLICIDAD...";
+
+            try { (window.adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {
+                status.innerText = "BLOQUEADOR DE ANUNCIOS DETECTADO";
+                status.className = "text-red-500 gaming-font text-sm";
+            }
+
+            // Monitoreo estricto
+            let attempts = 0;
+            const checkInterval = setInterval(() => {
+                attempts++;
+                
+                const adStatus = adIns.getAttribute('data-ad-status');
+                // IMPORTANTE: AdSense inyecta un <iframe> si se carga. Revisamos si existe.
+                const hasIframe = adIns.getElementsByTagName('iframe').length > 0;
+                // Revisamos si el contenedor tiene altura real (un anuncio cargado ocupa espacio)
+                const isVisible = adIns.offsetHeight > 50;
+
+                if (adStatus === 'filled' && hasIframe && isVisible) {
+                    // ANUNCIO CARGADO REALMENTE
+                    clearInterval(checkInterval);
+                    status.innerText = "ANUNCIO CARGADO CORRECTAMENTE";
+                    status.className = "text-green-400 gaming-font text-sm";
+                    btn.className = "w-full py-4 rounded-xl font-bold uppercase transition-all bg-yellow-500 text-black cursor-pointer shadow-lg hover:bg-white";
+                    btn.innerText = "RECLAMAR 10 DIAMANTES";
+                } else if (adStatus === 'unfilled' || (attempts > 15)) {
+                    // FALLO DE GOOGLE O AD-BLOCK
+                    clearInterval(checkInterval);
+                    if (adStatus === 'unfilled') {
+                        status.innerText = "SIN ANUNCIOS DISPONIBLES EN TU REGIÓN";
+                    } else {
+                        status.innerText = "ERROR AL CARGAR ANUNCIO (INTERNET O BLOQUEADOR)";
+                    }
+                    status.className = "text-red-500 gaming-font text-sm";
+                    btn.innerText = "NO SE PUEDE RECLAMAR";
+                    btn.className = "w-full py-4 rounded-xl font-bold uppercase bg-red-900/50 text-red-300 cursor-not-allowed";
+                }
+            }, 1000);
+        }
+
+        window.processAdReward = async () => {
+            const btn = document.getElementById('claim-reward-btn');
+            // Si el botón tiene la clase de bloqueo, no permitimos el registro en Firebase
+            if (btn.classList.contains('cursor-not-allowed') || btn.classList.contains('bg-gray-600')) {
+                alert("Debes ver un anuncio real para reclamar.");
+                return;
+            }
+
+            try {
+                await addDoc(getOrdersPath(), {
+                    userId: currentUser.uid,
+                    userEmail: currentUser.email,
+                    playerID: document.getElementById('playerID').value,
+                    pack: '10 DIAMANTES (ADS)',
+                    status: 'pendiente',
+                    createdAt: Date.now(),
+                    date: new Date().toLocaleString()
+                });
+                alert("¡Solicitud enviada! Tu recompensa se procesará pronto.");
+                showSection('history');
+            } catch (e) { alert("Error de conexión con la base de datos."); }
+        };
+
+        // Auth Forms
         document.getElementById('loginForm').onsubmit = async (e) => {
             e.preventDefault();
             const btn = document.getElementById('loginBtn');
@@ -273,56 +350,6 @@
 
         window.handleLogout = () => signOut(auth);
 
-        // Ads System
-        let timerInterval;
-        function startAdProcess() {
-            const pid = document.getElementById('playerID').value;
-            if(!pid || pid.length < 5) {
-                showSection('home');
-                return alert("Ingresa tu ID de jugador primero.");
-            }
-
-            try { (window.adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
-
-            const btn = document.getElementById('claim-reward-btn');
-            const txt = document.getElementById('timer-text');
-            let timeLeft = 30;
-
-            btn.disabled = true;
-            btn.className = "w-full py-4 rounded-xl font-bold uppercase bg-gray-700 text-gray-400 cursor-not-allowed";
-            
-            clearInterval(timerInterval);
-            timerInterval = setInterval(() => {
-                timeLeft--;
-                txt.innerText = `ESPERA AL VIDEO: ${timeLeft}s`;
-                if(timeLeft <= 0) {
-                    clearInterval(timerInterval);
-                    txt.innerText = "¡LISTO!";
-                    btn.disabled = false;
-                    btn.innerText = "RECLAMAR 10 DIAMANTES";
-                    btn.className = "w-full py-4 rounded-xl font-bold uppercase bg-yellow-500 text-black cursor-pointer shadow-lg";
-                }
-            }, 1000);
-        }
-
-        window.processAdReward = async () => {
-            if (!currentUser) return;
-            try {
-                await addDoc(getOrdersPath(), {
-                    userId: currentUser.uid,
-                    userEmail: currentUser.email,
-                    playerID: document.getElementById('playerID').value,
-                    pack: '10 DIAMANTES (ADS)',
-                    status: 'pendiente',
-                    createdAt: Date.now(),
-                    date: new Date().toLocaleString()
-                });
-                alert("Pedido enviado correctamente.");
-                showSection('history');
-            } catch (e) { alert("Error al guardar."); }
-        };
-
-        // History
         async function fetchHistory() {
             const container = document.getElementById('user-history-list');
             container.innerHTML = "Cargando...";
@@ -343,7 +370,6 @@
             });
         }
 
-        // Admin Panel
         window.fetchAdminOrders = async () => {
             const container = document.getElementById('admin-orders-list');
             container.innerHTML = "Cargando Admin...";
@@ -371,4 +397,3 @@
     </script>
 </body>
 </html>
-
