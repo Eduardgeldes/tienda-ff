@@ -13,20 +13,67 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap');
         :root { --ff-yellow: #ffcc00; --ff-blue: #00f2ff; --bg-dark: #0a0e17; }
-        body { background-color: var(--bg-dark); color: white; font-family: 'Roboto', sans-serif; min-height: 100vh; display: flex; flex-direction: column; }
+        
+        body { 
+            background-color: var(--bg-dark); 
+            /* Imagen de fondo temática de Free Fire de alta calidad */
+            background-image: linear-gradient(rgba(10, 14, 23, 0.7), rgba(10, 14, 23, 0.85)), url('https://images7.alphacoders.com/948/948814.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white; 
+            font-family: 'Roboto', sans-serif; 
+            min-height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+        }
+
         main { flex: 1; }
         .gaming-font { font-family: 'Orbitron', sans-serif; }
-        .glass-morphism { background: rgba(22, 27, 34, 0.8); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); }
+        
+        /* Glassmorphism mejorado para mayor legibilidad sobre el fondo */
+        .glass-morphism { 
+            background: rgba(13, 17, 23, 0.9); 
+            backdrop-filter: blur(8px); 
+            border: 1px solid rgba(0, 242, 255, 0.15); 
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+        }
+
         .hidden-section { display: none !important; }
-        input, select { background: rgba(0, 0, 0, 0.5) !important; border: 1px solid rgba(0, 242, 255, 0.2) !important; color: white !important; }
+        input, select { background: rgba(0, 0, 0, 0.7) !important; border: 1px solid rgba(0, 242, 255, 0.3) !important; color: white !important; }
+        
         .status-pill { padding: 2px 8px; border-radius: 4px; font-size: 9px; font-weight: bold; text-transform: uppercase; }
         .status-pendiente { background: rgba(234, 179, 8, 0.2); color: #eab308; }
         .status-completado { background: rgba(34, 197, 94, 0.2); color: #22c55e; }
         .status-rechazado { background: rgba(239, 68, 68, 0.2); color: #ef4444; }
-        .payment-card { border: 2px solid transparent; cursor: pointer; transition: 0.3s; }
+        
+        .payment-card { border: 2px solid transparent; cursor: pointer; transition: 0.3s; background: rgba(255,255,255,0.05); }
         .payment-card.active { border-color: #00f2ff; background: rgba(0, 242, 255, 0.1); }
+        
         footer a { transition: color 0.3s; }
         footer a:hover { color: #00f2ff; }
+
+        /* Animación del diamante saltando mejorada */
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0) scale(1); filter: drop-shadow(0 0 8px #00f2ff); }
+            50% { transform: translateY(-30px) scale(1.1); filter: drop-shadow(0 0 20px #00f2ff); }
+        }
+        .jumping-diamond {
+            font-size: 60px;
+            color: #00f2ff;
+            animation: bounce 2s infinite ease-in-out;
+            margin-bottom: 25px;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #00f2ff, #0072ff);
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.4);
+        }
     </style>
 </head>
 <body>
@@ -39,10 +86,10 @@
                 <span class="gaming-font text-lg font-bold">FF <span class="text-cyan-400">STORE</span></span>
             </div>
             <div class="flex items-center gap-4">
-                <button onclick="showSection('home')" class="text-[10px] font-bold uppercase">Tienda</button>
-                <button onclick="showSection('history')" class="text-[10px] font-bold uppercase">Pedidos</button>
+                <button onclick="showSection('home')" class="text-[10px] font-bold uppercase hover:text-cyan-400">Tienda</button>
+                <button onclick="showSection('history')" class="text-[10px] font-bold uppercase hover:text-cyan-400">Pedidos</button>
                 <button id="admin-nav-btn" onclick="showSection('admin-panel')" class="hidden-section text-red-400 text-[10px] font-bold uppercase">Admin</button>
-                <button onclick="handleLogout()" class="text-[9px] bg-red-600/20 text-red-400 px-2 py-1 rounded">SALIR</button>
+                <button onclick="handleLogout()" class="text-[9px] bg-red-600/20 text-red-400 px-2 py-1 rounded border border-red-600/30">SALIR</button>
             </div>
         </div>
     </nav>
@@ -50,164 +97,171 @@
     <main class="container mx-auto px-4 py-6">
         <!-- Banner Informativo Tasa -->
         <div class="max-w-4xl mx-auto flex justify-between items-center mb-6 text-[10px]">
-            <div class="bg-yellow-500/10 border border-yellow-500/30 p-2 rounded text-yellow-500 font-bold uppercase">
+            <div class="bg-black/60 backdrop-blur-md border border-yellow-500/50 p-2 rounded text-yellow-500 font-bold uppercase">
                 <i class="fas fa-clock mr-1"></i> Horario: 7 AM - 6 PM | TASA: BCV
             </div>
         </div>
 
         <!-- Pantalla de Bienvenida -->
-        <section id="welcome-screen" class="min-h-[60vh] flex flex-col items-center justify-center text-center">
-             <h1 class="gaming-font text-3xl mb-2 text-center uppercase tracking-widest">Diamond <span class="text-cyan-400">Store</span></h1>
-             <p class="text-gray-500 text-[10px] mb-8 uppercase tracking-widest">Centro de Recargas Autorizado Free Fire</p>
-             <div class="flex flex-col gap-3 w-64">
-                <button onclick="showSection('login-form')" class="bg-cyan-500 text-black font-bold py-3 rounded-xl uppercase">Iniciar Sesión</button>
-                <button onclick="showSection('register-form')" class="border border-cyan-500 text-cyan-500 font-bold py-3 rounded-xl uppercase">Registrarse</button>
+        <section id="welcome-screen" class="min-h-[70vh] flex flex-col items-center justify-center text-center">
+             <div class="jumping-diamond">
+                <i class="fas fa-gem"></i>
+             </div>
+             <h1 class="gaming-font text-4xl mb-2 text-center uppercase tracking-widest text-white drop-shadow-lg">Diamond <span class="text-cyan-400">Store</span></h1>
+             <p class="text-gray-300 text-[11px] mb-8 uppercase tracking-widest font-bold bg-black/40 px-4 py-1 rounded-full">Centro de Recargas Autorizado Free Fire</p>
+             <div class="flex flex-col gap-4 w-72">
+                <button onclick="showSection('login-form')" class="btn-primary text-black font-bold py-4 rounded-xl uppercase tracking-wider text-sm">Iniciar Sesión</button>
+                <button onclick="showSection('register-form')" class="bg-black/40 border-2 border-cyan-500 text-cyan-400 font-bold py-4 rounded-xl uppercase tracking-wider text-sm hover:bg-cyan-500/10 transition">Registrarse</button>
              </div>
         </section>
 
         <!-- Formularios de Auth -->
-        <section id="login-form" class="hidden-section max-w-sm mx-auto glass-morphism p-6 rounded-2xl">
-            <h2 class="gaming-font text-center mb-4 uppercase">Ingresar</h2>
-            <form id="loginForm" class="space-y-3">
-                <input type="email" id="loginEmail" placeholder="Correo Electrónico" class="w-full p-3 rounded-xl outline-none" required>
-                <input type="password" id="loginPass" placeholder="Contraseña" class="w-full p-3 rounded-xl outline-none" required>
-                <button type="submit" class="w-full bg-cyan-500 text-black py-3 rounded-xl font-bold uppercase">Entrar</button>
-                <button type="button" onclick="showSection('welcome-screen')" class="w-full text-gray-500 text-[10px] mt-2">CANCELAR</button>
+        <section id="login-form" class="hidden-section max-w-sm mx-auto glass-morphism p-8 rounded-3xl">
+            <div class="text-center mb-6">
+                <i class="fas fa-user-circle text-4xl text-cyan-400"></i>
+                <h2 class="gaming-font mt-2 uppercase">Ingresar</h2>
+            </div>
+            <form id="loginForm" class="space-y-4">
+                <input type="email" id="loginEmail" placeholder="Correo Electrónico" class="w-full p-4 rounded-xl outline-none" required>
+                <input type="password" id="loginPass" placeholder="Contraseña" class="w-full p-4 rounded-xl outline-none" required>
+                <button type="submit" class="w-full btn-primary text-black py-4 rounded-xl font-bold uppercase">Entrar al Sistema</button>
+                <button type="button" onclick="showSection('welcome-screen')" class="w-full text-gray-500 text-[10px] mt-2 uppercase font-bold">CANCELAR</button>
             </form>
         </section>
 
-        <section id="register-form" class="hidden-section max-w-sm mx-auto glass-morphism p-6 rounded-2xl">
-            <h2 class="gaming-font text-center mb-4 uppercase">Crear Cuenta</h2>
-            <form id="registerForm" class="space-y-3">
-                <input type="email" id="regEmail" placeholder="Correo Electrónico" class="w-full p-3 rounded-xl outline-none" required>
-                <input type="password" id="regPass" placeholder="Contraseña" class="w-full p-3 rounded-xl outline-none" required>
-                <button type="submit" class="w-full bg-cyan-500 text-black py-3 rounded-xl font-bold uppercase">Registrarme</button>
-                <button type="button" onclick="showSection('welcome-screen')" class="w-full text-gray-500 text-[10px] mt-2">VOLVER</button>
+        <section id="register-form" class="hidden-section max-w-sm mx-auto glass-morphism p-8 rounded-3xl">
+            <div class="text-center mb-6">
+                <i class="fas fa-user-plus text-4xl text-cyan-400"></i>
+                <h2 class="gaming-font mt-2 uppercase">Crear Cuenta</h2>
+            </div>
+            <form id="registerForm" class="space-y-4">
+                <input type="email" id="regEmail" placeholder="Correo Electrónico" class="w-full p-4 rounded-xl outline-none" required>
+                <input type="password" id="regPass" placeholder="Contraseña" class="w-full p-4 rounded-xl outline-none" required>
+                <button type="submit" class="w-full btn-primary text-black py-4 rounded-xl font-bold uppercase">Registrarme Ahora</button>
+                <button type="button" onclick="showSection('welcome-screen')" class="w-full text-gray-500 text-[10px] mt-2 uppercase font-bold">VOLVER</button>
             </form>
         </section>
 
         <!-- Tienda Principal -->
-        <section id="home" class="hidden-section max-w-4xl mx-auto">
-            <div class="mb-6">
-                <h2 class="gaming-font text-center text-xl text-white uppercase italic">Diamantes Free Fire</h2>
-                <p class="text-center text-gray-500 text-[10px]">Entrega inmediata vía ID de jugador</p>
+        <section id="home" class="hidden-section max-w-5xl mx-auto">
+            <div class="mb-8">
+                <h2 class="gaming-font text-center text-2xl text-white uppercase italic tracking-tighter">Diamantes <span class="text-cyan-400">Free Fire</span></h2>
+                <p class="text-center text-gray-400 text-[10px] font-bold uppercase mt-1">Recarga inmediata vía ID de jugador • 100% Seguro</p>
             </div>
             
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                <div class="glass-morphism p-4 rounded-2xl border border-cyan-500/20 text-center">
-                    <p class="text-[10px] font-bold text-cyan-400 uppercase">100+10 Diamantes</p>
-                    <p class="text-2xl font-bold my-2 text-white">$1</p>
-                    <button onclick="openCheckout('100+10 Diamantes', 1)" class="w-full bg-cyan-500 text-black py-2 rounded-lg font-bold text-[10px] uppercase hover:bg-white transition">Comprar</button>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+                <!-- Tarjetas de Diamantes con diseño mejorado -->
+                <div class="glass-morphism p-6 rounded-3xl text-center group hover:border-cyan-400 transition-all">
+                    <i class="fas fa-gem text-cyan-400 mb-2 text-xl group-hover:scale-125 transition"></i>
+                    <p class="text-[11px] font-bold text-white uppercase">100+10 Diamantes</p>
+                    <p class="text-3xl font-bold my-3 text-cyan-400">$1.00</p>
+                    <button onclick="openCheckout('100+10 Diamantes', 1)" class="w-full btn-primary text-black py-2 rounded-xl font-bold text-[11px] uppercase">Comprar</button>
                 </div>
-                <div class="glass-morphism p-4 rounded-2xl border border-cyan-500/20 text-center">
-                    <p class="text-[10px] font-bold text-cyan-400 uppercase">310+31 Diamantes</p>
-                    <p class="text-2xl font-bold my-2 text-white">$3</p>
-                    <button onclick="openCheckout('310+31 Diamantes', 3)" class="w-full bg-cyan-500 text-black py-2 rounded-lg font-bold text-[10px] uppercase hover:bg-white transition">Comprar</button>
+                <div class="glass-morphism p-6 rounded-3xl text-center group hover:border-cyan-400 transition-all">
+                    <i class="fas fa-gem text-cyan-400 mb-2 text-xl group-hover:scale-125 transition"></i>
+                    <p class="text-[11px] font-bold text-white uppercase">310+31 Diamantes</p>
+                    <p class="text-3xl font-bold my-3 text-cyan-400">$3.00</p>
+                    <button onclick="openCheckout('310+31 Diamantes', 3)" class="w-full btn-primary text-black py-2 rounded-xl font-bold text-[11px] uppercase">Comprar</button>
                 </div>
-                <div class="glass-morphism p-4 rounded-2xl border border-cyan-500/20 text-center">
-                    <p class="text-[10px] font-bold text-cyan-400 uppercase">520+52 Diamantes</p>
-                    <p class="text-2xl font-bold my-2 text-white">$5</p>
-                    <button onclick="openCheckout('520+52 Diamantes', 5)" class="w-full bg-cyan-500 text-black py-2 rounded-lg font-bold text-[10px] uppercase hover:bg-white transition">Comprar</button>
+                <div class="glass-morphism p-6 rounded-3xl text-center group hover:border-cyan-400 transition-all">
+                    <i class="fas fa-gem text-cyan-400 mb-2 text-xl group-hover:scale-125 transition"></i>
+                    <p class="text-[11px] font-bold text-white uppercase">520+52 Diamantes</p>
+                    <p class="text-3xl font-bold my-3 text-cyan-400">$5.00</p>
+                    <button onclick="openCheckout('520+52 Diamantes', 5)" class="w-full btn-primary text-black py-2 rounded-xl font-bold text-[11px] uppercase">Comprar</button>
                 </div>
-                <div class="glass-morphism p-4 rounded-2xl border border-cyan-500/20 text-center">
-                    <p class="text-[10px] font-bold text-cyan-400 uppercase">1060+106 Diamantes</p>
-                    <p class="text-2xl font-bold my-2 text-white">$9</p>
-                    <button onclick="openCheckout('1060+106 Diamantes', 9)" class="w-full bg-cyan-500 text-black py-2 rounded-lg font-bold text-[10px] uppercase hover:bg-white transition">Comprar</button>
+                <div class="glass-morphism p-6 rounded-3xl text-center group hover:border-cyan-400 transition-all">
+                    <i class="fas fa-gem text-cyan-400 mb-2 text-xl group-hover:scale-125 transition"></i>
+                    <p class="text-[11px] font-bold text-white uppercase">1060+106 Diamantes</p>
+                    <p class="text-3xl font-bold my-3 text-cyan-400">$9.00</p>
+                    <button onclick="openCheckout('1060+106 Diamantes', 9)" class="w-full btn-primary text-black py-2 rounded-xl font-bold text-[11px] uppercase">Comprar</button>
                 </div>
-                <div class="glass-morphism p-4 rounded-2xl border border-cyan-500/20 text-center">
-                    <p class="text-[10px] font-bold text-cyan-400 uppercase">2180+218 Diamantes</p>
-                    <p class="text-2xl font-bold my-2 text-white">$19</p>
-                    <button onclick="openCheckout('2180+218 Diamantes', 19)" class="w-full bg-cyan-500 text-black py-2 rounded-lg font-bold text-[10px] uppercase hover:bg-white transition">Comprar</button>
+                <div class="glass-morphism p-6 rounded-3xl text-center group hover:border-cyan-400 transition-all">
+                    <i class="fas fa-gem text-cyan-400 mb-2 text-xl group-hover:scale-125 transition"></i>
+                    <p class="text-[11px] font-bold text-white uppercase">2180+218 Diamantes</p>
+                    <p class="text-3xl font-bold my-3 text-cyan-400">$19.00</p>
+                    <button onclick="openCheckout('2180+218 Diamantes', 19)" class="w-full btn-primary text-black py-2 rounded-xl font-bold text-[11px] uppercase">Comprar</button>
                 </div>
-                <div class="glass-morphism p-4 rounded-2xl border border-cyan-500/20 text-center">
-                    <p class="text-[10px] font-bold text-cyan-400 uppercase">5600+560 Diamantes</p>
-                    <p class="text-2xl font-bold my-2 text-white">$45</p>
-                    <button onclick="openCheckout('5600+560 Diamantes', 45)" class="w-full bg-cyan-500 text-black py-2 rounded-lg font-bold text-[10px] uppercase hover:bg-white transition">Comprar</button>
+                <div class="glass-morphism p-6 rounded-3xl text-center group hover:border-cyan-400 transition-all">
+                    <i class="fas fa-gem text-cyan-400 mb-2 text-xl group-hover:scale-125 transition"></i>
+                    <p class="text-[11px] font-bold text-white uppercase">5600+560 Diamantes</p>
+                    <p class="text-3xl font-bold my-3 text-cyan-400">$45.00</p>
+                    <button onclick="openCheckout('5600+560 Diamantes', 45)" class="w-full btn-primary text-black py-2 rounded-xl font-bold text-[11px] uppercase">Comprar</button>
                 </div>
             </div>
 
-            <!-- Placeholder para anuncios de Google (Ayuda a la revisión) -->
-            <div class="mt-8 p-6 border border-dashed border-gray-800 rounded-xl text-center text-gray-700">
-                <p class="text-[9px] uppercase tracking-widest">Publicidad de Google aparecerá aquí</p>
+            <!-- AdSense Placeholder -->
+            <div class="mt-10 p-4 border border-cyan-500/10 bg-black/40 rounded-2xl text-center text-gray-600">
+                <p class="text-[9px] uppercase tracking-widest font-bold">Espacio Publicitario Reservado</p>
             </div>
         </section>
 
         <!-- Checkout -->
-        <section id="checkout-section" class="hidden-section max-w-md mx-auto glass-morphism p-6 rounded-2xl border border-cyan-500/30">
-            <h2 class="gaming-font text-cyan-400 text-center mb-4 uppercase">Confirmar Pedido</h2>
-            <div id="checkout-details" class="bg-black/40 p-4 rounded-xl text-xs space-y-2 mb-4 border border-white/5"></div>
-            <p class="text-[10px] font-bold mb-2 uppercase text-gray-400">Seleccione Método de Pago:</p>
-            <div class="grid grid-cols-2 gap-2 mb-4">
-                <div id="method-pm" onclick="selectPayment('Pago Móvil')" class="payment-card p-3 rounded-xl bg-white/5 text-center">
-                    <i class="fas fa-mobile-alt mb-1"></i>
+        <section id="checkout-section" class="hidden-section max-w-md mx-auto glass-morphism p-8 rounded-3xl">
+            <h2 class="gaming-font text-cyan-400 text-center mb-6 uppercase">Confirmar Pedido</h2>
+            <div id="checkout-details" class="bg-black/60 p-4 rounded-xl text-xs space-y-2 mb-6 border border-white/5"></div>
+            
+            <p class="text-[10px] font-bold mb-3 uppercase text-gray-400 tracking-wider">Seleccione Método de Pago:</p>
+            <div class="grid grid-cols-2 gap-3 mb-6">
+                <div id="method-pm" onclick="selectPayment('Pago Móvil')" class="payment-card p-4 rounded-2xl text-center">
+                    <i class="fas fa-mobile-alt mb-2 text-xl text-cyan-400"></i>
                     <p class="text-[10px] font-bold uppercase">Pago Móvil</p>
                 </div>
-                <div id="method-zinli" onclick="selectPayment('Zinli')" class="payment-card p-3 rounded-xl bg-white/5 text-center">
-                    <i class="fas fa-wallet mb-1"></i>
+                <div id="method-zinli" onclick="selectPayment('Zinli')" class="payment-card p-4 rounded-2xl text-center">
+                    <i class="fas fa-wallet mb-2 text-xl text-yellow-500"></i>
                     <p class="text-[10px] font-bold uppercase">Zinli</p>
                 </div>
             </div>
-            <div id="payment-instructions" class="hidden-section mb-4 p-3 bg-cyan-500/5 rounded-xl border border-cyan-500/20 text-[10px]"></div>
-            <div class="space-y-3">
-                <input type="number" id="playerID" placeholder="ID de Jugador (Ej: 12345678)" class="w-full p-3 rounded-xl outline-none font-bold">
-                <input type="number" id="payRef" maxlength="4" placeholder="Últimos 4 números de la referencia" class="w-full p-3 rounded-xl outline-none">
-                <button onclick="confirmPurchase()" class="w-full bg-cyan-500 text-black py-3 rounded-xl font-bold uppercase shadow-lg shadow-cyan-500/20">Enviar Reporte</button>
-                <button onclick="showSection('home')" class="w-full text-gray-500 text-[10px] uppercase mt-2">Volver a la tienda</button>
+            
+            <div id="payment-instructions" class="hidden-section mb-6 p-4 bg-cyan-500/10 rounded-2xl border border-cyan-500/30 text-[11px] leading-relaxed"></div>
+            
+            <div class="space-y-4">
+                <div>
+                    <label class="text-[9px] uppercase font-bold text-gray-500 ml-1">ID del Jugador</label>
+                    <input type="number" id="playerID" placeholder="Ej: 12345678" class="w-full p-4 rounded-xl outline-none font-bold text-lg">
+                </div>
+                <div>
+                    <label class="text-[9px] uppercase font-bold text-gray-500 ml-1">Referencia (4 últimos dígitos)</label>
+                    <input type="number" id="payRef" maxlength="4" placeholder="0000" class="w-full p-4 rounded-xl outline-none text-lg">
+                </div>
+                <button onclick="confirmPurchase()" class="w-full btn-primary text-black py-4 rounded-xl font-bold uppercase shadow-lg shadow-cyan-500/40">Reportar Pago</button>
+                <button onclick="showSection('home')" class="w-full text-gray-500 text-[10px] uppercase mt-2 font-bold">Volver a la tienda</button>
             </div>
         </section>
 
         <!-- Historial -->
-        <section id="history" class="hidden-section max-w-sm mx-auto">
-            <h2 class="gaming-font text-center mb-4 uppercase text-sm">Estado de mis Pedidos</h2>
-            <div id="user-history-list" class="space-y-2"></div>
+        <section id="history" class="hidden-section max-w-md mx-auto">
+            <h2 class="gaming-font text-center mb-6 uppercase text-sm">Estado de mis Pedidos</h2>
+            <div id="user-history-list" class="space-y-3"></div>
         </section>
 
         <!-- Panel Admin -->
-        <section id="admin-panel" class="hidden-section max-w-2xl mx-auto">
-            <h2 class="gaming-font text-red-500 text-center mb-4 uppercase">Gestión de Ventas</h2>
-            <div class="grid grid-cols-2 gap-4 mb-6">
-                <div class="glass-morphism p-4 rounded-xl border border-green-500/30 text-center">
-                    <p class="text-[10px] text-gray-400 uppercase font-bold">Activos</p>
-                    <p id="admin-online-count" class="text-3xl font-bold text-green-400">0</p>
+        <section id="admin-panel" class="hidden-section max-w-3xl mx-auto">
+            <h2 class="gaming-font text-red-500 text-center mb-6 uppercase">Gestión de Ventas</h2>
+            <div class="grid grid-cols-2 gap-4 mb-8">
+                <div class="glass-morphism p-6 rounded-2xl text-center">
+                    <p class="text-[10px] text-gray-400 uppercase font-bold mb-1">Usuarios Online</p>
+                    <p id="admin-online-count" class="text-4xl font-bold text-green-400">0</p>
                 </div>
-                <div class="glass-morphism p-4 rounded-xl border border-blue-500/30 text-center">
-                    <p class="text-[10px] text-gray-400 uppercase font-bold">Ventas Totales</p>
-                    <p id="admin-total-count" class="text-3xl font-bold text-blue-400">0</p>
+                <div class="glass-morphism p-6 rounded-2xl text-center">
+                    <p class="text-[10px] text-gray-400 uppercase font-bold mb-1">Órdenes Totales</p>
+                    <p id="admin-total-count" class="text-4xl font-bold text-blue-400">0</p>
                 </div>
             </div>
-            <div id="admin-orders-list" class="space-y-3"></div>
-        </section>
-
-        <!-- Secciones de Políticas (Importante para Google) -->
-        <section id="privacy-section" class="hidden-section max-w-2xl mx-auto glass-morphism p-6 rounded-2xl text-[12px] text-gray-300">
-            <h2 class="gaming-font text-cyan-400 mb-4 uppercase">Política de Privacidad</h2>
-            <p class="mb-2">En Diamond Store, valoramos su privacidad. Esta política describe cómo manejamos su información.</p>
-            <p class="mb-2">1. Recopilación: Solo recopilamos su correo electrónico para la cuenta y su ID de jugador para procesar recargas.</p>
-            <p class="mb-2">2. Uso: No compartimos sus datos con terceros. La información es utilizada únicamente para validar pagos.</p>
-            <p class="mb-2">3. Seguridad: Utilizamos Firebase para el manejo seguro de datos.</p>
-            <button onclick="showSection('home')" class="mt-4 text-cyan-500 uppercase font-bold">Volver</button>
-        </section>
-
-        <section id="terms-section" class="hidden-section max-w-2xl mx-auto glass-morphism p-6 rounded-2xl text-[12px] text-gray-300">
-            <h2 class="gaming-font text-cyan-400 mb-4 uppercase">Términos de Servicio</h2>
-            <p class="mb-2">Al utilizar nuestro sitio, usted acepta lo siguiente:</p>
-            <p class="mb-2">- Usted es responsable de proporcionar el ID de jugador correcto. No hay reembolsos por errores del usuario.</p>
-            <p class="mb-2">- Los pagos son validados manualmente en un plazo de 5 a 60 minutos dentro de nuestro horario laboral.</p>
-            <p class="mb-2">- Diamond Store no está afiliado directamente con Garena, somos distribuidores independientes.</p>
-            <button onclick="showSection('home')" class="mt-4 text-cyan-500 uppercase font-bold">Volver</button>
+            <div id="admin-orders-list" class="space-y-4"></div>
         </section>
     </main>
 
-    <!-- Pie de Página Legal (Requisito Google) -->
-    <footer class="glass-morphism mt-auto py-6 border-t border-white/5">
+    <!-- Footer Mejorado -->
+    <footer class="glass-morphism mt-12 py-8 border-t border-cyan-500/20">
         <div class="container mx-auto px-4 text-center">
-            <div class="flex flex-wrap justify-center gap-6 mb-4 text-[10px] text-gray-500 font-bold uppercase tracking-widest">
+            <div class="flex justify-center gap-6 mb-6 text-[11px] text-gray-400 font-bold uppercase tracking-widest">
                 <a href="javascript:void(0)" onclick="showSection('privacy-section')">Privacidad</a>
                 <a href="javascript:void(0)" onclick="showSection('terms-section')">Términos</a>
-                <a href="mailto:eduardgeldes6@gmail.com">Soporte</a>
+                <a href="mailto:eduardgeldes6@gmail.com">Soporte Técnico</a>
             </div>
-            <p class="text-[9px] text-gray-600">© 2024 Diamond Store - Todos los derechos reservados.</p>
-            <p class="text-[8px] text-gray-700 mt-2">Este sitio utiliza Google AdSense para mostrar anuncios personalizados.</p>
+            <p class="text-[10px] text-gray-500 max-w-lg mx-auto leading-relaxed">
+                © 2024 Diamond Store. Todas las marcas registradas pertenecen a sus respectivos dueños. Este es un servicio de terceros para la comunidad de Free Fire.
+            </p>
         </div>
     </footer>
 
@@ -278,18 +332,28 @@
             if(method === 'Pago Móvil') {
                 document.getElementById('method-pm').classList.add('active');
                 instr.innerHTML = `
-                    <p class="font-bold text-cyan-400 mb-1">DETALLES DE PAGO MÓVIL:</p>
-                    <p>Banco: <b>Venezuela (0102)</b></p>
-                    <p>Teléfono: <b>04162923781</b></p>
-                    <p>C.I: <b>29824660</b></p>
-                    <p class="mt-1 text-yellow-500 font-bold italic">Pagar tasa BCV del día</p>
+                    <div class="flex items-center gap-3 mb-2">
+                         <i class="fas fa-university text-lg text-yellow-500"></i>
+                         <p class="font-bold text-cyan-400 uppercase">Datos Pago Móvil:</p>
+                    </div>
+                    <div class="bg-black/40 p-3 rounded-lg border border-white/5 space-y-1">
+                        <p>Banco: <b>Venezuela (0102)</b></p>
+                        <p>Teléfono: <b>04162923781</b></p>
+                        <p>C.I: <b>29.824.660</b></p>
+                        <p class="mt-2 text-yellow-500 font-bold italic border-t border-white/10 pt-1">IMPORTANTE: Pagar a tasa BCV del día.</p>
+                    </div>
                 `;
             } else {
                 document.getElementById('method-zinli').classList.add('active');
                 instr.innerHTML = `
-                    <p class="font-bold text-cyan-400 mb-1">DETALLES ZINLI:</p>
-                    <p>Correo: <b>eduardgeldes6@gmail.com</b></p>
-                    <p>Monto Neto: <b>$${selectedPack.price}.00</b></p>
+                    <div class="flex items-center gap-3 mb-2">
+                         <i class="fas fa-wallet text-lg text-yellow-500"></i>
+                         <p class="font-bold text-cyan-400 uppercase">Datos Zinli:</p>
+                    </div>
+                    <div class="bg-black/40 p-3 rounded-lg border border-white/5 space-y-1">
+                        <p>Correo: <b>eduardgeldes6@gmail.com</b></p>
+                        <p>Monto Neto: <b class="text-green-400">$${selectedPack.price}.00</b></p>
+                    </div>
                 `;
             }
         };
@@ -299,8 +363,8 @@
             selectedMethod = null;
             document.getElementById('payment-instructions').classList.add('hidden-section');
             document.getElementById('checkout-details').innerHTML = `
-                <div class="flex justify-between"><span>Producto:</span><b class="text-white">${name}</b></div>
-                <div class="flex justify-between"><span>Precio:</span><b class="text-cyan-400">$${price}.00 USD</b></div>
+                <div class="flex justify-between items-center"><span class="text-gray-400 uppercase tracking-tighter">Producto:</span><b class="text-white">${name}</b></div>
+                <div class="flex justify-between items-center"><span class="text-gray-400 uppercase tracking-tighter">Total a Pagar:</span><b class="text-cyan-400 text-lg">$${price}.00 USD</b></div>
             `;
             showSection('checkout-section');
         };
@@ -308,7 +372,7 @@
         window.confirmPurchase = async () => {
             const pid = document.getElementById('playerID').value;
             const ref = document.getElementById('payRef').value;
-            if(!selectedMethod || !pid || !ref) return alert("Por favor complete todos los datos del pago.");
+            if(!selectedMethod || !pid || !ref) return alert("Por favor complete todos los campos requeridos.");
             
             try {
                 await addDoc(collection(db, 'pedidos'), {
@@ -321,10 +385,10 @@
                     status: 'pendiente',
                     fecha: new Date().toLocaleString()
                 });
-                alert("¡Recibido! Tu recarga se procesará en minutos.");
+                alert("¡Reporte enviado exitosamente! Tu recarga estará lista en breve.");
                 showSection('history');
             } catch (e) {
-                alert("Ocurrió un error al enviar el reporte. Intente de nuevo.");
+                alert("Error al procesar. Verifica tu conexión.");
             }
         };
 
@@ -351,13 +415,16 @@
                 if(o.userId === currentUser.uid) {
                     hasOrders = true;
                     container.innerHTML += `
-                        <div class="glass-morphism p-3 rounded-lg text-[10px] flex justify-between items-center border-l-2 ${o.status === 'pendiente' ? 'border-yellow-500' : 'border-green-500'}">
-                            <div><p class="font-bold uppercase">${o.pack}</p><p class="text-gray-500">ID: ${o.playerID} | Ref: ${o.ref}</p></div>
+                        <div class="glass-morphism p-4 rounded-2xl text-[11px] flex justify-between items-center border-l-4 ${o.status === 'pendiente' ? 'border-yellow-500' : (o.status === 'completado' ? 'border-green-500' : 'border-red-500')}">
+                            <div>
+                                <p class="font-bold uppercase text-white">${o.pack}</p>
+                                <p class="text-gray-400 mt-1">ID FF: ${o.playerID} | Ref: ${o.ref}</p>
+                            </div>
                             <span class="status-pill status-${o.status}">${o.status}</span>
                         </div>`;
                 }
             });
-            if(!hasOrders) container.innerHTML = "<p class='text-center text-gray-600 text-[10px]'>Aún no tienes pedidos.</p>";
+            if(!hasOrders) container.innerHTML = "<div class='text-center py-10 text-gray-500 italic uppercase text-[10px]'>No tienes compras recientes</div>";
         };
 
         window.fetchAdminOrders = async () => {
@@ -368,13 +435,20 @@
                 const o = d.data();
                 if(o.status === 'pendiente') {
                     container.innerHTML += `
-                        <div class="glass-morphism p-4 rounded-xl text-xs space-y-1">
-                            <p class="font-bold text-cyan-400">${o.email}</p>
-                            <p>Pack: ${o.pack} | ID: ${o.playerID}</p>
-                            <p>Ref: ${o.ref} | Metodo: ${o.metodo}</p>
-                            <div class="flex gap-2 mt-2">
-                                <button onclick="updateOrderStatus('${d.id}', 'completado')" class="bg-green-600 px-3 py-1 rounded font-bold uppercase hover:bg-green-500">Aprobar</button>
-                                <button onclick="updateOrderStatus('${d.id}', 'rechazado')" class="bg-red-600 px-3 py-1 rounded font-bold uppercase hover:bg-red-500">Rechazar</button>
+                        <div class="glass-morphism p-5 rounded-2xl text-xs space-y-2 border-l-4 border-yellow-500">
+                            <div class="flex justify-between border-b border-white/5 pb-2">
+                                <span class="font-bold text-cyan-400 uppercase">${o.email}</span>
+                                <span class="text-gray-500 text-[10px]">${o.fecha}</span>
+                            </div>
+                            <p class="text-lg font-bold">${o.pack}</p>
+                            <p class="text-yellow-500">ID PLAYER: ${o.playerID}</p>
+                            <div class="bg-black/40 p-2 rounded border border-white/5">
+                                <p>Referencia: <b>${o.ref}</b></p>
+                                <p>Método: <b>${o.metodo}</b></p>
+                            </div>
+                            <div class="flex gap-3 pt-2">
+                                <button onclick="updateOrderStatus('${d.id}', 'completado')" class="flex-1 bg-green-600 py-2 rounded-lg font-bold uppercase hover:bg-green-500 transition">Aprobar</button>
+                                <button onclick="updateOrderStatus('${d.id}', 'rechazado')" class="flex-1 bg-red-600 py-2 rounded-lg font-bold uppercase hover:bg-red-500 transition">Rechazar</button>
                             </div>
                         </div>`;
                 }
@@ -388,15 +462,16 @@
 
         document.getElementById('loginForm').onsubmit = async (e) => {
             e.preventDefault();
-            try { await signInWithEmailAndPassword(auth, loginEmail.value, loginPass.value); } catch { alert("Credenciales incorrectas."); }
+            try { await signInWithEmailAndPassword(auth, loginEmail.value, loginPass.value); } catch { alert("Error: Verifica tu correo y contraseña."); }
         };
 
         document.getElementById('registerForm').onsubmit = async (e) => {
             e.preventDefault();
-            try { await createUserWithEmailAndPassword(auth, regEmail.value, regPass.value); } catch { alert("Error al crear cuenta. Use un correo válido."); }
+            try { await createUserWithEmailAndPassword(auth, regEmail.value, regPass.value); } catch { alert("Error: El correo ya existe o es inválido."); }
         };
 
         window.handleLogout = () => signOut(auth);
     </script>
 </body>
 </html>
+
