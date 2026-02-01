@@ -49,7 +49,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        input {
+        input, select {
             background: rgba(0, 0, 0, 0.5) !important;
             border: 1px solid rgba(0, 242, 255, 0.2) !important;
             color: white !important;
@@ -100,25 +100,9 @@
             transform: scale(1.02);
             cursor: pointer !important;
         }
-
-        /* Texto SEO para AdSense (Ayuda a cargar anuncios más rápido) */
-        .seo-content {
-            position: absolute;
-            left: -9999px;
-            top: auto;
-            width: 1px;
-            height: 1px;
-            overflow: hidden;
-        }
     </style>
 </head>
 <body>
-
-    <!-- Contenido para que el bot de Google entienda la temática -->
-    <div class="seo-content">
-        <h1>Tienda de Diamantes Free Fire - Recargas Seguras</h1>
-        <p>Obtén diamantes para Free Fire viendo videos publicitarios. Recargas oficiales por ID de jugador. Participa en nuestra comunidad gaming y gana premios diarios.</p>
-    </div>
 
     <nav id="main-nav" class="hidden-section p-4 glass-morphism sticky top-0 z-50 shadow-2xl">
         <div class="container mx-auto flex justify-between items-center">
@@ -129,8 +113,8 @@
             
             <div class="flex items-center gap-4">
                 <button onclick="showSection('home')" class="hover:text-cyan-400 text-[10px] font-bold uppercase transition">Tienda</button>
-                <button onclick="showSection('ads-rewards')" class="text-yellow-400 hover:text-white text-[10px] font-bold uppercase transition">Diamantes Gratis</button>
-                <button onclick="showSection('history')" class="hover:text-cyan-400 text-[10px] font-bold uppercase transition">Mis Pedidos</button>
+                <button onclick="showSection('ads-rewards')" class="text-yellow-400 hover:text-white text-[10px] font-bold uppercase transition">Gratis</button>
+                <button onclick="showSection('history')" class="hover:text-cyan-400 text-[10px] font-bold uppercase transition">Pedidos</button>
                 <button id="admin-nav-btn" onclick="showSection('admin-panel')" class="hidden-section hover:text-red-400 text-[10px] font-bold uppercase transition">Admin</button>
                 <button onclick="handleLogout()" class="text-[10px] bg-red-500/20 text-red-400 border border-red-500/30 px-3 py-1 rounded font-bold">SALIR</button>
             </div>
@@ -139,6 +123,13 @@
 
     <main class="container mx-auto px-4 py-8">
         
+        <!-- Contador Online Solo Admin -->
+        <div id="online-counter" class="hidden-section text-center mb-4">
+            <span class="bg-green-500/20 text-green-400 border border-green-500/30 px-4 py-1 rounded-full text-[10px] font-bold">
+                <i class="fas fa-users mr-2"></i>USUARIOS ONLINE: <span id="user-count">0</span>
+            </span>
+        </div>
+
         <section id="welcome-screen" class="min-h-[80vh] flex flex-col items-center justify-center fade-in">
              <i class="fas fa-gem text-cyan-400 text-7xl mb-6 animate-bounce"></i>
              <h1 class="gaming-font text-4xl mb-10 text-center text-white">DIAMOND <span class="text-cyan-400">STORE</span></h1>
@@ -150,51 +141,108 @@
 
         <!-- Login / Registro -->
         <section id="login-form" class="hidden-section fade-in">
-            <div class="max-w-md mx-auto glass-morphism p-8 rounded-3xl">
-                <h2 class="gaming-font text-xl text-center mb-6">INICIAR SESIÓN</h2>
+            <div class="max-w-md mx-auto glass-morphism p-8 rounded-3xl text-center">
+                <h2 class="gaming-font text-xl mb-6">INICIAR SESIÓN</h2>
                 <form id="loginForm" class="space-y-4">
                     <input type="email" id="loginEmail" placeholder="Email" class="w-full p-4 rounded-xl outline-none" required>
                     <input type="password" id="loginPass" placeholder="Contraseña" class="w-full p-4 rounded-xl outline-none" required>
-                    <button type="submit" id="loginBtn" class="w-full bg-cyan-500 text-black py-4 rounded-xl font-bold uppercase">Ingresar</button>
+                    <button type="submit" class="w-full bg-cyan-500 text-black py-4 rounded-xl font-bold uppercase">Ingresar</button>
                     <button type="button" onclick="showSection('welcome-screen')" class="w-full text-gray-500 text-[10px] uppercase mt-2">Cancelar</button>
                 </form>
             </div>
         </section>
 
         <section id="register-form" class="hidden-section fade-in">
-            <div class="max-w-md mx-auto glass-morphism p-8 rounded-3xl">
-                <h2 class="gaming-font text-xl text-center mb-6">REGISTRARSE</h2>
+            <div class="max-w-md mx-auto glass-morphism p-8 rounded-3xl text-center">
+                <h2 class="gaming-font text-xl mb-6">REGISTRARSE</h2>
                 <form id="registerForm" class="space-y-4">
                     <input type="email" id="regEmail" placeholder="Email" class="w-full p-4 rounded-xl outline-none" required>
                     <input type="password" id="regPass" placeholder="Contraseña" class="w-full p-4 rounded-xl outline-none" required>
-                    <button type="submit" id="regBtn" class="w-full bg-cyan-500 text-black py-4 rounded-xl font-bold uppercase">Crear Cuenta</button>
+                    <button type="submit" class="w-full bg-cyan-500 text-black py-4 rounded-xl font-bold uppercase">Crear Cuenta</button>
                     <button type="button" onclick="showSection('welcome-screen')" class="w-full text-gray-500 text-[10px] uppercase mt-2">Cancelar</button>
                 </form>
             </div>
         </section>
 
-        <!-- Tienda -->
+        <!-- Tienda Principal -->
         <section id="home" class="hidden-section fade-in">
             <div class="text-center mb-8">
                 <h1 class="gaming-font text-3xl mb-2 text-white">RECARGA <span class="text-cyan-400">AHORA</span></h1>
-                <input type="number" id="playerID" class="max-w-xs w-full p-4 mt-4 rounded-2xl text-2xl text-center font-bold outline-none border-2 border-cyan-400/20" placeholder="ID JUGADOR">
+                <p class="text-gray-400 text-sm">Selecciona tu paquete favorito</p>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto text-center">
-                <!-- Tarjetas de diamantes -->
-                <div class="glass-morphism p-6 rounded-3xl">
-                    <p class="gaming-font text-cyan-400 text-sm mb-2">110 DIAMANTES</p>
-                    <p class="text-2xl font-bold mb-4 text-white">$1.10</p>
-                    <button onclick="alert('Sistema de pago en mantenimiento')" class="w-full bg-cyan-500 text-black py-3 rounded-xl font-bold uppercase text-[10px]">Comprar</button>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-4xl mx-auto text-center">
+                <div class="glass-morphism p-4 rounded-3xl border border-cyan-500/30">
+                    <p class="gaming-font text-cyan-400 text-[10px] mb-1">100+10 DIAMANTES</p>
+                    <p class="text-xl font-bold mb-3 text-white">$1</p>
+                    <button onclick="openCheckout('100+10 Diamantes', 1)" class="w-full bg-cyan-500 text-black py-2 rounded-xl font-bold uppercase text-[9px]">Comprar</button>
                 </div>
-                <div class="glass-morphism p-6 rounded-3xl">
-                    <p class="gaming-font text-cyan-400 text-sm mb-2">530 DIAMANTES</p>
-                    <p class="text-2xl font-bold mb-4 text-white">$5.50</p>
-                    <button onclick="alert('Sistema de pago en mantenimiento')" class="w-full bg-cyan-500 text-black py-3 rounded-xl font-bold uppercase text-[10px]">Comprar</button>
+                <div class="glass-morphism p-4 rounded-3xl border border-cyan-500/30">
+                    <p class="gaming-font text-cyan-400 text-[10px] mb-1">310+31 DIAMANTES</p>
+                    <p class="text-xl font-bold mb-3 text-white">$3</p>
+                    <button onclick="openCheckout('310+31 Diamantes', 3)" class="w-full bg-cyan-500 text-black py-2 rounded-xl font-bold uppercase text-[9px]">Comprar</button>
                 </div>
-                <div class="glass-morphism p-6 rounded-3xl">
-                    <p class="gaming-font text-cyan-400 text-sm mb-2">1080 DIAMANTES</p>
-                    <p class="text-2xl font-bold mb-4 text-white">$11.00</p>
-                    <button onclick="alert('Sistema de pago en mantenimiento')" class="w-full bg-cyan-500 text-black py-3 rounded-xl font-bold uppercase text-[10px]">Comprar</button>
+                <div class="glass-morphism p-4 rounded-3xl border border-cyan-500/30">
+                    <p class="gaming-font text-cyan-400 text-[10px] mb-1">520+52 DIAMANTES</p>
+                    <p class="text-xl font-bold mb-3 text-white">$5</p>
+                    <button onclick="openCheckout('520+52 Diamantes', 5)" class="w-full bg-cyan-500 text-black py-2 rounded-xl font-bold uppercase text-[9px]">Comprar</button>
+                </div>
+                <div class="glass-morphism p-4 rounded-3xl border border-cyan-500/30">
+                    <p class="gaming-font text-cyan-400 text-[10px] mb-1">1060+106 DIAMANTES</p>
+                    <p class="text-xl font-bold mb-3 text-white">$9</p>
+                    <button onclick="openCheckout('1060+106 Diamantes', 9)" class="w-full bg-cyan-500 text-black py-2 rounded-xl font-bold uppercase text-[9px]">Comprar</button>
+                </div>
+                <div class="glass-morphism p-4 rounded-3xl border border-cyan-500/30">
+                    <p class="gaming-font text-cyan-400 text-[10px] mb-1">2180+218 DIAMANTES</p>
+                    <p class="text-xl font-bold mb-3 text-white">$19</p>
+                    <button onclick="openCheckout('2180+218 Diamantes', 19)" class="w-full bg-cyan-500 text-black py-2 rounded-xl font-bold uppercase text-[9px]">Comprar</button>
+                </div>
+                <div class="glass-morphism p-4 rounded-3xl border border-cyan-500/30">
+                    <p class="gaming-font text-cyan-400 text-[10px] mb-1">5600+560 DIAMANTES</p>
+                    <p class="text-xl font-bold mb-3 text-white">$45</p>
+                    <button onclick="openCheckout('5600+560 Diamantes', 45)" class="w-full bg-cyan-500 text-black py-2 rounded-xl font-bold uppercase text-[9px]">Comprar</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pasarela de Pago -->
+        <section id="checkout-section" class="hidden-section fade-in">
+            <div class="max-w-md mx-auto glass-morphism p-6 rounded-3xl border border-yellow-500/30">
+                <h2 class="gaming-font text-xl text-center mb-4 text-yellow-400">PAGO SEGURO</h2>
+                <div id="checkout-details" class="mb-6 p-4 bg-black/40 rounded-2xl text-sm">
+                    <!-- Dinámico -->
+                </div>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-[10px] uppercase text-gray-400 mb-1">1. Método de Pago</label>
+                        <select id="payMethod" class="w-full p-3 rounded-xl outline-none" onchange="togglePayDetails()">
+                            <option value="pago_movil">Pago Móvil (Bs)</option>
+                            <option value="zinli">Zinli (USD)</option>
+                        </select>
+                    </div>
+
+                    <div id="pago_movil_info" class="p-3 bg-blue-900/20 rounded-xl border border-blue-500/20 text-[11px]">
+                        <p><b>Banco:</b> 0102 (Venezuela)</p>
+                        <p><b>C.I:</b> 29824660</p>
+                        <p><b>Tel:</b> 04162923781</p>
+                    </div>
+
+                    <div id="zinli_info" class="hidden-section p-3 bg-purple-900/20 rounded-xl border border-purple-500/20 text-[11px]">
+                        <p><b>Correo Zinli:</b> eduardgeldes6@gmail.com</p>
+                    </div>
+
+                    <div>
+                        <label class="block text-[10px] uppercase text-gray-400 mb-1">2. ID del Jugador</label>
+                        <input type="number" id="playerID" placeholder="Ingresa tu ID de Free Fire" class="w-full p-3 rounded-xl outline-none text-cyan-400 font-bold">
+                    </div>
+
+                    <div>
+                        <label class="block text-[10px] uppercase text-gray-400 mb-1">3. Últimos 4 de Referencia</label>
+                        <input type="number" id="payRef" placeholder="Ej: 1234" class="w-full p-3 rounded-xl outline-none" maxlength="4">
+                    </div>
+
+                    <button onclick="confirmPurchase()" class="w-full bg-yellow-500 text-black py-4 rounded-xl font-bold uppercase hover:bg-white transition-all">Enviar Pedido</button>
+                    <button onclick="showSection('home')" class="w-full text-gray-500 text-[10px] uppercase">Regresar</button>
                 </div>
             </div>
         </section>
@@ -203,13 +251,9 @@
         <section id="ads-rewards" class="hidden-section fade-in">
             <div class="max-w-xl mx-auto text-center">
                 <h2 class="gaming-font text-2xl text-yellow-400 mb-2 uppercase">Gana Diamantes</h2>
-                <p class="text-gray-400 text-[10px] mb-4">Mira el anuncio debajo para activar el botón de reclamo.</p>
-                
                 <div class="glass-morphism p-4 rounded-3xl">
-                    <div class="ad-box" id="ad-container">
-                        <span class="video-label">VIDEO AD</span>
-                        
-                        <!-- Bloque de AdSense In-feed (ID: 8490183626) -->
+                    <div id="ad-container" class="ad-box">
+                        <span class="video-label">VIDEO REWARD</span>
                         <ins class="adsbygoogle"
                              style="display:block"
                              data-ad-format="fluid"
@@ -217,12 +261,10 @@
                              data-ad-client="ca-pub-8397347098508270"
                              data-ad-slot="8490183626"></ins>
                     </div>
-
-                    <div id="reward-status-box" class="mb-4">
-                        <p id="status-text" class="text-yellow-500 gaming-font text-[9px]">SOLICITANDO VIDEO...</p>
+                    <div>
+                        <input type="number" id="playerIDGratis" placeholder="TU ID DE JUGADOR" class="w-full p-3 mb-4 rounded-xl outline-none text-center">
                     </div>
-
-                    <button id="claim-reward-btn" onclick="processAdReward()" class="w-full py-4 rounded-xl font-bold uppercase bg-gray-700 text-gray-500 cursor-not-allowed transition-all">
+                    <button id="claim-reward-btn" onclick="processAdReward()" class="w-full py-4 rounded-xl font-bold uppercase bg-gray-700 text-gray-500 cursor-not-allowed">
                         ESPERANDO VIDEO...
                     </button>
                 </div>
@@ -234,6 +276,7 @@
             <div id="user-history-list" class="space-y-3 max-w-lg mx-auto"></div>
         </section>
 
+        <!-- Panel Admin Solo Visible para eduardgeldes6@gmail.com -->
         <section id="admin-panel" class="hidden-section fade-in">
             <h2 class="gaming-font text-red-500 text-center text-2xl mb-6 uppercase">Control de Entregas</h2>
             <div id="admin-orders-list" class="space-y-4 max-w-3xl mx-auto"></div>
@@ -244,7 +287,7 @@
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth, onAuthStateChanged, signOut, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, doc, setDoc, collection, addDoc, getDocs, updateDoc, query } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        import { getFirestore, doc, setDoc, collection, addDoc, getDocs, updateDoc, onSnapshot, serverTimestamp, query, deleteDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
         const firebaseConfig = {
             apiKey: "AIzaSyBoBvAcaLGnPw69fwrfz_Al0L76foB1JtQ",
@@ -260,7 +303,26 @@
         const db = getFirestore(app);
         
         let currentUser = null;
+        let selectedPack = null;
         const MASTER_ADMIN = "eduardgeldes6@gmail.com";
+
+        // Gestión de Usuarios Online (Solo para el Admin)
+        async function updatePresence(user) {
+            if (!user) return;
+            const presenceRef = doc(db, 'online_users', user.uid);
+            await setDoc(presenceRef, { email: user.email, lastActive: serverTimestamp() });
+            
+            // Cleanup: Remover si el usuario se desconecta (en una app real se usa Firebase Realtime DB .onDisconnect)
+        }
+
+        function monitorOnlineUsers() {
+            if (currentUser?.email !== MASTER_ADMIN) return;
+            
+            const q = query(collection(db, 'online_users'));
+            onSnapshot(q, (snapshot) => {
+                document.getElementById('user-count').innerText = snapshot.size;
+            });
+        }
 
         window.showSection = (id) => {
             document.querySelectorAll('section').forEach(s => s.classList.add('hidden-section'));
@@ -272,11 +334,69 @@
             if (id === 'admin-panel') fetchAdminOrders();
         };
 
+        window.openCheckout = (packName, price) => {
+            selectedPack = { name: packName, price: price };
+            document.getElementById('checkout-details').innerHTML = `
+                <p><b>Producto:</b> ${packName}</p>
+                <p><b>Total:</b> $${price}.00</p>
+            `;
+            showSection('checkout-section');
+        };
+
+        window.togglePayDetails = () => {
+            const method = document.getElementById('payMethod').value;
+            document.getElementById('pago_movil_info').classList.toggle('hidden-section', method !== 'pago_movil');
+            document.getElementById('zinli_info').classList.toggle('hidden-section', method !== 'zinli');
+        };
+
+        window.confirmPurchase = async () => {
+            const ref = document.getElementById('payRef').value;
+            const method = document.getElementById('payMethod').value;
+            const pid = document.getElementById('playerID').value;
+            
+            if (!pid || pid.length < 5) {
+                alert("Ingresa un ID de Jugador válido.");
+                return;
+            }
+            if (!ref || ref.length < 4) {
+                alert("Ingresa los últimos 4 dígitos de la referencia.");
+                return;
+            }
+
+            try {
+                await addDoc(collection(db, 'pedidos'), {
+                    userId: currentUser.uid,
+                    userEmail: currentUser.email,
+                    playerID: pid,
+                    pack: selectedPack.name,
+                    price: selectedPack.price,
+                    method: method,
+                    reference: ref,
+                    status: 'pendiente',
+                    date: new Date().toLocaleString()
+                });
+                alert("¡Pedido enviado! Lo procesaremos en breve.");
+                showSection('history');
+            } catch (e) {
+                alert("Error de conexión.");
+            }
+        };
+
         onAuthStateChanged(auth, (user) => {
             currentUser = user;
             if (user) {
+                updatePresence(user);
                 document.getElementById('main-nav').classList.remove('hidden-section');
-                if(user.email === MASTER_ADMIN) document.getElementById('admin-nav-btn').classList.remove('hidden-section');
+                
+                // Seguridad del Admin
+                if(user.email === MASTER_ADMIN) {
+                    document.getElementById('admin-nav-btn').classList.remove('hidden-section');
+                    document.getElementById('online-counter').classList.remove('hidden-section');
+                    monitorOnlineUsers();
+                } else {
+                    document.getElementById('admin-nav-btn').classList.add('hidden-section');
+                    document.getElementById('online-counter').classList.add('hidden-section');
+                }
                 showSection('home');
             } else {
                 showSection('welcome-screen');
@@ -286,85 +406,70 @@
 
         function checkAdAvailability() {
             const btn = document.getElementById('claim-reward-btn');
-            const status = document.getElementById('status-text');
             const adIns = document.querySelector('ins.adsbygoogle');
-
-            btn.className = "w-full py-4 rounded-xl font-bold uppercase bg-gray-700 text-gray-500 cursor-not-allowed";
-            btn.innerText = "ESPERANDO VIDEO...";
-            status.innerText = "CONECTANDO CON EL SERVIDOR DE ANUNCIOS...";
-
             try { (window.adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
-
+            
             let timer = 0;
-            const checkInterval = setInterval(() => {
+            const check = setInterval(() => {
                 timer++;
-                
-                // Si Google inyectó algo (aunque sea transparente o negro), el innerHTML será > 100 caracteres
-                const isLoaded = adIns.innerHTML.length > 100 || adIns.getAttribute('data-ad-status') === 'filled';
-                
-                if (isLoaded) { 
-                    clearInterval(checkInterval);
-                    status.innerText = "¡ANUNCIO EN CURSO! NO CIERRES LA PÁGINA";
-                    status.className = "text-green-400 gaming-font text-[9px]";
-                    
-                    // Tiempo de espera para que vean el anuncio (30 segundos)
+                if (adIns.innerHTML.length > 100) { 
+                    clearInterval(check);
                     setTimeout(() => {
                         btn.classList.remove('bg-gray-700', 'text-gray-500', 'cursor-not-allowed');
                         btn.classList.add('reward-btn-active');
                         btn.innerText = "RECLAMAR 10 DIAMANTES";
-                        status.innerText = "¡RECOMPENSA LISTA PARA RECLAMAR!";
-                    }, 30000); 
-                } else if (timer > 20) {
-                    // Si después de 20 segundos no hay nada, el problema es que Google no tiene anuncios para esa IP ahora mismo
-                    status.innerText = "GOOGLE NO TIENE VIDEOS DISPONIBLES EN ESTE MOMENTO. INTENTA MÁS TARDE.";
-                    status.className = "text-red-500 gaming-font text-[9px]";
+                    }, 15000); 
                 }
+                if (timer > 20) clearInterval(check);
             }, 1000);
         }
 
         window.processAdReward = async () => {
-            const btn = document.getElementById('claim-reward-btn');
-            const pid = document.getElementById('playerID').value;
+            const pid = document.getElementById('playerIDGratis').value;
+            if (!pid || pid.length < 5) { alert("Ingresa tu ID."); return; }
             
-            if (!btn.classList.contains('reward-btn-active')) return;
-            if (!pid || pid.length < 5) {
-                alert("Primero ingresa tu ID de jugador en la sección Tienda.");
-                showSection('home');
-                return;
-            }
-
             try {
                 await addDoc(collection(db, 'pedidos'), {
                     userId: currentUser.uid,
                     userEmail: currentUser.email,
                     playerID: pid,
-                    pack: '10 DIAMANTES (RECOMPENSA GRATIS)',
+                    pack: '10 DIAMANTES (ADS)',
                     status: 'pendiente',
                     date: new Date().toLocaleString()
                 });
-                alert("¡Éxito! Tu solicitud de 10 diamantes ha sido registrada.");
+                alert("Solicitud enviada.");
                 showSection('history');
-            } catch (e) {
-                alert("Error al guardar el pedido.");
-            }
+            } catch (e) { alert("Error."); }
         };
 
-        // Auth
         document.getElementById('loginForm').onsubmit = async (e) => {
             e.preventDefault();
-            try { await signInWithEmailAndPassword(auth, loginEmail.value, loginPass.value); } catch (err) { alert("Error al entrar"); }
+            try { 
+                const email = document.getElementById('loginEmail').value;
+                const pass = document.getElementById('loginPass').value;
+                await signInWithEmailAndPassword(auth, email, pass); 
+            } catch (err) { alert("Credenciales incorrectas."); }
         };
 
         document.getElementById('registerForm').onsubmit = async (e) => {
             e.preventDefault();
-            try { await createUserWithEmailAndPassword(auth, regEmail.value, regPass.value); } catch (err) { alert("Error al crear cuenta"); }
+            try { 
+                const email = document.getElementById('regEmail').value;
+                const pass = document.getElementById('regPass').value;
+                await createUserWithEmailAndPassword(auth, email, pass); 
+            } catch (err) { alert("Error al crear cuenta."); }
         };
 
-        window.handleLogout = () => signOut(auth);
+        window.handleLogout = async () => {
+            if (currentUser) {
+                await deleteDoc(doc(db, 'online_users', currentUser.uid));
+            }
+            signOut(auth);
+        };
 
         async function fetchHistory() {
             const container = document.getElementById('user-history-list');
-            container.innerHTML = "Cargando...";
+            container.innerHTML = "<p class='text-center text-xs'>Cargando...</p>";
             const snap = await getDocs(collection(db, 'pedidos'));
             container.innerHTML = "";
             snap.forEach(d => {
@@ -372,7 +477,10 @@
                 if(o.userId === currentUser.uid) {
                     container.innerHTML += `
                     <div class="glass-morphism p-4 rounded-xl flex justify-between items-center mb-2 border-l-4 ${o.status === 'pendiente' ? 'border-yellow-500' : 'border-green-500'}">
-                        <div><p class="text-xs font-bold text-white">${o.pack}</p><p class="text-[8px] text-gray-400">${o.date}</p></div>
+                        <div>
+                            <p class="text-[10px] font-bold text-white uppercase">${o.pack}</p>
+                            <p class="text-[8px] text-gray-400">ID: ${o.playerID} | ${o.date}</p>
+                        </div>
                         <span class="status-pill status-${o.status}">${o.status}</span>
                     </div>`;
                 }
@@ -380,23 +488,31 @@
         }
 
         window.fetchAdminOrders = async () => {
+            if (currentUser.email !== MASTER_ADMIN) return;
             const container = document.getElementById('admin-orders-list');
-            container.innerHTML = "Cargando...";
+            container.innerHTML = "<p class='text-center text-xs'>Cargando pedidos...</p>";
             const snap = await getDocs(collection(db, 'pedidos'));
             container.innerHTML = "";
             snap.forEach(d => {
                 const o = d.data();
                 if(o.status === 'pendiente') {
                     container.innerHTML += `
-                    <div class="glass-morphism p-4 rounded-xl flex justify-between items-center">
-                        <div class="text-left"><p class="text-[10px] font-bold text-cyan-400">${o.pack}</p><p class="text-[9px] text-white">ID: ${o.playerID} (${o.userEmail})</p></div>
-                        <button onclick="markAsDone('${d.id}')" class="bg-green-600 px-3 py-1 rounded-lg font-bold text-[9px]">ENTREGAR</button>
+                    <div class="glass-morphism p-4 rounded-xl flex flex-col gap-2 border border-red-500/20">
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <p class="text-[12px] font-bold text-cyan-400">${o.pack}</p>
+                                <p class="text-[14px] text-white">ID FF: <b class="text-yellow-400 tracking-widest">${o.playerID}</b></p>
+                                <p class="text-[9px] text-gray-300">Pago: ${o.method} | Ref: ${o.reference}</p>
+                            </div>
+                            <button onclick="markAsDone('${d.id}')" class="bg-green-600 px-6 py-2 rounded-lg font-bold text-[10px] hover:bg-green-400 transition-colors">ENTREGAR</button>
+                        </div>
                     </div>`;
                 }
             });
         };
 
         window.markAsDone = async (id) => {
+            if (currentUser.email !== MASTER_ADMIN) return;
             await updateDoc(doc(db, 'pedidos', id), { status: 'completado' });
             fetchAdminOrders();
         };
