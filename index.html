@@ -4,283 +4,180 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diamond Store - Free Fire</title>
-    
-    <!-- Script de AdSense Principal -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8397347098508270" crossorigin="anonymous"></script>
-    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap');
-
-        :root {
-            --ff-yellow: #ffcc00;
-            --ff-blue: #00f2ff;
-            --bg-dark: #0a0e17;
-        }
-
-        body {
-            background-color: var(--bg-dark);
-            background-image: linear-gradient(rgba(10, 14, 23, 0.95), rgba(10, 14, 23, 0.95)), url('https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2070&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: white;
-            font-family: 'Roboto', sans-serif;
-            min-height: 100vh;
-        }
-
+        :root { --ff-yellow: #ffcc00; --ff-blue: #00f2ff; --bg-dark: #0a0e17; }
+        body { background-color: var(--bg-dark); color: white; font-family: 'Roboto', sans-serif; min-height: 100vh; }
         .gaming-font { font-family: 'Orbitron', sans-serif; }
-
-        .glass-morphism {
-            background: rgba(22, 27, 34, 0.7);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
+        .glass-morphism { background: rgba(22, 27, 34, 0.8); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); }
         .hidden-section { display: none !important; }
-        
-        .fade-in {
-            animation: fadeIn 0.5s ease-out forwards;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        input, select {
-            background: rgba(0, 0, 0, 0.5) !important;
-            border: 1px solid rgba(0, 242, 255, 0.2) !important;
-            color: white !important;
-        }
-
-        .status-pill {
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 9px;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-        .status-pendiente { background: rgba(234, 179, 8, 0.2); color: #eab308; border: 1px solid #eab308; }
-        .status-completado { background: rgba(34, 197, 94, 0.2); color: #22c55e; border: 1px solid #22c55e; }
-
-        .ad-box {
-            min-height: 300px; 
-            width: 100%;
-            background: #000;
-            border-radius: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            margin: 20px 0;
-            border: 1px solid rgba(255, 204, 0, 0.3);
-            position: relative;
-        }
-        
-        .video-label {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background: #ffcc00;
-            color: black;
-            font-size: 9px;
-            padding: 2px 10px;
-            border-radius: 4px;
-            font-weight: 800;
-            z-index: 10;
-        }
-
-        .reward-btn-active {
-            background: linear-gradient(90deg, #ffcc00, #ff9900) !important;
-            color: black !important;
-            box-shadow: 0 0 20px rgba(255, 204, 0, 0.5);
-            transform: scale(1.02);
-            cursor: pointer !important;
-        }
+        input, select { background: rgba(0, 0, 0, 0.5) !important; border: 1px solid rgba(0, 242, 255, 0.2) !important; color: white !important; }
+        .status-pill { padding: 2px 8px; border-radius: 4px; font-size: 9px; font-weight: bold; text-transform: uppercase; }
+        .status-pendiente { background: rgba(234, 179, 8, 0.2); color: #eab308; }
+        .status-completado { background: rgba(34, 197, 94, 0.2); color: #22c55e; }
+        .status-rechazado { background: rgba(239, 68, 68, 0.2); color: #ef4444; }
+        .payment-card { border: 2px solid transparent; cursor: pointer; transition: 0.3s; }
+        .payment-card.active { border-color: #00f2ff; background: rgba(0, 242, 255, 0.1); }
     </style>
 </head>
 <body>
 
-    <nav id="main-nav" class="hidden-section p-4 glass-morphism sticky top-0 z-50 shadow-2xl">
+    <nav id="main-nav" class="hidden-section p-4 glass-morphism sticky top-0 z-50">
         <div class="container mx-auto flex justify-between items-center">
             <div class="flex items-center gap-2 cursor-pointer" onclick="showSection('home')">
-                <i class="fas fa-gem text-cyan-400 text-2xl"></i>
-                <span class="gaming-font text-xl font-bold tracking-widest">FF <span class="text-cyan-400">STORE</span></span>
+                <i class="fas fa-gem text-cyan-400 text-xl"></i>
+                <span class="gaming-font text-lg font-bold">FF <span class="text-cyan-400">STORE</span></span>
             </div>
-            
             <div class="flex items-center gap-4">
-                <button onclick="showSection('home')" class="hover:text-cyan-400 text-[10px] font-bold uppercase transition">Tienda</button>
-                <button onclick="showSection('ads-rewards')" class="text-yellow-400 hover:text-white text-[10px] font-bold uppercase transition">Gratis</button>
-                <button onclick="showSection('history')" class="hover:text-cyan-400 text-[10px] font-bold uppercase transition">Pedidos</button>
-                <button id="admin-nav-btn" onclick="showSection('admin-panel')" class="hidden-section hover:text-red-400 text-[10px] font-bold uppercase transition">Admin</button>
-                <button onclick="handleLogout()" class="text-[10px] bg-red-500/20 text-red-400 border border-red-500/30 px-3 py-1 rounded font-bold">SALIR</button>
+                <button onclick="showSection('home')" class="text-[10px] font-bold uppercase">Tienda</button>
+                <button onclick="showSection('history')" class="text-[10px] font-bold uppercase">Pedidos</button>
+                <button id="admin-nav-btn" onclick="showSection('admin-panel')" class="hidden-section text-red-400 text-[10px] font-bold uppercase tracking-tighter">Panel Admin</button>
+                <button onclick="handleLogout()" class="text-[9px] bg-red-600/20 text-red-400 px-2 py-1 rounded">SALIR</button>
             </div>
         </div>
     </nav>
 
-    <main class="container mx-auto px-4 py-8">
-        
-        <!-- Contador Online Solo Admin -->
-        <div id="online-counter" class="hidden-section text-center mb-4">
-            <span class="bg-green-500/20 text-green-400 border border-green-500/30 px-4 py-1 rounded-full text-[10px] font-bold">
-                <i class="fas fa-users mr-2"></i>USUARIOS ONLINE: <span id="user-count">0</span>
-            </span>
+    <main class="container mx-auto px-4 py-6">
+        <!-- Banner Horario -->
+        <div class="max-w-4xl mx-auto flex justify-between items-center mb-6 text-[10px]">
+            <div class="bg-yellow-500/10 border border-yellow-500/30 p-2 rounded text-yellow-500 font-bold uppercase">
+                <i class="fas fa-clock mr-1"></i> 7 AM - 6 PM | TASA: DÓLAR BCV
+            </div>
         </div>
 
-        <section id="welcome-screen" class="min-h-[80vh] flex flex-col items-center justify-center fade-in">
-             <i class="fas fa-gem text-cyan-400 text-7xl mb-6 animate-bounce"></i>
-             <h1 class="gaming-font text-4xl mb-10 text-center text-white">DIAMOND <span class="text-cyan-400">STORE</span></h1>
-             <div class="flex flex-col gap-4 w-full max-w-xs">
-                <button onclick="showSection('login-form')" class="bg-cyan-500 text-black font-bold py-4 rounded-xl uppercase tracking-widest hover:bg-white transition-all">Entrar</button>
-                <button onclick="showSection('register-form')" class="border border-cyan-500 text-cyan-500 font-bold py-4 rounded-xl uppercase tracking-widest hover:bg-cyan-500/10 transition-all">Crear Cuenta</button>
+        <!-- Pantalla de Inicio -->
+        <section id="welcome-screen" class="min-h-[70vh] flex flex-col items-center justify-center text-center">
+             <h1 class="gaming-font text-3xl mb-2 text-center uppercase tracking-widest">Diamond <span class="text-cyan-400">Store</span></h1>
+             <p class="text-gray-500 text-[10px] mb-8 uppercase tracking-widest">Recargas Seguras Free Fire</p>
+             <div class="flex flex-col gap-3 w-64">
+                <button onclick="showSection('login-form')" class="bg-cyan-500 text-black font-bold py-3 rounded-xl uppercase">Entrar</button>
+                <button onclick="showSection('register-form')" class="border border-cyan-500 text-cyan-500 font-bold py-3 rounded-xl uppercase">Registrarse</button>
              </div>
         </section>
 
-        <!-- Login / Registro -->
-        <section id="login-form" class="hidden-section fade-in">
-            <div class="max-w-md mx-auto glass-morphism p-8 rounded-3xl text-center">
-                <h2 class="gaming-font text-xl mb-6">INICIAR SESIÓN</h2>
-                <form id="loginForm" class="space-y-4">
-                    <input type="email" id="loginEmail" placeholder="Email" class="w-full p-4 rounded-xl outline-none" required>
-                    <input type="password" id="loginPass" placeholder="Contraseña" class="w-full p-4 rounded-xl outline-none" required>
-                    <button type="submit" class="w-full bg-cyan-500 text-black py-4 rounded-xl font-bold uppercase">Ingresar</button>
-                    <button type="button" onclick="showSection('welcome-screen')" class="w-full text-gray-500 text-[10px] uppercase mt-2">Cancelar</button>
-                </form>
+        <!-- Formularios Auth -->
+        <section id="login-form" class="hidden-section max-w-sm mx-auto glass-morphism p-6 rounded-2xl">
+            <h2 class="gaming-font text-center mb-4 uppercase">Ingresar</h2>
+            <form id="loginForm" class="space-y-3">
+                <input type="email" id="loginEmail" placeholder="Correo Electrónico" class="w-full p-3 rounded-xl outline-none" required>
+                <input type="password" id="loginPass" placeholder="Contraseña" class="w-full p-3 rounded-xl outline-none" required>
+                <button type="submit" class="w-full bg-cyan-500 text-black py-3 rounded-xl font-bold uppercase">Entrar</button>
+                <button type="button" onclick="showSection('welcome-screen')" class="w-full text-gray-500 text-[10px]">VOLVER</button>
+            </form>
+        </section>
+
+        <section id="register-form" class="hidden-section max-w-sm mx-auto glass-morphism p-6 rounded-2xl">
+            <h2 class="gaming-font text-center mb-4 uppercase">Registro</h2>
+            <form id="registerForm" class="space-y-3">
+                <input type="email" id="regEmail" placeholder="Correo Electrónico" class="w-full p-3 rounded-xl outline-none" required>
+                <input type="password" id="regPass" placeholder="Contraseña" class="w-full p-3 rounded-xl outline-none" required>
+                <button type="submit" class="w-full bg-cyan-500 text-black py-3 rounded-xl font-bold uppercase">Crear Cuenta</button>
+                <button type="button" onclick="showSection('welcome-screen')" class="w-full text-gray-500 text-[10px]">VOLVER</button>
+            </form>
+        </section>
+
+        <!-- Tienda -->
+        <section id="home" class="hidden-section max-w-4xl mx-auto">
+            <h2 class="gaming-font text-center text-xl mb-6 text-white uppercase italic">Paquetes Disponibles</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <!-- Packs de Diamantes -->
+                <div class="glass-morphism p-4 rounded-2xl border border-cyan-500/20 text-center">
+                    <p class="text-[10px] font-bold text-cyan-400 uppercase">100+10 Diamantes</p>
+                    <p class="text-2xl font-bold my-2 text-white">$1</p>
+                    <button onclick="openCheckout('100+10 Diamantes', 1)" class="w-full bg-cyan-500 text-black py-2 rounded-lg font-bold text-[10px] uppercase">Comprar</button>
+                </div>
+                <div class="glass-morphism p-4 rounded-2xl border border-cyan-500/20 text-center">
+                    <p class="text-[10px] font-bold text-cyan-400 uppercase">310+31 Diamantes</p>
+                    <p class="text-2xl font-bold my-2 text-white">$3</p>
+                    <button onclick="openCheckout('310+31 Diamantes', 3)" class="w-full bg-cyan-500 text-black py-2 rounded-lg font-bold text-[10px] uppercase">Comprar</button>
+                </div>
+                <div class="glass-morphism p-4 rounded-2xl border border-cyan-500/20 text-center">
+                    <p class="text-[10px] font-bold text-cyan-400 uppercase">520+52 Diamantes</p>
+                    <p class="text-2xl font-bold my-2 text-white">$5</p>
+                    <button onclick="openCheckout('520+52 Diamantes', 5)" class="w-full bg-cyan-500 text-black py-2 rounded-lg font-bold text-[10px] uppercase">Comprar</button>
+                </div>
+                <div class="glass-morphism p-4 rounded-2xl border border-cyan-500/20 text-center">
+                    <p class="text-[10px] font-bold text-cyan-400 uppercase">1060+106 Diamantes</p>
+                    <p class="text-2xl font-bold my-2 text-white">$9</p>
+                    <button onclick="openCheckout('1060+106 Diamantes', 9)" class="w-full bg-cyan-500 text-black py-2 rounded-lg font-bold text-[10px] uppercase">Comprar</button>
+                </div>
+                <div class="glass-morphism p-4 rounded-2xl border border-cyan-500/20 text-center">
+                    <p class="text-[10px] font-bold text-cyan-400 uppercase">2180+218 Diamantes</p>
+                    <p class="text-2xl font-bold my-2 text-white">$19</p>
+                    <button onclick="openCheckout('2180+218 Diamantes', 19)" class="w-full bg-cyan-500 text-black py-2 rounded-lg font-bold text-[10px] uppercase">Comprar</button>
+                </div>
+                <div class="glass-morphism p-4 rounded-2xl border border-cyan-500/20 text-center">
+                    <p class="text-[10px] font-bold text-cyan-400 uppercase">5600+560 Diamantes</p>
+                    <p class="text-2xl font-bold my-2 text-white">$45</p>
+                    <button onclick="openCheckout('5600+560 Diamantes', 45)" class="w-full bg-cyan-500 text-black py-2 rounded-lg font-bold text-[10px] uppercase">Comprar</button>
+                </div>
+            </div>
+            <p class="text-center text-gray-500 text-[9px] mt-10 uppercase italic tracking-widest">A la orden - Seguridad garantizada</p>
+        </section>
+
+        <!-- Checkout -->
+        <section id="checkout-section" class="hidden-section max-w-md mx-auto glass-morphism p-6 rounded-2xl border border-cyan-500/30">
+            <h2 class="gaming-font text-cyan-400 text-center mb-4 uppercase">Confirmar Pedido</h2>
+            
+            <div id="checkout-details" class="bg-black/40 p-4 rounded-xl text-xs space-y-2 mb-4 border border-white/5"></div>
+
+            <p class="text-[10px] font-bold mb-2 uppercase text-gray-400">Seleccione Método de Pago:</p>
+            <div class="grid grid-cols-2 gap-2 mb-4">
+                <div id="method-pm" onclick="selectPayment('Pago Móvil')" class="payment-card p-3 rounded-xl bg-white/5 text-center">
+                    <i class="fas fa-mobile-alt mb-1"></i>
+                    <p class="text-[10px] font-bold">PAGO MÓVIL</p>
+                </div>
+                <div id="method-zinli" onclick="selectPayment('Zinli')" class="payment-card p-3 rounded-xl bg-white/5 text-center">
+                    <i class="fas fa-wallet mb-1"></i>
+                    <p class="text-[10px] font-bold">ZINLI</p>
+                </div>
+            </div>
+
+            <div id="payment-instructions" class="hidden-section mb-4 p-3 bg-cyan-500/5 rounded-xl border border-cyan-500/20 text-[10px] animate-pulse">
+                <!-- Dinámico -->
+            </div>
+            
+            <div class="space-y-3">
+                <input type="number" id="playerID" placeholder="ID de Jugador (Free Fire)" class="w-full p-3 rounded-xl outline-none font-bold">
+                <input type="number" id="payRef" maxlength="4" placeholder="Últimos 4 números de la referencia" class="w-full p-3 rounded-xl outline-none">
+                <button onclick="confirmPurchase()" class="w-full bg-cyan-500 text-black py-3 rounded-xl font-bold uppercase">Enviar Comprobante</button>
+                <button onclick="showSection('home')" class="w-full text-gray-500 text-[10px] uppercase">Volver</button>
             </div>
         </section>
 
-        <section id="register-form" class="hidden-section fade-in">
-            <div class="max-w-md mx-auto glass-morphism p-8 rounded-3xl text-center">
-                <h2 class="gaming-font text-xl mb-6">REGISTRARSE</h2>
-                <form id="registerForm" class="space-y-4">
-                    <input type="email" id="regEmail" placeholder="Email" class="w-full p-4 rounded-xl outline-none" required>
-                    <input type="password" id="regPass" placeholder="Contraseña" class="w-full p-4 rounded-xl outline-none" required>
-                    <button type="submit" class="w-full bg-cyan-500 text-black py-4 rounded-xl font-bold uppercase">Crear Cuenta</button>
-                    <button type="button" onclick="showSection('welcome-screen')" class="w-full text-gray-500 text-[10px] uppercase mt-2">Cancelar</button>
-                </form>
-            </div>
+        <!-- Historial -->
+        <section id="history" class="hidden-section max-w-sm mx-auto">
+            <h2 class="gaming-font text-center mb-4 uppercase text-sm">Mis Recargas</h2>
+            <div id="user-history-list" class="space-y-2"></div>
         </section>
 
-        <!-- Tienda Principal -->
-        <section id="home" class="hidden-section fade-in">
-            <div class="text-center mb-8">
-                <h1 class="gaming-font text-3xl mb-2 text-white">RECARGA <span class="text-cyan-400">AHORA</span></h1>
-                <p class="text-gray-400 text-sm">Selecciona tu paquete favorito</p>
-            </div>
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-4xl mx-auto text-center">
-                <div class="glass-morphism p-4 rounded-3xl border border-cyan-500/30">
-                    <p class="gaming-font text-cyan-400 text-[10px] mb-1">100+10 DIAMANTES</p>
-                    <p class="text-xl font-bold mb-3 text-white">$1</p>
-                    <button onclick="openCheckout('100+10 Diamantes', 1)" class="w-full bg-cyan-500 text-black py-2 rounded-xl font-bold uppercase text-[9px]">Comprar</button>
-                </div>
-                <div class="glass-morphism p-4 rounded-3xl border border-cyan-500/30">
-                    <p class="gaming-font text-cyan-400 text-[10px] mb-1">310+31 DIAMANTES</p>
-                    <p class="text-xl font-bold mb-3 text-white">$3</p>
-                    <button onclick="openCheckout('310+31 Diamantes', 3)" class="w-full bg-cyan-500 text-black py-2 rounded-xl font-bold uppercase text-[9px]">Comprar</button>
-                </div>
-                <div class="glass-morphism p-4 rounded-3xl border border-cyan-500/30">
-                    <p class="gaming-font text-cyan-400 text-[10px] mb-1">520+52 DIAMANTES</p>
-                    <p class="text-xl font-bold mb-3 text-white">$5</p>
-                    <button onclick="openCheckout('520+52 Diamantes', 5)" class="w-full bg-cyan-500 text-black py-2 rounded-xl font-bold uppercase text-[9px]">Comprar</button>
-                </div>
-                <div class="glass-morphism p-4 rounded-3xl border border-cyan-500/30">
-                    <p class="gaming-font text-cyan-400 text-[10px] mb-1">1060+106 DIAMANTES</p>
-                    <p class="text-xl font-bold mb-3 text-white">$9</p>
-                    <button onclick="openCheckout('1060+106 Diamantes', 9)" class="w-full bg-cyan-500 text-black py-2 rounded-xl font-bold uppercase text-[9px]">Comprar</button>
-                </div>
-                <div class="glass-morphism p-4 rounded-3xl border border-cyan-500/30">
-                    <p class="gaming-font text-cyan-400 text-[10px] mb-1">2180+218 DIAMANTES</p>
-                    <p class="text-xl font-bold mb-3 text-white">$19</p>
-                    <button onclick="openCheckout('2180+218 Diamantes', 19)" class="w-full bg-cyan-500 text-black py-2 rounded-xl font-bold uppercase text-[9px]">Comprar</button>
-                </div>
-                <div class="glass-morphism p-4 rounded-3xl border border-cyan-500/30">
-                    <p class="gaming-font text-cyan-400 text-[10px] mb-1">5600+560 DIAMANTES</p>
-                    <p class="text-xl font-bold mb-3 text-white">$45</p>
-                    <button onclick="openCheckout('5600+560 Diamantes', 45)" class="w-full bg-cyan-500 text-black py-2 rounded-xl font-bold uppercase text-[9px]">Comprar</button>
+        <!-- Admin -->
+        <section id="admin-panel" class="hidden-section max-w-2xl mx-auto">
+            <h2 class="gaming-font text-red-500 text-center mb-4 uppercase">Panel de Control</h2>
+            
+            <div class="grid grid-cols-1 gap-4 mb-6">
+                <div class="glass-morphism p-4 rounded-xl border border-green-500/30 text-center">
+                    <p class="text-[10px] text-gray-400 uppercase font-bold">Usuarios en Línea</p>
+                    <p id="admin-online-count" class="text-3xl font-bold text-green-400">0</p>
                 </div>
             </div>
+
+            <div id="admin-orders-list" class="space-y-3"></div>
         </section>
 
-        <!-- Pasarela de Pago -->
-        <section id="checkout-section" class="hidden-section fade-in">
-            <div class="max-w-md mx-auto glass-morphism p-6 rounded-3xl border border-yellow-500/30">
-                <h2 class="gaming-font text-xl text-center mb-4 text-yellow-400">PAGO SEGURO</h2>
-                <div id="checkout-details" class="mb-6 p-4 bg-black/40 rounded-2xl text-sm">
-                    <!-- Dinámico -->
-                </div>
-                
-                <div class="space-y-4">
-                    <div>
-                        <label class="block text-[10px] uppercase text-gray-400 mb-1">1. Método de Pago</label>
-                        <select id="payMethod" class="w-full p-3 rounded-xl outline-none" onchange="togglePayDetails()">
-                            <option value="pago_movil">Pago Móvil (Bs)</option>
-                            <option value="zinli">Zinli (USD)</option>
-                        </select>
-                    </div>
-
-                    <div id="pago_movil_info" class="p-3 bg-blue-900/20 rounded-xl border border-blue-500/20 text-[11px]">
-                        <p><b>Banco:</b> 0102 (Venezuela)</p>
-                        <p><b>C.I:</b> 29824660</p>
-                        <p><b>Tel:</b> 04162923781</p>
-                    </div>
-
-                    <div id="zinli_info" class="hidden-section p-3 bg-purple-900/20 rounded-xl border border-purple-500/20 text-[11px]">
-                        <p><b>Correo Zinli:</b> eduardgeldes6@gmail.com</p>
-                    </div>
-
-                    <div>
-                        <label class="block text-[10px] uppercase text-gray-400 mb-1">2. ID del Jugador</label>
-                        <input type="number" id="playerID" placeholder="Ingresa tu ID de Free Fire" class="w-full p-3 rounded-xl outline-none text-cyan-400 font-bold">
-                    </div>
-
-                    <div>
-                        <label class="block text-[10px] uppercase text-gray-400 mb-1">3. Últimos 4 de Referencia</label>
-                        <input type="number" id="payRef" placeholder="Ej: 1234" class="w-full p-3 rounded-xl outline-none" maxlength="4">
-                    </div>
-
-                    <button onclick="confirmPurchase()" class="w-full bg-yellow-500 text-black py-4 rounded-xl font-bold uppercase hover:bg-white transition-all">Enviar Pedido</button>
-                    <button onclick="showSection('home')" class="w-full text-gray-500 text-[10px] uppercase">Regresar</button>
+        <!-- Modal Rechazo -->
+        <div id="reject-modal" class="hidden-section fixed inset-0 bg-black/90 flex items-center justify-center p-4 z-[100]">
+            <div class="glass-morphism p-6 rounded-2xl w-full max-w-xs text-center">
+                <h3 class="text-red-500 font-bold mb-2 uppercase text-sm">Motivo de Rechazo</h3>
+                <textarea id="reject-reason" class="w-full bg-black/50 border border-white/10 rounded-lg p-3 text-xs mb-4 outline-none" placeholder="Ej: Pago no recibido"></textarea>
+                <div class="flex gap-2">
+                    <button onclick="confirmReject()" class="flex-1 bg-red-600 p-2 rounded-lg font-bold text-xs uppercase">Rechazar</button>
+                    <button onclick="closeRejectModal()" class="flex-1 bg-gray-700 p-2 rounded-lg font-bold text-xs uppercase">Cerrar</button>
                 </div>
             </div>
-        </section>
-
-        <!-- Diamantes Gratis -->
-        <section id="ads-rewards" class="hidden-section fade-in">
-            <div class="max-w-xl mx-auto text-center">
-                <h2 class="gaming-font text-2xl text-yellow-400 mb-2 uppercase">Gana Diamantes</h2>
-                <div class="glass-morphism p-4 rounded-3xl">
-                    <div id="ad-container" class="ad-box">
-                        <span class="video-label">VIDEO REWARD</span>
-                        <ins class="adsbygoogle"
-                             style="display:block"
-                             data-ad-format="fluid"
-                             data-ad-layout-key="-6t+ed+2i-1n-4w"
-                             data-ad-client="ca-pub-8397347098508270"
-                             data-ad-slot="8490183626"></ins>
-                    </div>
-                    <div>
-                        <input type="number" id="playerIDGratis" placeholder="TU ID DE JUGADOR" class="w-full p-3 mb-4 rounded-xl outline-none text-center">
-                    </div>
-                    <button id="claim-reward-btn" onclick="processAdReward()" class="w-full py-4 rounded-xl font-bold uppercase bg-gray-700 text-gray-500 cursor-not-allowed">
-                        ESPERANDO VIDEO...
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <section id="history" class="hidden-section fade-in">
-            <h2 class="gaming-font text-center text-xl mb-6">MIS SOLICITUDES</h2>
-            <div id="user-history-list" class="space-y-3 max-w-lg mx-auto"></div>
-        </section>
-
-        <!-- Panel Admin Solo Visible para eduardgeldes6@gmail.com -->
-        <section id="admin-panel" class="hidden-section fade-in">
-            <h2 class="gaming-font text-red-500 text-center text-2xl mb-6 uppercase">Control de Entregas</h2>
-            <div id="admin-orders-list" class="space-y-4 max-w-3xl mx-auto"></div>
-        </section>
+        </div>
 
     </main>
 
@@ -304,99 +201,124 @@
         
         let currentUser = null;
         let selectedPack = null;
+        let selectedMethod = null;
+        let pendingRejectId = null;
+
+        const TASA_BCV = 63.67; 
+        const COMISION_FIJA = 30;
         const MASTER_ADMIN = "eduardgeldes6@gmail.com";
-
-        // Gestión de Usuarios Online (Solo para el Admin)
-        async function updatePresence(user) {
-            if (!user) return;
-            const presenceRef = doc(db, 'online_users', user.uid);
-            await setDoc(presenceRef, { email: user.email, lastActive: serverTimestamp() });
-            
-            // Cleanup: Remover si el usuario se desconecta (en una app real se usa Firebase Realtime DB .onDisconnect)
-        }
-
-        function monitorOnlineUsers() {
-            if (currentUser?.email !== MASTER_ADMIN) return;
-            
-            const q = query(collection(db, 'online_users'));
-            onSnapshot(q, (snapshot) => {
-                document.getElementById('user-count').innerText = snapshot.size;
-            });
-        }
 
         window.showSection = (id) => {
             document.querySelectorAll('section').forEach(s => s.classList.add('hidden-section'));
-            const section = document.getElementById(id);
-            if(section) section.classList.remove('hidden-section');
-            
-            if (id === 'ads-rewards') checkAdAvailability();
+            const el = document.getElementById(id);
+            if(el) el.classList.remove('hidden-section');
             if (id === 'history') fetchHistory();
-            if (id === 'admin-panel') fetchAdminOrders();
+            if (id === 'admin-panel') {
+                fetchAdminOrders();
+                startOnlineUsersListener();
+            }
         };
 
-        window.openCheckout = (packName, price) => {
-            selectedPack = { name: packName, price: price };
+        async function updatePresence(user) {
+            if(!user) return;
+            const presenceRef = doc(db, 'presencia', user.uid);
+            await setDoc(presenceRef, {
+                email: user.email,
+                lastSeen: serverTimestamp(),
+                online: true
+            });
+            window.addEventListener('beforeunload', async () => {
+                await updateDoc(presenceRef, { online: false });
+            });
+        }
+
+        function startOnlineUsersListener() {
+            if(!currentUser || currentUser.email !== MASTER_ADMIN) return;
+            onSnapshot(collection(db, 'presencia'), (snap) => {
+                let count = 0;
+                snap.forEach(d => {
+                    const data = d.data();
+                    if(data.online) count++;
+                });
+                document.getElementById('admin-online-count').innerText = count;
+            });
+        }
+
+        window.selectPayment = (method) => {
+            selectedMethod = method;
+            document.querySelectorAll('.payment-card').forEach(c => c.classList.remove('active'));
+            const instr = document.getElementById('payment-instructions');
+            instr.classList.remove('hidden-section');
+            
+            if(method === 'Pago Móvil') {
+                document.getElementById('method-pm').classList.add('active');
+                instr.innerHTML = `
+                    <p class="font-bold text-cyan-400 mb-1 uppercase">Pago Móvil:</p>
+                    <p>Monto: <b class="text-white text-lg">$${selectedPack.price}.00 (a Tasa BCV)</b></p>
+                    <p>Banco: <b>Venezuela (0102)</b></p>
+                    <p>Tlf: <b>04162923781</b> | C.I: <b>29824660</b></p>
+                    <p class="mt-2 text-yellow-500 font-bold uppercase italic border-t border-white/5 pt-1 text-[9px]">
+                        +30 Bs comisión incluida en su transferencia.
+                    </p>
+                `;
+            } else {
+                document.getElementById('method-zinli').classList.add('active');
+                instr.innerHTML = `
+                    <p class="font-bold text-cyan-400 mb-1 uppercase">Zinli:</p>
+                    <p>Monto: <b class="text-white text-lg">$${selectedPack.price}.00 USD</b></p>
+                    <p>Correo: <b>eduardgeldes6@gmail.com</b></p>
+                `;
+            }
+        };
+
+        window.openCheckout = (name, price) => {
+            selectedPack = { name, price };
+            selectedMethod = null;
+            document.getElementById('payment-instructions').classList.add('hidden-section');
+            document.querySelectorAll('.payment-card').forEach(c => c.classList.remove('active'));
+            
             document.getElementById('checkout-details').innerHTML = `
-                <p><b>Producto:</b> ${packName}</p>
-                <p><b>Total:</b> $${price}.00</p>
+                <div class="flex justify-between"><span>Pack:</span><b class="text-white">${name}</b></div>
+                <div class="flex justify-between"><span>Total USD:</span><b class="text-cyan-400">$${price}.00</b></div>
             `;
             showSection('checkout-section');
         };
 
-        window.togglePayDetails = () => {
-            const method = document.getElementById('payMethod').value;
-            document.getElementById('pago_movil_info').classList.toggle('hidden-section', method !== 'pago_movil');
-            document.getElementById('zinli_info').classList.toggle('hidden-section', method !== 'zinli');
-        };
-
         window.confirmPurchase = async () => {
-            const ref = document.getElementById('payRef').value;
-            const method = document.getElementById('payMethod').value;
             const pid = document.getElementById('playerID').value;
+            const ref = document.getElementById('payRef').value;
             
-            if (!pid || pid.length < 5) {
-                alert("Ingresa un ID de Jugador válido.");
-                return;
-            }
-            if (!ref || ref.length < 4) {
-                alert("Ingresa los últimos 4 dígitos de la referencia.");
-                return;
-            }
+            if(!selectedMethod) return alert("Selecciona un método de pago");
+            if(!pid || pid.length < 5) return alert("ID de jugador inválido");
+            if(!ref || ref.length < 4) return alert("Ingresa los últimos 4 números de la referencia");
 
-            try {
-                await addDoc(collection(db, 'pedidos'), {
-                    userId: currentUser.uid,
-                    userEmail: currentUser.email,
-                    playerID: pid,
-                    pack: selectedPack.name,
-                    price: selectedPack.price,
-                    method: method,
-                    reference: ref,
-                    status: 'pendiente',
-                    date: new Date().toLocaleString()
-                });
-                alert("¡Pedido enviado! Lo procesaremos en breve.");
-                showSection('history');
-            } catch (e) {
-                alert("Error de conexión.");
-            }
+            const totalDolarStr = `$${selectedPack.price}.00 USD`;
+
+            await addDoc(collection(db, 'pedidos'), {
+                userId: currentUser.uid,
+                email: currentUser.email,
+                playerID: pid,
+                pack: selectedPack.name,
+                metodo: selectedMethod,
+                total: totalDolarStr,
+                ref: ref, // Solo los 4 dígitos
+                status: 'pendiente',
+                fecha: new Date().toLocaleString()
+            });
+            
+            alert("¡Pedido enviado! Verificaremos los 4 dígitos de su referencia.");
+            showSection('history');
         };
 
-        onAuthStateChanged(auth, (user) => {
+        onAuthStateChanged(auth, async (user) => {
             currentUser = user;
             if (user) {
-                updatePresence(user);
                 document.getElementById('main-nav').classList.remove('hidden-section');
-                
-                // Seguridad del Admin
                 if(user.email === MASTER_ADMIN) {
                     document.getElementById('admin-nav-btn').classList.remove('hidden-section');
-                    document.getElementById('online-counter').classList.remove('hidden-section');
-                    monitorOnlineUsers();
-                } else {
-                    document.getElementById('admin-nav-btn').classList.add('hidden-section');
-                    document.getElementById('online-counter').classList.add('hidden-section');
+                    startOnlineUsersListener();
                 }
+                updatePresence(user);
                 showSection('home');
             } else {
                 showSection('welcome-screen');
@@ -404,121 +326,106 @@
             }
         });
 
-        function checkAdAvailability() {
-            const btn = document.getElementById('claim-reward-btn');
-            const adIns = document.querySelector('ins.adsbygoogle');
-            try { (window.adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
-            
-            let timer = 0;
-            const check = setInterval(() => {
-                timer++;
-                if (adIns.innerHTML.length > 100) { 
-                    clearInterval(check);
-                    setTimeout(() => {
-                        btn.classList.remove('bg-gray-700', 'text-gray-500', 'cursor-not-allowed');
-                        btn.classList.add('reward-btn-active');
-                        btn.innerText = "RECLAMAR 10 DIAMANTES";
-                    }, 15000); 
-                }
-                if (timer > 20) clearInterval(check);
-            }, 1000);
-        }
-
-        window.processAdReward = async () => {
-            const pid = document.getElementById('playerIDGratis').value;
-            if (!pid || pid.length < 5) { alert("Ingresa tu ID."); return; }
-            
-            try {
-                await addDoc(collection(db, 'pedidos'), {
-                    userId: currentUser.uid,
-                    userEmail: currentUser.email,
-                    playerID: pid,
-                    pack: '10 DIAMANTES (ADS)',
-                    status: 'pendiente',
-                    date: new Date().toLocaleString()
-                });
-                alert("Solicitud enviada.");
-                showSection('history');
-            } catch (e) { alert("Error."); }
-        };
-
-        document.getElementById('loginForm').onsubmit = async (e) => {
-            e.preventDefault();
-            try { 
-                const email = document.getElementById('loginEmail').value;
-                const pass = document.getElementById('loginPass').value;
-                await signInWithEmailAndPassword(auth, email, pass); 
-            } catch (err) { alert("Credenciales incorrectas."); }
-        };
-
-        document.getElementById('registerForm').onsubmit = async (e) => {
-            e.preventDefault();
-            try { 
-                const email = document.getElementById('regEmail').value;
-                const pass = document.getElementById('regPass').value;
-                await createUserWithEmailAndPassword(auth, email, pass); 
-            } catch (err) { alert("Error al crear cuenta."); }
-        };
-
-        window.handleLogout = async () => {
-            if (currentUser) {
-                await deleteDoc(doc(db, 'online_users', currentUser.uid));
-            }
-            signOut(auth);
-        };
-
-        async function fetchHistory() {
+        window.fetchHistory = async () => {
             const container = document.getElementById('user-history-list');
-            container.innerHTML = "<p class='text-center text-xs'>Cargando...</p>";
+            container.innerHTML = "<p class='text-center text-[10px]'>Actualizando...</p>";
             const snap = await getDocs(collection(db, 'pedidos'));
             container.innerHTML = "";
-            snap.forEach(d => {
-                const o = d.data();
-                if(o.userId === currentUser.uid) {
-                    container.innerHTML += `
-                    <div class="glass-morphism p-4 rounded-xl flex justify-between items-center mb-2 border-l-4 ${o.status === 'pendiente' ? 'border-yellow-500' : 'border-green-500'}">
+            
+            let orders = [];
+            snap.forEach(d => orders.push({id: d.id, ...d.data()}));
+            
+            orders.filter(o => o.userId === currentUser.uid).sort((a,b) => new Date(b.fecha) - new Date(a.fecha)).forEach(o => {
+                container.innerHTML += `
+                    <div class="glass-morphism p-3 rounded-lg text-[10px] flex justify-between items-center border-l-2 ${o.status === 'rechazado' ? 'border-red-500' : o.status === 'completado' ? 'border-green-500' : 'border-yellow-500'}">
                         <div>
-                            <p class="text-[10px] font-bold text-white uppercase">${o.pack}</p>
-                            <p class="text-[8px] text-gray-400">ID: ${o.playerID} | ${o.date}</p>
+                            <p class="font-bold text-white uppercase">${o.pack}</p>
+                            <p class="text-[8px] text-gray-400">Ref: ****${o.ref} | ${o.fecha}</p>
+                            ${o.motivo ? `<p class="text-[8px] text-red-400 font-bold uppercase mt-1">Rechazo: ${o.motivo}</p>` : ''}
                         </div>
-                        <span class="status-pill status-${o.status}">${o.status}</span>
-                    </div>`;
-                }
+                        <div class="text-right">
+                             <span class="status-pill status-${o.status} block mb-1">${o.status}</span>
+                             <p class="text-[8px] text-white font-bold">${o.total}</p>
+                        </div>
+                    </div>
+                `;
             });
-        }
+        };
 
         window.fetchAdminOrders = async () => {
-            if (currentUser.email !== MASTER_ADMIN) return;
+            if(currentUser.email !== MASTER_ADMIN) return;
             const container = document.getElementById('admin-orders-list');
             container.innerHTML = "<p class='text-center text-xs'>Cargando pedidos...</p>";
             const snap = await getDocs(collection(db, 'pedidos'));
             container.innerHTML = "";
+            
             snap.forEach(d => {
                 const o = d.data();
                 if(o.status === 'pendiente') {
                     container.innerHTML += `
-                    <div class="glass-morphism p-4 rounded-xl flex flex-col gap-2 border border-red-500/20">
-                        <div class="flex justify-between items-center">
-                            <div>
-                                <p class="text-[12px] font-bold text-cyan-400">${o.pack}</p>
-                                <p class="text-[14px] text-white">ID FF: <b class="text-yellow-400 tracking-widest">${o.playerID}</b></p>
-                                <p class="text-[9px] text-gray-300">Pago: ${o.method} | Ref: ${o.reference}</p>
+                        <div class="glass-morphism p-4 rounded-xl border border-white/5">
+                            <div class="flex justify-between mb-2">
+                                <span class="text-cyan-400 font-bold text-xs uppercase">${o.pack}</span>
+                                <span class="text-white font-bold text-sm underline decoration-cyan-500">${o.total}</span>
                             </div>
-                            <button onclick="markAsDone('${d.id}')" class="bg-green-600 px-6 py-2 rounded-lg font-bold text-[10px] hover:bg-green-400 transition-colors">ENTREGAR</button>
+                            <p class="text-2xl font-bold tracking-widest text-white">${o.playerID}</p>
+                            <div class="text-[9px] text-gray-400 mt-2 uppercase space-y-1">
+                                <p>Método: <b class="text-white">${o.metodo}</b></p>
+                                <p>Últimos 4 Ref: <b class="text-yellow-400 text-lg"> ${o.ref} </b></p>
+                                <p>Cliente: ${o.email}</p>
+                            </div>
+                            <div class="flex gap-2 mt-4">
+                                <button onclick="markStatus('${d.id}', 'completado')" class="flex-1 bg-green-600 p-2 rounded-lg font-bold text-[10px] uppercase">ENTREGAR</button>
+                                <button onclick="openReject('${d.id}')" class="flex-1 bg-red-600 p-2 rounded-lg font-bold text-[10px] uppercase">RECHAZAR</button>
+                            </div>
                         </div>
-                    </div>`;
+                    `;
                 }
             });
         };
 
-        window.markAsDone = async (id) => {
-            if (currentUser.email !== MASTER_ADMIN) return;
-            await updateDoc(doc(db, 'pedidos', id), { status: 'completado' });
+        window.markStatus = async (id, status) => {
+            await updateDoc(doc(db, 'pedidos', id), { status });
             fetchAdminOrders();
+        };
+
+        window.openReject = (id) => {
+            pendingRejectId = id;
+            document.getElementById('reject-modal').classList.remove('hidden-section');
+        };
+
+        window.closeRejectModal = () => {
+            document.getElementById('reject-modal').classList.add('hidden-section');
+            document.getElementById('reject-reason').value = "";
+        };
+
+        window.confirmReject = async () => {
+            const motivo = document.getElementById('reject-reason').value;
+            if(!motivo) return alert("Escribe el motivo");
+            await updateDoc(doc(db, 'pedidos', pendingRejectId), { status: 'rechazado', motivo });
+            closeRejectModal();
+            fetchAdminOrders();
+        };
+
+        document.getElementById('loginForm').onsubmit = async (e) => {
+            e.preventDefault();
+            try { await signInWithEmailAndPassword(auth, loginEmail.value, loginPass.value); } catch (err) { alert("Fallo al entrar"); }
+        };
+
+        document.getElementById('registerForm').onsubmit = async (e) => {
+            e.preventDefault();
+            try { await createUserWithEmailAndPassword(auth, regEmail.value, regPass.value); } catch (err) { alert("Error al registrar"); }
+        };
+
+        window.handleLogout = async () => {
+            if(currentUser) {
+                const presenceRef = doc(db, 'presencia', currentUser.uid);
+                await updateDoc(presenceRef, { online: false });
+            }
+            signOut(auth);
         };
 
     </script>
 </body>
 </html>
-
 
