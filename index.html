@@ -6,7 +6,6 @@
     <title>Diamond Store - Recargas Free Fire Seguras y Rápidas</title>
     <meta name="description" content="Recarga diamantes de Free Fire de forma segura con Pago Móvil y Zinli. El centro de recargas más confiable para jugadores.">
     
-    <!-- CONFIGURACIÓN DE GOOGLE ADS (ADSENSE) -->
     <meta name="google-adsense-account" content="ca-pub-8397347098508270">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8397347098508270" crossorigin="anonymous"></script>
     
@@ -84,7 +83,6 @@
 </head>
 <body>
 
-    <!-- Navegación -->
     <nav id="main-nav" class="hidden-section p-4 glass-morphism sticky top-0 z-50">
         <div class="container mx-auto flex justify-between items-center">
             <div class="flex items-center gap-2 cursor-pointer" onclick="showSection('home')">
@@ -101,7 +99,6 @@
     </nav>
 
     <main class="container mx-auto px-4 py-8">
-        <!-- Indicador de Tasa -->
         <div id="tasa-bar" class="hidden-section max-w-4xl mx-auto mb-6">
             <div class="bg-black/60 backdrop-blur-md border border-yellow-500/30 p-2 rounded-lg text-center">
                 <p class="text-[11px] text-yellow-500 font-bold uppercase tracking-wider">
@@ -110,7 +107,6 @@
             </div>
         </div>
 
-        <!-- Pantalla de Bienvenida -->
         <section id="welcome-screen" class="min-h-[70vh] flex flex-col items-center justify-center text-center">
              <div class="jumping-diamond mb-6">
                 <i class="fas fa-gem"></i>
@@ -125,7 +121,6 @@
              </div>
         </section>
 
-        <!-- Formularios Auth -->
         <section id="login-form" class="hidden-section max-w-md mx-auto glass-morphism p-10 rounded-3xl">
             <h2 class="gaming-font text-2xl text-center mb-8 uppercase">Ingresar</h2>
             <form id="loginForm" class="space-y-5">
@@ -146,7 +141,6 @@
             </form>
         </section>
 
-        <!-- Tienda -->
         <section id="home" class="hidden-section max-w-6xl mx-auto">
             <header class="text-center mb-12">
                 <h2 class="gaming-font text-3xl text-white uppercase italic">Recargas <span class="text-cyan-400">Inmediatas</span></h2>
@@ -154,7 +148,6 @@
             </header>
             
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Paquetes Actualizados -->
                 <div class="glass-morphism p-8 rounded-3xl text-center group transition-all hover:scale-[1.02]">
                     <i class="fas fa-gem text-cyan-400 text-3xl mb-4 block group-hover:rotate-12 transition"></i>
                     <h3 class="text-sm font-bold text-white uppercase mb-1">100+10 Diamantes</h3>
@@ -226,7 +219,6 @@
                 </div>
             </div>
 
-            <!-- ANUNCIO -->
             <div class="ad-container overflow-hidden">
                 <p class="text-[9px] text-center text-gray-600 mb-2 uppercase tracking-widest">Publicidad</p>
                 <ins class="adsbygoogle"
@@ -238,7 +230,6 @@
                 <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
             </div>
 
-            <!-- Sección de contenido -->
             <div class="mt-16 grid md:grid-cols-2 gap-10">
                 <div class="glass-morphism p-8 rounded-3xl">
                     <h3 class="gaming-font text-cyan-400 mb-4 uppercase">¿Cómo Funciona?</h3>
@@ -258,7 +249,6 @@
             </div>
         </section>
 
-        <!-- SECCIONES LEGALES -->
         <section id="privacy-policy" class="hidden-section max-w-4xl mx-auto glass-morphism p-10 rounded-3xl legal-content">
             <h2 class="gaming-font text-2xl text-cyan-400 mb-6 uppercase">Política de Privacidad</h2>
             <h3>Compromiso de Seguridad</h3>
@@ -288,7 +278,6 @@
             <button onclick="showSection('home')" class="block mx-auto mt-6 text-gray-500 text-xs font-bold uppercase underline">Volver al inicio</button>
         </section>
 
-        <!-- Checkout, Historial y Admin -->
         <section id="checkout-section" class="hidden-section max-w-xl mx-auto glass-morphism p-10 rounded-3xl">
              <h2 class="gaming-font text-cyan-400 text-center mb-8 uppercase">Reportar Pago</h2>
              <div id="checkout-details" class="bg-black/40 p-5 rounded-2xl mb-8 border border-white/5"></div>
@@ -372,31 +361,54 @@
         let tasaParalelo = 0;
         const MASTER_ADMIN = "eduardgeldes6@gmail.com";
 
+        // --- FUNCIONES GLOBALES ---
+
+        window.showSection = (id) => {
+            document.querySelectorAll('section').forEach(s => s.classList.add('hidden-section'));
+            const el = document.getElementById(id);
+            if(el) el.classList.remove('hidden-section');
+            
+            if (id === 'history' && currentUser) fetchHistory();
+            if (id === 'admin-panel' && currentUser) startAdminDashboard();
+            window.scrollTo(0, 0);
+        };
+
+        window.handleLogout = () => {
+            signOut(auth).then(() => {
+                location.reload();
+            });
+        };
+
+        window.updateStatus = async (orderId, newStatus) => {
+            try {
+                const orderRef = doc(db, 'pedidos', orderId);
+                await updateDoc(orderRef, { status: newStatus });
+                // La UI se actualiza sola gracias al onSnapshot en startAdminDashboard
+            } catch (e) {
+                alert("Error al actualizar el estado.");
+            }
+        };
+
+        // --- LÓGICA DE NEGOCIO ---
+
         async function fetchTasa() {
             try {
                 const response = await fetch('https://ve.dolarapi.com/v1/dolares/paralelo');
                 const data = await response.json();
                 tasaParalelo = data.promedio;
                 document.querySelectorAll('#tasa-valor').forEach(el => el.innerText = `${tasaParalelo.toFixed(2)} Bs.`);
-            } catch (e) {}
+            } catch (e) {
+                console.error("Error tasa:", e);
+                tasaParalelo = 70; // Fallback
+            }
         }
         fetchTasa();
-
-        window.showSection = (id) => {
-            document.querySelectorAll('section').forEach(s => s.classList.add('hidden-section'));
-            const el = document.getElementById(id);
-            if(el) el.classList.remove('hidden-section');
-            if (id === 'history') fetchHistory();
-            if (id === 'admin-panel') startAdminDashboard();
-            window.scrollTo(0, 0);
-        };
 
         onAuthStateChanged(auth, (user) => {
             currentUser = user;
             if (user) {
                 document.getElementById('main-nav').classList.remove('hidden-section');
                 document.getElementById('tasa-bar').classList.remove('hidden-section');
-                // SOLO EL ADMIN VE EL BOTÓN
                 if(user.email === MASTER_ADMIN) {
                     document.getElementById('admin-nav-btn').classList.remove('hidden-section');
                 } else {
@@ -410,49 +422,113 @@
             }
         });
 
+        // Autenticación
+        document.getElementById('loginForm').onsubmit = async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('loginEmail').value;
+            const pass = document.getElementById('loginPass').value;
+            try {
+                await signInWithEmailAndPassword(auth, email, pass);
+            } catch (e) {
+                alert("Error: Usuario o contraseña incorrectos.");
+            }
+        };
+
+        document.getElementById('registerForm').onsubmit = async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('regEmail').value;
+            const pass = document.getElementById('regPass').value;
+            if(pass.length < 6) return alert("Mínimo 6 caracteres.");
+            try {
+                await createUserWithEmailAndPassword(auth, email, pass);
+            } catch (e) {
+                alert("Error al crear cuenta.");
+            }
+        };
+
+        // Pagos
         window.selectPayment = (method) => {
             selectedMethod = method;
             document.querySelectorAll('.payment-card').forEach(c => c.classList.remove('active'));
             const instr = document.getElementById('payment-instructions');
             instr.classList.remove('hidden-section');
+            
             if(method === 'Pago Móvil') {
                 document.getElementById('method-pm').classList.add('active');
                 const montoBs = (selectedPack.price * tasaParalelo).toLocaleString('es-VE', {minimumFractionDigits: 2});
-                instr.innerHTML = `<p class="font-bold text-cyan-400 mb-2">Datos Pago Móvil:</p><p>Banco: Venezuela (0102)</p><p>Tel: 04162923781</p><p>CI: 29.824.660</p><p class="text-yellow-500 font-bold">Pagar: ${montoBs} Bs.</p>`;
+                instr.innerHTML = `
+                    <p class="font-bold text-cyan-400 mb-2">Datos Pago Móvil:</p>
+                    <p>Banco: Venezuela (0102)</p>
+                    <p>Tel: 04162923781</p>
+                    <p>CI: 29.824.660</p>
+                    <p class="text-yellow-500 font-bold mt-2">Pagar: ${montoBs} Bs.</p>`;
             } else {
                 document.getElementById('method-zinli').classList.add('active');
-                instr.innerHTML = `<p class="font-bold text-cyan-400 mb-2">Zinli:</p><p>Correo: eduardgeldes6@gmail.com</p><p class="text-green-400 font-bold">Monto: $${selectedPack.price}.00 USD</p>`;
+                instr.innerHTML = `
+                    <p class="font-bold text-cyan-400 mb-2">Zinli:</p>
+                    <p>Correo: eduardgeldes6@gmail.com</p>
+                    <p class="text-green-400 font-bold mt-2">Monto: $${selectedPack.price}.00 USD</p>`;
             }
         };
 
         window.openCheckout = (name, price) => {
+            if(!currentUser) return showSection('login-form');
             selectedPack = { name, price };
             selectedMethod = null;
-            document.getElementById('checkout-details').innerHTML = `<div class="flex justify-between"><span>PACK:</span><span>${name}</span></div><div class="flex justify-between"><span>TOTAL:</span><span class="text-cyan-400 font-bold">$${price}.00</span></div>`;
+            document.getElementById('checkout-details').innerHTML = `
+                <div class="flex justify-between"><span>PACK:</span><span>${name}</span></div>
+                <div class="flex justify-between"><span>TOTAL:</span><span class="text-cyan-400 font-bold">$${price}.00</span></div>`;
+            document.getElementById('payment-instructions').classList.add('hidden-section');
+            document.querySelectorAll('.payment-card').forEach(c => c.classList.remove('active'));
             showSection('checkout-section');
         };
 
         window.confirmPurchase = async () => {
-            const pid = playerID.value;
-            const ref = payRef.value;
-            if(!selectedMethod || !pid || !ref) return alert("Completa los datos.");
+            const pid = document.getElementById('playerID').value;
+            const ref = document.getElementById('payRef').value;
+            if(!selectedMethod || !pid || !ref) return alert("Completa los datos y selecciona método.");
+            
             try {
                 await addDoc(collection(db, 'pedidos'), {
-                    userId: currentUser.uid, email: currentUser.email, playerID: pid, pack: selectedPack.name, metodo: selectedMethod, ref: ref, status: 'pendiente', fecha: new Date().toLocaleString(), timestamp: serverTimestamp()
+                    userId: currentUser.uid,
+                    email: currentUser.email,
+                    playerID: pid,
+                    pack: selectedPack.name,
+                    metodo: selectedMethod,
+                    ref: ref,
+                    status: 'pendiente',
+                    fecha: new Date().toLocaleString(),
+                    timestamp: serverTimestamp()
                 });
-                alert("Pago enviado exitosamente!");
+                alert("Pago enviado exitosamente. Revisaremos tu recarga pronto.");
                 showSection('history');
-            } catch (e) { alert("Error al procesar el pago."); }
+                // Limpiar campos
+                document.getElementById('playerID').value = '';
+                document.getElementById('payRef').value = '';
+            } catch (e) { 
+                alert("Error al procesar el pago."); 
+            }
         };
 
         async function fetchHistory() {
             const list = document.getElementById('user-history-list');
             list.innerHTML = '<p class="text-center text-gray-500">Cargando tus pedidos...</p>';
-            const q = query(collection(db, 'pedidos'), where('userId', '==', currentUser.uid));
+            
+            const q = query(
+                collection(db, 'pedidos'), 
+                where('userId', '==', currentUser.uid)
+            );
+            
             const snap = await getDocs(q);
             list.innerHTML = '';
-            snap.forEach(doc => {
-                const data = doc.data();
+            
+            if(snap.empty) {
+                list.innerHTML = '<p class="text-center text-gray-500 py-10">No tienes pedidos aún.</p>';
+                return;
+            }
+
+            snap.forEach(docSnap => {
+                const data = docSnap.data();
                 list.innerHTML += `
                     <div class="glass-morphism p-5 rounded-2xl flex justify-between items-center border border-white/5">
                         <div>
@@ -467,10 +543,15 @@
         async function startAdminDashboard() {
             if(currentUser.email !== MASTER_ADMIN) return showSection('home');
             const list = document.getElementById('admin-orders-list');
-            const q = query(collection(db, 'pedidos'));
+            list.innerHTML = '<p class="text-center text-gray-500">Cargando gestión...</p>';
+            
+            const q = query(collection(db, 'pedidos'), orderBy('timestamp', 'desc'));
             
             onSnapshot(q, (snap) => {
                 list.innerHTML = '';
+                if(snap.empty) {
+                    list.innerHTML = '<p class="text-center text-gray-500">No hay pedidos pendientes.</p>';
+                }
                 snap.forEach(d => {
                     const data = d.data();
                     list.innerHTML += `
@@ -490,25 +571,10 @@
                             </div>
                         </div>`;
                 });
+            }, (error) => {
+                console.error("Error Admin Dashboard:", error);
             });
         }
-
-        window.updateStatus = async (id, status) => {
-            await updateDoc(doc(db, 'pedidos', id), { status });
-        };
-
-        window.handleLogout = () => signOut(auth);
-        
-        document.getElementById('loginForm').onsubmit = async (e) => {
-            e.preventDefault();
-            try { await signInWithEmailAndPassword(auth, loginEmail.value, loginPass.value); } catch { alert("Credenciales incorrectas."); }
-        };
-
-        document.getElementById('registerForm').onsubmit = async (e) => {
-            e.preventDefault();
-            if(regPass.value.length < 6) return alert("Mínimo 6 caracteres.");
-            try { await createUserWithEmailAndPassword(auth, regEmail.value, regPass.value); } catch { alert("Error al registrar usuario."); }
-        };
     </script>
 </body>
 </html>
