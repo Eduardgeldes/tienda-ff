@@ -17,7 +17,7 @@
         
         body { 
             background-color: var(--bg-dark); 
-            background-image: linear-gradient(rgba(10, 14, 23, 0.8), rgba(10, 14, 23, 0.9)), url('https://images7.alphacoders.com/948/948814.jpg');
+            background-image: linear-gradient(rgba(10, 14, 23, 0.8), rgba(10, 14, 23, 0.9)), url('https://i.ibb.co/pDTb6ty/fonde1.png');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -32,10 +32,11 @@
         .gaming-font { font-family: 'Orbitron', sans-serif; }
         
         .glass-morphism { 
-            background: rgba(13, 17, 23, 0.9); 
+            background: rgba(13, 17, 23, 0.95); 
             backdrop-filter: blur(10px); 
             border: 1px solid rgba(0, 242, 255, 0.1); 
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
+            overflow: hidden;
         }
 
         .hidden-section { display: none !important; }
@@ -79,6 +80,35 @@
 
         .legal-content h3 { color: #00f2ff; margin-top: 1.5rem; margin-bottom: 0.5rem; font-weight: bold; text-transform: uppercase; font-size: 0.9rem; }
         .legal-content p { color: #cbd5e1; margin-bottom: 1rem; font-size: 0.9rem; line-height: 1.6; }
+
+        .package-card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            object-position: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .package-card-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .group:hover .package-card-img {
+            transform: scale(1.05);
+        }
+
+        .zinli-instruction-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin-top: 1rem;
+            border: 2px solid rgba(0, 242, 255, 0.3);
+        }
     </style>
 </head>
 <body>
@@ -148,74 +178,94 @@
             </header>
             
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="glass-morphism p-8 rounded-3xl text-center group transition-all hover:scale-[1.02]">
-                    <i class="fas fa-gem text-cyan-400 text-3xl mb-4 block group-hover:rotate-12 transition"></i>
-                    <h3 class="text-sm font-bold text-white uppercase mb-1">100+10 Diamantes</h3>
-                    <p class="text-4xl font-bold mb-6 text-white">$1.00</p>
-                    <button onclick="openCheckout('100+10 Diamantes', 1)" class="w-full btn-primary text-black py-3 rounded-xl font-bold uppercase text-xs">Comprar Ahora</button>
+                <div class="glass-morphism rounded-3xl text-center group transition-all hover:scale-[1.02] flex flex-col">
+                    <img src="https://i.ibb.co/7twhJpK7/icono.jpg" alt="Diamantes" class="package-card-img rounded-t-3xl">
+                    <div class="package-card-content flex-1">
+                        <h3 class="text-lg font-bold text-white uppercase">100+10 Diamantes</h3>
+                        <p class="text-3xl font-bold text-cyan-400">$1.00</p>
+                        <button onclick="openCheckout('100+10 Diamantes', 1)" class="w-full btn-primary text-black py-3 rounded-xl font-bold uppercase text-sm mt-2">Comprar Ahora</button>
+                    </div>
                 </div>
 
-                <div class="glass-morphism p-8 rounded-3xl text-center group transition-all hover:scale-[1.02]">
-                    <i class="fas fa-gem text-cyan-400 text-3xl mb-4 block group-hover:rotate-12 transition"></i>
-                    <h3 class="text-sm font-bold text-white uppercase mb-1">200+20 Diamantes</h3>
-                    <p class="text-4xl font-bold mb-6 text-white">$2.00</p>
-                    <button onclick="openCheckout('200+20 Diamantes', 2)" class="w-full btn-primary text-black py-3 rounded-xl font-bold uppercase text-xs">Comprar Ahora</button>
+                <div class="glass-morphism rounded-3xl text-center group transition-all hover:scale-[1.02] flex flex-col">
+                    <img src="https://i.ibb.co/7twhJpK7/icono.jpg" alt="Diamantes" class="package-card-img rounded-t-3xl">
+                    <div class="package-card-content flex-1">
+                        <h3 class="text-lg font-bold text-white uppercase">200+20 Diamantes</h3>
+                        <p class="text-3xl font-bold text-cyan-400">$2.00</p>
+                        <button onclick="openCheckout('200+20 Diamantes', 2)" class="w-full btn-primary text-black py-3 rounded-xl font-bold uppercase text-sm mt-2">Comprar Ahora</button>
+                    </div>
                 </div>
 
-                <div class="glass-morphism p-8 rounded-3xl text-center group transition-all hover:scale-[1.02]">
-                    <i class="fas fa-gem text-cyan-400 text-3xl mb-4 block group-hover:rotate-12 transition"></i>
-                    <h3 class="text-sm font-bold text-white uppercase mb-1">310+31 Diamantes</h3>
-                    <p class="text-4xl font-bold mb-6 text-white">$3.00</p>
-                    <button onclick="openCheckout('310+31 Diamantes', 3)" class="w-full btn-primary text-black py-3 rounded-xl font-bold uppercase text-xs">Comprar Ahora</button>
+                <div class="glass-morphism rounded-3xl text-center group transition-all hover:scale-[1.02] flex flex-col">
+                    <img src="https://i.ibb.co/7twhJpK7/icono.jpg" alt="Diamantes" class="package-card-img rounded-t-3xl">
+                    <div class="package-card-content flex-1">
+                        <h3 class="text-lg font-bold text-white uppercase">310+31 Diamantes</h3>
+                        <p class="text-3xl font-bold text-cyan-400">$3.00</p>
+                        <button onclick="openCheckout('310+31 Diamantes', 3)" class="w-full btn-primary text-black py-3 rounded-xl font-bold uppercase text-sm mt-2">Comprar Ahora</button>
+                    </div>
                 </div>
 
-                <div class="glass-morphism p-8 rounded-3xl text-center group transition-all hover:scale-[1.02]">
-                    <i class="fas fa-gem text-cyan-400 text-3xl mb-4 block group-hover:rotate-12 transition"></i>
-                    <h3 class="text-sm font-bold text-white uppercase mb-1">400+41 Diamantes</h3>
-                    <p class="text-4xl font-bold mb-6 text-white">$4.00</p>
-                    <button onclick="openCheckout('400+41 Diamantes', 4)" class="w-full btn-primary text-black py-3 rounded-xl font-bold uppercase text-xs">Comprar Ahora</button>
+                <div class="glass-morphism rounded-3xl text-center group transition-all hover:scale-[1.02] flex flex-col">
+                    <img src="https://i.ibb.co/7twhJpK7/icono.jpg" alt="Diamantes" class="package-card-img rounded-t-3xl">
+                    <div class="package-card-content flex-1">
+                        <h3 class="text-lg font-bold text-white uppercase">400+41 Diamantes</h3>
+                        <p class="text-3xl font-bold text-cyan-400">$4.00</p>
+                        <button onclick="openCheckout('400+41 Diamantes', 4)" class="w-full btn-primary text-black py-3 rounded-xl font-bold uppercase text-sm mt-2">Comprar Ahora</button>
+                    </div>
                 </div>
 
-                <div class="glass-morphism p-8 rounded-3xl text-center group transition-all hover:scale-[1.02]">
-                    <i class="fas fa-gem text-cyan-400 text-3xl mb-4 block group-hover:rotate-12 transition"></i>
-                    <h3 class="text-sm font-bold text-white uppercase mb-1">520+52 Diamantes</h3>
-                    <p class="text-4xl font-bold mb-6 text-white">$5.00</p>
-                    <button onclick="openCheckout('520+52 Diamantes', 5)" class="w-full btn-primary text-black py-3 rounded-xl font-bold uppercase text-xs">Comprar Ahora</button>
+                <div class="glass-morphism rounded-3xl text-center group transition-all hover:scale-[1.02] flex flex-col">
+                    <img src="https://i.ibb.co/7twhJpK7/icono.jpg" alt="Diamantes" class="package-card-img rounded-t-3xl">
+                    <div class="package-card-content flex-1">
+                        <h3 class="text-lg font-bold text-white uppercase">520+52 Diamantes</h3>
+                        <p class="text-3xl font-bold text-cyan-400">$5.00</p>
+                        <button onclick="openCheckout('520+52 Diamantes', 5)" class="w-full btn-primary text-black py-3 rounded-xl font-bold uppercase text-sm mt-2">Comprar Ahora</button>
+                    </div>
                 </div>
 
-                <div class="glass-morphism p-8 rounded-3xl text-center group transition-all hover:scale-[1.02]">
-                    <i class="fas fa-gem text-cyan-400 text-3xl mb-4 block group-hover:rotate-12 transition"></i>
-                    <h3 class="text-sm font-bold text-white uppercase mb-1">600+61 Diamantes</h3>
-                    <p class="text-4xl font-bold mb-6 text-white">$6.00</p>
-                    <button onclick="openCheckout('600+61 Diamantes', 6)" class="w-full btn-primary text-black py-3 rounded-xl font-bold uppercase text-xs">Comprar Ahora</button>
+                <div class="glass-morphism rounded-3xl text-center group transition-all hover:scale-[1.02] flex flex-col">
+                    <img src="https://i.ibb.co/7twhJpK7/icono.jpg" alt="Diamantes" class="package-card-img rounded-t-3xl">
+                    <div class="package-card-content flex-1">
+                        <h3 class="text-lg font-bold text-white uppercase">600+61 Diamantes</h3>
+                        <p class="text-3xl font-bold text-cyan-400">$6.00</p>
+                        <button onclick="openCheckout('600+61 Diamantes', 6)" class="w-full btn-primary text-black py-3 rounded-xl font-bold uppercase text-sm mt-2">Comprar Ahora</button>
+                    </div>
                 </div>
 
-                <div class="glass-morphism p-8 rounded-3xl text-center group transition-all hover:scale-[1.02]">
-                    <i class="fas fa-gem text-cyan-400 text-3xl mb-4 block group-hover:rotate-12 transition"></i>
-                    <h3 class="text-sm font-bold text-white uppercase mb-1">800+83 Diamantes</h3>
-                    <p class="text-4xl font-bold mb-6 text-white">$8.00</p>
-                    <button onclick="openCheckout('800+83 Diamantes', 8)" class="w-full btn-primary text-black py-3 rounded-xl font-bold uppercase text-xs">Comprar Ahora</button>
+                <div class="glass-morphism rounded-3xl text-center group transition-all hover:scale-[1.02] flex flex-col">
+                    <img src="https://i.ibb.co/7twhJpK7/icono.jpg" alt="Diamantes" class="package-card-img rounded-t-3xl">
+                    <div class="package-card-content flex-1">
+                        <h3 class="text-lg font-bold text-white uppercase">800+83 Diamantes</h3>
+                        <p class="text-3xl font-bold text-cyan-400">$8.00</p>
+                        <button onclick="openCheckout('800+83 Diamantes', 8)" class="w-full btn-primary text-black py-3 rounded-xl font-bold uppercase text-sm mt-2">Comprar Ahora</button>
+                    </div>
                 </div>
 
-                <div class="glass-morphism p-8 rounded-3xl text-center group transition-all hover:scale-[1.02]">
-                    <i class="fas fa-gem text-cyan-400 text-3xl mb-4 block group-hover:rotate-12 transition"></i>
-                    <h3 class="text-sm font-bold text-white uppercase mb-1">1080+108 Diamantes</h3>
-                    <p class="text-4xl font-bold mb-6 text-white">$10.00</p>
-                    <button onclick="openCheckout('1080+108 Diamantes', 10)" class="w-full btn-primary text-black py-3 rounded-xl font-bold uppercase text-xs">Comprar Ahora</button>
+                <div class="glass-morphism rounded-3xl text-center group transition-all hover:scale-[1.02] flex flex-col">
+                    <img src="https://i.ibb.co/7twhJpK7/icono.jpg" alt="Diamantes" class="package-card-img rounded-t-3xl">
+                    <div class="package-card-content flex-1">
+                        <h3 class="text-lg font-bold text-white uppercase">1080+108 Diamantes</h3>
+                        <p class="text-3xl font-bold text-cyan-400">$10.00</p>
+                        <button onclick="openCheckout('1080+108 Diamantes', 10)" class="w-full btn-primary text-black py-3 rounded-xl font-bold uppercase text-sm mt-2">Comprar Ahora</button>
+                    </div>
                 </div>
 
-                <div class="glass-morphism p-8 rounded-3xl text-center group transition-all hover:scale-[1.02]">
-                    <i class="fas fa-gem text-cyan-400 text-3xl mb-4 block group-hover:rotate-12 transition"></i>
-                    <h3 class="text-sm font-bold text-white uppercase mb-1">2180+218 Diamantes</h3>
-                    <p class="text-4xl font-bold mb-6 text-white">$20.00</p>
-                    <button onclick="openCheckout('2180+218 Diamantes', 20)" class="w-full btn-primary text-black py-3 rounded-xl font-bold uppercase text-xs">Comprar Ahora</button>
+                <div class="glass-morphism rounded-3xl text-center group transition-all hover:scale-[1.02] flex flex-col">
+                    <img src="https://i.ibb.co/7twhJpK7/icono.jpg" alt="Diamantes" class="package-card-img rounded-t-3xl">
+                    <div class="package-card-content flex-1">
+                        <h3 class="text-lg font-bold text-white uppercase">2180+218 Diamantes</h3>
+                        <p class="text-3xl font-bold text-cyan-400">$20.00</p>
+                        <button onclick="openCheckout('2180+218 Diamantes', 20)" class="w-full btn-primary text-black py-3 rounded-xl font-bold uppercase text-sm mt-2">Comprar Ahora</button>
+                    </div>
                 </div>
 
-                <div class="glass-morphism p-8 rounded-3xl text-center group transition-all hover:scale-[1.02]">
-                    <i class="fas fa-gem text-cyan-400 text-3xl mb-4 block group-hover:rotate-12 transition"></i>
-                    <h3 class="text-sm font-bold text-white uppercase mb-1">5600+560 Diamantes</h3>
-                    <p class="text-4xl font-bold mb-6 text-white">$47.00</p>
-                    <button onclick="openCheckout('5600+560 Diamantes', 47)" class="w-full btn-primary text-black py-3 rounded-xl font-bold uppercase text-xs">Comprar Ahora</button>
+                <div class="glass-morphism rounded-3xl text-center group transition-all hover:scale-[1.02] flex flex-col">
+                    <img src="https://i.ibb.co/7twhJpK7/icono.jpg" alt="Diamantes" class="package-card-img rounded-t-3xl">
+                    <div class="package-card-content flex-1">
+                        <h3 class="text-lg font-bold text-white uppercase">5600+560 Diamantes</h3>
+                        <p class="text-3xl font-bold text-cyan-400">$47.00</p>
+                        <button onclick="openCheckout('5600+560 Diamantes', 47)" class="w-full btn-primary text-black py-3 rounded-xl font-bold uppercase text-sm mt-2">Comprar Ahora</button>
+                    </div>
                 </div>
             </div>
 
@@ -361,8 +411,6 @@
         let tasaParalelo = 0;
         const MASTER_ADMIN = "eduardgeldes6@gmail.com";
 
-        // --- FUNCIONES GLOBALES ---
-
         window.showSection = (id) => {
             document.querySelectorAll('section').forEach(s => s.classList.add('hidden-section'));
             const el = document.getElementById(id);
@@ -383,13 +431,10 @@
             try {
                 const orderRef = doc(db, 'pedidos', orderId);
                 await updateDoc(orderRef, { status: newStatus });
-                // La UI se actualiza sola gracias al onSnapshot en startAdminDashboard
             } catch (e) {
                 alert("Error al actualizar el estado.");
             }
         };
-
-        // --- LÓGICA DE NEGOCIO ---
 
         async function fetchTasa() {
             try {
@@ -399,7 +444,7 @@
                 document.querySelectorAll('#tasa-valor').forEach(el => el.innerText = `${tasaParalelo.toFixed(2)} Bs.`);
             } catch (e) {
                 console.error("Error tasa:", e);
-                tasaParalelo = 70; // Fallback
+                tasaParalelo = 70;
             }
         }
         fetchTasa();
@@ -422,7 +467,6 @@
             }
         });
 
-        // Autenticación
         document.getElementById('loginForm').onsubmit = async (e) => {
             e.preventDefault();
             const email = document.getElementById('loginEmail').value;
@@ -446,7 +490,6 @@
             }
         };
 
-        // Pagos
         window.selectPayment = (method) => {
             selectedMethod = method;
             document.querySelectorAll('.payment-card').forEach(c => c.classList.remove('active'));
@@ -467,7 +510,8 @@
                 instr.innerHTML = `
                     <p class="font-bold text-cyan-400 mb-2">Zinli:</p>
                     <p>Correo: eduardgeldes6@gmail.com</p>
-                    <p class="text-green-400 font-bold mt-2">Monto: $${selectedPack.price}.00 USD</p>`;
+                    <p class="text-green-400 font-bold mt-2">Monto: $${selectedPack.price}.00 USD</p>
+                    <img src="https://i.ibb.co/0RcfTNT6/Captura-de-pantalla-2026-02-17-150329.png" alt="Instrucciones Zinli" class="zinli-instruction-img">`;
             }
         };
 
@@ -502,7 +546,6 @@
                 });
                 alert("Pago enviado exitosamente. Revisaremos tu recarga pronto.");
                 showSection('history');
-                // Limpiar campos
                 document.getElementById('playerID').value = '';
                 document.getElementById('payRef').value = '';
             } catch (e) { 
@@ -578,3 +621,5 @@
     </script>
 </body>
 </html>
+
+
