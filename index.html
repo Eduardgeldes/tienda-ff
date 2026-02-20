@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Diamond Store - Recargas Free Fire Seguras y Rápidas</title>
-<meta name="description" content="Recarga diamantes de Free Fire de forma segura con Pago Móvil y Zinli. El centro de recargas más confiable para jugadores.">
+<meta name="description" content="Recarga diamantes de Free Fire de forma segura con Pago Móvil y Zinli. El centro de recargas más confiable para jugadores en Latinoamérica.">
 <meta name="google-adsense-account" content="ca-pub-8397347098508270">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8397347098508270" crossorigin="anonymous"></script>
 <script src="https://cdn.tailwindcss.com"></script>
@@ -339,6 +339,130 @@ color: #94a3b8;
 font-size: 0.85rem;
 padding: 2rem;
 }
+/* Nuevos estilos para contenido público */
+.public-content {
+background: rgba(13, 17, 23, 0.9);
+border-radius: 1rem;
+padding: 2rem;
+margin: 1rem 0;
+}
+.public-content h2 {
+color: #00f2ff;
+font-size: 1.5rem;
+margin-bottom: 1rem;
+}
+.public-content h4 {
+color: #ffcc00;
+font-size: 1.1rem;
+margin: 1.5rem 0 0.5rem 0;
+}
+.public-content ul {
+list-style: disc;
+margin-left: 1.5rem;
+color: #cbd5e1;
+}
+.public-content li {
+margin-bottom: 0.5rem;
+line-height: 1.6;
+}
+.public-content a {
+color: #00f2ff;
+text-decoration: underline;
+}
+.blog-card {
+background: rgba(255,255,255,0.03);
+border: 1px solid rgba(0, 242, 255, 0.1);
+border-radius: 1rem;
+padding: 1.5rem;
+transition: all 0.3s ease;
+}
+.blog-card:hover {
+border-color: #00f2ff;
+transform: translateY(-5px);
+}
+.blog-card h3 {
+color: #00f2ff;
+font-size: 1.1rem;
+margin-bottom: 0.5rem;
+}
+.blog-card p {
+color: #94a3b8;
+font-size: 0.85rem;
+line-height: 1.5;
+}
+.blog-card .date {
+color: #64748b;
+font-size: 0.75rem;
+margin-top: 1rem;
+}
+.faq-item {
+background: rgba(255,255,255,0.03);
+border: 1px solid rgba(0, 242, 255, 0.1);
+border-radius: 0.75rem;
+margin-bottom: 1rem;
+overflow: hidden;
+}
+.faq-question {
+padding: 1rem 1.5rem;
+cursor: pointer;
+display: flex;
+justify-content: space-between;
+align-items: center;
+font-weight: bold;
+color: #00f2ff;
+}
+.faq-question:hover {
+background: rgba(0, 242, 255, 0.05);
+}
+.faq-answer {
+padding: 0 1.5rem 1rem 1.5rem;
+color: #cbd5e1;
+font-size: 0.9rem;
+line-height: 1.6;
+display: none;
+}
+.faq-item.active .faq-answer {
+display: block;
+}
+.faq-item.active .faq-question i {
+transform: rotate(180deg);
+}
+.trust-badge {
+display: flex;
+align-items: center;
+gap: 1rem;
+padding: 1rem;
+background: rgba(0, 242, 255, 0.05);
+border-radius: 0.75rem;
+margin: 0.5rem 0;
+}
+.trust-badge i {
+font-size: 1.5rem;
+color: #00f2ff;
+}
+.trust-badge div {
+flex: 1;
+}
+.trust-badge h5 {
+color: white;
+font-size: 0.9rem;
+margin-bottom: 0.25rem;
+}
+.trust-badge p {
+color: #94a3b8;
+font-size: 0.75rem;
+}
+.nav-link-public {
+color: #94a3b8;
+font-size: 11px;
+font-weight: bold;
+text-transform: uppercase;
+cursor: pointer;
+transition: color 0.3s;
+}
+.nav-link-public:hover {
+color: #00f2ff;
+}
 </style>
 </head>
 <body>
@@ -350,6 +474,9 @@ padding: 2rem;
 </div>
 <div class="flex items-center gap-4">
 <button onclick="showSection('home')" class="text-[11px] font-bold uppercase hover:text-cyan-400 transition">Tienda</button>
+<button onclick="showSection('blog')" class="nav-link-public">Blog</button>
+<button onclick="showSection('faq')" class="nav-link-public">FAQ</button>
+<button onclick="showSection('about')" class="nav-link-public">Nosotros</button>
 <button onclick="showSection('history')" class="text-[11px] font-bold uppercase hover:text-cyan-400 transition">Pedidos</button>
 <button id="admin-nav-btn" onclick="showSection('admin-panel')" class="hidden-section text-red-400 text-[11px] font-bold uppercase">Admin</button>
 <button onclick="handleLogout()" class="text-[10px] bg-red-600/20 text-red-400 px-3 py-1 rounded-full border border-red-600/30">SALIR</button>
@@ -364,6 +491,8 @@ padding: 2rem;
 </p>
 </div>
 </div>
+
+<!-- PANTALLA DE BIENVENIDA PÚBLICA -->
 <section id="welcome-screen" class="min-h-[70vh] flex flex-col items-center justify-center text-center">
 <div class="jumping-diamond mb-6">
 <i class="fas fa-gem"></i>
@@ -373,10 +502,241 @@ padding: 2rem;
 El centro de recargas líder en Latinoamérica. Seguro, rápido y con la mejor tasa del mercado para tus diamantes de Free Fire.
 </p>
 <div class="flex flex-col sm:flex-row gap-4 w-full max-w-xs sm:max-w-md justify-center">
-<button onclick="showSection('login-form')" class="btn-primary text-black font-bold py-4 px-8 rounded-2xl uppercase text-sm flex-1">Iniciar Sesión</button>
-<button onclick="showSection('register-form')" class="bg-white/5 border border-white/20 text-white font-bold py-4 px-8 rounded-2xl uppercase text-sm flex-1 hover:bg-white/10 transition">Crear Cuenta</button>
+<button onclick="showSection('home')" class="btn-primary text-black font-bold py-4 px-8 rounded-2xl uppercase text-sm flex-1">Ver Paquetes</button>
+<button onclick="showSection('login-form')" class="bg-white/5 border border-white/20 text-white font-bold py-4 px-8 rounded-2xl uppercase text-sm flex-1 hover:bg-white/10 transition">Iniciar Sesión</button>
+</div>
+<div class="mt-12 flex flex-wrap justify-center gap-6 text-xs text-gray-400">
+<a onclick="showSection('blog')" class="hover:text-cyan-400 cursor-pointer">📝 Blog</a>
+<a onclick="showSection('faq')" class="hover:text-cyan-400 cursor-pointer">❓ FAQ</a>
+<a onclick="showSection('about')" class="hover:text-cyan-400 cursor-pointer">🏢 Nosotros</a>
+<a onclick="showSection('contact-support')" class="hover:text-cyan-400 cursor-pointer">📧 Contacto</a>
 </div>
 </section>
+
+<!-- SECCIÓN BLOG PÚBLICA -->
+<section id="blog" class="hidden-section max-w-6xl mx-auto">
+<h2 class="gaming-font text-3xl text-center text-cyan-400 mb-8 uppercase">Blog de Free Fire</h2>
+<p class="text-gray-400 text-center mb-10 max-w-2xl mx-auto">Guías, trucos y noticias actualizadas para mejorar tu experiencia en Free Fire. Contenido creado por expertos para la comunidad latina.</p>
+
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+<div class="blog-card">
+<h3>🎮 Cómo Subir de Nivel Rápido en Free Fire 2026</h3>
+<p>Descubre las mejores estrategias para maximizar tu experiencia y subir de nivel rápidamente. Incluye mapas recomendados, modos de juego y consejos de expertos.</p>
+<p class="date">📅 Publicado: Enero 2026</p>
+</div>
+<div class="blog-card">
+<h3>🔫 Las Mejores Armas del Season Actual</h3>
+<p>Análisis completo del meta actual. Descubre qué armas dominan el battlefield y cómo usarlas efectivamente en cada situación de combate.</p>
+<p class="date">📅 Publicado: Enero 2026</p>
+</div>
+<div class="blog-card">
+<h3>💎 Guía Completa de Recargas Seguras</h3>
+<p>Todo lo que necesitas saber sobre recargas de diamantes. Métodos seguros, cómo evitar estafas y proteger tu cuenta de posibles baneos.</p>
+<p class="date">📅 Publicado: Diciembre 2025</p>
+</div>
+<div class="blog-card">
+<h3>🛡️ Cómo Evitar Baneos en Tu Cuenta</h3>
+<p>Consejos esenciales para mantener tu cuenta segura. Qué evitar, prácticas recomendadas y cómo identificar métodos de recarga legítimos.</p>
+<p class="date">📅 Publicado: Diciembre 2025</p>
+</div>
+<div class="blog-card">
+<h3>⚡ Eventos Especiales y Recompensas</h3>
+<p>Calendario actualizado de eventos, cómo participar y maximizar tus recompensas. No te pierdas ninguna oportunidad de conseguir items exclusivos.</p>
+<p class="date">📅 Publicado: Noviembre 2025</p>
+</div>
+<div class="blog-card">
+<h3>🎯 Mejora Tu Puntería: Tips de Aim</h3>
+<p>Técnicas profesionales para mejorar tu precisión. Configuración recomendada, ejercicios de práctica y consejos de jugadores pro.</p>
+<p class="date">📅 Publicado: Noviembre 2025</p>
+</div>
+</div>
+
+<div class="ad-container overflow-hidden">
+<p class="text-[9px] text-center text-gray-600 mb-2 uppercase tracking-widest">Publicidad</p>
+<ins class="adsbygoogle"
+style="display:block"
+data-ad-client="ca-pub-8397347098508270"
+data-ad-slot="1133942942"
+data-ad-format="auto"
+data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<button onclick="showSection('welcome-screen')" class="mt-8 text-cyan-400 text-xs font-bold uppercase underline">Volver al inicio</button>
+</section>
+
+<!-- SECCIÓN FAQ PÚBLICA -->
+<section id="faq" class="hidden-section max-w-4xl mx-auto">
+<h2 class="gaming-font text-3xl text-center text-cyan-400 mb-8 uppercase">Preguntas Frecuentes</h2>
+<p class="text-gray-400 text-center mb-10 max-w-2xl mx-auto">Encuentra respuestas a las preguntas más comunes sobre nuestras recargas, métodos de pago y tiempos de entrega.</p>
+
+<div class="faq-item">
+<div class="faq-question" onclick="toggleFaq(this)">
+<span>¿Cuánto tiempo tarda en llegar mi recarga?</span>
+<i class="fas fa-chevron-down"></i>
+</div>
+<div class="faq-answer">
+Nuestras recargas se procesan en menos de 15 minutos en la mayoría de los casos. En horas pico o eventos especiales, puede tomar hasta 30 minutos. Siempre recibirás una notificación cuando tu pedido sea completado.
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question" onclick="toggleFaq(this)">
+<span>¿Es seguro recargar con Diamond Store?</span>
+<i class="fas fa-chevron-down"></i>
+</div>
+<div class="faq-answer">
+Absolutamente. Todas nuestras recargas se realizan a través del Centro de Recargas Oficial de Garena. No necesitamos tu contraseña, solo tu ID de jugador. Tu cuenta está 100% protegida contra baneos.
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question" onclick="toggleFaq(this)">
+<span>¿Qué métodos de pago aceptan?</span>
+<i class="fas fa-chevron-down"></i>
+</div>
+<div class="faq-answer">
+Aceptamos Pago Móvil (Venezuela) y Zinli (internacional). Estamos trabajando para agregar más métodos de pago como PayPal, tarjetas de crédito y criptomonedas en el futuro cercano.
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question" onclick="toggleFaq(this)">
+<span>¿Qué hago si mi recarga no llega?</span>
+<i class="fas fa-chevron-down"></i>
+</div>
+<div class="faq-answer">
+Contacta nuestro soporte inmediatamente a eduardgeldes6@gmail.com o usa el chat de soporte en tu historial de pedidos. Revisaremos tu caso y procesaremos un reembolso si es necesario.
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question" onclick="toggleFaq(this)">
+<span>¿Necesito crear una cuenta para recargar?</span>
+<i class="fas fa-chevron-down"></i>
+</div>
+<div class="faq-answer">
+Sí, necesitas una cuenta para poder hacer seguimiento de tus pedidos y acceder al soporte. El registro es gratuito y toma menos de 1 minuto.
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question" onclick="toggleFaq(this)">
+<span>¿Hacen envíos a todos los países de Latam?</span>
+<i class="fas fa-chevron-down"></i>
+</div>
+<div class="faq-answer">
+Sí, trabajamos con todos los países de Latinoamérica. Los precios pueden variar según el país debido a las tasas de cambio locales. Selecciona tu país en la tienda para ver precios actualizados.
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question" onclick="toggleFaq(this)">
+<span>¿Puedo cancelar un pedido?</span>
+<i class="fas fa-chevron-down"></i>
+</div>
+<div class="faq-answer">
+Los pedidos solo se pueden cancelar antes de ser procesados. Una vez que el pago es verificado y la recarga enviada, no se pueden cancelar. Contacta soporte para más información.
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question" onclick="toggleFaq(this)">
+<span>¿Ofrecen descuentos por compras grandes?</span>
+<i class="fas fa-chevron-down"></i>
+</div>
+<div class="faq-answer">
+Sí, tenemos precios especiales para paquetes grandes de diamantes. Revisa nuestra sección de paquetes para ver las mejores ofertas. También hay promociones especiales durante eventos.
+</div>
+</div>
+
+<div class="ad-container overflow-hidden">
+<p class="text-[9px] text-center text-gray-600 mb-2 uppercase tracking-widest">Publicidad</p>
+<ins class="adsbygoogle"
+style="display:block"
+data-ad-client="ca-pub-8397347098508270"
+data-ad-slot="1133942942"
+data-ad-format="auto"
+data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<button onclick="showSection('welcome-screen')" class="mt-8 text-cyan-400 text-xs font-bold uppercase underline">Volver al inicio</button>
+</section>
+
+<!-- SECCIÓN SOBRE NOSOTROS -->
+<section id="about" class="hidden-section max-w-4xl mx-auto">
+<h2 class="gaming-font text-3xl text-center text-cyan-400 mb-8 uppercase">Sobre Diamond Store</h2>
+
+<div class="glass-morphism p-8 rounded-3xl mb-8">
+<h3 class="text-xl text-white mb-4">🏆 Nuestra Historia</h3>
+<p class="text-gray-300 leading-relaxed mb-4">
+Diamond Store fue fundada en 2024 con una misión clara: proporcionar un servicio de recargas de Free Fire seguro, rápido y confiable para toda la comunidad latina. Después de años de experiencia en el mercado de gaming, identificamos la necesidad de un proveedor que priorizara la seguridad de las cuentas de nuestros clientes.
+</p>
+<p class="text-gray-300 leading-relaxed">
+Hoy en día, hemos procesado miles de recargas exitosas y contamos con una comunidad de clientes satisfechos en más de 15 países de Latinoamérica. Nuestro compromiso con la calidad y la transparencia nos ha convertido en el centro de recargas preferido por jugadores de Free Fire.
+</p>
+</div>
+
+<div class="glass-morphism p-8 rounded-3xl mb-8">
+<h3 class="text-xl text-white mb-4">🎯 Nuestra Misión</h3>
+<ul class="text-gray-300 space-y-3">
+<li>✓ Proporcionar recargas 100% legales y seguras</li>
+<li>✓ Ofrecer los mejores precios del mercado latinoamericano</li>
+<li>✓ Brindar soporte al cliente 24/7 en español</li>
+<li>✓ Garantizar tiempos de entrega rápidos (menos de 15 minutos)</li>
+<li>✓ Proteger la privacidad y seguridad de nuestros usuarios</li>
+</ul>
+</div>
+
+<div class="glass-morphism p-8 rounded-3xl mb-8">
+<h3 class="text-xl text-white mb-4">📞 Información de Contacto</h3>
+<div class="grid md:grid-cols-2 gap-4">
+<div class="trust-badge">
+<i class="fas fa-envelope"></i>
+<div>
+<h5>Email de Soporte</h5>
+<p>eduardgeldes6@gmail.com</p>
+</div>
+</div>
+<div class="trust-badge">
+<i class="fas fa-clock"></i>
+<div>
+<h5>Horario de Atención</h5>
+<p>Lunes a Domingo - 24/7</p>
+</div>
+</div>
+<div class="trust-badge">
+<i class="fas fa-globe"></i>
+<div>
+<h5>Cobertura</h5>
+<p>Toda Latinoamérica + EE.UU.</p>
+</div>
+</div>
+<div class="trust-badge">
+<i class="fas fa-shield-alt"></i>
+<div>
+<h5>Garantía</h5>
+<p>100% Seguro - Sin Baneos</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="ad-container overflow-hidden">
+<p class="text-[9px] text-center text-gray-600 mb-2 uppercase tracking-widest">Publicidad</p>
+<ins class="adsbygoogle"
+style="display:block"
+data-ad-client="ca-pub-8397347098508270"
+data-ad-slot="1133942942"
+data-ad-format="auto"
+data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<button onclick="showSection('welcome-screen')" class="mt-8 text-cyan-400 text-xs font-bold uppercase underline">Volver al inicio</button>
+</section>
+
 <section id="login-form" class="hidden-section max-w-md mx-auto glass-morphism p-10 rounded-3xl">
 <h2 class="gaming-font text-2xl text-center mb-8 uppercase">Ingresar</h2>
 <form id="loginForm" class="space-y-5">
@@ -386,6 +746,7 @@ El centro de recargas líder en Latinoamérica. Seguro, rápido y con la mejor t
 <button type="button" onclick="showSection('welcome-screen')" class="w-full text-gray-500 text-xs uppercase font-bold pt-2">Volver</button>
 </form>
 </section>
+
 <section id="register-form" class="hidden-section max-w-md mx-auto glass-morphism p-10 rounded-3xl">
 <h2 class="gaming-font text-2xl text-center mb-8 uppercase">Registro</h2>
 <form id="registerForm" class="space-y-5">
@@ -395,6 +756,7 @@ El centro de recargas líder en Latinoamérica. Seguro, rápido y con la mejor t
 <button type="button" onclick="showSection('welcome-screen')" class="w-full text-gray-500 text-xs uppercase font-bold pt-2">Volver</button>
 </form>
 </section>
+
 <section id="home" class="hidden-section max-w-6xl mx-auto">
 <header class="text-center mb-8">
 <h2 class="gaming-font text-3xl text-white uppercase italic">Recargas <span class="text-cyan-400">Inmediatas</span></h2>
@@ -479,20 +841,184 @@ Somos proveedores autorizados. Todas las recargas se realizan de forma legal a t
 </div>
 </div>
 </section>
+
+<!-- POLÍTICA DE PRIVACIDAD EXPANDIDA -->
 <section id="privacy-policy" class="hidden-section max-w-4xl mx-auto glass-morphism p-10 rounded-3xl legal-content">
 <h2 class="gaming-font text-2xl text-cyan-400 mb-6 uppercase">Política de Privacidad</h2>
-<h3>Compromiso de Seguridad</h3>
-<p>En Diamond Store, tu seguridad es nuestra prioridad. Solo solicitamos tu <b>ID de Jugador</b> para procesar las recargas.</p>
-<h3>Uso de Datos</h3>
-<p>Tu correo de registro se utiliza exclusivamente para gestionar tu historial de pedidos y brindarte soporte técnico.</p>
+<p class="text-sm text-gray-400 mb-4">Última actualización: Enero 2026</p>
+
+<h3>1. Compromiso de Seguridad</h3>
+<p>En Diamond Store, tu seguridad es nuestra prioridad número uno. Solo solicitamos tu <b>ID de Jugador</b> para procesar las recargas de diamantes. Nunca pedimos tu contraseña, datos de tu cuenta de Garena, ni información personal sensible.</p>
+
+<h3>2. Información que Recopilamos</h3>
+<p>Recopilamos la siguiente información para brindar nuestros servicios:</p>
+<ul>
+<li>Correo electrónico: Para gestión de cuenta y notificaciones de pedidos</li>
+<li>ID de Free Fire: Exclusivamente para procesar recargas</li>
+<li>Historial de transacciones: Para soporte y garantía</li>
+<li>Datos de pago: Procesados de forma segura a través de nuestros proveedores</li>
+</ul>
+
+<h3>3. Uso de Datos</h3>
+<p>Tu correo de registro se utiliza exclusivamente para:</p>
+<ul>
+<li>Gestionar tu historial de pedidos</li>
+<li>Brindarte soporte técnico cuando lo necesites</li>
+<li>Enviarte notificaciones sobre el estado de tus recargas</li>
+<li>Informarte sobre promociones especiales (opcional, puedes darte de baja)</li>
+</ul>
+
+<h3>4. Protección de Datos</h3>
+<p>Implementamos medidas de seguridad técnicas y organizativas para proteger tu información personal contra acceso no autorizado, pérdida o destrucción. Utilizamos encriptación SSL para todas las transacciones.</p>
+
+<h3>5. Compartir Información</h3>
+<p>No vendemos, alquilamos ni compartimos tu información personal con terceros, excepto cuando sea necesario para procesar tus pagos o cumplir con obligaciones legales.</p>
+
+<h3>6. Cookies</h3>
+<p>Este sitio utiliza cookies esenciales para el funcionamiento de la tienda y cookies analíticas para mejorar la experiencia del usuario. Puedes configurar tu navegador para rechazar cookies, pero algunas funciones del sitio podrían no estar disponibles.</p>
+
+<h3>7. Tus Derechos</h3>
+<p>Tienes derecho a:</p>
+<ul>
+<li>Acceder a tu información personal</li>
+<li>Corregir datos incorrectos</li>
+<li>Solicitar la eliminación de tu cuenta</li>
+<li>Darte de baja de comunicaciones promocionales</li>
+</ul>
+
+<h3>8. Contacto</h3>
+<p>Para cualquier pregunta sobre esta política de privacidad, contáctanos en: eduardgeldes6@gmail.com</p>
+
 <button onclick="showSection('home')" class="mt-6 text-cyan-400 text-xs font-bold uppercase underline">Volver a la tienda</button>
 </section>
+
+<!-- TÉRMINOS DE SERVICIO EXPANDIDOS -->
 <section id="terms-of-service" class="hidden-section max-w-4xl mx-auto glass-morphism p-10 rounded-3xl legal-content">
 <h2 class="gaming-font text-2xl text-cyan-400 mb-6 uppercase">Términos de Servicio</h2>
-<h3>Garantía Anti-Baneo</h3>
-<p>Todas nuestras recargas se realizan mediante el <b>Centro de Recargas Oficial de Garena</b>.</p>
+<p class="text-sm text-gray-400 mb-4">Última actualización: Enero 2026</p>
+
+<h3>1. Aceptación de Términos</h3>
+<p>Al usar Diamond Store, aceptas estar legalmente vinculado por estos términos de servicio. Si no estás de acuerdo, por favor no utilices nuestros servicios.</p>
+
+<h3>2. Garantía Anti-Baneo</h3>
+<p>Todas nuestras recargas se realizan mediante el <b>Centro de Recargas Oficial de Garena</b>. Garantizamos que tus diamantes serán entregados de forma legítima sin riesgo de baneo para tu cuenta.</p>
+
+<h3>3. Elegibilidad</h3>
+<p>Debes tener al menos 13 años para usar nuestros servicios. Si eres menor de edad, necesitas el consentimiento de un padre o tutor legal.</p>
+
+<h3>4. Proceso de Compra</h3>
+<p>Al realizar una compra:</p>
+<ul>
+<li>Seleccionas el paquete de diamantes deseado</li>
+<li>Proporcionas tu ID de Free Fire válido</li>
+<li>Realizas el pago mediante nuestros métodos disponibles</li>
+<li>Recibes tus diamantes en el tiempo estimado</li>
+</ul>
+
+<h3>5. Política de Reembolsos</h3>
+<p>Ofrecemos reembolso completo en los siguientes casos:</p>
+<ul>
+<li>La recarga no se completa dentro de 24 horas</li>
+<li>El ID proporcionado es inválido o no existe</li>
+<li>Error técnico del sistema que impida la entrega</li>
+</ul>
+<p>No se ofrecen reembolsos una vez que los diamantes han sido entregados exitosamente.</p>
+
+<h3>6. Conducta del Usuario</h3>
+<p>Está prohibido:</p>
+<ul>
+<li>Proporcionar información falsa o engañosa</li>
+<li>Intentar explotar vulnerabilidades del sistema</li>
+<li>Usar el servicio para actividades ilegales</li>
+<li>Crear múltiples cuentas para abusar de promociones</li>
+</ul>
+
+<h3>7. Limitación de Responsabilidad</h3>
+<p>Diamond Store no es responsable de:</p>
+<ul>
+<li>Problemas con la cuenta de Free Fire del usuario (baneos previos, etc.)</li>
+<li>Cambios de precios o políticas de Garena</li>
+<li>Interrupciones del servicio por causas de fuerza mayor</li>
+</ul>
+
+<h3>8. Modificaciones</h3>
+<p>Nos reservamos el derecho de modificar estos términos en cualquier momento. Los cambios entrarán en vigor inmediatamente después de su publicación en el sitio.</p>
+
+<h3>9. Ley Aplicable</h3>
+<p>Estos términos se rigen por las leyes aplicables en la jurisdicción donde opera Diamond Store.</p>
+
 <button onclick="showSection('home')" class="mt-6 text-cyan-400 text-xs font-bold uppercase underline">Volver a la tienda</button>
 </section>
+
+<!-- POLÍTICA DE COOKIES -->
+<section id="cookie-policy" class="hidden-section max-w-4xl mx-auto glass-morphism p-10 rounded-3xl legal-content">
+<h2 class="gaming-font text-2xl text-cyan-400 mb-6 uppercase">Política de Cookies</h2>
+
+<h3>1. ¿Qué son las Cookies?</h3>
+<p>Las cookies son pequeños archivos de texto que se almacenan en tu dispositivo cuando visitas nuestro sitio web. Nos ayudan a mejorar tu experiencia y hacer que el sitio funcione correctamente.</p>
+
+<h3>2. Tipos de Cookies que Usamos</h3>
+<ul>
+<li><b>Cookies Esenciales:</b> Necesarias para el funcionamiento básico del sitio (inicio de sesión, carrito de compras)</li>
+<li><b>Cookies de Preferencias:</b> Guardan tu configuración y preferencias</li>
+<li><b>Cookies Analíticas:</b> Nos ayudan a entender cómo usas el sitio para mejorarlo</li>
+<li><b>Cookies de Publicidad:</b> Muestran anuncios relevantes (Google AdSense)</li>
+</ul>
+
+<h3>3. Cookies de Terceros</h3>
+<p>Usamos servicios de terceros que pueden colocar cookies:</p>
+<ul>
+<li>Google AdSense - Para mostrar anuncios</li>
+<li>Google Analytics - Para análisis de tráfico</li>
+<li>Firebase - Para autenticación y base de datos</li>
+</ul>
+
+<h3>4. Gestión de Cookies</h3>
+<p>Puedes controlar las cookies a través de la configuración de tu navegador. Ten en cuenta que deshabilitar ciertas cookies puede afectar la funcionalidad del sitio.</p>
+
+<h3>5. Actualizaciones</h3>
+<p>Esta política puede actualizarse periódicamente. Te notificaremos sobre cambios significativos.</p>
+
+<button onclick="showSection('home')" class="mt-6 text-cyan-400 text-xs font-bold uppercase underline">Volver a la tienda</button>
+</section>
+
+<!-- POLÍTICA DE REEMBOLSOS -->
+<section id="refund-policy" class="hidden-section max-w-4xl mx-auto glass-morphism p-10 rounded-3xl legal-content">
+<h2 class="gaming-font text-2xl text-cyan-400 mb-6 uppercase">Política de Reembolsos</h2>
+
+<h3>1. Elegibilidad para Reembolso</h3>
+<p>Puedes solicitar un reembolso en las siguientes situaciones:</p>
+<ul>
+<li>La recarga no se completa dentro de 24 horas hábiles</li>
+<li>El ID de jugador proporcionado es inválido</li>
+<li>Error del sistema que impide la entrega</li>
+<li>Pago duplicado por error técnico</li>
+</ul>
+
+<h3>2. Proceso de Reembolso</h3>
+<p>Para solicitar un reembolso:</p>
+<ul>
+<li>Contacta a soporte en eduardgeldes6@gmail.com</li>
+<li>Proporciona tu número de pedido y comprobante de pago</li>
+<li>Explica el motivo de la solicitud</li>
+<li>Espera la revisión (24-48 horas)</li>
+</ul>
+
+<h3>3. Tiempos de Procesamiento</h3>
+<p>Los reembolsos aprobados se procesan en 3-5 días hábiles. El tiempo de aparición en tu cuenta depende de tu método de pago.</p>
+
+<h3>4. Exclusiones</h3>
+<p>No se aceptan reembolsos cuando:</p>
+<ul>
+<li>Los diamantes ya fueron entregados exitosamente</li>
+<li>El usuario proporcionó un ID incorrecto</li>
+<li>La cuenta de Free Fire tiene restricciones previas</li>
+<li>Ha pasado más de 7 días desde la compra</li>
+</ul>
+
+<button onclick="showSection('home')" class="mt-6 text-cyan-400 text-xs font-bold uppercase underline">Volver a la tienda</button>
+</section>
+
 <section id="contact-support" class="hidden-section max-w-4xl mx-auto glass-morphism p-10 rounded-3xl text-center">
 <h2 class="gaming-font text-2xl text-cyan-400 mb-6 uppercase">Soporte al Cliente</h2>
 <div class="py-10">
@@ -502,9 +1028,14 @@ Somos proveedores autorizados. Todas las recargas se realizan de forma legal a t
 <p class="text-xs text-gray-500 uppercase font-bold mb-2">Correo de Atención:</p>
 <a href="mailto:eduardgeldes6@gmail.com" class="text-2xl font-mono font-bold text-white hover:text-cyan-400 transition">eduardgeldes6@gmail.com</a>
 </div>
+<div class="mt-6 text-gray-400 text-sm">
+<p>⏰ Tiempo de respuesta promedio: 2-4 horas</p>
+<p>📍 Disponible: Lunes a Domingo, 24/7</p>
+</div>
 </div>
 <button onclick="showSection('home')" class="block mx-auto mt-6 text-gray-500 text-xs font-bold uppercase underline">Volver al inicio</button>
 </section>
+
 <section id="checkout-section" class="hidden-section max-w-xl mx-auto glass-morphism p-10 rounded-3xl">
 <h2 class="gaming-font text-cyan-400 text-center mb-8 uppercase">Reportar Pago</h2>
 <div id="checkout-details" class="bg-black/40 p-5 rounded-2xl mb-8 border border-white/5"></div>
@@ -525,10 +1056,12 @@ Somos proveedores autorizados. Todas las recargas se realizan de forma legal a t
 <button onclick="confirmPurchase()" class="w-full btn-primary text-black py-4 rounded-xl font-bold uppercase">Confirmar Pago</button>
 </div>
 </section>
+
 <section id="history" class="hidden-section max-w-2xl mx-auto">
 <h2 class="gaming-font text-center text-xl mb-8 uppercase">Mis Recargas</h2>
 <div id="user-history-list" class="space-y-4"></div>
 </section>
+
 <section id="admin-panel" class="hidden-section max-w-6xl mx-auto">
 <h2 class="gaming-font text-red-500 text-center text-2xl mb-10 uppercase">Gestión de Ventas</h2>
 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
@@ -600,31 +1133,51 @@ Somos proveedores autorizados. Todas las recargas se realizan de forma legal a t
 </div>
 </section>
 </main>
+
 <footer class="mt-20 py-12 glass-morphism border-t border-white/5">
 <div class="container mx-auto px-4">
-<div class="grid md:grid-cols-3 gap-10 text-center md:text-left">
+<div class="grid md:grid-cols-4 gap-10 text-center md:text-left">
 <div>
 <h4 class="gaming-font text-cyan-400 mb-4 uppercase">Diamond Store</h4>
 <p class="text-xs text-gray-400 leading-relaxed">
-Lideramos el mercado de recargas en Latinoamérica ofreciendo diamantes 100% legales.
+Lideramos el mercado de recargas en Latinoamérica ofreciendo diamantes 100% legales desde 2024.
 </p>
 </div>
-<div class="flex flex-col gap-3 text-xs uppercase font-bold text-gray-500">
-<h4 class="text-white mb-2">Centro de Confianza</h4>
+<div>
+<h4 class="text-white mb-4 uppercase text-xs font-bold tracking-widest">Enlaces Rápidos</h4>
+<div class="flex flex-col gap-2 text-xs text-gray-500">
+<button onclick="showSection('home')" class="hover:text-cyan-400 transition text-left">Tienda</button>
+<button onclick="showSection('blog')" class="hover:text-cyan-400 transition text-left">Blog</button>
+<button onclick="showSection('faq')" class="hover:text-cyan-400 transition text-left">FAQ</button>
+<button onclick="showSection('about')" class="hover:text-cyan-400 transition text-left">Nosotros</button>
+</div>
+</div>
+<div>
+<h4 class="text-white mb-4 uppercase text-xs font-bold tracking-widest">Legal</h4>
+<div class="flex flex-col gap-2 text-xs text-gray-500">
 <button onclick="showSection('privacy-policy')" class="hover:text-cyan-400 transition text-left">Política de Privacidad</button>
 <button onclick="showSection('terms-of-service')" class="hover:text-cyan-400 transition text-left">Términos de Servicio</button>
-<button onclick="showSection('contact-support')" class="hover:text-cyan-400 transition text-left">Contacto Soporte</button>
+<button onclick="showSection('cookie-policy')" class="hover:text-cyan-400 transition text-left">Política de Cookies</button>
+<button onclick="showSection('refund-policy')" class="hover:text-cyan-400 transition text-left">Política de Reembolsos</button>
+</div>
 </div>
 <div>
 <h4 class="text-white mb-4 uppercase text-xs font-bold tracking-widest">Soporte Directo</h4>
-<p class="text-cyan-400 font-bold">eduardgeldes6@gmail.com</p>
+<p class="text-cyan-400 font-bold text-sm">eduardgeldes6@gmail.com</p>
+<p class="text-gray-500 text-xs mt-2">⏰ Respuesta en 2-4 horas</p>
+<div class="flex justify-center md:justify-start gap-3 mt-4">
+<a href="#" class="text-gray-400 hover:text-cyan-400 transition"><i class="fab fa-whatsapp text-xl"></i></a>
+<a href="#" class="text-gray-400 hover:text-cyan-400 transition"><i class="fab fa-instagram text-xl"></i></a>
+<a href="#" class="text-gray-400 hover:text-cyan-400 transition"><i class="fab fa-facebook text-xl"></i></a>
+</div>
 </div>
 </div>
 <p class="text-[10px] text-gray-600 text-center mt-12 pt-8 border-t border-white/5">
-© 2024 Diamond Store FF. No estamos afiliados a Garena Free Fire.
+© 2024-2026 Diamond Store FF. Todos los derechos reservados. No estamos afiliados a Garena Free Fire.
 </p>
 </div>
 </footer>
+
 <!-- Chat Modal -->
 <div id="chat-modal" class="hidden-section chat-modal">
 <div class="chat-modal-content">
@@ -646,6 +1199,7 @@ Lideramos el mercado de recargas en Latinoamérica ofreciendo diamantes 100% leg
 </div>
 </div>
 </div>
+
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
 import { getAuth, onAuthStateChanged, signOut, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
@@ -1393,6 +1947,11 @@ const div = document.createElement('div');
 div.textContent = text;
 return div.innerHTML;
 }
+// Función para FAQ accordion
+window.toggleFaq = (element) => {
+const faqItem = element.parentElement;
+faqItem.classList.toggle('active');
+};
 renderPackages();
 </script>
 </body>
