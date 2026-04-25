@@ -466,6 +466,61 @@ color: #00f2ff;
 </style>
 </head>
 <body>
+    <script>
+(function() {
+    const KEY = 'ff_admin_precios_auto';
+
+    // 🔍 Cargar precios guardados
+    function cargarPrecios() {
+        const saved = localStorage.getItem(KEY);
+        if (!saved) return;
+        
+        const data = JSON.parse(saved);
+        const inputs = document.querySelectorAll('input[type="number"], input[type="text"]');
+        
+        inputs.forEach((el, i) => {
+            const k = el.id || el.name || `campo_${i}`;
+            if (data[k] !== undefined) {
+                el.value = data[k];
+                // Dispara eventos por si tu código original depende de ellos
+                el.dispatchEvent(new Event('input', { bubbles: true }));
+                el.dispatchEvent(new Event('change', { bubbles: true }));
+            }
+        });
+    }
+
+    // 💾 Guardar precios al hacer clic en "Guardar"
+    function guardarPrecios() {
+        const inputs = document.querySelectorAll('input[type="number"], input[type="text"]');
+        const data = {};
+        inputs.forEach((el, i) => {
+            const k = el.id || el.name || `campo_${i}`;
+            if (el.value) data[k] = el.value;
+        });
+        localStorage.setItem(KEY, JSON.stringify(data));
+    }
+
+    // Ejecutar al cargar la página
+    document.addEventListener('DOMContentLoaded', () => {
+        // Pequeño retraso por si los inputs se generan con JS después de cargar
+        setTimeout(cargarPrecios, 500);
+    });
+
+    // Interceptar clics en botones de guardar
+    document.addEventListener('click', function(e) {
+        const btn = e.target.closest('button');
+        if (btn && /guardar/i.test(btn.textContent.trim())) {
+            // Guardamos sin bloquear la acción original del botón
+            setTimeout(guardarPrecios, 50);
+            
+            // Feedback visual rápido
+            const txtOriginal = btn.textContent;
+            btn.textContent = '✅ Guardado';
+            setTimeout(() => btn.textContent = txtOriginal, 1200);
+        }
+    });
+})();
+</script>
 <nav id="main-nav" class="hidden-section p-4 glass-morphism sticky top-0 z-50">
 <div class="container mx-auto flex justify-between items-center">
 <div class="flex items-center gap-2 cursor-pointer" onclick="showSection('home')">
@@ -1956,6 +2011,7 @@ renderPackages();
 </script>
 </body>
 </html>
+
 
 
 
