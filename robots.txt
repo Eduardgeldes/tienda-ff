@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mi-tienda-genial.netlify.app/sitemap.xml
