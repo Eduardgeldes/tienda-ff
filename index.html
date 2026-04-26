@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- 🔥 FAVICON - ÍCONO DE LA PESTAÑA 🔥 -->
+<link rel="icon" type="image/png" href="https://i.ibb.co/V0KsKhWx/Gemini-Generated-Image-3rpsxr3rpsxr3rps.png">
+<link rel="shortcut icon" type="image/png" href="https://i.ibb.co/V0KsKhWx/Gemini-Generated-Image-3rpsxr3rpsxr3rps.png">
+
 <!-- 🔥 SEO PRINCIPAL & TÍTULO 🔥 -->
 <title>Diamond Store - Recargas Free Fire y Roblox | Baratas Venezuela 2026</title>
 
@@ -22,14 +26,14 @@
 <meta property="og:description" content="Recargas de diamantes al mejor precio. Entrega inmediata 24/7. ¡Las más baratas de Venezuela!">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://mi-tienda-genial.netlify.app/">
-<meta property="og:image" content="https://mi-tienda-genial.netlify.app/og-image.jpg">
+<meta property="og:image" content="https://i.ibb.co/V0KsKhWx/Gemini-Generated-Image-3rpsxr3rpsxr3rps.png">
 <meta property="og:site_name" content="Diamond Store">
 
 <!-- 🐦 TWITTER CARDS -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Diamond Store - Recargas Free Fire y Roblox">
 <meta name="twitter:description" content="Recargas de diamantes al mejor precio. Entrega inmediata 24/7.">
-<meta name="twitter:image" content="https://mi-tienda-genial.netlify.app/og-image.jpg">
+<meta name="twitter:image" content="https://i.ibb.co/V0KsKhWx/Gemini-Generated-Image-3rpsxr3rpsxr3rps.png">
 
 <!-- 🏷️ SCHEMA.ORG (Datos estructurados para Google Maps y Búsqueda) -->
 <script type="application/ld+json">
@@ -37,13 +41,13 @@
   "@context": "https://schema.org",
   "@type": "Store",
   "name": "Diamond Store",
-  "description": "Recargas de diamantes Free Fire y Roblox en Venezuela y Latinoamérica",
+  "description": "Recargas de diamantes Free Fire y Roblox en Venezuela",
   "url": "https://mi-tienda-genial.netlify.app",
   "email": "eduardgeldes6@gmail.com",
-  "areaServed": ["Venezuela", "Colombia", "México", "Argentina", "Chile", "Perú", "Ecuador"],
+  "areaServed": ["Venezuela"],
   "priceRange": "$$",
-  "currenciesAccepted": "USD, VES, MXN, COP, ARS",
-  "paymentAccepted": "Pago Móvil, Zinli, Transferencia Bancaria",
+  "currenciesAccepted": "USD, VES",
+  "paymentAccepted": "Pago Móvil, Zinli",
   "openingHours": "Mo-Su 00:00-23:59",
   "availableLanguage": ["es"]
 }
@@ -170,6 +174,12 @@ input, select, textarea { background: rgba(0, 0, 0, 0.5) !important; border: 1px
 .rating-stars { color: #ffcc00; font-size: 0.85rem; }
 .rating-count { color: #94a3b8; font-size: 0.75rem; }
 .rating-average { font-weight: bold; color: #00f2ff; font-size: 0.9rem; }
+
+/* 💰 PRECIOS DUALES */
+.dual-price { display: flex; gap: 0.5rem; justify-content: center; align-items: center; margin: 0.5rem 0; }
+.dual-price span { font-size: 0.7rem; padding: 2px 6px; border-radius: 4px; }
+.dual-price .usd { background: rgba(34, 197, 94, 0.2); color: #22c55e; }
+.dual-price .ves { background: rgba(234, 179, 8, 0.2); color: #eab308; }
 </style>
 </head>
 <body>
@@ -199,7 +209,7 @@ input, select, textarea { background: rgba(0, 0, 0, 0.5) !important; border: 1px
 <main class="container mx-auto px-4 py-8">
 <div id="tasa-bar" class="hidden-section max-w-4xl mx-auto mb-6">
 <div class="bg-black/60 backdrop-blur-md border border-yellow-500/30 p-2 rounded-lg text-center">
-<p class="text-[11px] text-yellow-500 font-bold uppercase tracking-wider"><i class="fas fa-bolt mr-2"></i> Tasa Paralelo Hoy: <span id="tasa-valor" class="text-white">Cargando...</span></p>
+<p class="text-[11px] text-yellow-500 font-bold uppercase tracking-wider"><i class="fas fa-bolt mr-2"></i> Tasa Paralelo: <span id="tasa-valor" class="text-white">Cargando...</span> (Referencia)</p>
 </div>
 </div>
 
@@ -207,7 +217,7 @@ input, select, textarea { background: rgba(0, 0, 0, 0.5) !important; border: 1px
 <section id="welcome-screen" class="min-h-[70vh] flex flex-col items-center justify-center text-center">
 <div class="jumping-diamond mb-6"><i class="fas fa-gem"></i></div>
 <h1 class="gaming-font text-4xl md:text-5xl mb-4 uppercase tracking-widest text-white">Diamond Store</h1>
-<p class="text-gray-400 text-sm mb-10 max-w-md mx-auto leading-relaxed">Recargas seguras para Free Fire, Roblox y más. Líderes en Latinoamérica.</p>
+<p class="text-gray-400 text-sm mb-10 max-w-md mx-auto leading-relaxed">Recargas seguras para Free Fire, Roblox y más. Líderes en Venezuela.</p>
 <div class="flex flex-col sm:flex-row gap-4 w-full max-w-xs sm:max-w-md justify-center">
 <button onclick="showSection('home')" class="btn-primary text-black font-bold py-4 px-8 rounded-2xl uppercase text-sm flex-1">Ver Tienda</button>
 <button onclick="showSection('login-form')" class="bg-white/5 border border-white/20 text-white font-bold py-4 px-8 rounded-2xl uppercase text-sm flex-1 hover:bg-white/10 transition">Iniciar Sesión</button>
@@ -254,26 +264,33 @@ input, select, textarea { background: rgba(0, 0, 0, 0.5) !important; border: 1px
 <div class="flex flex-wrap items-center gap-4">
 <div>
 <label class="text-[10px] text-gray-400 uppercase font-bold block mb-1">País</label>
-<select id="countrySelect" onchange="updateCountryPrices()" class="p-2 rounded-lg outline-none min-w-[150px]">
-<option value="argentina">🇦 Argentina</option><option value="bolivia">🇧🇴 Bolivia</option><option value="chile">🇨 Chile</option><option value="colombia">🇨🇴 Colombia</option><option value="costarica">🇨 Costa Rica</option><option value="dominicana">🇩🇴 Rep. Dominicana</option><option value="ecuador">🇪 Ecuador</option><option value="elsalvador">🇸 El Salvador</option><option value="guatemala">🇬 Guatemala</option><option value="mexico">🇲 México</option><option value="nicaragua">🇳 Nicaragua</option><option value="panama">🇵 Panamá</option><option value="uruguay">🇺🇾 Uruguay</option><option value="venezuela" selected>🇻 Venezuela</option>
+<select id="countrySelect" class="p-2 rounded-lg outline-none min-w-[150px]" disabled>
+<option value="venezuela" selected>🇻 Venezuela</option>
 </select>
 </div>
 <div>
-<label class="text-[10px] text-gray-400 uppercase font-bold block mb-1">Moneda</label>
+<label class="text-[10px] text-gray-400 uppercase font-bold block mb-1">Ver precios en</label>
 <select id="currencySelect" onchange="updateCurrency()" class="p-2 rounded-lg outline-none min-w-[120px]">
-<option value="USD">USD $</option><option value="VES">VES Bs.</option><option value="MXN">MXN $</option><option value="COP">COP $</option><option value="ARS">ARS $</option><option value="CLP">CLP $</option><option value="PEN">PEN S/</option>
+<option value="USD">USD $</option>
+<option value="VES">VES Bs.</option>
 </select>
 </div>
 <div id="admin-price-update" class="hidden-section">
-<button onclick="togglePriceEdit()" class="price-update-btn"><i class="fas fa-edit mr-1"></i> Precios</button>
+<button onclick="togglePriceEdit()" class="price-update-btn"><i class="fas fa-edit mr-1"></i> Editar Precios</button>
 </div>
 </div>
-<p class="region-note mt-4"><i class="fas fa-globe-americas mr-1"></i> Recarga solo para Latam Region EE UU</p>
+<p class="region-note mt-4 text-center bg-cyan-500/10 border-cyan-500/30">
+<i class="fas fa-globe-americas mr-1"></i> 
+✅ Recargas para TODOS los jugadores • Región: LATAM EE.UU.
+</p>
+<p class="text-[10px] text-gray-500 mt-2 text-center">
+💡 Pago Móvil = Precio en Bolívares • Zinli = Precio en Dólares
+</p>
 </div>
 
 <div id="price-edit-panel" class="hidden-section mt-4 p-4 bg-black/30 rounded-xl mb-6">
-<p class="text-[10px] text-cyan-400 uppercase font-bold mb-3">Editar Precios (USD)</p>
-<div class="grid grid-cols-2 md:grid-cols-6 gap-3" id="price-inputs"></div>
+<p class="text-[10px] text-cyan-400 uppercase font-bold mb-3">Editar Precios (Independientes)</p>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-3" id="price-inputs"></div>
 <button onclick="savePrices()" class="mt-4 w-full btn-primary text-black py-2 rounded-lg font-bold uppercase text-xs">Guardar Cambios</button>
 </div>
 
@@ -339,13 +356,26 @@ input, select, textarea { background: rgba(0, 0, 0, 0.5) !important; border: 1px
 
 <div id="admin-pending-panel" class="glass-morphism p-6 rounded-3xl mb-8"><h3 class="gaming-font text-yellow-500 mb-4 uppercase text-sm">Pedidos Pendientes</h3><div id="admin-orders-pending" class="space-y-6"></div></div>
 <div id="admin-completed-panel" class="hidden-section glass-morphism p-6 rounded-3xl mb-8"><h3 class="gaming-font text-green-400 mb-4 uppercase text-sm">Pedidos Aceptados</h3><div id="admin-orders-completed" class="space-y-6"></div></div>
+
+<!-- 🔥 PANEL DE PRECIOS - SOLO VENEZUELA 🔥 -->
 <div id="admin-prices-panel" class="hidden-section glass-morphism p-6 rounded-3xl mb-8">
-<h3 class="gaming-font text-cyan-400 mb-4 uppercase text-sm">Gestión de Precios</h3>
+<h3 class="gaming-font text-cyan-400 mb-4 uppercase text-sm">Gestión de Precios - Venezuela</h3>
 <div class="grid md:grid-cols-2 gap-4 mb-4">
-<div><label class="text-[10px] text-gray-400 uppercase block mb-2">País</label><select id="admin-country" onchange="loadCountryPrices()" class="w-full p-3 rounded-xl outline-none"><option value="argentina">🇦 Argentina</option><option value="bolivia">🇧🇴 Bolivia</option><option value="chile">🇨 Chile</option><option value="colombia">🇨🇴 Colombia</option><option value="costarica">🇨 Costa Rica</option><option value="dominicana">🇩🇴 Rep. Dominicana</option><option value="ecuador">🇪 Ecuador</option><option value="elsalvador">🇸 El Salvador</option><option value="guatemala">🇬🇹 Guatemala</option><option value="mexico">🇲 México</option><option value="nicaragua">🇳 Nicaragua</option><option value="panama">🇵 Panamá</option><option value="uruguay">🇺 Uruguay</option><option value="venezuela" selected>🇻 Venezuela</option></select></div>
-<div class="flex items-end"><button onclick="saveAdminPrices()" class="w-full btn-primary text-black py-3 rounded-xl font-bold uppercase text-sm"><i class="fas fa-save mr-2"></i> Guardar Precios</button></div>
+<div>
+<label class="text-[10px] text-gray-400 uppercase block mb-2">País</label>
+<select class="w-full p-3 rounded-xl outline-none" disabled>
+<option value="venezuela" selected>🇻🇪 Venezuela</option>
+</select>
 </div>
-<div id="admin-price-inputs" class="grid grid-cols-2 md:grid-cols-6 gap-3"></div>
+<div class="flex items-end">
+<button onclick="saveAdminPrices()" class="w-full btn-primary text-black py-3 rounded-xl font-bold uppercase text-sm"><i class="fas fa-save mr-2"></i> Guardar Precios</button>
+</div>
+</div>
+<div id="admin-price-inputs" class="grid grid-cols-2 md:grid-cols-4 gap-3"></div>
+<p class="text-[10px] text-gray-500 mt-3 text-center">
+💡 <strong>Importante:</strong> Los precios en USD y VES son INDEPENDIENTES. 
+Coloca el precio exacto que quieras para cada método de pago.
+</p>
 </div>
 
 <div id="admin-packages-panel" class="hidden-section glass-morphism p-6 rounded-3xl mb-8">
@@ -393,7 +423,7 @@ input, select, textarea { background: rgba(0, 0, 0, 0.5) !important; border: 1px
       <p>
         <strong class="text-white">Diamond Store</strong> es tu tienda online confiable para 
         <strong>recargar diamantes de Free Fire</strong> y <strong>Robux de Roblox</strong> 
-        en <strong>Venezuela</strong> y toda Latinoamérica. Ofrecemos los 
+        en <strong>Venezuela</strong>. Ofrecemos los 
         <strong>mejores precios del mercado</strong> con entrega inmediata las 24 horas.
       </p>
       
@@ -401,22 +431,22 @@ input, select, textarea { background: rgba(0, 0, 0, 0.5) !important; border: 1px
       <ul class="list-disc list-inside space-y-1 ml-2">
         <li>✅ <strong>Entrega inmediata:</strong> Recibes tus diamantes en menos de 5 minutos</li>
         <li>✅ <strong>Precios económicos:</strong> Los diamantes más baratos de Venezuela</li>
-        <li>✅ <strong>Métodos de pago locales:</strong> Pago Móvil, Zinli, transferencias</li>
+        <li>✅ <strong>Métodos de pago locales:</strong> Pago Móvil (Bs.), Zinli (USD)</li>
         <li>✅ <strong>Soporte 24/7:</strong> Chat en vivo para resolver tus dudas</li>
         <li>✅ <strong>100% seguro:</strong> +10,000 clientes satisfechos</li>
       </ul>
       
       <h3 class="text-cyan-400 font-bold mt-4 text-sm">💳 Métodos de Pago</h3>
       <p>
-        Aceptamos <strong>Pago Móvil Venezuela</strong> (Banesco 0102, Venezuela 0102, BBVA), 
-        <strong>Zinli</strong>, transferencias internacionales y más. 
-        Trabajamos con Bolívares (VES), Dólares (USD), Pesos Colombianos (COP) y Pesos Mexicanos (MXN).
+        Aceptamos <strong>Pago Móvil Venezuela</strong> en Bolívares, 
+        y <strong>Zinli</strong> en Dólares. 
+        Cada método tiene su propio precio definido por nosotros.
       </p>
       
-      <h3 class="text-cyan-400 font-bold mt-4 text-sm">🌎 Países que atendemos</h3>
+      <h3 class="text-cyan-400 font-bold mt-4 text-sm">🌎 Región de Servicio</h3>
       <p>
-        Venezuela 🇻🇪 • Colombia 🇨🇴 • México 🇲🇽 • Argentina 🇦🇷 • Chile 🇨🇱 • 
-        Perú 🇵 • Ecuador 🇪 • Bolivia 🇧🇴 • República Dominicana 🇩🇴 • Panamá 🇵🇦
+        ✅ Recargas para <strong>TODOS los jugadores</strong> con región <strong>LATAM / EE.UU.</strong><br>
+        🇻🇪 Venezuela • 🇨🇴 Colombia • 🇽 México • 🇷 Argentina • 🇱 Chile • 🇪 Perú • 🇪🇨 Ecuador
       </p>
       
       <p class="text-[10px] text-gray-500 mt-4 italic">
@@ -472,7 +502,7 @@ input, select, textarea { background: rgba(0, 0, 0, 0.5) !important; border: 1px
 </div>
 </div>
 
-<!-- MODAL PAQUETES -->
+<!-- MODAL PAQUETES - CON DOS PRECIOS INDEPENDIENTES -->
 <div id="package-modal" class="hidden-section modal">
 <div class="modal-content">
 <div class="modal-header"><h3 class="gaming-font text-cyan-400 text-xl uppercase" id="modal-title">Agregar Paquete</h3><button class="modal-close" onclick="closePackageModal()">×</button></div>
@@ -481,7 +511,20 @@ input, select, textarea { background: rgba(0, 0, 0, 0.5) !important; border: 1px
 <div class="form-group"><label class="form-label">Nombre del Paquete</label><input type="text" id="pkg-name" class="form-input" placeholder="Ej: 100+10 Diamantes" required></div>
 <div class="form-group"><label class="form-label">Juego</label><select id="pkg-game" class="form-input" required></select></div>
 <div class="form-group"><label class="form-label">ID del Paquete (único)</label><input type="text" id="pkg-code" class="form-input" placeholder="Ej: ff-100-10" required><p class="text-[10px] text-gray-500 mt-1">* Sin espacios, usa guiones</p></div>
-<div class="form-group"><label class="form-label">Precio Base (USD)</label><input type="number" id="pkg-price" class="form-input" step="0.01" placeholder="Ej: 1.10" required></div>
+
+<!-- 💰 PRECIOS INDEPENDIENTES -->
+<div class="grid grid-cols-2 gap-3">
+  <div class="form-group">
+    <label class="form-label text-green-400">💵 Precio USD (Zinli)</label>
+    <input type="number" id="pkg-price-usd" class="form-input border-green-500/30" step="0.01" placeholder="Ej: 1.50" required>
+  </div>
+  <div class="form-group">
+    <label class="form-label text-yellow-400">💰 Precio Bs. (Pago Móvil)</label>
+    <input type="number" id="pkg-price-ves" class="form-input border-yellow-500/30" step="0.01" placeholder="Ej: 120.00" required>
+  </div>
+</div>
+<p class="text-[10px] text-gray-500 mb-3 text-center">* Ambos precios son independientes. Tú colocas el valor exacto para cada método.</p>
+
 <div class="form-group"><label class="form-label">URL de la Imagen</label><input type="url" id="pkg-image" class="form-input" placeholder="https://ejemplo.com/imagen.jpg" onchange="previewImage(this.value)"><img id="image-preview" class="image-preview hidden-section" alt="Preview"></div>
 <div class="form-group"><label class="form-label">Descripción (opcional)</label><textarea id="pkg-desc" class="form-input" rows="3" placeholder="Descripción..."></textarea></div>
 <div class="flex gap-3"><button type="submit" class="btn-primary text-black py-3 px-6 rounded-xl font-bold uppercase flex-1"><i class="fas fa-save mr-2"></i> Guardar</button><button type="button" onclick="closePackageModal()" class="bg-gray-600/20 text-gray-400 py-3 px-6 rounded-xl font-bold uppercase flex-1">Cancelar</button></div>
@@ -553,7 +596,6 @@ let currentRatingPack = null;
 let currentRatingValue = 0;
 
 let countryPrices = {};
-let exchangeRates = { USD: 1, VES: 0, MXN: 17.5, COP: 4200, ARS: 950, CLP: 950, PEN: 3.7 };
 let currentCountry = 'venezuela';
 let currentCurrency = 'USD';
 let packages = [];
@@ -741,9 +783,8 @@ async function fetchTasa() {
         const res = await fetch('https://ve.dolarapi.com/v1/dolares/paralelo');
         const data = await res.json();
         tasaParalelo = data.promedio;
-        exchangeRates.VES = tasaParalelo;
         document.querySelectorAll('#tasa-valor').forEach(el => el.innerText = `${tasaParalelo.toFixed(2)} Bs.`);
-    } catch { tasaParalelo = 70; exchangeRates.VES = 70; }
+    } catch { tasaParalelo = 70; }
 }
 fetchTasa();
 
@@ -803,10 +844,15 @@ function renderPackages() {
     const filtered = packages.filter(p => p.gameId === currentGameFilter);
     if (filtered.length === 0) { grid.innerHTML = ''; emptyMsg.classList.remove('hidden-section'); return; }
     emptyMsg.classList.add('hidden-section');
+    
     grid.innerHTML = filtered.map(pkg => {
-        const usd = countryPrices[currentCountry]?.[pkg.id] || pkg.basePrice || 0;
-        const display = convertPrice(usd);
-        const sym = getCurrencySymbol();
+        // Obtener precios independientes del paquete
+        const priceUSD = pkg.priceUSD !== undefined ? pkg.priceUSD : (pkg.basePrice || 0);
+        const priceVES = pkg.priceVES !== undefined ? pkg.priceVES : 0;
+        
+        // Mostrar precio según moneda seleccionada
+        const displayPrice = currentCurrency === 'USD' ? priceUSD : priceVES;
+        const symbol = currentCurrency === 'USD' ? '$' : 'Bs.';
         
         // Calcular rating
         const rating = packageRatings[pkg.id] || { total: 0, count: 0 };
@@ -818,9 +864,16 @@ function renderPackages() {
         <div class="package-card-content flex-1">
         <h3 class="text-lg font-bold text-white uppercase">${pkg.name}</h3>
         <div class="rating-display">${stars}<span class="rating-average">${avgRating}</span><span class="rating-count">(${rating.count})</span></div>
-        <p class="text-3xl font-bold text-cyan-400">${sym}${display}</p>
+        
+        <!-- 💰 PRECIOS DUALES -->
+        <div class="dual-price">
+            <span class="usd">$${priceUSD.toFixed(2)} USD</span>
+            <span class="ves">Bs. ${priceVES.toFixed(2)}</span>
+        </div>
+        
+        <p class="text-3xl font-bold text-cyan-400">${symbol}${displayPrice.toFixed(2)}</p>
         ${pkg.desc ? `<p class="text-[10px] text-gray-400">${pkg.desc}</p>` : ''}
-        <button onclick="openCheckout('${pkg.name}', ${usd}, '${pkg.gameId}')" class="w-full btn-primary text-black py-3 rounded-xl font-bold uppercase text-sm mt-2">Comprar Ahora</button>
+        <button onclick="openCheckout('${pkg.name}', ${priceUSD}, ${priceVES}, '${pkg.gameId}')" class="w-full btn-primary text-black py-3 rounded-xl font-bold uppercase text-sm mt-2">Comprar Ahora</button>
         ${currentUser ? `<button onclick="openRatingModal('${pkg.id}', '${pkg.name}')" class="mt-2 text-xs text-yellow-500 hover:text-yellow-400 underline"><i class="fas fa-star mr-1"></i>Calificar</button>` : ''}
         </div></div>`;
     }).join('');
@@ -836,128 +889,412 @@ function generateStars(rating) {
     return `<div class="star-rating">${stars}</div>`;
 }
 
-function convertPrice(usd) {
-    if(currentCurrency==='USD') return usd.toFixed(2);
-    if(currentCurrency==='VES') return (usd*exchangeRates.VES).toFixed(2);
-    if(currentCurrency==='MXN') return (usd*exchangeRates.MXN).toFixed(2);
-    if(currentCurrency==='COP') return (usd*exchangeRates.COP).toFixed(0);
-    if(currentCurrency==='ARS') return (usd*exchangeRates.ARS).toFixed(0);
-    if(currentCurrency==='CLP') return (usd*exchangeRates.CLP).toFixed(0);
-    if(currentCurrency==='PEN') return (usd*exchangeRates.PEN).toFixed(2);
-    return usd.toFixed(2);
-}
-function getCurrencySymbol() { return {USD:'$',VES:'Bs.',MXN:'MXN',COP:'COP',ARS:'ARS',CLP:'$',PEN:'S/'}[currentCurrency] || '$'; }
+window.updateCurrency = () => { 
+    currentCurrency = document.getElementById('currencySelect').value; 
+    renderPackages(); 
+};
 
-window.updateCountryPrices = async () => { currentCountry = document.getElementById('countrySelect').value; await loadCountryPricesFromFirestore(currentCountry); renderPackages(); };
-window.updateCurrency = () => { currentCurrency = document.getElementById('currencySelect').value; renderPackages(); };
-
-window.togglePriceEdit = () => { const p = document.getElementById('price-edit-panel'); p.classList.toggle('hidden-section'); if(!p.classList.contains('hidden-section')) renderPriceInputs(); };
+window.togglePriceEdit = () => { 
+    const p = document.getElementById('price-edit-panel'); 
+    p.classList.toggle('hidden-section'); 
+    if(!p.classList.contains('hidden-section')) renderPriceInputs(); 
+};
 
 function renderPriceInputs() {
     const c = document.getElementById('price-inputs'); c.innerHTML = '';
     const filtered = packages.filter(p => p.gameId === currentGameFilter);
-    filtered.forEach(pkg => { const val = countryPrices[currentCountry]?.[pkg.id] || pkg.basePrice || 0; c.innerHTML += `<div class="bg-black/30 p-2 rounded-lg"><p class="text-[8px] text-gray-400 uppercase">${pkg.name}</p><input type="number" step="0.01" id="price-${pkg.id}" value="${val}" class="admin-price-input w-full mt-1"></div>`; });
+    filtered.forEach(pkg => { 
+        const usd = pkg.priceUSD || pkg.basePrice || 0;
+        const ves = pkg.priceVES || 0;
+        c.innerHTML += `
+        <div class="bg-black/30 p-2 rounded-lg border border-cyan-500/20">
+            <p class="text-[8px] text-gray-400 uppercase">${pkg.name}</p>
+            <input type="number" step="0.01" id="price-usd-${pkg.id}" value="${usd}" class="admin-price-input w-full mt-1 border-green-500/30" placeholder="USD">
+            <input type="number" step="0.01" id="price-ves-${pkg.id}" value="${ves}" class="admin-price-input w-full mt-1 border-yellow-500/30" placeholder="VES">
+        </div>`; 
+    });
 }
 
 window.savePrices = () => {
     const filtered = packages.filter(p => p.gameId === currentGameFilter);
-    filtered.forEach(pkg => { const inp = document.getElementById(`price-${pkg.id}`); if(inp) countryPrices[currentCountry][pkg.id] = parseFloat(inp.value) || pkg.basePrice || 0; });
-    renderPackages(); document.getElementById('price-edit-panel').classList.add('hidden-section'); alert('✅ Precios actualizados temporalmente');
+    filtered.forEach(pkg => { 
+        const usdInp = document.getElementById(`price-usd-${pkg.id}`);
+        const vesInp = document.getElementById(`price-ves-${pkg.id}`);
+        if(usdInp) pkg.priceUSD = parseFloat(usdInp.value) || 0;
+        if(vesInp) pkg.priceVES = parseFloat(vesInp.value) || 0;
+    });
+    renderPackages(); 
+    document.getElementById('price-edit-panel').classList.add('hidden-section'); 
+    alert('✅ Precios actualizados temporalmente');
 };
 
-// 🔥 ADMIN PRICES 🔥
+// 🔥 ADMIN PRICES - SOLO VENEZUELA 🔥
 function loadAdminPriceInputs() {
-    const c = document.getElementById('admin-price-inputs'); const co = document.getElementById('admin-country').value; c.innerHTML = '';
-    packages.forEach(pkg => { const val = countryPrices[co]?.[pkg.id] || pkg.basePrice || 0; c.innerHTML += `<div class="bg-black/30 p-3 rounded-xl"><p class="text-[9px] text-gray-400 uppercase mb-1">${pkg.name}</p><input type="number" step="0.01" id="admin-price-${pkg.id}" value="${val}" class="admin-price-input w-full"><p class="text-[8px] text-cyan-400 mt-1">USD</p></div>`; });
+    const c = document.getElementById('admin-price-inputs'); 
+    c.innerHTML = '';
+    packages.forEach(pkg => { 
+        const usd = pkg.priceUSD || pkg.basePrice || 0;
+        const ves = pkg.priceVES || 0;
+        c.innerHTML += `
+        <div class="bg-black/30 p-3 rounded-xl border border-cyan-500/20">
+            <p class="text-[9px] text-gray-400 uppercase mb-2">${pkg.name}</p>
+            <div class="space-y-2">
+                <div>
+                    <label class="text-[8px] text-green-400 uppercase">USD (Zinli)</label>
+                    <input type="number" step="0.01" id="admin-price-usd-${pkg.id}" value="${usd}" class="admin-price-input w-full border-green-500/30">
+                </div>
+                <div>
+                    <label class="text-[8px] text-yellow-400 uppercase">Bs. (Pago Móvil)</label>
+                    <input type="number" step="0.01" id="admin-price-ves-${pkg.id}" value="${ves}" class="admin-price-input w-full border-yellow-500/30">
+                </div>
+            </div>
+        </div>`; 
+    });
 }
-window.loadCountryPrices = () => loadAdminPriceInputs();
+
 window.saveAdminPrices = async () => {
-    const co = document.getElementById('admin-country').value;
-    packages.forEach(pkg => { const inp = document.getElementById(`admin-price-${pkg.id}`); if(inp) countryPrices[co][pkg.id] = parseFloat(inp.value) || pkg.basePrice || 0; });
-    const ok = await saveCountryPricesToFirestore(co, countryPrices[co]);
-    if(ok) { alert(`✅ Precios de ${co} guardados PERMANENTEMENTE`); loadAdminPriceInputs(); if(currentCountry === co) renderPackages(); }
+    packages.forEach(pkg => { 
+        const usdInp = document.getElementById(`admin-price-usd-${pkg.id}`);
+        const vesInp = document.getElementById(`admin-price-ves-${pkg.id}`);
+        if(usdInp) pkg.priceUSD = parseFloat(usdInp.value) || 0;
+        if(vesInp) pkg.priceVES = parseFloat(vesInp.value) || 0;
+        
+        // Actualizar en Firestore
+        updateDoc(doc(db, 'paquetes', pkg.id), {
+            priceUSD: pkg.priceUSD,
+            priceVES: pkg.priceVES,
+            updatedAt: serverTimestamp()
+        }).catch(e => console.error("Error actualizando precio:", e));
+    });
+    alert(`✅ Precios de Venezuela guardados PERMANENTEMENTE`); 
+    loadAdminPriceInputs(); 
+    renderPackages(); 
 };
 
 // 🔥 GESTIÓN DE PAQUETES - ADMIN 🔥
-async function loadPackagesList() { const container = document.getElementById('packages-list'); if (!container) return; await loadPackagesFromFirestore(); if (packages.length === 0) { container.innerHTML = '<p class="text-center text-gray-500 py-10">No hay paquetes creados</p>'; return; } container.innerHTML = packages.map(pkg => { const gameName = games.find(g => g.id === pkg.gameId)?.name || 'Desconocido'; return `<div class="package-item"><img src="${pkg.img || 'https://i.ibb.co/7twhJpK7/icono.jpg'}" alt="${pkg.name}" onerror="this.src='https://i.ibb.co/7twhJpK7/icono.jpg'"><div class="package-item-info"><div class="package-item-name">${pkg.name} <span class="text-[10px] text-gray-500">(${gameName})</span></div><div class="package-item-price">$${pkg.basePrice} USD | ID: ${pkg.id}</div></div><div class="package-actions"><button class="btn-edit" onclick="editPackage('${pkg.id}')"><i class="fas fa-edit"></i></button><button class="btn-delete" onclick="deletePackage('${pkg.id}')"><i class="fas fa-trash"></i></button></div></div>`; }).join(''); }
+async function loadPackagesList() { 
+    const container = document.getElementById('packages-list'); 
+    if (!container) return; 
+    await loadPackagesFromFirestore(); 
+    if (packages.length === 0) { 
+        container.innerHTML = '<p class="text-center text-gray-500 py-10">No hay paquetes creados</p>'; 
+        return; 
+    } 
+    container.innerHTML = packages.map(pkg => { 
+        const gameName = games.find(g => g.id === pkg.gameId)?.name || 'Desconocido'; 
+        const priceUSD = pkg.priceUSD || pkg.basePrice || 0;
+        const priceVES = pkg.priceVES || 0;
+        return `<div class="package-item">
+            <img src="${pkg.img || 'https://i.ibb.co/7twhJpK7/icono.jpg'}" alt="${pkg.name}" onerror="this.src='https://i.ibb.co/7twhJpK7/icono.jpg'">
+            <div class="package-item-info">
+                <div class="package-item-name">${pkg.name} <span class="text-[10px] text-gray-500">(${gameName})</span></div>
+                <div class="dual-price">
+                    <span class="usd">$${priceUSD.toFixed(2)}</span>
+                    <span class="ves">Bs. ${priceVES.toFixed(2)}</span>
+                </div>
+                <div class="package-item-id">ID: ${pkg.id}</div>
+            </div>
+            <div class="package-actions">
+                <button class="btn-edit" onclick="editPackage('${pkg.id}')"><i class="fas fa-edit"></i></button>
+                <button class="btn-delete" onclick="deletePackage('${pkg.id}')"><i class="fas fa-trash"></i></button>
+            </div>
+        </div>`; 
+    }).join(''); 
+}
 
-window.openPackageModal = () => { document.getElementById('modal-title').innerText = 'Agregar Paquete'; document.getElementById('package-form').reset(); document.getElementById('pkg-id').value = ''; document.getElementById('image-preview').classList.add('hidden-section'); populateGameDropdown(); document.getElementById('package-modal').classList.remove('hidden-section'); };
+window.openPackageModal = () => { 
+    document.getElementById('modal-title').innerText = 'Agregar Paquete'; 
+    document.getElementById('package-form').reset(); 
+    document.getElementById('pkg-id').value = ''; 
+    document.getElementById('image-preview').classList.add('hidden-section'); 
+    populateGameDropdown(); 
+    document.getElementById('package-modal').classList.remove('hidden-section'); 
+};
 window.closePackageModal = () => document.getElementById('package-modal').classList.add('hidden-section');
-window.previewImage = (url) => { const preview = document.getElementById('image-preview'); if (url) { preview.src = url; preview.classList.remove('hidden-section'); } else { preview.classList.add('hidden-section'); } };
-function populateGameDropdown() { const select = document.getElementById('pkg-game'); select.innerHTML = games.map(g => `<option value="${g.id}">${g.name}</option>`).join(''); }
+window.previewImage = (url) => { 
+    const preview = document.getElementById('image-preview'); 
+    if (url) { 
+        preview.src = url; 
+        preview.classList.remove('hidden-section'); 
+    } else { 
+        preview.classList.add('hidden-section'); 
+    } 
+};
+function populateGameDropdown() { 
+    const select = document.getElementById('pkg-game'); 
+    select.innerHTML = games.map(g => `<option value="${g.id}">${g.name}</option>`).join(''); 
+}
 
 window.editPackage = async (id) => {
-    const pkg = packages.find(p => p.id === id); if (!pkg) return;
-    document.getElementById('modal-title').innerText = 'Editar Paquete'; document.getElementById('pkg-id').value = pkg.id; document.getElementById('pkg-name').value = pkg.name; populateGameDropdown(); document.getElementById('pkg-game').value = pkg.gameId || 'free-fire'; document.getElementById('pkg-code').value = pkg.id; document.getElementById('pkg-price').value = pkg.basePrice; document.getElementById('pkg-image').value = pkg.img || ''; document.getElementById('pkg-desc').value = pkg.desc || '';
-    if (pkg.img) { document.getElementById('image-preview').src = pkg.img; document.getElementById('image-preview').classList.remove('hidden-section'); }
+    const pkg = packages.find(p => p.id === id); 
+    if (!pkg) return;
+    document.getElementById('modal-title').innerText = 'Editar Paquete'; 
+    document.getElementById('pkg-id').value = pkg.id; 
+    document.getElementById('pkg-name').value = pkg.name; 
+    populateGameDropdown(); 
+    document.getElementById('pkg-game').value = pkg.gameId || 'free-fire'; 
+    document.getElementById('pkg-code').value = pkg.id; 
+    document.getElementById('pkg-price-usd').value = pkg.priceUSD || pkg.basePrice || ''; 
+    document.getElementById('pkg-price-ves').value = pkg.priceVES || ''; 
+    document.getElementById('pkg-image').value = pkg.img || ''; 
+    document.getElementById('pkg-desc').value = pkg.desc || '';
+    if (pkg.img) { 
+        document.getElementById('image-preview').src = pkg.img; 
+        document.getElementById('image-preview').classList.remove('hidden-section'); 
+    }
     document.getElementById('package-modal').classList.remove('hidden-section');
 };
 
 window.savePackage = async (e) => {
     e.preventDefault();
     const id = document.getElementById('pkg-id').value || document.getElementById('pkg-code').value;
-    const pkgData = { name: document.getElementById('pkg-name').value, gameId: document.getElementById('pkg-game').value, basePrice: parseFloat(document.getElementById('pkg-price').value) || 0, img: document.getElementById('pkg-image').value, desc: document.getElementById('pkg-desc').value, updatedAt: serverTimestamp() };
+    const pkgData = { 
+        name: document.getElementById('pkg-name').value, 
+        gameId: document.getElementById('pkg-game').value, 
+        priceUSD: parseFloat(document.getElementById('pkg-price-usd').value) || 0,
+        priceVES: parseFloat(document.getElementById('pkg-price-ves').value) || 0,
+        img: document.getElementById('pkg-image').value, 
+        desc: document.getElementById('pkg-desc').value, 
+        updatedAt: serverTimestamp() 
+    };
     try {
-        if (document.getElementById('pkg-id').value) { await updateDoc(doc(db, 'paquetes', id), pkgData); alert('✅ Paquete actualizado'); } 
-        else { await setDoc(doc(db, 'paquetes', id), { id, ...pkgData }); alert('✅ Paquete creado'); }
-        closePackageModal(); loadPackagesList(); renderPackages();
-    } catch (err) { alert('❌ Error: ' + err.message); }
+        if (document.getElementById('pkg-id').value) { 
+            await updateDoc(doc(db, 'paquetes', id), pkgData); 
+            alert('✅ Paquete actualizado'); 
+        } else { 
+            await setDoc(doc(db, 'paquetes', id), { id, ...pkgData }); 
+            alert('✅ Paquete creado'); 
+        }
+        closePackageModal(); 
+        loadPackagesList(); 
+        renderPackages();
+    } catch (err) { 
+        alert('❌ Error: ' + err.message); 
+    }
 };
 
-window.deletePackage = async (id) => { if (!confirm(`¿Eliminar paquete "${id}"?`)) return; try { await deleteDoc(doc(db, 'paquetes', id)); alert('✅ Eliminado'); loadPackagesList(); renderPackages(); } catch (err) { alert('❌ Error: ' + err.message); } };
+window.deletePackage = async (id) => { 
+    if (!confirm(`¿Eliminar paquete "${id}"?`)) return; 
+    try { 
+        await deleteDoc(doc(db, 'paquetes', id)); 
+        alert('✅ Eliminado'); 
+        loadPackagesList(); 
+        renderPackages(); 
+    } catch (err) { 
+        alert('❌ Error: ' + err.message); 
+    } 
+};
 
 // 🔥 GESTIÓN DE JUEGOS - ADMIN 🔥
-async function loadGamesList() { const container = document.getElementById('games-list'); if (!container) return; await loadGamesFromFirestore(); if (games.length === 0) { container.innerHTML = '<p class="text-center text-gray-500 py-10">No hay juegos</p>'; return; } container.innerHTML = games.map(g => `<div class="game-item"><img src="${g.img || 'https://i.ibb.co/7twhJpK7/icono.jpg'}" alt="${g.name}" onerror="this.src='https://i.ibb.co/7twhJpK7/icono.jpg'"><div class="game-item-info"><div class="game-item-name">${g.name} <span class="text-[10px] text-gray-500">(ID: ${g.id})</span></div><span class="game-item-status ${g.activo ? 'game-active' : 'game-inactive'}">${g.activo ? 'Activo' : 'Inactivo'}</span></div><div class="flex gap-2"><button class="btn-toggle ${g.activo ? '' : 'inactive'}" onclick="toggleGame('${g.id}')"><i class="fas ${g.activo ? 'fa-eye' : 'fa-eye-slash'}"></i></button><button class="btn-edit" onclick="editGame('${g.id}')"><i class="fas fa-edit"></i></button>${g.id !== 'free-fire' ? `<button class="btn-delete" onclick="deleteGame('${g.id}')"><i class="fas fa-trash"></i></button>` : ''}</div></div>`).join(''); }
+async function loadGamesList() { 
+    const container = document.getElementById('games-list'); 
+    if (!container) return; 
+    await loadGamesFromFirestore(); 
+    if (games.length === 0) { 
+        container.innerHTML = '<p class="text-center text-gray-500 py-10">No hay juegos</p>'; 
+        return; 
+    } 
+    container.innerHTML = games.map(g => `<div class="game-item">
+        <img src="${g.img || 'https://i.ibb.co/7twhJpK7/icono.jpg'}" alt="${g.name}" onerror="this.src='https://i.ibb.co/7twhJpK7/icono.jpg'">
+        <div class="game-item-info">
+            <div class="game-item-name">${g.name} <span class="text-[10px] text-gray-500">(ID: ${g.id})</span></div>
+            <span class="game-item-status ${g.activo ? 'game-active' : 'game-inactive'}">${g.activo ? 'Activo' : 'Inactivo'}</span>
+        </div>
+        <div class="flex gap-2">
+            <button class="btn-toggle ${g.activo ? '' : 'inactive'}" onclick="toggleGame('${g.id}')"><i class="fas ${g.activo ? 'fa-eye' : 'fa-eye-slash'}"></i></button>
+            <button class="btn-edit" onclick="editGame('${g.id}')"><i class="fas fa-edit"></i></button>
+            ${g.id !== 'free-fire' ? `<button class="btn-delete" onclick="deleteGame('${g.id}')"><i class="fas fa-trash"></i></button>` : ''}
+        </div>
+    </div>`).join(''); 
+}
 
-window.openGameModal = () => { document.getElementById('game-modal-title').innerText = 'Agregar Juego'; document.getElementById('game-form').reset(); document.getElementById('game-id').value = ''; document.getElementById('game-image-preview').classList.add('hidden-section'); document.getElementById('game-modal').classList.remove('hidden-section'); };
+window.openGameModal = () => { 
+    document.getElementById('game-modal-title').innerText = 'Agregar Juego'; 
+    document.getElementById('game-form').reset(); 
+    document.getElementById('game-id').value = ''; 
+    document.getElementById('game-image-preview').classList.add('hidden-section'); 
+    document.getElementById('game-modal').classList.remove('hidden-section'); 
+};
 window.closeGameModal = () => document.getElementById('game-modal').classList.add('hidden-section');
-window.previewGameImage = (url) => { const preview = document.getElementById('game-image-preview'); if(url) { preview.src = url; preview.classList.remove('hidden-section'); } else { preview.classList.add('hidden-section'); } };
+window.previewGameImage = (url) => { 
+    const preview = document.getElementById('game-image-preview'); 
+    if(url) { 
+        preview.src = url; 
+        preview.classList.remove('hidden-section'); 
+    } else { 
+        preview.classList.add('hidden-section'); 
+    } 
+};
 
-window.editGame = (id) => { const g = games.find(x => x.id === id); if(!g) return; document.getElementById('game-modal-title').innerText = 'Editar Juego'; document.getElementById('game-id').value = g.id; document.getElementById('game-name').value = g.name; document.getElementById('game-slug').value = g.slug || g.id; document.getElementById('game-image').value = g.img || ''; if(g.img) { document.getElementById('game-image-preview').src = g.img; document.getElementById('game-image-preview').classList.remove('hidden-section'); } document.getElementById('game-modal').classList.remove('hidden-section'); };
+window.editGame = (id) => { 
+    const g = games.find(x => x.id === id); 
+    if(!g) return; 
+    document.getElementById('game-modal-title').innerText = 'Editar Juego'; 
+    document.getElementById('game-id').value = g.id; 
+    document.getElementById('game-name').value = g.name; 
+    document.getElementById('game-slug').value = g.slug || g.id; 
+    document.getElementById('game-image').value = g.img || ''; 
+    if(g.img) { 
+        document.getElementById('game-image-preview').src = g.img; 
+        document.getElementById('game-image-preview').classList.remove('hidden-section'); 
+    } 
+    document.getElementById('game-modal').classList.remove('hidden-section'); 
+};
 
 window.saveGame = async (e) => {
     e.preventDefault();
     const id = document.getElementById('game-id').value || document.getElementById('game-slug').value;
-    const data = { id, name: document.getElementById('game-name').value, slug: document.getElementById('game-slug').value, img: document.getElementById('game-image').value, activo: true, order: games.length + 1, updatedAt: serverTimestamp() };
+    const data = { 
+        id, 
+        name: document.getElementById('game-name').value, 
+        slug: document.getElementById('game-slug').value, 
+        img: document.getElementById('game-image').value, 
+        activo: true, 
+        order: games.length + 1, 
+        updatedAt: serverTimestamp() 
+    };
     try {
-        if(document.getElementById('game-id').value) { await updateDoc(doc(db, 'juegos', id), data); alert('✅ Juego actualizado'); }
-        else { await setDoc(doc(db, 'juegos', id), data); alert('✅ Juego creado'); }
-        closeGameModal(); loadGamesList(); renderGameSelector();
-    } catch(err) { alert('❌ Error: ' + err.message); }
+        if(document.getElementById('game-id').value) { 
+            await updateDoc(doc(db, 'juegos', id), data); 
+            alert('✅ Juego actualizado'); 
+        } else { 
+            await setDoc(doc(db, 'juegos', id), data); 
+            alert('✅ Juego creado'); 
+        }
+        closeGameModal(); 
+        loadGamesList(); 
+        renderGameSelector();
+    } catch(err) { 
+        alert('❌ Error: ' + err.message); 
+    }
 };
 
-window.toggleGame = async (id) => { const g = games.find(x => x.id === id); if(!g || id === 'free-fire') return; const newStatus = !g.activo; try { await updateDoc(doc(db, 'juegos', id), { activo: newStatus, updatedAt: serverTimestamp() }); alert(newStatus ? '✅ Juego activado' : '⚠️ Juego desactivado'); loadGamesList(); renderGameSelector(); } catch(err) { alert('❌ Error: ' + err.message); } };
-window.deleteGame = async (id) => { if(id === 'free-fire') return alert('❌ No puedes eliminar Free Fire'); if(!confirm(`¿Eliminar juego "${id}"? Los paquetes asociados seguirán existiendo.`)) return; try { await deleteDoc(doc(db, 'juegos', id)); alert('✅ Juego eliminado'); loadGamesList(); renderGameSelector(); } catch(err) { alert('❌ Error: ' + err.message); } };
+window.toggleGame = async (id) => { 
+    const g = games.find(x => x.id === id); 
+    if(!g || id === 'free-fire') return; 
+    const newStatus = !g.activo; 
+    try { 
+        await updateDoc(doc(db, 'juegos', id), { activo: newStatus, updatedAt: serverTimestamp() }); 
+        alert(newStatus ? '✅ Juego activado' : '⚠️ Juego desactivado'); 
+        loadGamesList(); 
+        renderGameSelector(); 
+    } catch(err) { 
+        alert('❌ Error: ' + err.message); 
+    } 
+};
+
+window.deleteGame = async (id) => { 
+    if(id === 'free-fire') return alert('❌ No puedes eliminar Free Fire'); 
+    if(!confirm(`¿Eliminar juego "${id}"? Los paquetes asociados seguirán existiendo.`)) return; 
+    try { 
+        await deleteDoc(doc(db, 'juegos', id)); 
+        alert('✅ Juego eliminado'); 
+        loadGamesList(); 
+        renderGameSelector(); 
+    } catch(err) { 
+        alert('❌ Error: ' + err.message); 
+    } 
+};
 
 // 🔥 GESTIÓN DE ANUNCIOS - ADMIN 🔥
-async function loadAnunciosList() { const container = document.getElementById('anuncios-list'); if (!container) return; await loadAnunciosFromFirestore(); if (anuncios.length === 0) { container.innerHTML = '<p class="text-center text-gray-500 py-10">No hay anuncios</p>'; return; } container.innerHTML = anuncios.map(a => `<div class="package-item"><div class="package-item-info"><div class="package-item-name">${a.titulo}</div><div class="package-item-price">${a.mensaje.substring(0, 50)}...</div><span class="text-[10px] ${a.activo ? 'text-green-400' : 'text-red-400'}">${a.activo ? 'Activo' : 'Inactivo'}</span></div><div class="package-actions"><button class="btn-toggle ${a.activo ? '' : 'inactive'}" onclick="toggleAnuncio('${a.id}')"><i class="fas ${a.activo ? 'fa-eye' : 'fa-eye-slash'}"></i></button><button class="btn-edit" onclick="editAnuncio('${a.id}')"><i class="fas fa-edit"></i></button><button class="btn-delete" onclick="deleteAnuncio('${a.id}')"><i class="fas fa-trash"></i></button></div></div>`).join(''); }
+async function loadAnunciosList() { 
+    const container = document.getElementById('anuncios-list'); 
+    if (!container) return; 
+    await loadAnunciosFromFirestore(); 
+    if (anuncios.length === 0) { 
+        container.innerHTML = '<p class="text-center text-gray-500 py-10">No hay anuncios</p>'; 
+        return; 
+    } 
+    container.innerHTML = anuncios.map(a => `<div class="package-item">
+        <div class="package-item-info">
+            <div class="package-item-name">${a.titulo}</div>
+            <div class="package-item-price">${a.mensaje.substring(0, 50)}...</div>
+            <span class="text-[10px] ${a.activo ? 'text-green-400' : 'text-red-400'}">${a.activo ? 'Activo' : 'Inactivo'}</span>
+        </div>
+        <div class="package-actions">
+            <button class="btn-toggle ${a.activo ? '' : 'inactive'}" onclick="toggleAnuncio('${a.id}')"><i class="fas ${a.activo ? 'fa-eye' : 'fa-eye-slash'}"></i></button>
+            <button class="btn-edit" onclick="editAnuncio('${a.id}')"><i class="fas fa-edit"></i></button>
+            <button class="btn-delete" onclick="deleteAnuncio('${a.id}')"><i class="fas fa-trash"></i></button>
+        </div>
+    </div>`).join(''); 
+}
 
-window.openAnuncioModal = () => { document.getElementById('anuncio-modal-title').innerText = 'Nuevo Anuncio'; document.getElementById('anuncio-form').reset(); document.getElementById('anuncio-id').value = ''; document.getElementById('anuncio-modal').classList.remove('hidden-section'); };
+window.openAnuncioModal = () => { 
+    document.getElementById('anuncio-modal-title').innerText = 'Nuevo Anuncio'; 
+    document.getElementById('anuncio-form').reset(); 
+    document.getElementById('anuncio-id').value = ''; 
+    document.getElementById('anuncio-modal').classList.remove('hidden-section'); 
+};
 window.closeAnuncioModal = () => document.getElementById('anuncio-modal').classList.add('hidden-section');
 
-window.editAnuncio = (id) => { const a = anuncios.find(x => x.id === id); if(!a) return; document.getElementById('anuncio-modal-title').innerText = 'Editar Anuncio'; document.getElementById('anuncio-id').value = a.id; document.getElementById('anuncio-titulo').value = a.titulo; document.getElementById('anuncio-mensaje').value = a.mensaje; document.getElementById('anuncio-tipo').value = a.tipo || 'info'; document.getElementById('anuncio-modal').classList.remove('hidden-section'); };
+window.editAnuncio = (id) => { 
+    const a = anuncios.find(x => x.id === id); 
+    if(!a) return; 
+    document.getElementById('anuncio-modal-title').innerText = 'Editar Anuncio'; 
+    document.getElementById('anuncio-id').value = a.id; 
+    document.getElementById('anuncio-titulo').value = a.titulo; 
+    document.getElementById('anuncio-mensaje').value = a.mensaje; 
+    document.getElementById('anuncio-tipo').value = a.tipo || 'info'; 
+    document.getElementById('anuncio-modal').classList.remove('hidden-section'); 
+};
 
 window.saveAnuncio = async (e) => {
     e.preventDefault();
     const id = document.getElementById('anuncio-id').value || Date.now().toString();
-    const data = { titulo: document.getElementById('anuncio-titulo').value, mensaje: document.getElementById('anuncio-mensaje').value, tipo: document.getElementById('anuncio-tipo').value, activo: true, createdAt: serverTimestamp() };
+    const data = { 
+        titulo: document.getElementById('anuncio-titulo').value, 
+        mensaje: document.getElementById('anuncio-mensaje').value, 
+        tipo: document.getElementById('anuncio-tipo').value, 
+        activo: true, 
+        createdAt: serverTimestamp() 
+    };
     try {
-        if(document.getElementById('anuncio-id').value) { await updateDoc(doc(db, 'anuncios', id), data); alert('✅ Anuncio actualizado'); }
-        else { await setDoc(doc(db, 'anuncios', id), data); alert('✅ Anuncio publicado'); }
-        closeAnuncioModal(); loadAnunciosList(); renderAnuncios();
-    } catch(err) { alert('❌ Error: ' + err.message); }
+        if(document.getElementById('anuncio-id').value) { 
+            await updateDoc(doc(db, 'anuncios', id), data); 
+            alert('✅ Anuncio actualizado'); 
+        } else { 
+            await setDoc(doc(db, 'anuncios', id), data); 
+            alert('✅ Anuncio publicado'); 
+        }
+        closeAnuncioModal(); 
+        loadAnunciosList(); 
+        renderAnuncios();
+    } catch(err) { 
+        alert('❌ Error: ' + err.message); 
+    }
 };
 
-window.toggleAnuncio = async (id) => { const a = anuncios.find(x => x.id === id); if(!a) return; const newStatus = !a.activo; try { await updateDoc(doc(db, 'anuncios', id), { activo: newStatus, updatedAt: serverTimestamp() }); alert(newStatus ? '✅ Anuncio activado' : '⚠️ Anuncio desactivado'); loadAnunciosList(); renderAnuncios(); } catch(err) { alert('❌ Error: ' + err.message); } };
-window.deleteAnuncio = async (id) => { if(!confirm('¿Eliminar este anuncio?')) return; try { await deleteDoc(doc(db, 'anuncios', id)); alert('✅ Eliminado'); loadAnunciosList(); renderAnuncios(); } catch(err) { alert('❌ Error: ' + err.message); } };
+window.toggleAnuncio = async (id) => { 
+    const a = anuncios.find(x => x.id === id); 
+    if(!a) return; 
+    const newStatus = !a.activo; 
+    try { 
+        await updateDoc(doc(db, 'anuncios', id), { activo: newStatus, updatedAt: serverTimestamp() }); 
+        alert(newStatus ? '✅ Anuncio activado' : '⚠️ Anuncio desactivado'); 
+        loadAnunciosList(); 
+        renderAnuncios(); 
+    } catch(err) { 
+        alert('❌ Error: ' + err.message); 
+    } 
+};
 
-// 🔥 CORRECCIÓN: HISTORIAL DE CONFIANZA (TICKER) SIN ÍNDICE 🔥
+window.deleteAnuncio = async (id) => { 
+    if(!confirm('¿Eliminar este anuncio?')) return; 
+    try { 
+        await deleteDoc(doc(db, 'anuncios', id)); 
+        alert('✅ Eliminado'); 
+        loadAnunciosList(); 
+        renderAnuncios(); 
+    } catch(err) { 
+        alert('❌ Error: ' + err.message); 
+    } 
+};
+
+// 🔥 HISTORIAL DE CONFIANZA (TICKER) 🔥
 async function loadTrustTicker() {
     try {
         const q = query(collection(db, 'pedidos'), where('status', '==', 'completado'));
         const snap = await getDocs(q);
-        
-        // Orden manual en JS
         const completados = [];
         snap.forEach(d => completados.push({ id: d.id, ...d.data() }));
         completados.sort((a,b) => (b.timestamp?.seconds || 0) - (a.timestamp?.seconds || 0));
@@ -977,30 +1314,62 @@ async function loadTrustTicker() {
     } catch(e) { console.error("Error ticker:", e); }
 }
 
-// 🔥 CHECKOUT & PAYMENT 🔥
+// 🔥 CHECKOUT & PAYMENT - PRECIOS INDEPENDIENTES 🔥
 window.selectPayment = (method) => {
     if(!selectedPack) return alert("Selecciona un paquete primero");
     selectedMethod = method;
     document.querySelectorAll('.payment-card').forEach(c => c.classList.remove('active'));
     const instr = document.getElementById('payment-instructions');
     instr.classList.remove('hidden-section');
+    
     if(method === 'Pago Móvil') {
         document.getElementById('method-pm').classList.add('active');
-        const bs = ((selectedPack.price * tasaParalelo) + 70).toLocaleString('es-VE', {minimumFractionDigits: 2});
-        instr.innerHTML = `<p class="font-bold text-cyan-400 mb-2">Datos Pago Móvil:</p><p>Banco: Venezuela (0102)</p><p>Tel: 04162923781</p><p>CI: 29.824.660</p><p class="text-yellow-500 font-bold mt-2">Pagar: ${bs} Bs.</p>`;
+        // Usar precio EXACTO en Bolívares que tú colocaste
+        const bs = selectedPack.priceVES;
+        instr.innerHTML = `<p class="font-bold text-cyan-400 mb-2">Datos Pago Móvil:</p>
+            <p>Banco: Venezuela (0102)</p>
+            <p>Tel: 04162923781</p>
+            <p>CI: 29.824.660</p>
+            <p class="text-yellow-500 font-bold mt-2">Pagar: ${bs.toLocaleString('es-VE', {minimumFractionDigits: 2})} Bs.</p>`;
+        document.getElementById('checkout-details').innerHTML = `
+            <div class="flex justify-between"><span>PACK:</span><span>${selectedPack.name}</span></div>
+            <div class="flex justify-between"><span>TOTAL:</span><span class="text-cyan-400 font-bold">Bs. ${bs.toLocaleString('es-VE', {minimumFractionDigits: 2})}</span></div>
+            <p class="text-[10px] text-gray-500 mt-2 text-center">💳 Pago Móvil Venezuela</p>
+        `;
     } else {
         document.getElementById('method-zinli').classList.add('active');
-        instr.innerHTML = `<p class="font-bold text-cyan-400 mb-2">Zinli:</p><p>Correo: eduardgeldes6@gmail.com</p><p class="text-green-400 font-bold mt-2">Monto: $${selectedPack.price.toFixed(2)} USD</p><img src="https://i.ibb.co/0RcfTNT6/Captura-de-pantalla-2026-02-17-150329.png" class="zinli-instruction-img">`;
+        // Usar precio EXACTO en Dólares que tú colocaste
+        const usd = selectedPack.priceUSD;
+        instr.innerHTML = `<p class="font-bold text-cyan-400 mb-2">Zinli:</p>
+            <p>Correo: eduardgeldes6@gmail.com</p>
+            <p class="text-green-400 font-bold mt-2">Monto: $${usd.toFixed(2)} USD</p>
+            <img src="https://i.ibb.co/0RcfTNT6/Captura-de-pantalla-2026-02-17-150329.png" class="zinli-instruction-img">`;
+        document.getElementById('checkout-details').innerHTML = `
+            <div class="flex justify-between"><span>PACK:</span><span>${selectedPack.name}</span></div>
+            <div class="flex justify-between"><span>TOTAL:</span><span class="text-cyan-400 font-bold">$${usd.toFixed(2)} USD</span></div>
+            <p class="text-[10px] text-gray-500 mt-2 text-center">💳 Zinli - Pago Internacional</p>
+        `;
     }
 };
 
-window.openCheckout = (name, price, gameId) => {
+window.openCheckout = (name, priceUSD, priceVES, gameId) => {
     if(!currentUser) return showSection('login-form');
-    selectedPack = { name, price };
+    // Guardar ambos precios independientes
+    selectedPack = { name, priceUSD, priceVES };
     selectedMethod = null;
     const gameName = games.find(g => g.id === gameId)?.name || 'Juego';
     document.getElementById('checkout-game-label').innerText = gameName;
-    document.getElementById('checkout-details').innerHTML = `<div class="flex justify-between"><span>PACK:</span><span>${name}</span></div><div class="flex justify-between"><span>TOTAL:</span><span class="text-cyan-400 font-bold">${getCurrencySymbol()}${convertPrice(price)}</span></div>`;
+    
+    // Mostrar precios duales inicialmente
+    document.getElementById('checkout-details').innerHTML = `
+        <div class="flex justify-between"><span>PACK:</span><span>${name}</span></div>
+        <div class="dual-price mb-2">
+            <span class="usd">$${priceUSD.toFixed(2)} USD (Zinli)</span>
+            <span class="ves">Bs. ${priceVES.toFixed(2)} (Pago Móvil)</span>
+        </div>
+        <p class="text-[10px] text-gray-500 text-center">Selecciona tu método de pago para ver el precio final</p>
+    `;
+    
     document.getElementById('payment-instructions').classList.add('hidden-section');
     document.querySelectorAll('.payment-card').forEach(c => c.classList.remove('active'));
     clearPlayerInfo();
@@ -1029,13 +1398,13 @@ window.verifyPlayerID = async () => {
 };
 window.clearPlayerInfo = () => { document.getElementById('player-info').classList.add('hidden-section'); document.getElementById('player-error').classList.add('hidden-section'); };
 
-// 🔥 CORRECCIÓN: CONFIRMACIÓN DE PEDIDO 🔥
+// 🔥 CONFIRMACIÓN DE PEDIDO 🔥
 const originalConfirmPurchase = async () => {
     const btn = document.getElementById('confirm-btn');
     const pid = document.getElementById('playerID').value.trim();
     const ref = document.getElementById('payRef').value.trim();
     
-    if(!selectedPack || !selectedPack.price) { alert("❌ Error: Paquete no válido"); return; }
+    if(!selectedPack || selectedPack.priceUSD === undefined) { alert("❌ Error: Paquete no válido"); return; }
     if(!currentUser) { alert("❌ Sesión expirada"); return showSection('login-form'); }
     if(!selectedMethod) { alert("❌ Selecciona un método de pago"); return; }
     if(!pid || pid.length < 6) { alert("❌ Ingresa un ID de jugador válido"); return; }
@@ -1044,15 +1413,19 @@ const originalConfirmPurchase = async () => {
     btn.disabled = true;
     btn.innerHTML = `<i class="fas fa-spinner fa-spin mr-2"></i> Procesando...`;
     
+    // Determinar precio y moneda según método de pago (precios independientes)
+    const finalPrice = selectedMethod === 'Pago Móvil' ? selectedPack.priceVES : selectedPack.priceUSD;
+    const finalCurrency = selectedMethod === 'Pago Móvil' ? 'VES' : 'USD';
+    
     try {
         await addDoc(collection(db, 'pedidos'), { 
             userId: currentUser.uid, 
             email: currentUser.email, 
             playerID: pid, 
             pack: selectedPack.name, 
-            precio: selectedPack.price, 
-            pais: currentCountry, 
-            moneda: currentCurrency, 
+            precio: finalPrice, 
+            moneda: finalCurrency,
+            pais: 'venezuela', 
             metodo: selectedMethod, 
             ref: ref, 
             gameId: currentGameFilter, 
@@ -1094,7 +1467,7 @@ window.confirmPurchase = async () => {
     await originalConfirmPurchase(); 
 };
 
-// 🔥 CORRECCIÓN: HISTORIAL USUARIO SIN ÍNDICE 🔥
+// 🔥 HISTORIAL USUARIO 🔥
 async function fetchHistory() { 
     const list = document.getElementById('user-history-list'); 
     list.innerHTML = '<p class="text-center text-gray-500"><i class="fas fa-spinner fa-spin mr-2"></i>Cargando...</p>'; 
@@ -1119,12 +1492,13 @@ async function fetchHistory() {
         
         pedidos.forEach(o => {
             const statusClass = o.status === 'completado' ? 'status-completado' : o.status === 'rechazado' ? 'status-rechazado' : 'status-pendiente';
+            const currencySymbol = o.moneda === 'VES' ? 'Bs.' : '$';
             list.innerHTML += `
             <div class="glass-morphism p-5 rounded-2xl flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
                 <div>
                     <p class="text-white font-bold text-sm">${o.pack}</p>
                     <p class="text-[10px] text-gray-500">${o.fecha || 'Reciente'} • ID: ${o.playerID}</p>
-                    <p class="text-[10px] text-cyan-400">Ref: ${o.ref} | ${o.metodo} | $${o.precio?.toFixed(2)}</p>
+                    <p class="text-[10px] text-cyan-400">Ref: ${o.ref} | ${o.metodo} | ${currencySymbol}${o.precio?.toFixed(2)} ${o.moneda}</p>
                 </div>
                 <div class="flex items-center gap-2">
                     <span class="status-pill ${statusClass}">${o.status?.toUpperCase()}</span>
@@ -1138,7 +1512,7 @@ async function fetchHistory() {
     }
 }
 
-// 🔥 CORRECCIÓN: ADMIN DASHBOARD SIN ÍNDICE 🔥
+// 🔥 ADMIN DASHBOARD 🔥
 function startAdminDashboard() {
     const unsub = onSnapshot(collection(db, 'pedidos'), (snap) => {
         const pedidos = [];
@@ -1153,14 +1527,21 @@ function startAdminDashboard() {
 
         pedidos.forEach(o => {
             if(o.status==='pendiente') { pend++; pArr.push({id:o.id,...o}); } 
-            else if(o.status==='completado') { comp++; sales+=o.precio||0; cArr.push({id:o.id,...o}); } 
+            else if(o.status==='completado') { 
+                comp++; 
+                // Sumar ventas convirtiendo VES a USD con tasa de referencia
+                if(o.moneda === 'VES') {
+                    sales += o.precio / tasaParalelo;
+                } else {
+                    sales += o.precio || 0;
+                }
+                cArr.push({id:o.id,...o}); 
+            } 
         });
         
         document.getElementById('stat-pending').innerText = pend; 
         document.getElementById('stat-completed').innerText = comp; 
         document.getElementById('stat-total-sales').innerText = '$'+sales.toFixed(2);
-        const totalOrdersEl = document.getElementById('stat-total-orders');
-        if(totalOrdersEl) totalOrdersEl.innerText = snap.size;
         
         document.getElementById('admin-orders-pending').innerHTML = pArr.length ? pArr.map(o=>`
         <div class="glass-morphism p-6 rounded-3xl border border-white/10">
@@ -1170,7 +1551,7 @@ function startAdminDashboard() {
                     <p class="text-xs text-gray-400">${o.email}</p>
                     <p class="text-lg font-mono mt-2">ID: ${o.playerID}</p>
                     <p class="text-xs text-yellow-500">Ref: ${o.ref} (${o.metodo})</p>
-                    <p class="text-xs text-cyan-400">${o.pais} | $${o.precio?.toFixed(2)}</p>
+                    <p class="text-xs text-cyan-400">${o.pais} | ${o.moneda === 'VES' ? 'Bs.' : '$'}${o.precio?.toFixed(2)}</p>
                 </div>
                 <span class="status-pill status-${o.status}">${o.status}</span>
             </div>
@@ -1190,6 +1571,7 @@ function startAdminDashboard() {
                     <p class="text-lg font-mono mt-2">ID: ${o.playerID}</p>
                     <p class="text-xs text-yellow-500">Ref: ${o.ref}</p>
                     <p class="text-xs text-gray-500 mt-2">${o.fecha || 'Reciente'}</p>
+                    <p class="text-[10px] text-cyan-400">${o.moneda === 'VES' ? 'Bs.' : '$'}${o.precio?.toFixed(2)} ${o.moneda}</p>
                 </div>
                 <span class="status-pill status-completado">Listo</span>
             </div>
@@ -1265,7 +1647,7 @@ window.submitRating = async () => {
     }
 };
 
-// 🔥 CHAT SYSTEM SIN ÍNDICE 🔥
+// 🔥 CHAT SYSTEM 🔥
 window.openChatModal = (oid, oem, opk) => { 
     currentChatOrderId = oid; 
     currentChatOrderEmail = oem; 
@@ -1280,7 +1662,6 @@ window.closeChatModal = () => {
     if(chatUnsubscribe) { chatUnsubscribe(); chatUnsubscribe = null; } 
 };
 
-// 🔥 CORRECCIÓN PRINCIPAL: CARGA DE MENSAJES SIN ORDENAR EN FIREBASE 🔥
 function loadChatMessages(oid) { 
     const box = document.getElementById('chat-messages'); 
     box.innerHTML = '<p class="no-messages"><i class="fas fa-spinner fa-spin text-2xl mb-3 block"></i>Cargando mensajes...</p>'; 
@@ -1296,36 +1677,25 @@ function loadChatMessages(oid) {
     }
     
     try {
-        const q = query(
-            collection(db, 'mensajes'), 
-            where('orderId', '==', oid)
-        );
+        const q = query(collection(db, 'mensajes'), where('orderId', '==', oid));
         
         chatUnsubscribe = onSnapshot(q, 
             (snap) => { 
                 box.innerHTML = ''; 
-                
                 if(snap.empty) { 
                     box.innerHTML = '<p class="no-messages"><i class="fas fa-comment-dots text-3xl mb-3 block opacity-50"></i>Sin mensajes aún</p>'; 
                     return; 
                 } 
-                
                 const mensajes = [];
                 snap.forEach(d => {
                     const data = d.data();
-                    mensajes.push({ 
-                        id: d.id, 
-                        ...data,
-                        timestamp: data.timestamp 
-                    });
+                    mensajes.push({ id: d.id, ...data, timestamp: data.timestamp });
                 });
-                
                 mensajes.sort((a, b) => {
                     const timeA = a.timestamp?.seconds || a.timestamp?.toMillis?.() || 0;
                     const timeB = b.timestamp?.seconds || b.timestamp?.toMillis?.() || 0;
                     return timeA - timeB;
                 });
-
                 mensajes.forEach(m => { 
                     const admin = m.sender === 'admin'; 
                     let timeStr = '';
@@ -1333,11 +1703,8 @@ function loadChatMessages(oid) {
                         try {
                             const date = m.timestamp.toDate ? m.timestamp.toDate() : new Date(m.timestamp);
                             timeStr = date.toLocaleTimeString('es-VE', {hour:'2-digit', minute:'2-digit'});
-                        } catch(e) {
-                            timeStr = '';
-                        }
+                        } catch(e) { timeStr = ''; }
                     }
-                    
                     box.innerHTML += `
                         <div class="chat-message ${admin ? 'chat-message-admin' : 'chat-message-user'}">
                             <p class="chat-message-text">${escapeHtml(m.message)}</p>
@@ -1345,23 +1712,11 @@ function loadChatMessages(oid) {
                         </div>
                     `; 
                 }); 
-                
-                setTimeout(() => {
-                    box.scrollTop = box.scrollHeight;
-                }, 100);
+                setTimeout(() => { box.scrollTop = box.scrollHeight; }, 100);
             }, 
             (error) => {
                 console.error("❌ Error en chat:", error.code, error.message);
-                box.innerHTML = `
-                    <div class="no-messages text-center">
-                        <i class="fas fa-exclamation-triangle text-3xl text-red-400 mb-3 block"></i>
-                        <p class="text-red-400 text-sm">Error al cargar mensajes</p>
-                        <p class="text-xs text-gray-500 mt-2">${error.message}</p>
-                        <button onclick="loadChatMessages('${oid}')" class="mt-3 px-4 py-2 bg-cyan-600/20 text-cyan-400 rounded-lg text-xs hover:bg-cyan-600/30">
-                            <i class="fas fa-redo mr-1"></i>Reintentar
-                        </button>
-                    </div>
-                `;
+                box.innerHTML = `<div class="no-messages text-center"><i class="fas fa-exclamation-triangle text-3xl text-red-400 mb-3 block"></i><p class="text-red-400 text-sm">Error al cargar mensajes</p><p class="text-xs text-gray-500 mt-2">${error.message}</p><button onclick="loadChatMessages('${oid}')" class="mt-3 px-4 py-2 bg-cyan-600/20 text-cyan-400 rounded-lg text-xs hover:bg-cyan-600/30"><i class="fas fa-redo mr-1"></i>Reintentar</button></div>`;
             }
         );
     } catch(err) {
