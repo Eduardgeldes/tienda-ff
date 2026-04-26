@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Diamond Store - Recargas Free Fire Seguras y Rápidas</title>
-<meta name="description" content="Recarga diamantes de Free Fire de forma segura con Pago Móvil y Zinli. El centro de recargas más confiable para jugadores en Latinoamérica.">
+<title>Diamond Store - Recargas Seguras Multi-Juego</title>
+<meta name="description" content="Recargas seguras para Free Fire, Roblox y más. Líderes en Latinoamérica.">
 <meta name="google-adsense-account" content="ca-pub-8397347098508270">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8397347098508270" crossorigin="anonymous"></script>
 <script src="https://cdn.tailwindcss.com"></script>
@@ -12,515 +12,120 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap');
 :root { --ff-yellow: #ffcc00; --ff-blue: #00f2ff; --bg-dark: #0a0e17; }
-body {
-background-color: var(--bg-dark);
-background-image: linear-gradient(rgba(10, 14, 23, 0.8), rgba(10, 14, 23, 0.9)), url('https://i.ibb.co/pDTb6ty/fonde1.png');
-background-size: cover;
-background-position: center;
-background-attachment: fixed;
-color: white;
-font-family: 'Roboto', sans-serif;
-min-height: 100vh;
-display: flex;
-flex-direction: column;
-}
+body { background-color: var(--bg-dark); background-image: linear-gradient(rgba(10, 14, 23, 0.8), rgba(10, 14, 23, 0.9)), url('https://i.ibb.co/pDTb6ty/fonde1.png'); background-size: cover; background-position: center; background-attachment: fixed; color: white; font-family: 'Roboto', sans-serif; min-height: 100vh; display: flex; flex-direction: column; }
 main { flex: 1; }
 .gaming-font { font-family: 'Orbitron', sans-serif; }
-.glass-morphism {
-background: rgba(13, 17, 23, 0.95);
-backdrop-filter: blur(10px);
-border: 1px solid rgba(0, 242, 255, 0.1);
-box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
-overflow: hidden;
-}
+.glass-morphism { background: rgba(13, 17, 23, 0.95); backdrop-filter: blur(10px); border: 1px solid rgba(0, 242, 255, 0.1); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6); overflow: hidden; }
 .hidden-section { display: none !important; }
-input, select { background: rgba(0, 0, 0, 0.5) !important; border: 1px solid rgba(0, 242, 255, 0.2) !important; color: white !important; }
+input, select, textarea { background: rgba(0, 0, 0, 0.5) !important; border: 1px solid rgba(0, 242, 255, 0.2) !important; color: white !important; }
 .status-pill { padding: 4px 10px; border-radius: 6px; font-size: 10px; font-weight: bold; text-transform: uppercase; }
 .status-pendiente { background: rgba(234, 179, 8, 0.2); color: #eab308; }
 .status-completado { background: rgba(34, 197, 94, 0.2); color: #22c55e; }
 .status-rechazado { background: rgba(239, 68, 68, 0.2); color: #ef4444; }
 .payment-card { border: 2px solid transparent; cursor: pointer; transition: 0.3s; background: rgba(255,255,255,0.03); }
 .payment-card.active { border-color: #00f2ff; background: rgba(0, 242, 255, 0.1); }
-@keyframes bounce {
-0%, 100% { transform: translateY(0); filter: drop-shadow(0 0 5px #00f2ff); }
-50% { transform: translateY(-15px); filter: drop-shadow(0 0 15px #00f2ff); }
-}
-.jumping-diamond {
-font-size: 50px;
-color: #00f2ff;
-animation: bounce 2s infinite ease-in-out;
-display: inline-block;
-}
-.btn-primary {
-background: linear-gradient(45deg, #00f2ff, #0072ff);
-transition: all 0.3s ease;
-}
-.btn-primary:hover {
-transform: translateY(-2px);
-box-shadow: 0 5px 15px rgba(0, 242, 255, 0.4);
-}
-.ad-container {
-margin: 2rem 0;
-padding: 1rem;
-background: rgba(0,0,0,0.3);
-border-radius: 1rem;
-min-height: 100px;
-}
+@keyframes bounce { 0%, 100% { transform: translateY(0); filter: drop-shadow(0 0 5px #00f2ff); } 50% { transform: translateY(-15px); filter: drop-shadow(0 0 15px #00f2ff); } }
+.jumping-diamond { font-size: 50px; color: #00f2ff; animation: bounce 2s infinite ease-in-out; display: inline-block; }
+.btn-primary { background: linear-gradient(45deg, #00f2ff, #0072ff); transition: all 0.3s ease; }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0, 242, 255, 0.4); }
+.btn-primary:disabled { opacity: 0.6; cursor: not-allowed; transform: none; box-shadow: none; }
+.ad-container { margin: 2rem 0; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 1rem; min-height: 100px; display: flex; flex-direction: column; align-items: center; }
 .legal-content h3 { color: #00f2ff; margin-top: 1.5rem; margin-bottom: 0.5rem; font-weight: bold; text-transform: uppercase; font-size: 0.9rem; }
 .legal-content p { color: #cbd5e1; margin-bottom: 1rem; font-size: 0.9rem; line-height: 1.6; }
-.package-card-img {
-width: 100%;
-height: 200px;
-object-fit: cover;
-object-position: center;
-border-bottom: 1px solid rgba(255,255,255,0.1);
-transition: transform 0.3s ease;
-}
-.package-card-content {
-padding: 1.5rem;
-display: flex;
-flex-direction: column;
-align-items: center;
-gap: 0.5rem;
-}
-.group:hover .package-card-img {
-transform: scale(1.05);
-}
-.zinli-instruction-img {
-max-width: 100%;
-height: auto;
-border-radius: 12px;
-margin-top: 1rem;
-border: 2px solid rgba(0, 242, 255, 0.3);
-}
-.country-selector {
-background: linear-gradient(45deg, rgba(0, 242, 255, 0.1), rgba(0, 114, 255, 0.1));
-border: 1px solid rgba(0, 242, 255, 0.3);
-border-radius: 12px;
-padding: 1rem;
-margin-bottom: 1.5rem;
-}
-.country-flag {
-font-size: 1.5rem;
-margin-right: 0.5rem;
-}
-.price-update-btn {
-background: rgba(255, 204, 0, 0.2);
-border: 1px solid rgba(255, 204, 0, 0.5);
-color: #ffcc00;
-padding: 0.5rem 1rem;
-border-radius: 8px;
-font-size: 0.75rem;
-font-weight: bold;
-text-transform: uppercase;
-cursor: pointer;
-transition: all 0.3s ease;
-}
-.price-update-btn:hover {
-background: rgba(255, 204, 0, 0.4);
-transform: translateY(-2px);
-}
-.price-display {
-font-size: 1.5rem;
-font-weight: bold;
-color: #00f2ff;
-}
-.country-info {
-display: flex;
-align-items: center;
-justify-content: space-between;
-flex-wrap: wrap;
-gap: 1rem;
-}
-.admin-price-input {
-background: rgba(0, 0, 0, 0.6);
-border: 1px solid rgba(0, 242, 255, 0.3);
-border-radius: 8px;
-padding: 0.5rem;
-width: 100px;
-text-align: center;
-}
-.stat-card {
-background: rgba(0, 242, 255, 0.05);
-border: 1px solid rgba(0, 242, 255, 0.2);
-border-radius: 12px;
-padding: 1rem;
-text-align: center;
-}
-.stat-number {
-font-size: 2rem;
-font-weight: bold;
-color: #00f2ff;
-}
-.stat-label {
-font-size: 0.75rem;
-text-transform: uppercase;
-color: #94a3b8;
-}
-.admin-tab-btn {
-background: rgba(0, 242, 255, 0.1);
-border: 1px solid rgba(0, 242, 255, 0.3);
-color: white;
-padding: 0.75rem 1.5rem;
-border-radius: 12px;
-font-weight: bold;
-text-transform: uppercase;
-font-size: 0.75rem;
-cursor: pointer;
-transition: all 0.3s ease;
-}
-.admin-tab-btn.active {
-background: rgba(0, 242, 255, 0.3);
-border-color: #00f2ff;
-color: #00f2ff;
-}
-.admin-tab-btn:hover {
-background: rgba(0, 242, 255, 0.2);
-}
-.region-note {
-background: rgba(0, 242, 255, 0.1);
-border: 1px solid rgba(0, 242, 255, 0.3);
-border-radius: 8px;
-padding: 0.5rem 1rem;
-font-size: 0.7rem;
-text-transform: uppercase;
-color: #00f2ff;
-font-weight: bold;
-text-align: center;
-margin-top: 0.5rem;
-}
-.chat-modal {
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-background: rgba(0, 0, 0, 0.85);
-display: flex;
-justify-content: center;
-align-items: center;
-z-index: 1000;
-}
-.chat-modal-content {
-background: rgba(13, 17, 23, 0.98);
-border: 1px solid rgba(0, 242, 255, 0.3);
-border-radius: 20px;
-width: 90%;
-max-width: 550px;
-max-height: 85vh;
-overflow: hidden;
-display: flex;
-flex-direction: column;
-}
-.chat-modal-header {
-padding: 1rem 1.5rem;
-border-bottom: 1px solid rgba(0, 242, 255, 0.2);
-display: flex;
-justify-content: space-between;
-align-items: center;
-background: rgba(0, 242, 255, 0.05);
-}
-.chat-modal-header h3 {
-font-size: 0.9rem;
-text-transform: uppercase;
-margin: 0;
-}
-.chat-order-info {
-font-size: 0.7rem;
-color: #94a3b8;
-margin-top: 0.25rem;
-}
-.chat-close-btn {
-background: none;
-border: none;
-color: #94a3b8;
-font-size: 1.5rem;
-cursor: pointer;
-transition: color 0.3s;
-}
-.chat-close-btn:hover {
-color: #ef4444;
-}
-.chat-messages-container {
-flex: 1;
-overflow-y: auto;
-padding: 1.5rem;
-background: rgba(0, 0, 0, 0.3);
-max-height: 450px;
-}
-.chat-message {
-padding: 0.75rem 1rem;
-border-radius: 12px;
-margin-bottom: 0.75rem;
-max-width: 85%;
-word-wrap: break-word;
-}
-.chat-message-admin {
-background: rgba(0, 242, 255, 0.15);
-border: 1px solid rgba(0, 242, 255, 0.3);
-margin-left: auto;
-text-align: right;
-}
-.chat-message-user {
-background: rgba(255, 255, 255, 0.1);
-border: 1px solid rgba(255, 255, 255, 0.2);
-}
-.chat-message-text {
-font-size: 0.85rem;
-line-height: 1.4;
-}
-.chat-message-time {
-font-size: 0.65rem;
-color: #94a3b8;
-margin-top: 0.25rem;
-}
-.chat-input-area {
-display: flex;
-gap: 0.75rem;
-padding: 1rem 1.5rem;
-border-top: 1px solid rgba(0, 242, 255, 0.2);
-background: rgba(0, 0, 0, 0.3);
-}
-.chat-input {
-flex: 1;
-padding: 0.75rem 1rem;
-border-radius: 12px;
-background: rgba(0, 0, 0, 0.5);
-border: 1px solid rgba(0, 242, 255, 0.2);
-color: white;
-outline: none;
-font-size: 0.85rem;
-}
-.chat-input:focus {
-border-color: #00f2ff;
-}
-.chat-send-btn {
-padding: 0.75rem 1.5rem;
-background: linear-gradient(45deg, #00f2ff, #0072ff);
-border: none;
-border-radius: 12px;
-color: black;
-font-weight: bold;
-cursor: pointer;
-transition: all 0.3s ease;
-display: flex;
-align-items: center;
-gap: 0.5rem;
-}
-.chat-send-btn:hover {
-transform: translateY(-2px);
-box-shadow: 0 5px 15px rgba(0, 242, 255, 0.4);
-}
-.chat-btn {
-background: rgba(0, 242, 255, 0.1);
-border: 1px solid rgba(0, 242, 255, 0.3);
-color: #00f2ff;
-padding: 0.5rem 1rem;
-border-radius: 8px;
-font-size: 0.7rem;
-font-weight: bold;
-text-transform: uppercase;
-cursor: pointer;
-transition: all 0.3s ease;
-display: inline-flex;
-align-items: center;
-gap: 0.5rem;
-}
-.chat-btn:hover {
-background: rgba(0, 242, 255, 0.2);
-transform: translateY(-2px);
-}
-.chat-btn i {
-font-size: 0.75rem;
-}
-.no-messages {
-text-align: center;
-color: #94a3b8;
-font-size: 0.85rem;
-padding: 2rem;
-}
-/* Nuevos estilos para contenido público */
-.public-content {
-background: rgba(13, 17, 23, 0.9);
-border-radius: 1rem;
-padding: 2rem;
-margin: 1rem 0;
-}
-.public-content h2 {
-color: #00f2ff;
-font-size: 1.5rem;
-margin-bottom: 1rem;
-}
-.public-content h4 {
-color: #ffcc00;
-font-size: 1.1rem;
-margin: 1.5rem 0 0.5rem 0;
-}
-.public-content ul {
-list-style: disc;
-margin-left: 1.5rem;
-color: #cbd5e1;
-}
-.public-content li {
-margin-bottom: 0.5rem;
-line-height: 1.6;
-}
-.public-content a {
-color: #00f2ff;
-text-decoration: underline;
-}
-.blog-card {
-background: rgba(255,255,255,0.03);
-border: 1px solid rgba(0, 242, 255, 0.1);
-border-radius: 1rem;
-padding: 1.5rem;
-transition: all 0.3s ease;
-}
-.blog-card:hover {
-border-color: #00f2ff;
-transform: translateY(-5px);
-}
-.blog-card h3 {
-color: #00f2ff;
-font-size: 1.1rem;
-margin-bottom: 0.5rem;
-}
-.blog-card p {
-color: #94a3b8;
-font-size: 0.85rem;
-line-height: 1.5;
-}
-.blog-card .date {
-color: #64748b;
-font-size: 0.75rem;
-margin-top: 1rem;
-}
-.faq-item {
-background: rgba(255,255,255,0.03);
-border: 1px solid rgba(0, 242, 255, 0.1);
-border-radius: 0.75rem;
-margin-bottom: 1rem;
-overflow: hidden;
-}
-.faq-question {
-padding: 1rem 1.5rem;
-cursor: pointer;
-display: flex;
-justify-content: space-between;
-align-items: center;
-font-weight: bold;
-color: #00f2ff;
-}
-.faq-question:hover {
-background: rgba(0, 242, 255, 0.05);
-}
-.faq-answer {
-padding: 0 1.5rem 1rem 1.5rem;
-color: #cbd5e1;
-font-size: 0.9rem;
-line-height: 1.6;
-display: none;
-}
-.faq-item.active .faq-answer {
-display: block;
-}
-.faq-item.active .faq-question i {
-transform: rotate(180deg);
-}
-.trust-badge {
-display: flex;
-align-items: center;
-gap: 1rem;
-padding: 1rem;
-background: rgba(0, 242, 255, 0.05);
-border-radius: 0.75rem;
-margin: 0.5rem 0;
-}
-.trust-badge i {
-font-size: 1.5rem;
-color: #00f2ff;
-}
-.trust-badge div {
-flex: 1;
-}
-.trust-badge h5 {
-color: white;
-font-size: 0.9rem;
-margin-bottom: 0.25rem;
-}
-.trust-badge p {
-color: #94a3b8;
-font-size: 0.75rem;
-}
-.nav-link-public {
-color: #94a3b8;
-font-size: 11px;
-font-weight: bold;
-text-transform: uppercase;
-cursor: pointer;
-transition: color 0.3s;
-}
-.nav-link-public:hover {
-color: #00f2ff;
-}
+.package-card-img { width: 100%; height: 200px; object-fit: cover; object-position: center; border-bottom: 1px solid rgba(255,255,255,0.1); transition: transform 0.3s ease; }
+.package-card-content { padding: 1.5rem; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+.group:hover .package-card-img { transform: scale(1.05); }
+.zinli-instruction-img { max-width: 100%; height: auto; border-radius: 12px; margin-top: 1rem; border: 2px solid rgba(0, 242, 255, 0.3); }
+.country-selector { background: linear-gradient(45deg, rgba(0, 242, 255, 0.1), rgba(0, 114, 255, 0.1)); border: 1px solid rgba(0, 242, 255, 0.3); border-radius: 12px; padding: 1rem; margin-bottom: 1.5rem; }
+.price-update-btn { background: rgba(255, 204, 0, 0.2); border: 1px solid rgba(255, 204, 0, 0.5); color: #ffcc00; padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.75rem; font-weight: bold; text-transform: uppercase; cursor: pointer; transition: all 0.3s ease; }
+.price-update-btn:hover { background: rgba(255, 204, 0, 0.4); transform: translateY(-2px); }
+.admin-price-input { background: rgba(0, 0, 0, 0.6); border: 1px solid rgba(0, 242, 255, 0.3); border-radius: 8px; padding: 0.5rem; width: 100px; text-align: center; }
+.stat-card { background: rgba(0, 242, 255, 0.05); border: 1px solid rgba(0, 242, 255, 0.2); border-radius: 12px; padding: 1rem; text-align: center; }
+.stat-number { font-size: 2rem; font-weight: bold; color: #00f2ff; }
+.stat-label { font-size: 0.75rem; text-transform: uppercase; color: #94a3b8; }
+.admin-tab-btn { background: rgba(0, 242, 255, 0.1); border: 1px solid rgba(0, 242, 255, 0.3); color: white; padding: 0.75rem 1.5rem; border-radius: 12px; font-weight: bold; text-transform: uppercase; font-size: 0.75rem; cursor: pointer; transition: all 0.3s ease; }
+.admin-tab-btn.active { background: rgba(0, 242, 255, 0.3); border-color: #00f2ff; color: #00f2ff; }
+.admin-tab-btn:hover { background: rgba(0, 242, 255, 0.2); }
+.region-note { background: rgba(0, 242, 255, 0.1); border: 1px solid rgba(0, 242, 255, 0.3); border-radius: 8px; padding: 0.5rem 1rem; font-size: 0.7rem; text-transform: uppercase; color: #00f2ff; font-weight: bold; text-align: center; margin-top: 0.5rem; }
+.chat-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); display: flex; justify-content: center; align-items: center; z-index: 1000; }
+.chat-modal-content { background: rgba(13, 17, 23, 0.98); border: 1px solid rgba(0, 242, 255, 0.3); border-radius: 20px; width: 90%; max-width: 550px; max-height: 85vh; overflow: hidden; display: flex; flex-direction: column; }
+.chat-modal-header { padding: 1rem 1.5rem; border-bottom: 1px solid rgba(0, 242, 255, 0.2); display: flex; justify-content: space-between; align-items: center; background: rgba(0, 242, 255, 0.05); }
+.chat-modal-header h3 { font-size: 0.9rem; text-transform: uppercase; margin: 0; }
+.chat-order-info { font-size: 0.7rem; color: #94a3b8; margin-top: 0.25rem; }
+.chat-close-btn { background: none; border: none; color: #94a3b8; font-size: 1.5rem; cursor: pointer; }
+.chat-close-btn:hover { color: #ef4444; }
+.chat-messages-container { flex: 1; overflow-y: auto; padding: 1.5rem; background: rgba(0, 0, 0, 0.3); max-height: 450px; }
+.chat-message { padding: 0.75rem 1rem; border-radius: 12px; margin-bottom: 0.75rem; max-width: 85%; word-wrap: break-word; }
+.chat-message-admin { background: rgba(0, 242, 255, 0.15); border: 1px solid rgba(0, 242, 255, 0.3); margin-left: auto; text-align: right; }
+.chat-message-user { background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); }
+.chat-message-text { font-size: 0.85rem; line-height: 1.4; }
+.chat-message-time { font-size: 0.65rem; color: #94a3b8; margin-top: 0.25rem; }
+.chat-input-area { display: flex; gap: 0.75rem; padding: 1rem 1.5rem; border-top: 1px solid rgba(0, 242, 255, 0.2); background: rgba(0, 0, 0, 0.3); }
+.chat-input { flex: 1; padding: 0.75rem 1rem; border-radius: 12px; background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(0, 242, 255, 0.2); color: white; outline: none; font-size: 0.85rem; }
+.chat-input:focus { border-color: #00f2ff; }
+.chat-send-btn { padding: 0.75rem 1.5rem; background: linear-gradient(45deg, #00f2ff, #0072ff); border: none; border-radius: 12px; color: black; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; }
+.chat-btn { background: rgba(0, 242, 255, 0.1); border: 1px solid rgba(0, 242, 255, 0.3); color: #00f2ff; padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.7rem; font-weight: bold; text-transform: uppercase; cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem; }
+.chat-btn:hover { background: rgba(0, 242, 255, 0.2); transform: translateY(-2px); }
+.no-messages { text-align: center; color: #94a3b8; font-size: 0.85rem; padding: 2rem; }
+.game-btn { padding: 0.75rem 1.5rem; border-radius: 12px; font-weight: bold; text-transform: uppercase; font-size: 0.85rem; cursor: pointer; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 0.5rem; white-space: nowrap; }
+.game-btn.active { background: linear-gradient(45deg, #00f2ff, #0072ff); color: black; border: 2px solid transparent; }
+.game-btn:not(.active) { background: rgba(255,255,255,0.05); color: #94a3b8; border: 1px solid rgba(255,255,255,0.1); }
+.game-btn:not(.active):hover { border-color: #00f2ff; color: white; }
+.game-item { background: rgba(255,255,255,0.03); border: 1px solid rgba(0, 242, 255, 0.2); border-radius: 12px; padding: 1rem; margin-bottom: 1rem; display: flex; gap: 1rem; align-items: center; }
+.game-item img { width: 60px; height: 60px; object-fit: cover; border-radius: 8px; }
+.game-item-info { flex: 1; }
+.game-item-name { font-weight: bold; color: #00f2ff; }
+.game-item-status { font-size: 0.75rem; padding: 2px 8px; border-radius: 6px; }
+.game-active { background: rgba(34, 197, 94, 0.2); color: #22c55e; }
+.game-inactive { background: rgba(239, 68, 68, 0.2); color: #ef4444; }
+.package-item { background: rgba(255,255,255,0.03); border: 1px solid rgba(0, 242, 255, 0.2); border-radius: 12px; padding: 1rem; margin-bottom: 1rem; display: flex; gap: 1rem; align-items: center; }
+.package-item img { width: 80px; height: 80px; object-fit: cover; border-radius: 8px; border: 2px solid rgba(0, 242, 255, 0.3); }
+.package-item-info { flex: 1; }
+.package-item-name { font-weight: bold; color: #00f2ff; font-size: 1rem; margin-bottom: 0.25rem; }
+.package-item-price { color: #ffcc00; font-size: 0.9rem; }
+.package-item-id { color: #94a3b8; font-size: 0.75rem; }
+.package-actions { display: flex; gap: 0.5rem; }
+.btn-edit { background: rgba(234, 179, 8, 0.2); border: 1px solid rgba(234, 179, 8, 0.5); color: #eab308; padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.75rem; cursor: pointer; }
+.btn-delete { background: rgba(239, 68, 68, 0.2); border: 1px solid rgba(239, 68, 68, 0.5); color: #ef4444; padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.75rem; cursor: pointer; }
+.btn-toggle { background: rgba(34, 197, 94, 0.2); border: 1px solid rgba(34, 197, 94, 0.5); color: #22c55e; padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.75rem; cursor: pointer; }
+.btn-toggle.inactive { background: rgba(239, 68, 68, 0.2); border-color: rgba(239, 68, 68, 0.5); color: #ef4444; }
+.btn-add { background: rgba(34, 197, 94, 0.2); border: 1px solid rgba(34, 197, 94, 0.5); color: #22c55e; padding: 0.75rem 1.5rem; border-radius: 12px; font-size: 0.85rem; font-weight: bold; cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem; }
+.form-group { margin-bottom: 1rem; }
+.form-label { display: block; color: #94a3b8; font-size: 0.85rem; margin-bottom: 0.5rem; text-transform: uppercase; font-weight: bold; }
+.form-input { width: 100%; padding: 0.75rem; border-radius: 8px; background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(0, 242, 255, 0.2); color: white; outline: none; }
+.form-input:focus { border-color: #00f2ff; }
+.image-preview { width: 100%; max-width: 200px; height: 150px; object-fit: cover; border-radius: 8px; border: 2px solid rgba(0, 242, 255, 0.3); margin-top: 0.5rem; }
+.modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.9); display: flex; justify-content: center; align-items: center; z-index: 2000; }
+.modal-content { background: rgba(13, 17, 23, 0.98); border: 1px solid rgba(0, 242, 255, 0.3); border-radius: 20px; width: 90%; max-width: 600px; max-height: 90vh; overflow-y: auto; padding: 2rem; }
+.modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(0, 242, 255, 0.2); }
+.modal-close { background: none; border: none; color: #94a3b8; font-size: 1.5rem; cursor: pointer; }
+.modal-close:hover { color: #ef4444; }
+.empty-state { text-align: center; color: #94a3b8; padding: 3rem 1rem; }
+.empty-state i { font-size: 3rem; margin-bottom: 1rem; opacity: 0.5; }
+/* Anuncios */
+.announcement-bar { background: linear-gradient(90deg, #00f2ff22, #0072ff22); border-bottom: 1px solid rgba(0, 242, 255, 0.2); padding: 0.75rem 1rem; display: flex; justify-content: center; align-items: center; gap: 1rem; position: relative; }
+.announcement-bar.info { border-left: 4px solid #00f2ff; }
+.announcement-bar.success { border-left: 4px solid #22c55e; }
+.announcement-bar.warning { border-left: 4px solid #eab308; }
+.announcement-close { background: none; border: none; color: #94a3b8; cursor: pointer; font-size: 1.2rem; }
+.announcement-close:hover { color: #ef4444; }
+/* Historial de confianza */
+.trust-ticker { overflow: hidden; white-space: nowrap; background: rgba(0,0,0,0.3); border-radius: 8px; padding: 0.5rem; margin-bottom: 1.5rem; }
+.trust-ticker-content { display: inline-block; animation: scroll 30s linear infinite; }
+@keyframes scroll { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+.trust-item { display: inline-flex; align-items: center; gap: 0.5rem; margin-right: 2rem; color: #cbd5e1; font-size: 0.85rem; }
+.trust-item i { color: #22c55e; }
 </style>
 </head>
 <body>
-    <script>
-(function() {
-    const KEY = 'ff_admin_precios_auto';
 
-    // 🔍 Cargar precios guardados
-    function cargarPrecios() {
-        const saved = localStorage.getItem(KEY);
-        if (!saved) return;
-        
-        const data = JSON.parse(saved);
-        const inputs = document.querySelectorAll('input[type="number"], input[type="text"]');
-        
-        inputs.forEach((el, i) => {
-            const k = el.id || el.name || `campo_${i}`;
-            if (data[k] !== undefined) {
-                el.value = data[k];
-                // Dispara eventos por si tu código original depende de ellos
-                el.dispatchEvent(new Event('input', { bubbles: true }));
-                el.dispatchEvent(new Event('change', { bubbles: true }));
-            }
-        });
-    }
+<!-- 🔥 BARRA DE ANUNCIOS 🔥 -->
+<div id="announcement-bar" class="hidden-section announcement-bar">
+  <i class="fas fa-bullhorn text-cyan-400"></i>
+  <span id="announcement-text" class="text-sm font-medium"></span>
+  <button class="announcement-close" onclick="closeAnnouncement()">×</button>
+</div>
 
-    // 💾 Guardar precios al hacer clic en "Guardar"
-    function guardarPrecios() {
-        const inputs = document.querySelectorAll('input[type="number"], input[type="text"]');
-        const data = {};
-        inputs.forEach((el, i) => {
-            const k = el.id || el.name || `campo_${i}`;
-            if (el.value) data[k] = el.value;
-        });
-        localStorage.setItem(KEY, JSON.stringify(data));
-    }
-
-    // Ejecutar al cargar la página
-    document.addEventListener('DOMContentLoaded', () => {
-        // Pequeño retraso por si los inputs se generan con JS después de cargar
-        setTimeout(cargarPrecios, 500);
-    });
-
-    // Interceptar clics en botones de guardar
-    document.addEventListener('click', function(e) {
-        const btn = e.target.closest('button');
-        if (btn && /guardar/i.test(btn.textContent.trim())) {
-            // Guardamos sin bloquear la acción original del botón
-            setTimeout(guardarPrecios, 50);
-            
-            // Feedback visual rápido
-            const txtOriginal = btn.textContent;
-            btn.textContent = '✅ Guardado';
-            setTimeout(() => btn.textContent = txtOriginal, 1200);
-        }
-    });
-})();
-</script>
 <nav id="main-nav" class="hidden-section p-4 glass-morphism sticky top-0 z-50">
 <div class="container mx-auto flex justify-between items-center">
 <div class="flex items-center gap-2 cursor-pointer" onclick="showSection('home')">
@@ -529,269 +134,32 @@ color: #00f2ff;
 </div>
 <div class="flex items-center gap-4">
 <button onclick="showSection('home')" class="text-[11px] font-bold uppercase hover:text-cyan-400 transition">Tienda</button>
-<button onclick="showSection('blog')" class="nav-link-public">Blog</button>
-<button onclick="showSection('faq')" class="nav-link-public">FAQ</button>
-<button onclick="showSection('about')" class="nav-link-public">Nosotros</button>
 <button onclick="showSection('history')" class="text-[11px] font-bold uppercase hover:text-cyan-400 transition">Pedidos</button>
 <button id="admin-nav-btn" onclick="showSection('admin-panel')" class="hidden-section text-red-400 text-[11px] font-bold uppercase">Admin</button>
 <button onclick="handleLogout()" class="text-[10px] bg-red-600/20 text-red-400 px-3 py-1 rounded-full border border-red-600/30">SALIR</button>
 </div>
 </div>
 </nav>
+
 <main class="container mx-auto px-4 py-8">
 <div id="tasa-bar" class="hidden-section max-w-4xl mx-auto mb-6">
 <div class="bg-black/60 backdrop-blur-md border border-yellow-500/30 p-2 rounded-lg text-center">
-<p class="text-[11px] text-yellow-500 font-bold uppercase tracking-wider">
-<i class="fas fa-bolt mr-2"></i> Tasa Paralelo Hoy: <span id="tasa-valor" class="text-white">Cargando...</span>
-</p>
+<p class="text-[11px] text-yellow-500 font-bold uppercase tracking-wider"><i class="fas fa-bolt mr-2"></i> Tasa Paralelo Hoy: <span id="tasa-valor" class="text-white">Cargando...</span></p>
 </div>
 </div>
 
-<!-- PANTALLA DE BIENVENIDA PÚBLICA -->
+<!-- PANTALLA DE BIENVENIDA -->
 <section id="welcome-screen" class="min-h-[70vh] flex flex-col items-center justify-center text-center">
-<div class="jumping-diamond mb-6">
-<i class="fas fa-gem"></i>
-</div>
+<div class="jumping-diamond mb-6"><i class="fas fa-gem"></i></div>
 <h1 class="gaming-font text-4xl md:text-5xl mb-4 uppercase tracking-widest text-white">Diamond Store</h1>
-<p class="text-gray-400 text-sm mb-10 max-w-md mx-auto leading-relaxed">
-El centro de recargas líder en Latinoamérica. Seguro, rápido y con la mejor tasa del mercado para tus diamantes de Free Fire.
-</p>
+<p class="text-gray-400 text-sm mb-10 max-w-md mx-auto leading-relaxed">Recargas seguras para Free Fire, Roblox y más. Líderes en Latinoamérica.</p>
 <div class="flex flex-col sm:flex-row gap-4 w-full max-w-xs sm:max-w-md justify-center">
-<button onclick="showSection('home')" class="btn-primary text-black font-bold py-4 px-8 rounded-2xl uppercase text-sm flex-1">Ver Paquetes</button>
+<button onclick="showSection('home')" class="btn-primary text-black font-bold py-4 px-8 rounded-2xl uppercase text-sm flex-1">Ver Tienda</button>
 <button onclick="showSection('login-form')" class="bg-white/5 border border-white/20 text-white font-bold py-4 px-8 rounded-2xl uppercase text-sm flex-1 hover:bg-white/10 transition">Iniciar Sesión</button>
 </div>
-<div class="mt-12 flex flex-wrap justify-center gap-6 text-xs text-gray-400">
-<a onclick="showSection('blog')" class="hover:text-cyan-400 cursor-pointer">📝 Blog</a>
-<a onclick="showSection('faq')" class="hover:text-cyan-400 cursor-pointer">❓ FAQ</a>
-<a onclick="showSection('about')" class="hover:text-cyan-400 cursor-pointer">🏢 Nosotros</a>
-<a onclick="showSection('contact-support')" class="hover:text-cyan-400 cursor-pointer">📧 Contacto</a>
-</div>
 </section>
 
-<!-- SECCIÓN BLOG PÚBLICA -->
-<section id="blog" class="hidden-section max-w-6xl mx-auto">
-<h2 class="gaming-font text-3xl text-center text-cyan-400 mb-8 uppercase">Blog de Free Fire</h2>
-<p class="text-gray-400 text-center mb-10 max-w-2xl mx-auto">Guías, trucos y noticias actualizadas para mejorar tu experiencia en Free Fire. Contenido creado por expertos para la comunidad latina.</p>
-
-<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-<div class="blog-card">
-<h3>🎮 Cómo Subir de Nivel Rápido en Free Fire 2026</h3>
-<p>Descubre las mejores estrategias para maximizar tu experiencia y subir de nivel rápidamente. Incluye mapas recomendados, modos de juego y consejos de expertos.</p>
-<p class="date">📅 Publicado: Enero 2026</p>
-</div>
-<div class="blog-card">
-<h3>🔫 Las Mejores Armas del Season Actual</h3>
-<p>Análisis completo del meta actual. Descubre qué armas dominan el battlefield y cómo usarlas efectivamente en cada situación de combate.</p>
-<p class="date">📅 Publicado: Enero 2026</p>
-</div>
-<div class="blog-card">
-<h3>💎 Guía Completa de Recargas Seguras</h3>
-<p>Todo lo que necesitas saber sobre recargas de diamantes. Métodos seguros, cómo evitar estafas y proteger tu cuenta de posibles baneos.</p>
-<p class="date">📅 Publicado: Diciembre 2025</p>
-</div>
-<div class="blog-card">
-<h3>🛡️ Cómo Evitar Baneos en Tu Cuenta</h3>
-<p>Consejos esenciales para mantener tu cuenta segura. Qué evitar, prácticas recomendadas y cómo identificar métodos de recarga legítimos.</p>
-<p class="date">📅 Publicado: Diciembre 2025</p>
-</div>
-<div class="blog-card">
-<h3>⚡ Eventos Especiales y Recompensas</h3>
-<p>Calendario actualizado de eventos, cómo participar y maximizar tus recompensas. No te pierdas ninguna oportunidad de conseguir items exclusivos.</p>
-<p class="date">📅 Publicado: Noviembre 2025</p>
-</div>
-<div class="blog-card">
-<h3>🎯 Mejora Tu Puntería: Tips de Aim</h3>
-<p>Técnicas profesionales para mejorar tu precisión. Configuración recomendada, ejercicios de práctica y consejos de jugadores pro.</p>
-<p class="date">📅 Publicado: Noviembre 2025</p>
-</div>
-</div>
-
-<div class="ad-container overflow-hidden">
-<p class="text-[9px] text-center text-gray-600 mb-2 uppercase tracking-widest">Publicidad</p>
-<ins class="adsbygoogle"
-style="display:block"
-data-ad-client="ca-pub-8397347098508270"
-data-ad-slot="1133942942"
-data-ad-format="auto"
-data-full-width-responsive="true"></ins>
-<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div>
-
-<button onclick="showSection('welcome-screen')" class="mt-8 text-cyan-400 text-xs font-bold uppercase underline">Volver al inicio</button>
-</section>
-
-<!-- SECCIÓN FAQ PÚBLICA -->
-<section id="faq" class="hidden-section max-w-4xl mx-auto">
-<h2 class="gaming-font text-3xl text-center text-cyan-400 mb-8 uppercase">Preguntas Frecuentes</h2>
-<p class="text-gray-400 text-center mb-10 max-w-2xl mx-auto">Encuentra respuestas a las preguntas más comunes sobre nuestras recargas, métodos de pago y tiempos de entrega.</p>
-
-<div class="faq-item">
-<div class="faq-question" onclick="toggleFaq(this)">
-<span>¿Cuánto tiempo tarda en llegar mi recarga?</span>
-<i class="fas fa-chevron-down"></i>
-</div>
-<div class="faq-answer">
-Nuestras recargas se procesan en menos de 15 minutos en la mayoría de los casos. En horas pico o eventos especiales, puede tomar hasta 30 minutos. Siempre recibirás una notificación cuando tu pedido sea completado.
-</div>
-</div>
-
-<div class="faq-item">
-<div class="faq-question" onclick="toggleFaq(this)">
-<span>¿Es seguro recargar con Diamond Store?</span>
-<i class="fas fa-chevron-down"></i>
-</div>
-<div class="faq-answer">
-Absolutamente. Todas nuestras recargas se realizan a través del Centro de Recargas Oficial de Garena. No necesitamos tu contraseña, solo tu ID de jugador. Tu cuenta está 100% protegida contra baneos.
-</div>
-</div>
-
-<div class="faq-item">
-<div class="faq-question" onclick="toggleFaq(this)">
-<span>¿Qué métodos de pago aceptan?</span>
-<i class="fas fa-chevron-down"></i>
-</div>
-<div class="faq-answer">
-Aceptamos Pago Móvil (Venezuela) y Zinli (internacional). Estamos trabajando para agregar más métodos de pago como PayPal, tarjetas de crédito y criptomonedas en el futuro cercano.
-</div>
-</div>
-
-<div class="faq-item">
-<div class="faq-question" onclick="toggleFaq(this)">
-<span>¿Qué hago si mi recarga no llega?</span>
-<i class="fas fa-chevron-down"></i>
-</div>
-<div class="faq-answer">
-Contacta nuestro soporte inmediatamente a eduardgeldes6@gmail.com o usa el chat de soporte en tu historial de pedidos. Revisaremos tu caso y procesaremos un reembolso si es necesario.
-</div>
-</div>
-
-<div class="faq-item">
-<div class="faq-question" onclick="toggleFaq(this)">
-<span>¿Necesito crear una cuenta para recargar?</span>
-<i class="fas fa-chevron-down"></i>
-</div>
-<div class="faq-answer">
-Sí, necesitas una cuenta para poder hacer seguimiento de tus pedidos y acceder al soporte. El registro es gratuito y toma menos de 1 minuto.
-</div>
-</div>
-
-<div class="faq-item">
-<div class="faq-question" onclick="toggleFaq(this)">
-<span>¿Hacen envíos a todos los países de Latam?</span>
-<i class="fas fa-chevron-down"></i>
-</div>
-<div class="faq-answer">
-Sí, trabajamos con todos los países de Latinoamérica. Los precios pueden variar según el país debido a las tasas de cambio locales. Selecciona tu país en la tienda para ver precios actualizados.
-</div>
-</div>
-
-<div class="faq-item">
-<div class="faq-question" onclick="toggleFaq(this)">
-<span>¿Puedo cancelar un pedido?</span>
-<i class="fas fa-chevron-down"></i>
-</div>
-<div class="faq-answer">
-Los pedidos solo se pueden cancelar antes de ser procesados. Una vez que el pago es verificado y la recarga enviada, no se pueden cancelar. Contacta soporte para más información.
-</div>
-</div>
-
-<div class="faq-item">
-<div class="faq-question" onclick="toggleFaq(this)">
-<span>¿Ofrecen descuentos por compras grandes?</span>
-<i class="fas fa-chevron-down"></i>
-</div>
-<div class="faq-answer">
-Sí, tenemos precios especiales para paquetes grandes de diamantes. Revisa nuestra sección de paquetes para ver las mejores ofertas. También hay promociones especiales durante eventos.
-</div>
-</div>
-
-<div class="ad-container overflow-hidden">
-<p class="text-[9px] text-center text-gray-600 mb-2 uppercase tracking-widest">Publicidad</p>
-<ins class="adsbygoogle"
-style="display:block"
-data-ad-client="ca-pub-8397347098508270"
-data-ad-slot="1133942942"
-data-ad-format="auto"
-data-full-width-responsive="true"></ins>
-<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div>
-
-<button onclick="showSection('welcome-screen')" class="mt-8 text-cyan-400 text-xs font-bold uppercase underline">Volver al inicio</button>
-</section>
-
-<!-- SECCIÓN SOBRE NOSOTROS -->
-<section id="about" class="hidden-section max-w-4xl mx-auto">
-<h2 class="gaming-font text-3xl text-center text-cyan-400 mb-8 uppercase">Sobre Diamond Store</h2>
-
-<div class="glass-morphism p-8 rounded-3xl mb-8">
-<h3 class="text-xl text-white mb-4">🏆 Nuestra Historia</h3>
-<p class="text-gray-300 leading-relaxed mb-4">
-Diamond Store fue fundada en 2024 con una misión clara: proporcionar un servicio de recargas de Free Fire seguro, rápido y confiable para toda la comunidad latina. Después de años de experiencia en el mercado de gaming, identificamos la necesidad de un proveedor que priorizara la seguridad de las cuentas de nuestros clientes.
-</p>
-<p class="text-gray-300 leading-relaxed">
-Hoy en día, hemos procesado miles de recargas exitosas y contamos con una comunidad de clientes satisfechos en más de 15 países de Latinoamérica. Nuestro compromiso con la calidad y la transparencia nos ha convertido en el centro de recargas preferido por jugadores de Free Fire.
-</p>
-</div>
-
-<div class="glass-morphism p-8 rounded-3xl mb-8">
-<h3 class="text-xl text-white mb-4">🎯 Nuestra Misión</h3>
-<ul class="text-gray-300 space-y-3">
-<li>✓ Proporcionar recargas 100% legales y seguras</li>
-<li>✓ Ofrecer los mejores precios del mercado latinoamericano</li>
-<li>✓ Brindar soporte al cliente 24/7 en español</li>
-<li>✓ Garantizar tiempos de entrega rápidos (menos de 15 minutos)</li>
-<li>✓ Proteger la privacidad y seguridad de nuestros usuarios</li>
-</ul>
-</div>
-
-<div class="glass-morphism p-8 rounded-3xl mb-8">
-<h3 class="text-xl text-white mb-4">📞 Información de Contacto</h3>
-<div class="grid md:grid-cols-2 gap-4">
-<div class="trust-badge">
-<i class="fas fa-envelope"></i>
-<div>
-<h5>Email de Soporte</h5>
-<p>eduardgeldes6@gmail.com</p>
-</div>
-</div>
-<div class="trust-badge">
-<i class="fas fa-clock"></i>
-<div>
-<h5>Horario de Atención</h5>
-<p>Lunes a Domingo - 24/7</p>
-</div>
-</div>
-<div class="trust-badge">
-<i class="fas fa-globe"></i>
-<div>
-<h5>Cobertura</h5>
-<p>Toda Latinoamérica + EE.UU.</p>
-</div>
-</div>
-<div class="trust-badge">
-<i class="fas fa-shield-alt"></i>
-<div>
-<h5>Garantía</h5>
-<p>100% Seguro - Sin Baneos</p>
-</div>
-</div>
-</div>
-</div>
-
-<div class="ad-container overflow-hidden">
-<p class="text-[9px] text-center text-gray-600 mb-2 uppercase tracking-widest">Publicidad</p>
-<ins class="adsbygoogle"
-style="display:block"
-data-ad-client="ca-pub-8397347098508270"
-data-ad-slot="1133942942"
-data-ad-format="auto"
-data-full-width-responsive="true"></ins>
-<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div>
-
-<button onclick="showSection('welcome-screen')" class="mt-8 text-cyan-400 text-xs font-bold uppercase underline">Volver al inicio</button>
-</section>
-
+<!-- LOGIN -->
 <section id="login-form" class="hidden-section max-w-md mx-auto glass-morphism p-10 rounded-3xl">
 <h2 class="gaming-font text-2xl text-center mb-8 uppercase">Ingresar</h2>
 <form id="loginForm" class="space-y-5">
@@ -802,6 +170,7 @@ data-full-width-responsive="true"></ins>
 </form>
 </section>
 
+<!-- REGISTRO -->
 <section id="register-form" class="hidden-section max-w-md mx-auto glass-morphism p-10 rounded-3xl">
 <h2 class="gaming-font text-2xl text-center mb-8 uppercase">Registro</h2>
 <form id="registerForm" class="space-y-5">
@@ -812,1207 +181,999 @@ data-full-width-responsive="true"></ins>
 </form>
 </section>
 
+<!-- TIENDA -->
 <section id="home" class="hidden-section max-w-6xl mx-auto">
-<header class="text-center mb-8">
+<header class="text-center mb-6">
 <h2 class="gaming-font text-3xl text-white uppercase italic">Recargas <span class="text-cyan-400">Inmediatas</span></h2>
-<p class="text-gray-400 text-xs mt-2 font-bold uppercase tracking-widest">Selecciona tu paquete de diamantes • Recarga por ID</p>
 </header>
+
+<!-- 🔥 SELECTOR DE JUEGOS 🔥 -->
+<div id="game-selector" class="flex gap-3 mb-6 overflow-x-auto pb-2 px-2"></div>
+
+<!-- 🔥 HISTORIAL DE CONFIANZA (TICKER) 🔥 -->
+<div id="trust-ticker" class="trust-ticker hidden-section">
+  <div class="trust-ticker-content" id="trust-ticker-content"></div>
+</div>
+
 <div class="country-selector max-w-2xl mx-auto mb-8">
-<div class="country-info">
-<div class="flex items-center gap-4">
+<div class="flex flex-wrap items-center gap-4">
 <div>
-<label class="text-[10px] text-gray-400 uppercase font-bold block mb-1">Seleccionar País</label>
-<select id="countrySelect" onchange="updateCountryPrices()" class="p-2 rounded-lg outline-none min-w-[200px]">
-<option value="argentina">🇦🇷 Argentina</option>
-<option value="bolivia">🇧🇴 Bolivia</option>
-<option value="chile">🇨🇱 Chile</option>
-<option value="colombia">🇨🇴 Colombia</option>
-<option value="costarica">🇨🇷 Costa Rica</option>
-<option value="dominicana">🇩🇴 República Dominicana</option>
-<option value="ecuador">🇪🇨 Ecuador</option>
-<option value="elsalvador">🇸🇻 El Salvador</option>
-<option value="guatemala">🇬🇹 Guatemala</option>
-<option value="mexico">🇲🇽 México</option>
-<option value="nicaragua">🇳🇮 Nicaragua</option>
-<option value="panama">🇵🇦 Panamá</option>
-<option value="uruguay">🇺🇾 Uruguay</option>
-<option value="venezuela">🇻🇪 Venezuela</option>
+<label class="text-[10px] text-gray-400 uppercase font-bold block mb-1">País</label>
+<select id="countrySelect" onchange="updateCountryPrices()" class="p-2 rounded-lg outline-none min-w-[150px]">
+<option value="argentina">🇦 Argentina</option><option value="bolivia">🇧🇴 Bolivia</option><option value="chile">🇨 Chile</option><option value="colombia">🇨🇴 Colombia</option><option value="costarica">🇨 Costa Rica</option><option value="dominicana">🇩🇴 Rep. Dominicana</option><option value="ecuador">🇪 Ecuador</option><option value="elsalvador">🇸 El Salvador</option><option value="guatemala">🇬 Guatemala</option><option value="mexico">🇲 México</option><option value="nicaragua">🇳 Nicaragua</option><option value="panama">🇵 Panamá</option><option value="uruguay">🇺🇾 Uruguay</option><option value="venezuela" selected>🇻 Venezuela</option>
 </select>
 </div>
 <div>
 <label class="text-[10px] text-gray-400 uppercase font-bold block mb-1">Moneda</label>
 <select id="currencySelect" onchange="updateCurrency()" class="p-2 rounded-lg outline-none min-w-[120px]">
-<option value="USD">USD $</option>
-<option value="VES">VES Bs.</option>
-<option value="MXN">MXN $</option>
-<option value="COP">COP $</option>
-<option value="ARS">ARS $</option>
-<option value="CLP">CLP $</option>
-<option value="PEN">PEN S/</option>
+<option value="USD">USD $</option><option value="VES">VES Bs.</option><option value="MXN">MXN $</option><option value="COP">COP $</option><option value="ARS">ARS $</option><option value="CLP">CLP $</option><option value="PEN">PEN S/</option>
 </select>
 </div>
-</div>
 <div id="admin-price-update" class="hidden-section">
-<button onclick="togglePriceEdit()" class="price-update-btn">
-<i class="fas fa-edit mr-1"></i> Actualizar Precios
-</button>
+<button onclick="togglePriceEdit()" class="price-update-btn"><i class="fas fa-edit mr-1"></i> Precios</button>
 </div>
-<p class="region-note">
-<i class="fas fa-globe-americas mr-1"></i> Recarga solo para Latam Region EE UU
-</p>
 </div>
-<div id="price-edit-panel" class="hidden-section mt-4 p-4 bg-black/30 rounded-xl">
-<p class="text-[10px] text-cyan-400 uppercase font-bold mb-3">Editar Precios por Paquete (USD)</p>
+<p class="region-note mt-4"><i class="fas fa-globe-americas mr-1"></i> Recarga solo para Latam Region EE UU</p>
+</div>
+
+<div id="price-edit-panel" class="hidden-section mt-4 p-4 bg-black/30 rounded-xl mb-6">
+<p class="text-[10px] text-cyan-400 uppercase font-bold mb-3">Editar Precios (USD)</p>
 <div class="grid grid-cols-2 md:grid-cols-6 gap-3" id="price-inputs"></div>
 <button onclick="savePrices()" class="mt-4 w-full btn-primary text-black py-2 rounded-lg font-bold uppercase text-xs">Guardar Cambios</button>
 </div>
-</div>
+
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="packages-grid"></div>
-<div class="ad-container overflow-hidden">
-<p class="text-[9px] text-center text-gray-600 mb-2 uppercase tracking-widest">Publicidad</p>
-<ins class="adsbygoogle"
-style="display:block"
-data-ad-client="ca-pub-8397347098508270"
-data-ad-slot="1133942942"
-data-ad-format="auto"
-data-full-width-responsive="true"></ins>
-<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div>
-<div class="mt-16 grid md:grid-cols-2 gap-10">
-<div class="glass-morphism p-8 rounded-3xl">
-<h3 class="gaming-font text-cyan-400 mb-4 uppercase">¿Cómo Funciona?</h3>
-<ul class="space-y-3 text-sm text-gray-300">
-<li><i class="fas fa-check-circle text-cyan-500 mr-2"></i> Elige tu paquete de diamantes preferido.</li>
-<li><i class="fas fa-check-circle text-cyan-500 mr-2"></i> Proporciona tu ID de jugador de Free Fire.</li>
-<li><i class="fas fa-check-circle text-cyan-500 mr-2"></i> Realiza el pago vía Pago Móvil o Zinli.</li>
-<li><i class="fas fa-check-circle text-cyan-500 mr-2"></i> Recibe tus diamantes en menos de 15 minutos.</li>
-</ul>
-</div>
-<div class="glass-morphism p-8 rounded-3xl">
-<h3 class="gaming-font text-cyan-400 mb-4 uppercase">Garantía Diamond Store</h3>
-<p class="text-sm text-gray-300 leading-relaxed">
-Somos proveedores autorizados. Todas las recargas se realizan de forma legal a través de canales oficiales, garantizando que tu cuenta no corra riesgos de baneo. Soporte 24/7 disponible para nuestros clientes registrados.
-</p>
-</div>
-</div>
+<div id="no-packages-msg" class="hidden-section empty-state"><i class="fas fa-box-open block"></i>No hay paquetes disponibles para este juego aún.</div>
 </section>
 
-<!-- POLÍTICA DE PRIVACIDAD EXPANDIDA -->
-<section id="privacy-policy" class="hidden-section max-w-4xl mx-auto glass-morphism p-10 rounded-3xl legal-content">
-<h2 class="gaming-font text-2xl text-cyan-400 mb-6 uppercase">Política de Privacidad</h2>
-<p class="text-sm text-gray-400 mb-4">Última actualización: Enero 2026</p>
-
-<h3>1. Compromiso de Seguridad</h3>
-<p>En Diamond Store, tu seguridad es nuestra prioridad número uno. Solo solicitamos tu <b>ID de Jugador</b> para procesar las recargas de diamantes. Nunca pedimos tu contraseña, datos de tu cuenta de Garena, ni información personal sensible.</p>
-
-<h3>2. Información que Recopilamos</h3>
-<p>Recopilamos la siguiente información para brindar nuestros servicios:</p>
-<ul>
-<li>Correo electrónico: Para gestión de cuenta y notificaciones de pedidos</li>
-<li>ID de Free Fire: Exclusivamente para procesar recargas</li>
-<li>Historial de transacciones: Para soporte y garantía</li>
-<li>Datos de pago: Procesados de forma segura a través de nuestros proveedores</li>
-</ul>
-
-<h3>3. Uso de Datos</h3>
-<p>Tu correo de registro se utiliza exclusivamente para:</p>
-<ul>
-<li>Gestionar tu historial de pedidos</li>
-<li>Brindarte soporte técnico cuando lo necesites</li>
-<li>Enviarte notificaciones sobre el estado de tus recargas</li>
-<li>Informarte sobre promociones especiales (opcional, puedes darte de baja)</li>
-</ul>
-
-<h3>4. Protección de Datos</h3>
-<p>Implementamos medidas de seguridad técnicas y organizativas para proteger tu información personal contra acceso no autorizado, pérdida o destrucción. Utilizamos encriptación SSL para todas las transacciones.</p>
-
-<h3>5. Compartir Información</h3>
-<p>No vendemos, alquilamos ni compartimos tu información personal con terceros, excepto cuando sea necesario para procesar tus pagos o cumplir con obligaciones legales.</p>
-
-<h3>6. Cookies</h3>
-<p>Este sitio utiliza cookies esenciales para el funcionamiento de la tienda y cookies analíticas para mejorar la experiencia del usuario. Puedes configurar tu navegador para rechazar cookies, pero algunas funciones del sitio podrían no estar disponibles.</p>
-
-<h3>7. Tus Derechos</h3>
-<p>Tienes derecho a:</p>
-<ul>
-<li>Acceder a tu información personal</li>
-<li>Corregir datos incorrectos</li>
-<li>Solicitar la eliminación de tu cuenta</li>
-<li>Darte de baja de comunicaciones promocionales</li>
-</ul>
-
-<h3>8. Contacto</h3>
-<p>Para cualquier pregunta sobre esta política de privacidad, contáctanos en: eduardgeldes6@gmail.com</p>
-
-<button onclick="showSection('home')" class="mt-6 text-cyan-400 text-xs font-bold uppercase underline">Volver a la tienda</button>
-</section>
-
-<!-- TÉRMINOS DE SERVICIO EXPANDIDOS -->
-<section id="terms-of-service" class="hidden-section max-w-4xl mx-auto glass-morphism p-10 rounded-3xl legal-content">
-<h2 class="gaming-font text-2xl text-cyan-400 mb-6 uppercase">Términos de Servicio</h2>
-<p class="text-sm text-gray-400 mb-4">Última actualización: Enero 2026</p>
-
-<h3>1. Aceptación de Términos</h3>
-<p>Al usar Diamond Store, aceptas estar legalmente vinculado por estos términos de servicio. Si no estás de acuerdo, por favor no utilices nuestros servicios.</p>
-
-<h3>2. Garantía Anti-Baneo</h3>
-<p>Todas nuestras recargas se realizan mediante el <b>Centro de Recargas Oficial de Garena</b>. Garantizamos que tus diamantes serán entregados de forma legítima sin riesgo de baneo para tu cuenta.</p>
-
-<h3>3. Elegibilidad</h3>
-<p>Debes tener al menos 13 años para usar nuestros servicios. Si eres menor de edad, necesitas el consentimiento de un padre o tutor legal.</p>
-
-<h3>4. Proceso de Compra</h3>
-<p>Al realizar una compra:</p>
-<ul>
-<li>Seleccionas el paquete de diamantes deseado</li>
-<li>Proporcionas tu ID de Free Fire válido</li>
-<li>Realizas el pago mediante nuestros métodos disponibles</li>
-<li>Recibes tus diamantes en el tiempo estimado</li>
-</ul>
-
-<h3>5. Política de Reembolsos</h3>
-<p>Ofrecemos reembolso completo en los siguientes casos:</p>
-<ul>
-<li>La recarga no se completa dentro de 24 horas</li>
-<li>El ID proporcionado es inválido o no existe</li>
-<li>Error técnico del sistema que impida la entrega</li>
-</ul>
-<p>No se ofrecen reembolsos una vez que los diamantes han sido entregados exitosamente.</p>
-
-<h3>6. Conducta del Usuario</h3>
-<p>Está prohibido:</p>
-<ul>
-<li>Proporcionar información falsa o engañosa</li>
-<li>Intentar explotar vulnerabilidades del sistema</li>
-<li>Usar el servicio para actividades ilegales</li>
-<li>Crear múltiples cuentas para abusar de promociones</li>
-</ul>
-
-<h3>7. Limitación de Responsabilidad</h3>
-<p>Diamond Store no es responsable de:</p>
-<ul>
-<li>Problemas con la cuenta de Free Fire del usuario (baneos previos, etc.)</li>
-<li>Cambios de precios o políticas de Garena</li>
-<li>Interrupciones del servicio por causas de fuerza mayor</li>
-</ul>
-
-<h3>8. Modificaciones</h3>
-<p>Nos reservamos el derecho de modificar estos términos en cualquier momento. Los cambios entrarán en vigor inmediatamente después de su publicación en el sitio.</p>
-
-<h3>9. Ley Aplicable</h3>
-<p>Estos términos se rigen por las leyes aplicables en la jurisdicción donde opera Diamond Store.</p>
-
-<button onclick="showSection('home')" class="mt-6 text-cyan-400 text-xs font-bold uppercase underline">Volver a la tienda</button>
-</section>
-
-<!-- POLÍTICA DE COOKIES -->
-<section id="cookie-policy" class="hidden-section max-w-4xl mx-auto glass-morphism p-10 rounded-3xl legal-content">
-<h2 class="gaming-font text-2xl text-cyan-400 mb-6 uppercase">Política de Cookies</h2>
-
-<h3>1. ¿Qué son las Cookies?</h3>
-<p>Las cookies son pequeños archivos de texto que se almacenan en tu dispositivo cuando visitas nuestro sitio web. Nos ayudan a mejorar tu experiencia y hacer que el sitio funcione correctamente.</p>
-
-<h3>2. Tipos de Cookies que Usamos</h3>
-<ul>
-<li><b>Cookies Esenciales:</b> Necesarias para el funcionamiento básico del sitio (inicio de sesión, carrito de compras)</li>
-<li><b>Cookies de Preferencias:</b> Guardan tu configuración y preferencias</li>
-<li><b>Cookies Analíticas:</b> Nos ayudan a entender cómo usas el sitio para mejorarlo</li>
-<li><b>Cookies de Publicidad:</b> Muestran anuncios relevantes (Google AdSense)</li>
-</ul>
-
-<h3>3. Cookies de Terceros</h3>
-<p>Usamos servicios de terceros que pueden colocar cookies:</p>
-<ul>
-<li>Google AdSense - Para mostrar anuncios</li>
-<li>Google Analytics - Para análisis de tráfico</li>
-<li>Firebase - Para autenticación y base de datos</li>
-</ul>
-
-<h3>4. Gestión de Cookies</h3>
-<p>Puedes controlar las cookies a través de la configuración de tu navegador. Ten en cuenta que deshabilitar ciertas cookies puede afectar la funcionalidad del sitio.</p>
-
-<h3>5. Actualizaciones</h3>
-<p>Esta política puede actualizarse periódicamente. Te notificaremos sobre cambios significativos.</p>
-
-<button onclick="showSection('home')" class="mt-6 text-cyan-400 text-xs font-bold uppercase underline">Volver a la tienda</button>
-</section>
-
-<!-- POLÍTICA DE REEMBOLSOS -->
-<section id="refund-policy" class="hidden-section max-w-4xl mx-auto glass-morphism p-10 rounded-3xl legal-content">
-<h2 class="gaming-font text-2xl text-cyan-400 mb-6 uppercase">Política de Reembolsos</h2>
-
-<h3>1. Elegibilidad para Reembolso</h3>
-<p>Puedes solicitar un reembolso en las siguientes situaciones:</p>
-<ul>
-<li>La recarga no se completa dentro de 24 horas hábiles</li>
-<li>El ID de jugador proporcionado es inválido</li>
-<li>Error del sistema que impide la entrega</li>
-<li>Pago duplicado por error técnico</li>
-</ul>
-
-<h3>2. Proceso de Reembolso</h3>
-<p>Para solicitar un reembolso:</p>
-<ul>
-<li>Contacta a soporte en eduardgeldes6@gmail.com</li>
-<li>Proporciona tu número de pedido y comprobante de pago</li>
-<li>Explica el motivo de la solicitud</li>
-<li>Espera la revisión (24-48 horas)</li>
-</ul>
-
-<h3>3. Tiempos de Procesamiento</h3>
-<p>Los reembolsos aprobados se procesan en 3-5 días hábiles. El tiempo de aparición en tu cuenta depende de tu método de pago.</p>
-
-<h3>4. Exclusiones</h3>
-<p>No se aceptan reembolsos cuando:</p>
-<ul>
-<li>Los diamantes ya fueron entregados exitosamente</li>
-<li>El usuario proporcionó un ID incorrecto</li>
-<li>La cuenta de Free Fire tiene restricciones previas</li>
-<li>Ha pasado más de 7 días desde la compra</li>
-</ul>
-
-<button onclick="showSection('home')" class="mt-6 text-cyan-400 text-xs font-bold uppercase underline">Volver a la tienda</button>
-</section>
-
-<section id="contact-support" class="hidden-section max-w-4xl mx-auto glass-morphism p-10 rounded-3xl text-center">
-<h2 class="gaming-font text-2xl text-cyan-400 mb-6 uppercase">Soporte al Cliente</h2>
-<div class="py-10">
-<i class="fas fa-headset text-5xl text-cyan-400 mb-6"></i>
-<p class="text-gray-300 mb-8 max-w-md mx-auto">¿Tienes problemas con una recarga o dudas sobre los métodos de pago? Contáctame directamente.</p>
-<div class="bg-black/30 p-6 rounded-2xl border border-white/5 inline-block">
-<p class="text-xs text-gray-500 uppercase font-bold mb-2">Correo de Atención:</p>
-<a href="mailto:eduardgeldes6@gmail.com" class="text-2xl font-mono font-bold text-white hover:text-cyan-400 transition">eduardgeldes6@gmail.com</a>
-</div>
-<div class="mt-6 text-gray-400 text-sm">
-<p>⏰ Tiempo de respuesta promedio: 2-4 horas</p>
-<p>📍 Disponible: Lunes a Domingo, 24/7</p>
-</div>
-</div>
-<button onclick="showSection('home')" class="block mx-auto mt-6 text-gray-500 text-xs font-bold uppercase underline">Volver al inicio</button>
-</section>
-
+<!-- CHECKOUT -->
 <section id="checkout-section" class="hidden-section max-w-xl mx-auto glass-morphism p-10 rounded-3xl">
 <h2 class="gaming-font text-cyan-400 text-center mb-8 uppercase">Reportar Pago</h2>
 <div id="checkout-details" class="bg-black/40 p-5 rounded-2xl mb-8 border border-white/5"></div>
 <div class="grid grid-cols-2 gap-4 mb-8">
-<div id="method-pm" onclick="selectPayment('Pago Móvil')" class="payment-card p-5 rounded-2xl text-center">
-<i class="fas fa-mobile-screen mb-2 text-2xl text-cyan-400"></i>
-<p class="text-[10px] font-bold uppercase">Pago Móvil</p>
-</div>
-<div id="method-zinli" onclick="selectPayment('Zinli')" class="payment-card p-5 rounded-2xl text-center">
-<i class="fas fa-wallet mb-2 text-2xl text-yellow-500"></i>
-<p class="text-[10px] font-bold uppercase">Zinli</p>
-</div>
+<div id="method-pm" onclick="selectPayment('Pago Móvil')" class="payment-card p-5 rounded-2xl text-center"><i class="fas fa-mobile-screen mb-2 text-2xl text-cyan-400"></i><p class="text-[10px] font-bold uppercase">Pago Móvil</p></div>
+<div id="method-zinli" onclick="selectPayment('Zinli')" class="payment-card p-5 rounded-2xl text-center"><i class="fas fa-wallet mb-2 text-2xl text-yellow-500"></i><p class="text-[10px] font-bold uppercase">Zinli</p></div>
 </div>
 <div id="payment-instructions" class="hidden-section mb-8 p-5 bg-cyan-500/5 rounded-2xl border border-cyan-500/20 text-sm"></div>
-<div class="space-y-5">
-<input type="number" id="playerID" placeholder="ID de Free Fire" class="w-full p-4 rounded-xl outline-none font-bold">
-<input type="number" id="payRef" placeholder="Referencia (4 últimos números)" class="w-full p-4 rounded-xl outline-none">
-<button onclick="confirmPurchase()" class="w-full btn-primary text-black py-4 rounded-xl font-bold uppercase">Confirmar Pago</button>
+
+<div class="space-y-4 mb-6">
+  <div>
+    <label class="text-[10px] text-gray-400 uppercase font-bold block mb-2">ID de Cuenta (<span id="checkout-game-label">Juego</span>)</label>
+    <div class="flex gap-2">
+      <input type="number" id="playerID" placeholder="Ej: 1234567890" class="w-full p-4 rounded-xl outline-none font-bold" oninput="clearPlayerInfo()">
+      <button type="button" onclick="verifyPlayerID()" class="btn-primary text-black px-6 rounded-xl font-bold uppercase text-sm whitespace-nowrap"><i class="fas fa-search mr-1"></i> Verificar</button>
+    </div>
+  </div>
+  <div id="player-info" class="hidden-section p-4 bg-cyan-500/10 border border-cyan-500/30 rounded-xl">
+    <div class="flex items-center gap-3">
+      <div class="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center text-white font-bold text-lg" id="player-avatar">?</div>
+      <div><p class="text-[10px] text-gray-400 uppercase">Jugador Verificado</p><p class="text-white font-bold text-lg" id="player-name">Cargando...</p><p class="text-[10px] text-cyan-400" id="player-level">Nivel: --</p></div>
+      <i class="fas fa-check-circle text-green-400 ml-auto text-2xl" id="player-verified"></i>
+    </div>
+  </div>
+  <div id="player-error" class="hidden-section p-3 bg-red-500/10 border border-red-500/30 rounded-xl text-red-400 text-sm text-center"><i class="fas fa-exclamation-triangle mr-2"></i><span id="error-text"></span></div>
 </div>
+
+<input type="number" id="payRef" placeholder="Referencia (4 últimos números)" class="w-full p-4 rounded-xl outline-none">
+<button id="confirm-btn" onclick="confirmPurchase()" class="w-full btn-primary text-black py-4 rounded-xl font-bold uppercase">Confirmar Pago</button>
 </section>
 
+<!-- HISTORIAL USUARIO -->
 <section id="history" class="hidden-section max-w-2xl mx-auto">
 <h2 class="gaming-font text-center text-xl mb-8 uppercase">Mis Recargas</h2>
 <div id="user-history-list" class="space-y-4"></div>
 </section>
 
+<!-- ADMIN -->
 <section id="admin-panel" class="hidden-section max-w-6xl mx-auto">
-<h2 class="gaming-font text-red-500 text-center text-2xl mb-10 uppercase">Gestión de Ventas</h2>
+<h2 class="gaming-font text-red-500 text-center text-2xl mb-10 uppercase">Panel de Administración</h2>
 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-<div class="stat-card">
-<div class="stat-number" id="stat-pending">0</div>
-<div class="stat-label">Pedidos Pendientes</div>
+<div class="stat-card"><div class="stat-number" id="stat-pending">0</div><div class="stat-label">Pendientes</div></div>
+<div class="stat-card"><div class="stat-number" id="stat-completed">0</div><div class="stat-label">Aceptados</div></div>
+<div class="stat-card"><div class="stat-number" id="stat-total-sales" style="color: #22c55e;">$0</div><div class="stat-label">Ventas (USD)</div></div>
+<div class="stat-card"><div class="stat-number" id="stat-active-users" style="color: #ffcc00;">0</div><div class="stat-label">Usuarios Activos</div></div>
 </div>
-<div class="stat-card">
-<div class="stat-number" id="stat-completed">0</div>
-<div class="stat-label">Pedidos Aceptados</div>
+<div class="flex flex-wrap gap-3 mb-6">
+<button class="admin-tab-btn active" onclick="showAdminTab('pending')"><i class="fas fa-clock mr-2"></i>Pendientes</button>
+<button class="admin-tab-btn" onclick="showAdminTab('completed')"><i class="fas fa-check mr-2"></i>Aceptados</button>
+<button class="admin-tab-btn" onclick="showAdminTab('prices')"><i class="fas fa-tags mr-2"></i>Precios</button>
+<button class="admin-tab-btn" onclick="showAdminTab('packages')"><i class="fas fa-box mr-2"></i>Paquetes</button>
+<button class="admin-tab-btn" onclick="showAdminTab('games')"><i class="fas fa-gamepad mr-2"></i>Juegos</button>
+<button class="admin-tab-btn" onclick="showAdminTab('anuncios')"><i class="fas fa-bullhorn mr-2"></i>Anuncios</button>
 </div>
-<div class="stat-card">
-<div class="stat-number" id="stat-total-sales" style="color: #22c55e;">$0</div>
-<div class="stat-label">Ventas Totales (USD)</div>
-</div>
-<div class="stat-card">
-<div class="stat-number" id="stat-total-orders">0</div>
-<div class="stat-label">Total Pedidos</div>
-</div>
-</div>
-<div class="flex flex-wrap gap-3 mb-6" id="admin-tabs">
-<button class="admin-tab-btn active" onclick="showAdminTab('pending')">
-<i class="fas fa-clock mr-2"></i>Pendientes
-</button>
-<button class="admin-tab-btn" onclick="showAdminTab('completed')">
-<i class="fas fa-check mr-2"></i>Aceptados
-</button>
-<button class="admin-tab-btn" onclick="showAdminTab('prices')">
-<i class="fas fa-tags mr-2"></i>Precios
-</button>
-</div>
-<div id="admin-pending-panel" class="glass-morphism p-6 rounded-3xl mb-8">
-<h3 class="gaming-font text-yellow-500 mb-4 uppercase text-sm">Pedidos Pendientes de Aprobación</h3>
-<div id="admin-orders-pending" class="space-y-6"></div>
-</div>
-<div id="admin-completed-panel" class="hidden-section glass-morphism p-6 rounded-3xl mb-8">
-<h3 class="gaming-font text-green-400 mb-4 uppercase text-sm">Pedidos Aceptados</h3>
-<div id="admin-orders-completed" class="space-y-6"></div>
-</div>
+
+<div id="admin-pending-panel" class="glass-morphism p-6 rounded-3xl mb-8"><h3 class="gaming-font text-yellow-500 mb-4 uppercase text-sm">Pedidos Pendientes</h3><div id="admin-orders-pending" class="space-y-6"></div></div>
+<div id="admin-completed-panel" class="hidden-section glass-morphism p-6 rounded-3xl mb-8"><h3 class="gaming-font text-green-400 mb-4 uppercase text-sm">Pedidos Aceptados</h3><div id="admin-orders-completed" class="space-y-6"></div></div>
 <div id="admin-prices-panel" class="hidden-section glass-morphism p-6 rounded-3xl mb-8">
-<h3 class="gaming-font text-cyan-400 mb-4 uppercase text-sm">Gestión de Precios por País</h3>
-<div class="grid md:grid-cols-2 gap-4">
-<div>
-<label class="text-[10px] text-gray-400 uppercase block mb-2">Seleccionar País</label>
-<select id="admin-country" onchange="loadCountryPrices()" class="w-full p-3 rounded-xl outline-none">
-<option value="argentina">🇦🇷 Argentina</option>
-<option value="bolivia">🇧🇴 Bolivia</option>
-<option value="chile">🇨🇱 Chile</option>
-<option value="colombia">🇨🇴 Colombia</option>
-<option value="costarica">🇨🇷 Costa Rica</option>
-<option value="dominicana">🇩🇴 República Dominicana</option>
-<option value="ecuador">🇪🇨 Ecuador</option>
-<option value="elsalvador">🇸🇻 El Salvador</option>
-<option value="guatemala">🇬🇹 Guatemala</option>
-<option value="mexico">🇲🇽 México</option>
-<option value="nicaragua">🇳🇮 Nicaragua</option>
-<option value="panama">🇵🇦 Panamá</option>
-<option value="uruguay">🇺🇾 Uruguay</option>
-<option value="venezuela">🇻🇪 Venezuela</option>
-</select>
+<h3 class="gaming-font text-cyan-400 mb-4 uppercase text-sm">Gestión de Precios</h3>
+<div class="grid md:grid-cols-2 gap-4 mb-4">
+<div><label class="text-[10px] text-gray-400 uppercase block mb-2">País</label><select id="admin-country" onchange="loadCountryPrices()" class="w-full p-3 rounded-xl outline-none"><option value="argentina">🇦 Argentina</option><option value="bolivia">🇧🇴 Bolivia</option><option value="chile">🇨🇱 Chile</option><option value="colombia">🇨🇴 Colombia</option><option value="costarica">🇨 Costa Rica</option><option value="dominicana">🇩🇴 Rep. Dominicana</option><option value="ecuador">🇪 Ecuador</option><option value="elsalvador">🇸🇻 El Salvador</option><option value="guatemala">🇬🇹 Guatemala</option><option value="mexico">🇲 México</option><option value="nicaragua">🇳 Nicaragua</option><option value="panama">🇵 Panamá</option><option value="uruguay">🇺 Uruguay</option><option value="venezuela" selected>🇻 Venezuela</option></select></div>
+<div class="flex items-end"><button onclick="saveAdminPrices()" class="w-full btn-primary text-black py-3 rounded-xl font-bold uppercase text-sm"><i class="fas fa-save mr-2"></i> Guardar Precios</button></div>
 </div>
-<div class="flex items-end">
-<button onclick="saveAdminPrices()" class="w-full btn-primary text-black py-3 rounded-xl font-bold uppercase text-sm">
-<i class="fas fa-save mr-2"></i> Guardar Precios
-</button>
+<div id="admin-price-inputs" class="grid grid-cols-2 md:grid-cols-6 gap-3"></div>
 </div>
+
+<div id="admin-packages-panel" class="hidden-section glass-morphism p-6 rounded-3xl mb-8">
+<h3 class="gaming-font text-cyan-400 mb-4 uppercase text-sm flex justify-between items-center">
+<span><i class="fas fa-box mr-2"></i>Gestión de Paquetes</span>
+<button onclick="openPackageModal()" class="btn-add"><i class="fas fa-plus"></i> Agregar Paquete</button>
+</h3>
+<div id="packages-list" class="mt-6"><p class="text-center text-gray-500 py-10">Cargando...</p></div>
 </div>
-<div id="admin-price-inputs" class="grid grid-cols-2 md:grid-cols-6 gap-3 mt-4"></div>
+
+<div id="admin-games-panel" class="hidden-section glass-morphism p-6 rounded-3xl mb-8">
+<h3 class="gaming-font text-cyan-400 mb-4 uppercase text-sm flex justify-between items-center">
+<span><i class="fas fa-gamepad mr-2"></i>Gestión de Juegos</span>
+<button onclick="openGameModal()" class="btn-add"><i class="fas fa-plus"></i> Agregar Juego</button>
+</h3>
+<div id="games-list" class="mt-6"><p class="text-center text-gray-500 py-10">Cargando...</p></div>
 </div>
+
+<!-- 🔥 PANEL DE ANUNCIOS 🔥 -->
+<div id="admin-anuncios-panel" class="hidden-section glass-morphism p-6 rounded-3xl mb-8">
+<h3 class="gaming-font text-cyan-400 mb-4 uppercase text-sm flex justify-between items-center">
+<span><i class="fas fa-bullhorn mr-2"></i>Gestión de Anuncios</span>
+<button onclick="openAnuncioModal()" class="btn-add"><i class="fas fa-plus"></i> Nuevo Anuncio</button>
+</h3>
+<div id="anuncios-list" class="mt-6"><p class="text-center text-gray-500 py-10">Cargando...</p></div>
+</div>
+</section>
+
+<!-- LEGAL & SOPORTE -->
+<section id="contact-support" class="hidden-section max-w-4xl mx-auto glass-morphism p-10 rounded-3xl text-center">
+<h2 class="gaming-font text-2xl text-cyan-400 mb-6 uppercase">Soporte</h2>
+<a href="mailto:eduardgeldes6@gmail.com" class="text-xl font-mono font-bold text-white hover:text-cyan-400 transition">eduardgeldes6@gmail.com</a>
+<button onclick="showSection('home')" class="block mx-auto mt-6 text-gray-500 text-xs font-bold uppercase underline">Volver</button>
 </section>
 </main>
 
 <footer class="mt-20 py-12 glass-morphism border-t border-white/5">
-<div class="container mx-auto px-4">
-<div class="grid md:grid-cols-4 gap-10 text-center md:text-left">
-<div>
-<h4 class="gaming-font text-cyan-400 mb-4 uppercase">Diamond Store</h4>
-<p class="text-xs text-gray-400 leading-relaxed">
-Lideramos el mercado de recargas en Latinoamérica ofreciendo diamantes 100% legales desde 2024.
-</p>
+<div class="container mx-auto px-4 grid md:grid-cols-4 gap-10 text-center md:text-left">
+<div><h4 class="gaming-font text-cyan-400 mb-4 uppercase">Diamond Store</h4><p class="text-xs text-gray-400">Recargas 100% legales desde 2024.</p></div>
+<div><h4 class="text-white mb-4 uppercase text-xs font-bold tracking-widest">Enlaces</h4><div class="flex flex-col gap-2 text-xs text-gray-500"><button onclick="showSection('home')" class="hover:text-cyan-400 text-left">Tienda</button></div></div>
+<div><h4 class="text-white mb-4 uppercase text-xs font-bold tracking-widest">Legal</h4><div class="flex flex-col gap-2 text-xs text-gray-500"><p class="text-left">Privacidad & Términos</p></div></div>
+<div><h4 class="text-white mb-4 uppercase text-xs font-bold tracking-widest">Soporte</h4><p class="text-cyan-400 font-bold text-sm">eduardgeldes6@gmail.com</p></div>
 </div>
-<div>
-<h4 class="text-white mb-4 uppercase text-xs font-bold tracking-widest">Enlaces Rápidos</h4>
-<div class="flex flex-col gap-2 text-xs text-gray-500">
-<button onclick="showSection('home')" class="hover:text-cyan-400 transition text-left">Tienda</button>
-<button onclick="showSection('blog')" class="hover:text-cyan-400 transition text-left">Blog</button>
-<button onclick="showSection('faq')" class="hover:text-cyan-400 transition text-left">FAQ</button>
-<button onclick="showSection('about')" class="hover:text-cyan-400 transition text-left">Nosotros</button>
-</div>
-</div>
-<div>
-<h4 class="text-white mb-4 uppercase text-xs font-bold tracking-widest">Legal</h4>
-<div class="flex flex-col gap-2 text-xs text-gray-500">
-<button onclick="showSection('privacy-policy')" class="hover:text-cyan-400 transition text-left">Política de Privacidad</button>
-<button onclick="showSection('terms-of-service')" class="hover:text-cyan-400 transition text-left">Términos de Servicio</button>
-<button onclick="showSection('cookie-policy')" class="hover:text-cyan-400 transition text-left">Política de Cookies</button>
-<button onclick="showSection('refund-policy')" class="hover:text-cyan-400 transition text-left">Política de Reembolsos</button>
-</div>
-</div>
-<div>
-<h4 class="text-white mb-4 uppercase text-xs font-bold tracking-widest">Soporte Directo</h4>
-<p class="text-cyan-400 font-bold text-sm">eduardgeldes6@gmail.com</p>
-<p class="text-gray-500 text-xs mt-2">⏰ Respuesta en 2-4 horas</p>
-<div class="flex justify-center md:justify-start gap-3 mt-4">
-<a href="#" class="text-gray-400 hover:text-cyan-400 transition"><i class="fab fa-whatsapp text-xl"></i></a>
-<a href="#" class="text-gray-400 hover:text-cyan-400 transition"><i class="fab fa-instagram text-xl"></i></a>
-<a href="#" class="text-gray-400 hover:text-cyan-400 transition"><i class="fab fa-facebook text-xl"></i></a>
-</div>
-</div>
-</div>
-<p class="text-[10px] text-gray-600 text-center mt-12 pt-8 border-t border-white/5">
-© 2024-2026 Diamond Store FF. Todos los derechos reservados. No estamos afiliados a Garena Free Fire.
-</p>
-</div>
+<p class="text-[10px] text-gray-600 text-center mt-12 pt-8 border-t border-white/5">© 2024-2026 Diamond Store. No afiliados a Garena ni Roblox.</p>
 </footer>
 
-<!-- Chat Modal -->
+<!-- CHAT MODAL -->
 <div id="chat-modal" class="hidden-section chat-modal">
 <div class="chat-modal-content">
-<div class="chat-modal-header">
-<div>
-<h3 class="gaming-font text-cyan-400"><i class="fas fa-comments mr-2"></i>Chat de Soporte</h3>
-<p id="chat-order-info" class="chat-order-info"></p>
+<div class="chat-modal-header"><div><h3 class="gaming-font text-cyan-400"><i class="fas fa-comments mr-2"></i>Chat</h3><p id="chat-order-info" class="chat-order-info"></p></div><button class="chat-close-btn" onclick="closeChatModal()">×</button></div>
+<div class="chat-messages-container" id="chat-messages"><p class="no-messages">Cargando...</p></div>
+<div class="chat-input-area"><input type="text" id="chat-input" class="chat-input" placeholder="Escribe..." onkeypress="if(event.key==='Enter')sendMessage()"><button class="chat-send-btn" onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button></div>
 </div>
-<button class="chat-close-btn" onclick="closeChatModal()">×</button>
 </div>
-<div class="chat-messages-container" id="chat-messages">
-<p class="no-messages">Cargando mensajes...</p>
+
+<!-- MODAL PAQUETES -->
+<div id="package-modal" class="hidden-section modal">
+<div class="modal-content">
+<div class="modal-header"><h3 class="gaming-font text-cyan-400 text-xl uppercase" id="modal-title">Agregar Paquete</h3><button class="modal-close" onclick="closePackageModal()">×</button></div>
+<form id="package-form" onsubmit="savePackage(event)">
+<input type="hidden" id="pkg-id">
+<div class="form-group"><label class="form-label">Nombre del Paquete</label><input type="text" id="pkg-name" class="form-input" placeholder="Ej: 100+10 Diamantes" required></div>
+<div class="form-group"><label class="form-label">Juego</label><select id="pkg-game" class="form-input" required></select></div>
+<div class="form-group"><label class="form-label">ID del Paquete (único)</label><input type="text" id="pkg-code" class="form-input" placeholder="Ej: ff-100-10" required><p class="text-[10px] text-gray-500 mt-1">* Sin espacios, usa guiones</p></div>
+<div class="form-group"><label class="form-label">Precio Base (USD)</label><input type="number" id="pkg-price" class="form-input" step="0.01" placeholder="Ej: 1.10" required></div>
+<div class="form-group"><label class="form-label">URL de la Imagen</label><input type="url" id="pkg-image" class="form-input" placeholder="https://ejemplo.com/imagen.jpg" onchange="previewImage(this.value)"><img id="image-preview" class="image-preview hidden-section" alt="Preview"></div>
+<div class="form-group"><label class="form-label">Descripción (opcional)</label><textarea id="pkg-desc" class="form-input" rows="3" placeholder="Descripción..."></textarea></div>
+<div class="flex gap-3"><button type="submit" class="btn-primary text-black py-3 px-6 rounded-xl font-bold uppercase flex-1"><i class="fas fa-save mr-2"></i> Guardar</button><button type="button" onclick="closePackageModal()" class="bg-gray-600/20 text-gray-400 py-3 px-6 rounded-xl font-bold uppercase flex-1">Cancelar</button></div>
+</form>
 </div>
-<div class="chat-input-area">
-<input type="text" id="chat-input" class="chat-input" placeholder="Escribe tu mensaje..." onkeypress="handleChatKeyPress(event)">
-<button class="chat-send-btn" onclick="sendMessage()">
-<i class="fas fa-paper-plane"></i> Enviar
-</button>
 </div>
+
+<!-- MODAL JUEGOS -->
+<div id="game-modal" class="hidden-section modal">
+<div class="modal-content">
+<div class="modal-header"><h3 class="gaming-font text-cyan-400 text-xl uppercase" id="game-modal-title">Agregar Juego</h3><button class="modal-close" onclick="closeGameModal()">×</button></div>
+<form id="game-form" onsubmit="saveGame(event)">
+<input type="hidden" id="game-id">
+<div class="form-group"><label class="form-label">Nombre del Juego</label><input type="text" id="game-name" class="form-input" placeholder="Ej: Free Fire" required></div>
+<div class="form-group"><label class="form-label">Slug (ID único)</label><input type="text" id="game-slug" class="form-input" placeholder="Ej: free-fire" required><p class="text-[10px] text-gray-500 mt-1">* Minúsculas, sin espacios, solo guiones</p></div>
+<div class="form-group"><label class="form-label">URL de Imagen/Logo</label><input type="url" id="game-image" class="form-input" placeholder="https://ejemplo.com/logo.png" onchange="previewGameImage(this.value)"><img id="game-image-preview" class="image-preview hidden-section" alt="Preview"></div>
+<div class="flex gap-3"><button type="submit" class="btn-primary text-black py-3 px-6 rounded-xl font-bold uppercase flex-1"><i class="fas fa-save mr-2"></i> Guardar</button><button type="button" onclick="closeGameModal()" class="bg-gray-600/20 text-gray-400 py-3 px-6 rounded-xl font-bold uppercase flex-1">Cancelar</button></div>
+</form>
+</div>
+</div>
+
+<!-- MODAL ANUNCIOS -->
+<div id="anuncio-modal" class="hidden-section modal">
+<div class="modal-content">
+<div class="modal-header"><h3 class="gaming-font text-cyan-400 text-xl uppercase" id="anuncio-modal-title">Nuevo Anuncio</h3><button class="modal-close" onclick="closeAnuncioModal()">×</button></div>
+<form id="anuncio-form" onsubmit="saveAnuncio(event)">
+<input type="hidden" id="anuncio-id">
+<div class="form-group"><label class="form-label">Título</label><input type="text" id="anuncio-titulo" class="form-input" placeholder="Ej: ¡Oferta de Verano!" required></div>
+<div class="form-group"><label class="form-label">Mensaje</label><textarea id="anuncio-mensaje" class="form-input" rows="3" placeholder="Contenido del anuncio..." required></textarea></div>
+<div class="form-group"><label class="form-label">Tipo</label>
+<select id="anuncio-tipo" class="form-input">
+<option value="info">ℹ️ Información</option>
+<option value="success">✅ Oferta/Éxito</option>
+<option value="warning">⚠️ Importante/Alerta</option>
+</select></div>
+<div class="flex gap-3"><button type="submit" class="btn-primary text-black py-3 px-6 rounded-xl font-bold uppercase flex-1"><i class="fas fa-save mr-2"></i> Publicar</button><button type="button" onclick="closeAnuncioModal()" class="bg-gray-600/20 text-gray-400 py-3 px-6 rounded-xl font-bold uppercase flex-1">Cancelar</button></div>
+</form>
 </div>
 </div>
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
 import { getAuth, onAuthStateChanged, signOut, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-import { getFirestore, doc, setDoc, collection, addDoc, getDocs, updateDoc, onSnapshot, serverTimestamp, query, where, orderBy, deleteDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+import { getFirestore, doc, setDoc, collection, addDoc, getDocs, updateDoc, onSnapshot, serverTimestamp, query, where, orderBy, deleteDoc, getDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
 const firebaseConfig = {
-apiKey: "AIzaSyBoBvAcaLGnPw69fwrfz_Al0L76foB1JtQ",
-authDomain: "recaga-de-diamante-de-fre-fi.firebaseapp.com",
-projectId: "recaga-de-diamante-de-fre-fi",
-storageBucket: "recaga-de-diamante-de-fre-fi.firebasestorage.app",
-messagingSenderId: "9751063285",
-appId: "1:9751063285:web:c1b3f8fd7c280f2d1773bc"
+  apiKey: "AIzaSyBoBvAcaLGnPw69fwrfz_Al0L76foB1JtQ",
+  authDomain: "recaga-de-diamante-de-fre-fi.firebaseapp.com",
+  projectId: "recaga-de-diamante-de-fre-fi",
+  storageBucket: "recaga-de-diamante-de-fre-fi.firebasestorage.app",
+  messagingSenderId: "9751063285",
+  appId: "1:9751063285:web:c1b3f8fd7c280f2d1773bc"
 };
+
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
+
 let currentUser = null;
 let selectedPack = null;
 let selectedMethod = null;
-let tasaParalelo = 0;
+let tasaParalelo = 70;
 const MASTER_ADMIN = "eduardgeldes6@gmail.com";
 let currentChatOrderId = null;
 let currentChatOrderEmail = null;
 let currentChatOrderPack = null;
 let chatUnsubscribe = null;
-let countryPrices = {
-argentina: {
-'100+10': 1.10,
-'200+20': 2.10,
-'310+31': 3.10,
-'520+52': 5.10,
-'600+61': 6.10,
-'800+83': 8.20,
-'1080+108': 10.10,
-'2180+218': 20.20,
-'5600+560': 47.10,
-'pase-nivel': 5.00,
-'tarjeta-semanal': 2.50,
-'tarjeta-mensual': 10.50
-},
-bolivia: {
-'100+10': 1.00,
-'200+20': 2.00,
-'310+31': 3.00,
-'520+52': 5.00,
-'600+61': 6.00,
-'800+83': 8.00,
-'1080+108': 10.00,
-'2180+218': 20.00,
-'5600+560': 47.00,
-'pase-nivel': 5.00,
-'tarjeta-semanal': 2.50,
-'tarjeta-mensual': 10.50
-},
-chile: {
-'100+10': 1.10,
-'200+20': 2.10,
-'310+31': 3.10,
-'520+52': 5.10,
-'600+61': 6.10,
-'800+83': 8.20,
-'1080+108': 10.10,
-'2180+218': 20.20,
-'5600+560': 47.10,
-'pase-nivel': 5.00,
-'tarjeta-semanal': 2.50,
-'tarjeta-mensual': 10.50
-},
-colombia: {
-'100+10': 1.10,
-'200+20': 2.10,
-'310+31': 3.10,
-'520+52': 5.10,
-'600+61': 6.10,
-'800+83': 8.20,
-'1080+108': 10.10,
-'2180+218': 20.20,
-'5600+560': 47.10,
-'pase-nivel': 5.00,
-'tarjeta-semanal': 2.50,
-'tarjeta-mensual': 10.50
-},
-costarica: {
-'100+10': 1.00,
-'200+20': 2.00,
-'310+31': 3.00,
-'520+52': 5.00,
-'600+61': 6.00,
-'800+83': 8.00,
-'1080+108': 10.00,
-'2180+218': 20.00,
-'5600+560': 47.00,
-'pase-nivel': 5.00,
-'tarjeta-semanal': 2.50,
-'tarjeta-mensual': 10.50
-},
-dominicana: {
-'100+10': 1.00,
-'200+20': 2.00,
-'310+31': 3.00,
-'520+52': 5.00,
-'600+61': 6.00,
-'800+83': 8.00,
-'1080+108': 10.00,
-'2180+218': 20.00,
-'5600+560': 47.00,
-'pase-nivel': 5.00,
-'tarjeta-semanal': 2.50,
-'tarjeta-mensual': 10.50
-},
-ecuador: {
-'100+10': 1.00,
-'200+20': 2.00,
-'310+31': 3.00,
-'520+52': 5.00,
-'600+61': 6.00,
-'800+83': 8.00,
-'1080+108': 10.00,
-'2180+218': 20.00,
-'5600+560': 47.00,
-'pase-nivel': 5.00,
-'tarjeta-semanal': 2.50,
-'tarjeta-mensual': 10.50
-},
-elsalvador: {
-'100+10': 1.00,
-'200+20': 2.00,
-'310+31': 3.00,
-'520+52': 5.00,
-'600+61': 6.00,
-'800+83': 8.00,
-'1080+108': 10.00,
-'2180+218': 20.00,
-'5600+560': 47.00,
-'pase-nivel': 5.00,
-'tarjeta-semanal': 2.50,
-'tarjeta-mensual': 10.50
-},
-guatemala: {
-'100+10': 1.00,
-'200+20': 2.00,
-'310+31': 3.00,
-'520+52': 5.00,
-'600+61': 6.00,
-'800+83': 8.00,
-'1080+108': 10.00,
-'2180+218': 20.00,
-'5600+560': 47.00,
-'pase-nivel': 5.00,
-'tarjeta-semanal': 2.50,
-'tarjeta-mensual': 10.50
-},
-mexico: {
-'100+10': 1.10,
-'200+20': 2.10,
-'310+31': 3.10,
-'520+52': 5.10,
-'600+61': 6.10,
-'800+83': 8.20,
-'1080+108': 10.10,
-'2180+218': 20.20,
-'5600+560': 47.10,
-'pase-nivel': 5.00,
-'tarjeta-semanal': 2.50,
-'tarjeta-mensual': 10.50
-},
-nicaragua: {
-'100+10': 1.00,
-'200+20': 2.00,
-'310+31': 3.00,
-'520+52': 5.00,
-'600+61': 6.00,
-'800+83': 8.00,
-'1080+108': 10.00,
-'2180+218': 20.00,
-'5600+560': 47.00,
-'pase-nivel': 5.00,
-'tarjeta-semanal': 2.50,
-'tarjeta-mensual': 10.50
-},
-panama: {
-'100+10': 1.00,
-'200+20': 2.00,
-'310+31': 3.00,
-'520+52': 5.00,
-'600+61': 6.00,
-'800+83': 8.00,
-'1080+108': 10.00,
-'2180+218': 20.00,
-'5600+560': 47.00,
-'pase-nivel': 5.00,
-'tarjeta-semanal': 2.50,
-'tarjeta-mensual': 10.50
-},
-uruguay: {
-'100+10': 1.00,
-'200+20': 2.00,
-'310+31': 3.00,
-'520+52': 5.00,
-'600+61': 6.00,
-'800+83': 8.00,
-'1080+108': 10.00,
-'2180+218': 20.00,
-'5600+560': 47.00,
-'pase-nivel': 5.00,
-'tarjeta-semanal': 2.50,
-'tarjeta-mensual': 10.50
-},
-venezuela: {
-'100+10': 1.10,
-'200+20': 2.10,
-'310+31': 3.10,
-'520+52': 5.10,
-'600+61': 6.10,
-'800+83': 8.20,
-'1080+108': 10.10,
-'2180+218': 20.20,
-'5600+560': 47.10,
-'pase-nivel': 5.00,
-'tarjeta-semanal': 2.50,
-'tarjeta-mensual': 10.50
-}
-};
-let exchangeRates = {
-USD: 1,
-VES: 0,
-MXN: 17.5,
-COP: 4200,
-ARS: 950,
-CLP: 950,
-PEN: 3.7
-};
+
+let countryPrices = {};
+let exchangeRates = { USD: 1, VES: 0, MXN: 17.5, COP: 4200, ARS: 950, CLP: 950, PEN: 3.7 };
 let currentCountry = 'venezuela';
 let currentCurrency = 'USD';
-const packages = [
-{ id: '100+10', name: '100+10 Diamantes', basePrice: 1.00, img: 'https://i.ibb.co/7twhJpK7/icono.jpg' },
-{ id: '200+20', name: '200+20 Diamantes', basePrice: 2.00, img: 'https://i.ibb.co/7twhJpK7/icono.jpg' },
-{ id: '310+31', name: '310+31 Diamantes', basePrice: 3.00, img: 'https://i.ibb.co/7twhJpK7/icono.jpg' },
-{ id: '520+52', name: '520+52 Diamantes', basePrice: 5.00, img: 'https://i.ibb.co/7twhJpK7/icono.jpg' },
-{ id: '600+61', name: '600+61 Diamantes', basePrice: 6.00, img: 'https://i.ibb.co/7twhJpK7/icono.jpg' },
-{ id: '800+83', name: '800+83 Diamantes', basePrice: 8.00, img: 'https://i.ibb.co/7twhJpK7/icono.jpg' },
-{ id: '1080+108', name: '1080+108 Diamantes', basePrice: 10.00, img: 'https://i.ibb.co/7twhJpK7/icono.jpg' },
-{ id: '2180+218', name: '2180+218 Diamantes', basePrice: 20.00, img: 'https://i.ibb.co/7twhJpK7/icono.jpg' },
-{ id: '5600+560', name: '5600+560 Diamantes', basePrice: 47.00, img: 'https://i.ibb.co/7twhJpK7/icono.jpg' },
-{ id: 'pase-nivel', name: 'Pase de Nivel', basePrice: 8.00, img: 'https://i.ibb.co/DDYkPYVv/Captura-de-pantalla-2026-02-19-121721.png' },
-{ id: 'tarjeta-semanal', name: 'Tarjeta Semanal', basePrice: 3.50, img: 'https://i.ibb.co/LDjQRyWQ/Captura-de-pantalla-2026-02-19-121932.png' },
-{ id: 'tarjeta-mensual', name: 'Tarjeta Mensual', basePrice: 12.00, img: 'https://i.ibb.co/KcZpVnZv/Captura-de-pantalla-2026-02-19-121901.png' }
-];
+let packages = [];
+let games = [];
+let anuncios = [];
+let currentGameFilter = 'free-fire';
+let presenceInterval = null;
+
+// 🔥 FIRESTORE PRICING FUNCTIONS 🔥
+async function saveCountryPricesToFirestore(country, prices) {
+    try {
+        await setDoc(doc(db, 'config_precios', country), { ...prices, updatedAt: serverTimestamp() });
+        return true;
+    } catch (e) { console.error("❌ Error guardando precios:", e); alert("Error: " + e.message); return false; }
+}
+
+async function loadCountryPricesFromFirestore(country) {
+    try {
+        const docSnap = await getDoc(doc(db, 'config_precios', country));
+        if (docSnap.exists()) {
+            countryPrices[country] = docSnap.data();
+            return true;
+        }
+        countryPrices[country] = {};
+        return false;
+    } catch (e) { console.error("❌ Error cargando precios:", e); countryPrices[country] = {}; return false; }
+}
+
+// 🔥 PRESENCIA (USUARIOS ACTIVOS) 🔥
+async function updatePresence(online) {
+    if (!currentUser) return;
+    try {
+        await setDoc(doc(db, 'presencia', currentUser.uid), {
+            online: online,
+            lastActive: serverTimestamp(),
+            email: currentUser.email
+        });
+    } catch (e) { console.error("Error presencia:", e); }
+}
+
+function startPresenceTracker() {
+    updatePresence(true);
+    presenceInterval = setInterval(() => updatePresence(true), 30000);
+    window.addEventListener('beforeunload', () => updatePresence(false));
+}
+
+async function loadActiveUsers() {
+    try {
+        const twoMinutesAgo = new Date(Date.now() - 2 * 60 * 1000);
+        const snap = await getDocs(query(collection(db, 'presencia'), where('online', '==', true)));
+        let count = 0;
+        snap.forEach(doc => {
+            const data = doc.data();
+            if (data.lastActive && data.lastActive.toDate() > twoMinutesAgo) count++;
+        });
+        const el = document.getElementById('stat-active-users');
+        if(el) el.innerText = count;
+    } catch (e) { console.error("Error cargando usuarios activos:", e); }
+}
+
+// 🔥 GESTIÓN DE JUEGOS 🔥
+async function loadGamesFromFirestore() {
+    try {
+        const snap = await getDocs(collection(db, 'juegos'));
+        games = [];
+        snap.forEach(doc => games.push({ id: doc.id, ...doc.data() }));
+        games.sort((a,b) => (a.order || 0) - (b.order || 0));
+        
+        const ffExists = games.find(g => g.id === 'free-fire');
+        if (!ffExists) {
+            await setDoc(doc(db, 'juegos', 'free-fire'), { id: 'free-fire', name: 'Free Fire', slug: 'free-fire', img: 'https://i.ibb.co/7twhJpK7/icono.jpg', activo: true, order: 1 });
+            games.push({ id: 'free-fire', name: 'Free Fire', slug: 'free-fire', img: 'https://i.ibb.co/7twhJpK7/icono.jpg', activo: true, order: 1 });
+        }
+        return games;
+    } catch (e) { console.error("❌ Error cargando juegos:", e); return []; }
+}
+
+// 🔥 GESTIÓN DE PAQUETES 🔥
+async function loadPackagesFromFirestore() {
+    try {
+        const snap = await getDocs(collection(db, 'paquetes'));
+        packages = [];
+        snap.forEach(doc => packages.push({ id: doc.id, ...doc.data() }));
+        return packages;
+    } catch (e) { console.error("❌ Error cargando paquetes:", e); return []; }
+}
+
+// 🔥 GESTIÓN DE ANUNCIOS 🔥
+async function loadAnunciosFromFirestore() {
+    try {
+        const snap = await getDocs(collection(db, 'anuncios'));
+        anuncios = [];
+        snap.forEach(doc => anuncios.push({ id: doc.id, ...doc.data() }));
+        renderAnuncios();
+        return anuncios;
+    } catch (e) { console.error("❌ Error cargando anuncios:", e); return []; }
+}
+
+async function renderAnuncios() {
+    const active = anuncios.filter(a => a.activo !== false).sort((a,b) => (b.createdAt?.seconds || 0) - (a.createdAt?.seconds || 0))[0];
+    const bar = document.getElementById('announcement-bar');
+    if (active) {
+        bar.classList.remove('hidden-section', 'info', 'success', 'warning');
+        bar.classList.add(active.tipo || 'info');
+        document.getElementById('announcement-text').innerText = `${active.titulo}: ${active.mensaje}`;
+        localStorage.setItem('lastAnnouncementId', active.id);
+    } else {
+        bar.classList.add('hidden-section');
+    }
+}
+
+window.closeAnnouncement = () => document.getElementById('announcement-bar').classList.add('hidden-section');
+
+// 🔥 UI & NAVIGATION 🔥
 window.showSection = (id) => {
-document.querySelectorAll('section').forEach(s => s.classList.add('hidden-section'));
-const el = document.getElementById(id);
-if(el) el.classList.remove('hidden-section');
-if (id === 'history' && currentUser) fetchHistory();
-if (id === 'admin-panel' && currentUser) {
-if(currentUser.email === MASTER_ADMIN) {
-startAdminDashboard();
-loadAdminPriceInputs();
-} else {
-showSection('home');
-}
-}
-if (id === 'home') renderPackages();
-window.scrollTo(0, 0);
+    document.querySelectorAll('section').forEach(s => s.classList.add('hidden-section'));
+    const el = document.getElementById(id);
+    if(el) el.classList.remove('hidden-section');
+    if (id === 'history' && currentUser) fetchHistory();
+    if (id === 'admin-panel' && currentUser?.email === MASTER_ADMIN) {
+        startAdminDashboard();
+        loadAdminPriceInputs();
+        loadPackagesList();
+        loadGamesList();
+        loadAnunciosFromFirestore();
+        populateGameDropdown();
+        loadActiveUsers();
+    }
+    if (id === 'home') { renderGameSelector(); renderPackages(); loadTrustTicker(); }
+    window.scrollTo(0, 0);
 };
+
 window.handleLogout = () => {
-signOut(auth).then(() => {
-location.reload();
-});
+    updatePresence(false);
+    if(presenceInterval) clearInterval(presenceInterval);
+    signOut(auth).then(() => location.reload());
 };
+
 window.showAdminTab = (tab) => {
-document.querySelectorAll('.admin-tab-btn').forEach(btn => btn.classList.remove('active'));
-document.getElementById('admin-pending-panel').classList.add('hidden-section');
-document.getElementById('admin-completed-panel').classList.add('hidden-section');
-document.getElementById('admin-prices-panel').classList.add('hidden-section');
-if(tab === 'pending') {
-document.querySelector('.admin-tab-btn:nth-child(1)').classList.add('active');
-document.getElementById('admin-pending-panel').classList.remove('hidden-section');
-} else if(tab === 'completed') {
-document.querySelector('.admin-tab-btn:nth-child(2)').classList.add('active');
-document.getElementById('admin-completed-panel').classList.remove('hidden-section');
-} else if(tab === 'prices') {
-document.querySelector('.admin-tab-btn:nth-child(3)').classList.add('active');
-document.getElementById('admin-prices-panel').classList.remove('hidden-section');
-}
+    document.querySelectorAll('.admin-tab-btn').forEach(btn => btn.classList.remove('active'));
+    document.getElementById('admin-pending-panel').classList.add('hidden-section');
+    document.getElementById('admin-completed-panel').classList.add('hidden-section');
+    document.getElementById('admin-prices-panel').classList.add('hidden-section');
+    document.getElementById('admin-packages-panel').classList.add('hidden-section');
+    document.getElementById('admin-games-panel').classList.add('hidden-section');
+    document.getElementById('admin-anuncios-panel').classList.add('hidden-section');
+    
+    const tabs = { pending: 1, completed: 2, prices: 3, packages: 4, games: 5, anuncios: 6 };
+    document.querySelector(`.admin-tab-btn:nth-child(${tabs[tab]})`).classList.add('active');
+    document.getElementById(`admin-${tab}-panel`).classList.remove('hidden-section');
 };
+
 window.acceptPayment = async (orderId) => {
-if(!confirm('¿Estás seguro de aceptar este pago? El pedido se moverá a aceptados.')) return;
-try {
-await updateDoc(doc(db, 'pedidos', orderId), { status: 'completado' });
-alert('Pago aceptado. Pedido movido a aceptados.');
-} catch (e) {
-alert("Error al aceptar el pago: " + e.message);
-console.error(e);
-}
+    if(!confirm('¿Aceptar este pago?')) return;
+    try { await updateDoc(doc(db, 'pedidos', orderId), { status: 'completado', updatedAt: serverTimestamp() }); alert('✅ Aceptado'); } catch(e) { alert("Error: " + e.message); }
 };
+
 window.rejectPayment = async (orderId) => {
-if(!confirm('¿Estás seguro de rechazar este pago? El pedido se marcará como rechazado.')) return;
-try {
-await updateDoc(doc(db, 'pedidos', orderId), { status: 'rechazado' });
-alert('Pago rechazado.');
-} catch (e) {
-alert("Error al rechazar el pago: " + e.message);
-console.error(e);
-}
+    if(!confirm('¿Rechazar este pago?')) return;
+    try { await updateDoc(doc(db, 'pedidos', orderId), { status: 'rechazado', updatedAt: serverTimestamp() }); alert('✅ Rechazado'); } catch(e) { alert("Error: " + e.message); }
 };
+
+// 🔥 TASA & AUTH 🔥
 async function fetchTasa() {
-try {
-const response = await fetch('https://ve.dolarapi.com/v1/dolares/paralelo');
-const data = await response.json();
-tasaParalelo = data.promedio;
-exchangeRates.VES = tasaParalelo;
-document.querySelectorAll('#tasa-valor').forEach(el => el.innerText = `${tasaParalelo.toFixed(2)} Bs.`);
-} catch (e) {
-console.error("Error tasa:", e);
-tasaParalelo = 70;
-exchangeRates.VES = 70;
-}
+    try {
+        const res = await fetch('https://ve.dolarapi.com/v1/dolares/paralelo');
+        const data = await res.json();
+        tasaParalelo = data.promedio;
+        exchangeRates.VES = tasaParalelo;
+        document.querySelectorAll('#tasa-valor').forEach(el => el.innerText = `${tasaParalelo.toFixed(2)} Bs.`);
+    } catch { tasaParalelo = 70; exchangeRates.VES = 70; }
 }
 fetchTasa();
-onAuthStateChanged(auth, (user) => {
-currentUser = user;
-if (user) {
-document.getElementById('main-nav').classList.remove('hidden-section');
-document.getElementById('tasa-bar').classList.remove('hidden-section');
-if(user.email === MASTER_ADMIN) {
-document.getElementById('admin-nav-btn').classList.remove('hidden-section');
-document.getElementById('admin-price-update').classList.remove('hidden-section');
-} else {
-document.getElementById('admin-nav-btn').classList.add('hidden-section');
-document.getElementById('admin-price-update').classList.add('hidden-section');
-}
-showSection('home');
-} else {
-showSection('welcome-screen');
-document.getElementById('main-nav').classList.add('hidden-section');
-document.getElementById('tasa-bar').classList.add('hidden-section');
-}
+
+onAuthStateChanged(auth, async (user) => {
+    currentUser = user;
+    if (user) {
+        document.getElementById('main-nav').classList.remove('hidden-section');
+        document.getElementById('tasa-bar').classList.remove('hidden-section');
+        startPresenceTracker();
+        if(user.email === MASTER_ADMIN) {
+            document.getElementById('admin-nav-btn').classList.remove('hidden-section');
+            document.getElementById('admin-price-update').classList.remove('hidden-section');
+            await Promise.all([loadCountryPricesFromFirestore(currentCountry), loadPackagesFromFirestore(), loadGamesFromFirestore(), loadAnunciosFromFirestore()]);
+        } else {
+            document.getElementById('admin-nav-btn').classList.add('hidden-section');
+            document.getElementById('admin-price-update').classList.add('hidden-section');
+            await Promise.all([loadCountryPricesFromFirestore(currentCountry), loadPackagesFromFirestore(), loadGamesFromFirestore(), loadAnunciosFromFirestore()]);
+        }
+        showSection('home');
+    } else {
+        if(presenceInterval) clearInterval(presenceInterval);
+        await Promise.all([loadCountryPricesFromFirestore(currentCountry), loadPackagesFromFirestore(), loadGamesFromFirestore(), loadAnunciosFromFirestore()]);
+        showSection('welcome-screen');
+        document.getElementById('main-nav').classList.add('hidden-section');
+        document.getElementById('tasa-bar').classList.add('hidden-section');
+    }
 });
+
 document.getElementById('loginForm').onsubmit = async (e) => {
-e.preventDefault();
-const email = document.getElementById('loginEmail').value;
-const pass = document.getElementById('loginPass').value;
-try {
-await signInWithEmailAndPassword(auth, email, pass);
-} catch (e) {
-alert("Error: Usuario o contraseña incorrectos.");
-}
+    e.preventDefault();
+    try { await signInWithEmailAndPassword(auth, document.getElementById('loginEmail').value, document.getElementById('loginPass').value); }
+    catch(e) { console.error("Login error:", e); alert("❌ Credenciales incorrectas: " + e.message); }
 };
+
 document.getElementById('registerForm').onsubmit = async (e) => {
-e.preventDefault();
-const email = document.getElementById('regEmail').value;
-const pass = document.getElementById('regPass').value;
-if(pass.length < 6) return alert("Mínimo 6 caracteres.");
-try {
-await createUserWithEmailAndPassword(auth, email, pass);
-} catch (e) {
-alert("Error al crear cuenta.");
-}
+    e.preventDefault();
+    const pass = document.getElementById('regPass').value;
+    if(pass.length < 6) return alert("❌ Mínimo 6 caracteres");
+    try { await createUserWithEmailAndPassword(auth, document.getElementById('regEmail').value, pass); }
+    catch(e) { console.error("Register error:", e); alert("❌ Error al registrar: " + e.message); }
 };
-function getPriceForPackage(packageId) {
-return countryPrices[currentCountry][packageId] || 1.00;
+
+// 🔥 RENDERIZADO DE JUEGOS Y PAQUETES 🔥
+function renderGameSelector() {
+    const container = document.getElementById('game-selector');
+    const activeGames = games.filter(g => g.activo);
+    if (activeGames.length === 0) { container.innerHTML = '<p class="text-gray-500 text-sm">No hay juegos disponibles</p>'; return; }
+    container.innerHTML = activeGames.map(g => `<button class="game-btn ${currentGameFilter === g.id ? 'active' : ''}" onclick="selectGame('${g.id}')"><img src="${g.img || 'https://i.ibb.co/7twhJpK7/icono.jpg'}" class="w-6 h-6 rounded-full object-cover" onerror="this.src='https://i.ibb.co/7twhJpK7/icono.jpg'">${g.name}</button>`).join('');
 }
-function convertPrice(priceUSD) {
-if (currentCurrency === 'USD') return priceUSD.toFixed(2);
-if (currentCurrency === 'VES') return (priceUSD * exchangeRates.VES).toFixed(2);
-if (currentCurrency === 'MXN') return (priceUSD * exchangeRates.MXN).toFixed(2);
-if (currentCurrency === 'COP') return (priceUSD * exchangeRates.COP).toFixed(0);
-if (currentCurrency === 'ARS') return (priceUSD * exchangeRates.ARS).toFixed(0);
-if (currentCurrency === 'CLP') return (priceUSD * exchangeRates.CLP).toFixed(0);
-if (currentCurrency === 'PEN') return (priceUSD * exchangeRates.PEN).toFixed(2);
-return priceUSD.toFixed(2);
-}
-function getCurrencySymbol() {
-const symbols = {
-'USD': '$',
-'VES': 'Bs.',
-'MXN': 'MXN',
-'COP': 'COP',
-'ARS': 'ARS',
-'CLP': '$',
-'PEN': 'S/'
-};
-return symbols[currentCurrency] || '$';
-}
+
+window.selectGame = (gameId) => { currentGameFilter = gameId; renderGameSelector(); renderPackages(); };
+
 function renderPackages() {
-const grid = document.getElementById('packages-grid');
-grid.innerHTML = '';
-packages.forEach(pkg => {
-const priceUSD = getPriceForPackage(pkg.id);
-const priceDisplay = convertPrice(priceUSD);
-const symbol = getCurrencySymbol();
-grid.innerHTML += `
-<div class="glass-morphism rounded-3xl text-center group transition-all hover:scale-[1.02] flex flex-col">
-<img src="${pkg.img}" alt="${pkg.name}" class="package-card-img rounded-t-3xl">
-<div class="package-card-content flex-1">
-<h3 class="text-lg font-bold text-white uppercase">${pkg.name}</h3>
-<p class="text-3xl font-bold text-cyan-400">${symbol}${priceDisplay}</p>
-<button onclick="openCheckout('${pkg.name}', ${priceUSD})" class="w-full btn-primary text-black py-3 rounded-xl font-bold uppercase text-sm mt-2">Comprar Ahora</button>
-</div>
-</div>
-`;
-});
+    const grid = document.getElementById('packages-grid');
+    const emptyMsg = document.getElementById('no-packages-msg');
+    if(!grid) return;
+    const filtered = packages.filter(p => p.gameId === currentGameFilter);
+    if (filtered.length === 0) { grid.innerHTML = ''; emptyMsg.classList.remove('hidden-section'); return; }
+    emptyMsg.classList.add('hidden-section');
+    grid.innerHTML = filtered.map(pkg => {
+        const usd = countryPrices[currentCountry]?.[pkg.id] || pkg.basePrice || 0;
+        const display = convertPrice(usd);
+        const sym = getCurrencySymbol();
+        return `<div class="glass-morphism rounded-3xl text-center group transition-all hover:scale-[1.02] flex flex-col">
+        <img src="${pkg.img || 'https://i.ibb.co/7twhJpK7/icono.jpg'}" alt="${pkg.name}" class="package-card-img rounded-t-3xl" onerror="this.src='https://i.ibb.co/7twhJpK7/icono.jpg'">
+        <div class="package-card-content flex-1">
+        <h3 class="text-lg font-bold text-white uppercase">${pkg.name}</h3>
+        <p class="text-3xl font-bold text-cyan-400">${sym}${display}</p>
+        ${pkg.desc ? `<p class="text-[10px] text-gray-400">${pkg.desc}</p>` : ''}
+        <button onclick="openCheckout('${pkg.name}', ${usd}, '${pkg.gameId}')" class="w-full btn-primary text-black py-3 rounded-xl font-bold uppercase text-sm mt-2">Comprar Ahora</button>
+        </div></div>`;
+    }).join('');
 }
-window.updateCountryPrices = () => {
-currentCountry = document.getElementById('countrySelect').value;
-renderPackages();
-};
-window.updateCurrency = () => {
-currentCurrency = document.getElementById('currencySelect').value;
-renderPackages();
-};
-window.togglePriceEdit = () => {
-const panel = document.getElementById('price-edit-panel');
-panel.classList.toggle('hidden-section');
-if (!panel.classList.contains('hidden-section')) {
-renderPriceInputs();
+
+function convertPrice(usd) {
+    if(currentCurrency==='USD') return usd.toFixed(2);
+    if(currentCurrency==='VES') return (usd*exchangeRates.VES).toFixed(2);
+    if(currentCurrency==='MXN') return (usd*exchangeRates.MXN).toFixed(2);
+    if(currentCurrency==='COP') return (usd*exchangeRates.COP).toFixed(0);
+    if(currentCurrency==='ARS') return (usd*exchangeRates.ARS).toFixed(0);
+    if(currentCurrency==='CLP') return (usd*exchangeRates.CLP).toFixed(0);
+    if(currentCurrency==='PEN') return (usd*exchangeRates.PEN).toFixed(2);
+    return usd.toFixed(2);
 }
-};
+function getCurrencySymbol() { return {USD:'$',VES:'Bs.',MXN:'MXN',COP:'COP',ARS:'ARS',CLP:'$',PEN:'S/'}[currentCurrency] || '$'; }
+
+window.updateCountryPrices = async () => { currentCountry = document.getElementById('countrySelect').value; await loadCountryPricesFromFirestore(currentCountry); renderPackages(); };
+window.updateCurrency = () => { currentCurrency = document.getElementById('currencySelect').value; renderPackages(); };
+
+window.togglePriceEdit = () => { const p = document.getElementById('price-edit-panel'); p.classList.toggle('hidden-section'); if(!p.classList.contains('hidden-section')) renderPriceInputs(); };
+
 function renderPriceInputs() {
-const container = document.getElementById('price-inputs');
-container.innerHTML = '';
-packages.forEach(pkg => {
-const price = countryPrices[currentCountry][pkg.id];
-container.innerHTML += `
-<div class="bg-black/30 p-2 rounded-lg">
-<p class="text-[8px] text-gray-400 uppercase">${pkg.name}</p>
-<input type="number" step="0.01" id="price-${pkg.id}" value="${price}" class="admin-price-input w-full mt-1">
-</div>
-`;
-});
+    const c = document.getElementById('price-inputs'); c.innerHTML = '';
+    const filtered = packages.filter(p => p.gameId === currentGameFilter);
+    filtered.forEach(pkg => { const val = countryPrices[currentCountry]?.[pkg.id] || pkg.basePrice || 0; c.innerHTML += `<div class="bg-black/30 p-2 rounded-lg"><p class="text-[8px] text-gray-400 uppercase">${pkg.name}</p><input type="number" step="0.01" id="price-${pkg.id}" value="${val}" class="admin-price-input w-full mt-1"></div>`; });
 }
+
 window.savePrices = () => {
-packages.forEach(pkg => {
-const input = document.getElementById(`price-${pkg.id}`);
-if (input) {
-countryPrices[currentCountry][pkg.id] = parseFloat(input.value) || 1.00;
-}
-});
-renderPackages();
-document.getElementById('price-edit-panel').classList.add('hidden-section');
-alert('Precios actualizados correctamente');
+    const filtered = packages.filter(p => p.gameId === currentGameFilter);
+    filtered.forEach(pkg => { const inp = document.getElementById(`price-${pkg.id}`); if(inp) countryPrices[currentCountry][pkg.id] = parseFloat(inp.value) || pkg.basePrice || 0; });
+    renderPackages(); document.getElementById('price-edit-panel').classList.add('hidden-section'); alert('✅ Precios actualizados temporalmente');
 };
+
+// 🔥 ADMIN PRICES 🔥
 function loadAdminPriceInputs() {
-const container = document.getElementById('admin-price-inputs');
-const country = document.getElementById('admin-country').value;
-container.innerHTML = '';
-packages.forEach(pkg => {
-const price = countryPrices[country][pkg.id];
-container.innerHTML += `
-<div class="bg-black/30 p-3 rounded-xl">
-<p class="text-[9px] text-gray-400 uppercase mb-1">${pkg.name}</p>
-<input type="number" step="0.01" id="admin-price-${pkg.id}" value="${price}" class="admin-price-input w-full">
-<p class="text-[8px] text-cyan-400 mt-1">USD</p>
-</div>
-`;
-});
+    const c = document.getElementById('admin-price-inputs'); const co = document.getElementById('admin-country').value; c.innerHTML = '';
+    packages.forEach(pkg => { const val = countryPrices[co]?.[pkg.id] || pkg.basePrice || 0; c.innerHTML += `<div class="bg-black/30 p-3 rounded-xl"><p class="text-[9px] text-gray-400 uppercase mb-1">${pkg.name}</p><input type="number" step="0.01" id="admin-price-${pkg.id}" value="${val}" class="admin-price-input w-full"><p class="text-[8px] text-cyan-400 mt-1">USD</p></div>`; });
 }
-window.loadCountryPrices = () => {
-loadAdminPriceInputs();
+window.loadCountryPrices = () => loadAdminPriceInputs();
+window.saveAdminPrices = async () => {
+    const co = document.getElementById('admin-country').value;
+    packages.forEach(pkg => { const inp = document.getElementById(`admin-price-${pkg.id}`); if(inp) countryPrices[co][pkg.id] = parseFloat(inp.value) || pkg.basePrice || 0; });
+    const ok = await saveCountryPricesToFirestore(co, countryPrices[co]);
+    if(ok) { alert(`✅ Precios de ${co} guardados PERMANENTEMENTE`); loadAdminPriceInputs(); if(currentCountry === co) renderPackages(); }
 };
-window.saveAdminPrices = () => {
-const country = document.getElementById('admin-country').value;
-packages.forEach(pkg => {
-const input = document.getElementById(`admin-price-${pkg.id}`);
-if (input) {
-countryPrices[country][pkg.id] = parseFloat(input.value) || 1.00;
+
+// 🔥 GESTIÓN DE PAQUETES - ADMIN 🔥
+async function loadPackagesList() { const container = document.getElementById('packages-list'); if (!container) return; await loadPackagesFromFirestore(); if (packages.length === 0) { container.innerHTML = '<p class="text-center text-gray-500 py-10">No hay paquetes creados</p>'; return; } container.innerHTML = packages.map(pkg => { const gameName = games.find(g => g.id === pkg.gameId)?.name || 'Desconocido'; return `<div class="package-item"><img src="${pkg.img || 'https://i.ibb.co/7twhJpK7/icono.jpg'}" alt="${pkg.name}" onerror="this.src='https://i.ibb.co/7twhJpK7/icono.jpg'"><div class="package-item-info"><div class="package-item-name">${pkg.name} <span class="text-[10px] text-gray-500">(${gameName})</span></div><div class="package-item-price">$${pkg.basePrice} USD | ID: ${pkg.id}</div></div><div class="package-actions"><button class="btn-edit" onclick="editPackage('${pkg.id}')"><i class="fas fa-edit"></i></button><button class="btn-delete" onclick="deletePackage('${pkg.id}')"><i class="fas fa-trash"></i></button></div></div>`; }).join(''); }
+
+window.openPackageModal = () => { document.getElementById('modal-title').innerText = 'Agregar Paquete'; document.getElementById('package-form').reset(); document.getElementById('pkg-id').value = ''; document.getElementById('image-preview').classList.add('hidden-section'); populateGameDropdown(); document.getElementById('package-modal').classList.remove('hidden-section'); };
+window.closePackageModal = () => document.getElementById('package-modal').classList.add('hidden-section');
+window.previewImage = (url) => { const preview = document.getElementById('image-preview'); if (url) { preview.src = url; preview.classList.remove('hidden-section'); } else { preview.classList.add('hidden-section'); } };
+function populateGameDropdown() { const select = document.getElementById('pkg-game'); select.innerHTML = games.map(g => `<option value="${g.id}">${g.name}</option>`).join(''); }
+
+window.editPackage = async (id) => {
+    const pkg = packages.find(p => p.id === id); if (!pkg) return;
+    document.getElementById('modal-title').innerText = 'Editar Paquete'; document.getElementById('pkg-id').value = pkg.id; document.getElementById('pkg-name').value = pkg.name; populateGameDropdown(); document.getElementById('pkg-game').value = pkg.gameId || 'free-fire'; document.getElementById('pkg-code').value = pkg.id; document.getElementById('pkg-price').value = pkg.basePrice; document.getElementById('pkg-image').value = pkg.img || ''; document.getElementById('pkg-desc').value = pkg.desc || '';
+    if (pkg.img) { document.getElementById('image-preview').src = pkg.img; document.getElementById('image-preview').classList.remove('hidden-section'); }
+    document.getElementById('package-modal').classList.remove('hidden-section');
+};
+
+window.savePackage = async (e) => {
+    e.preventDefault();
+    const id = document.getElementById('pkg-id').value || document.getElementById('pkg-code').value;
+    const pkgData = { name: document.getElementById('pkg-name').value, gameId: document.getElementById('pkg-game').value, basePrice: parseFloat(document.getElementById('pkg-price').value) || 0, img: document.getElementById('pkg-image').value, desc: document.getElementById('pkg-desc').value, updatedAt: serverTimestamp() };
+    try {
+        if (document.getElementById('pkg-id').value) { await updateDoc(doc(db, 'paquetes', id), pkgData); alert('✅ Paquete actualizado'); } 
+        else { await setDoc(doc(db, 'paquetes', id), { id, ...pkgData }); alert('✅ Paquete creado'); }
+        closePackageModal(); loadPackagesList(); renderPackages();
+    } catch (err) { alert('❌ Error: ' + err.message); }
+};
+
+window.deletePackage = async (id) => { if (!confirm(`¿Eliminar paquete "${id}"?`)) return; try { await deleteDoc(doc(db, 'paquetes', id)); alert('✅ Eliminado'); loadPackagesList(); renderPackages(); } catch (err) { alert('❌ Error: ' + err.message); } };
+
+// 🔥 GESTIÓN DE JUEGOS - ADMIN 🔥
+async function loadGamesList() { const container = document.getElementById('games-list'); if (!container) return; await loadGamesFromFirestore(); if (games.length === 0) { container.innerHTML = '<p class="text-center text-gray-500 py-10">No hay juegos</p>'; return; } container.innerHTML = games.map(g => `<div class="game-item"><img src="${g.img || 'https://i.ibb.co/7twhJpK7/icono.jpg'}" alt="${g.name}" onerror="this.src='https://i.ibb.co/7twhJpK7/icono.jpg'"><div class="game-item-info"><div class="game-item-name">${g.name} <span class="text-[10px] text-gray-500">(ID: ${g.id})</span></div><span class="game-item-status ${g.activo ? 'game-active' : 'game-inactive'}">${g.activo ? 'Activo' : 'Inactivo'}</span></div><div class="flex gap-2"><button class="btn-toggle ${g.activo ? '' : 'inactive'}" onclick="toggleGame('${g.id}')"><i class="fas ${g.activo ? 'fa-eye' : 'fa-eye-slash'}"></i></button><button class="btn-edit" onclick="editGame('${g.id}')"><i class="fas fa-edit"></i></button>${g.id !== 'free-fire' ? `<button class="btn-delete" onclick="deleteGame('${g.id}')"><i class="fas fa-trash"></i></button>` : ''}</div></div>`).join(''); }
+
+window.openGameModal = () => { document.getElementById('game-modal-title').innerText = 'Agregar Juego'; document.getElementById('game-form').reset(); document.getElementById('game-id').value = ''; document.getElementById('game-image-preview').classList.add('hidden-section'); document.getElementById('game-modal').classList.remove('hidden-section'); };
+window.closeGameModal = () => document.getElementById('game-modal').classList.add('hidden-section');
+window.previewGameImage = (url) => { const preview = document.getElementById('game-image-preview'); if(url) { preview.src = url; preview.classList.remove('hidden-section'); } else { preview.classList.add('hidden-section'); } };
+
+window.editGame = (id) => { const g = games.find(x => x.id === id); if(!g) return; document.getElementById('game-modal-title').innerText = 'Editar Juego'; document.getElementById('game-id').value = g.id; document.getElementById('game-name').value = g.name; document.getElementById('game-slug').value = g.slug || g.id; document.getElementById('game-image').value = g.img || ''; if(g.img) { document.getElementById('game-image-preview').src = g.img; document.getElementById('game-image-preview').classList.remove('hidden-section'); } document.getElementById('game-modal').classList.remove('hidden-section'); };
+
+window.saveGame = async (e) => {
+    e.preventDefault();
+    const id = document.getElementById('game-id').value || document.getElementById('game-slug').value;
+    const data = { id, name: document.getElementById('game-name').value, slug: document.getElementById('game-slug').value, img: document.getElementById('game-image').value, activo: true, order: games.length + 1, updatedAt: serverTimestamp() };
+    try {
+        if(document.getElementById('game-id').value) { await updateDoc(doc(db, 'juegos', id), data); alert('✅ Juego actualizado'); }
+        else { await setDoc(doc(db, 'juegos', id), data); alert('✅ Juego creado'); }
+        closeGameModal(); loadGamesList(); renderGameSelector();
+    } catch(err) { alert('❌ Error: ' + err.message); }
+};
+
+window.toggleGame = async (id) => { const g = games.find(x => x.id === id); if(!g || id === 'free-fire') return; const newStatus = !g.activo; try { await updateDoc(doc(db, 'juegos', id), { activo: newStatus, updatedAt: serverTimestamp() }); alert(newStatus ? '✅ Juego activado' : '⚠️ Juego desactivado'); loadGamesList(); renderGameSelector(); } catch(err) { alert('❌ Error: ' + err.message); } };
+window.deleteGame = async (id) => { if(id === 'free-fire') return alert('❌ No puedes eliminar Free Fire'); if(!confirm(`¿Eliminar juego "${id}"? Los paquetes asociados seguirán existiendo.`)) return; try { await deleteDoc(doc(db, 'juegos', id)); alert('✅ Juego eliminado'); loadGamesList(); renderGameSelector(); } catch(err) { alert('❌ Error: ' + err.message); } };
+
+// 🔥 GESTIÓN DE ANUNCIOS - ADMIN 🔥
+async function loadAnunciosList() { const container = document.getElementById('anuncios-list'); if (!container) return; await loadAnunciosFromFirestore(); if (anuncios.length === 0) { container.innerHTML = '<p class="text-center text-gray-500 py-10">No hay anuncios</p>'; return; } container.innerHTML = anuncios.map(a => `<div class="package-item"><div class="package-item-info"><div class="package-item-name">${a.titulo}</div><div class="package-item-price">${a.mensaje.substring(0, 50)}...</div><span class="text-[10px] ${a.activo ? 'text-green-400' : 'text-red-400'}">${a.activo ? 'Activo' : 'Inactivo'}</span></div><div class="package-actions"><button class="btn-toggle ${a.activo ? '' : 'inactive'}" onclick="toggleAnuncio('${a.id}')"><i class="fas ${a.activo ? 'fa-eye' : 'fa-eye-slash'}"></i></button><button class="btn-edit" onclick="editAnuncio('${a.id}')"><i class="fas fa-edit"></i></button><button class="btn-delete" onclick="deleteAnuncio('${a.id}')"><i class="fas fa-trash"></i></button></div></div>`).join(''); }
+
+window.openAnuncioModal = () => { document.getElementById('anuncio-modal-title').innerText = 'Nuevo Anuncio'; document.getElementById('anuncio-form').reset(); document.getElementById('anuncio-id').value = ''; document.getElementById('anuncio-modal').classList.remove('hidden-section'); };
+window.closeAnuncioModal = () => document.getElementById('anuncio-modal').classList.add('hidden-section');
+
+window.editAnuncio = (id) => { const a = anuncios.find(x => x.id === id); if(!a) return; document.getElementById('anuncio-modal-title').innerText = 'Editar Anuncio'; document.getElementById('anuncio-id').value = a.id; document.getElementById('anuncio-titulo').value = a.titulo; document.getElementById('anuncio-mensaje').value = a.mensaje; document.getElementById('anuncio-tipo').value = a.tipo || 'info'; document.getElementById('anuncio-modal').classList.remove('hidden-section'); };
+
+window.saveAnuncio = async (e) => {
+    e.preventDefault();
+    const id = document.getElementById('anuncio-id').value || Date.now().toString();
+    const data = { titulo: document.getElementById('anuncio-titulo').value, mensaje: document.getElementById('anuncio-mensaje').value, tipo: document.getElementById('anuncio-tipo').value, activo: true, createdAt: serverTimestamp() };
+    try {
+        if(document.getElementById('anuncio-id').value) { await updateDoc(doc(db, 'anuncios', id), data); alert('✅ Anuncio actualizado'); }
+        else { await setDoc(doc(db, 'anuncios', id), data); alert('✅ Anuncio publicado'); }
+        closeAnuncioModal(); loadAnunciosList(); renderAnuncios();
+    } catch(err) { alert('❌ Error: ' + err.message); }
+};
+
+window.toggleAnuncio = async (id) => { const a = anuncios.find(x => x.id === id); if(!a) return; const newStatus = !a.activo; try { await updateDoc(doc(db, 'anuncios', id), { activo: newStatus, updatedAt: serverTimestamp() }); alert(newStatus ? '✅ Anuncio activado' : '⚠️ Anuncio desactivado'); loadAnunciosList(); renderAnuncios(); } catch(err) { alert('❌ Error: ' + err.message); } };
+window.deleteAnuncio = async (id) => { if(!confirm('¿Eliminar este anuncio?')) return; try { await deleteDoc(doc(db, 'anuncios', id)); alert('✅ Eliminado'); loadAnunciosList(); renderAnuncios(); } catch(err) { alert('❌ Error: ' + err.message); } };
+
+// 🔥 CORRECCIÓN: HISTORIAL DE CONFIANZA (TICKER) SIN ÍNDICE 🔥
+async function loadTrustTicker() {
+    try {
+        const q = query(collection(db, 'pedidos'), where('status', '==', 'completado'));
+        const snap = await getDocs(q);
+        
+        // Orden manual en JS
+        const completados = [];
+        snap.forEach(d => completados.push({ id: d.id, ...d.data() }));
+        completados.sort((a,b) => (b.timestamp?.seconds || 0) - (a.timestamp?.seconds || 0));
+
+        const container = document.getElementById('trust-ticker-content');
+        const bar = document.getElementById('trust-ticker');
+        if(completados.length === 0) { bar.classList.add('hidden-section'); return; }
+        
+        bar.classList.remove('hidden-section');
+        let html = '';
+        completados.forEach(o => {
+            const maskedEmail = o.email ? o.email.replace(/(.{2}).*(@.*)/, '$1***$2') : 'Usuario';
+            const maskedId = o.playerID ? o.playerID.replace(/\d(?=\d{4})/g, '*') : '****';
+            html += `<div class="trust-item"><i class="fas fa-check-circle"></i> ${maskedEmail} compró <b>${o.pack}</b> • ID: ${maskedId}</div>`;
+        });
+        container.innerHTML = html + html;
+    } catch(e) { console.error("Error ticker:", e); }
 }
-});
-alert(`Precios de ${country} actualizados correctamente`);
-};
+
+// 🔥 CHECKOUT & PAYMENT 🔥
 window.selectPayment = (method) => {
-selectedMethod = method;
-document.querySelectorAll('.payment-card').forEach(c => c.classList.remove('active'));
-const instr = document.getElementById('payment-instructions');
-instr.classList.remove('hidden-section');
-if(method === 'Pago Móvil') {
-document.getElementById('method-pm').classList.add('active');
-const montoBs = ((selectedPack.price * tasaParalelo) + 70).toLocaleString('es-VE', {minimumFractionDigits: 2});
-instr.innerHTML = `
-<p class="font-bold text-cyan-400 mb-2">Datos Pago Móvil:</p>
-<p>Banco: Venezuela (0102)</p>
-<p>Tel: 04162923781</p>
-<p>CI: 29.824.660</p>
-<p class="text-yellow-500 font-bold mt-2">Pagar: ${montoBs} Bs.</p>`;
-} else {
-document.getElementById('method-zinli').classList.add('active');
-instr.innerHTML = `
-<p class="font-bold text-cyan-400 mb-2">Zinli:</p>
-<p>Correo: eduardgeldes6@gmail.com</p>
-<p class="text-green-400 font-bold mt-2">Monto: $${selectedPack.price.toFixed(2)} USD</p>
-<img src="https://i.ibb.co/0RcfTNT6/Captura-de-pantalla-2026-02-17-150329.png" alt="Instrucciones Zinli" class="zinli-instruction-img">`;
-}
+    if(!selectedPack) return alert("Selecciona un paquete primero");
+    selectedMethod = method;
+    document.querySelectorAll('.payment-card').forEach(c => c.classList.remove('active'));
+    const instr = document.getElementById('payment-instructions');
+    instr.classList.remove('hidden-section');
+    if(method === 'Pago Móvil') {
+        document.getElementById('method-pm').classList.add('active');
+        const bs = ((selectedPack.price * tasaParalelo) + 70).toLocaleString('es-VE', {minimumFractionDigits: 2});
+        instr.innerHTML = `<p class="font-bold text-cyan-400 mb-2">Datos Pago Móvil:</p><p>Banco: Venezuela (0102)</p><p>Tel: 04162923781</p><p>CI: 29.824.660</p><p class="text-yellow-500 font-bold mt-2">Pagar: ${bs} Bs.</p>`;
+    } else {
+        document.getElementById('method-zinli').classList.add('active');
+        instr.innerHTML = `<p class="font-bold text-cyan-400 mb-2">Zinli:</p><p>Correo: eduardgeldes6@gmail.com</p><p class="text-green-400 font-bold mt-2">Monto: $${selectedPack.price.toFixed(2)} USD</p><img src="https://i.ibb.co/0RcfTNT6/Captura-de-pantalla-2026-02-17-150329.png" class="zinli-instruction-img">`;
+    }
 };
-window.openCheckout = (name, price) => {
-if(!currentUser) return showSection('login-form');
-selectedPack = { name, price };
-selectedMethod = null;
-const symbol = getCurrencySymbol();
-const priceDisplay = convertPrice(price);
-document.getElementById('checkout-details').innerHTML = `
-<div class="flex justify-between"><span>PACK:</span><span>${name}</span></div>
-<div class="flex justify-between"><span>TOTAL:</span><span class="text-cyan-400 font-bold">${symbol}${priceDisplay}</span></div>`;
-document.getElementById('payment-instructions').classList.add('hidden-section');
-document.querySelectorAll('.payment-card').forEach(c => c.classList.remove('active'));
-showSection('checkout-section');
+
+window.openCheckout = (name, price, gameId) => {
+    if(!currentUser) return showSection('login-form');
+    selectedPack = { name, price };
+    selectedMethod = null;
+    const gameName = games.find(g => g.id === gameId)?.name || 'Juego';
+    document.getElementById('checkout-game-label').innerText = gameName;
+    document.getElementById('checkout-details').innerHTML = `<div class="flex justify-between"><span>PACK:</span><span>${name}</span></div><div class="flex justify-between"><span>TOTAL:</span><span class="text-cyan-400 font-bold">${getCurrencySymbol()}${convertPrice(price)}</span></div>`;
+    document.getElementById('payment-instructions').classList.add('hidden-section');
+    document.querySelectorAll('.payment-card').forEach(c => c.classList.remove('active'));
+    clearPlayerInfo();
+    showSection('checkout-section');
 };
-window.confirmPurchase = async () => {
-const pid = document.getElementById('playerID').value;
-const ref = document.getElementById('payRef').value;
-if(!selectedMethod || !pid || !ref) return alert("Completa los datos y selecciona método.");
-try {
-await addDoc(collection(db, 'pedidos'), {
-userId: currentUser.uid,
-email: currentUser.email,
-playerID: pid,
-pack: selectedPack.name,
-precio: selectedPack.price,
-pais: currentCountry,
-moneda: currentCurrency,
-metodo: selectedMethod,
-ref: ref,
-status: 'pendiente',
-fecha: new Date().toLocaleString(),
-timestamp: serverTimestamp()
-});
-alert("Pago enviado exitosamente. Revisaremos tu recarga pronto.");
-showSection('history');
-document.getElementById('playerID').value = '';
-document.getElementById('payRef').value = '';
-} catch (e) {
-alert("Error al procesar el pago: " + e.message);
-console.error(e);
-}
+
+// 🔥 VERIFICACIÓN DE ID 🔥
+window.verifyPlayerID = async () => {
+  const playerID = document.getElementById('playerID').value.trim();
+  const infoBox = document.getElementById('player-info');
+  const errorBox = document.getElementById('player-error');
+  const errorText = document.getElementById('error-text');
+  infoBox.classList.add('hidden-section'); errorBox.classList.add('hidden-section');
+  if (!playerID || playerID.length < 6) { errorText.innerText = "Ingresa un ID válido (mínimo 6 dígitos)"; errorBox.classList.remove('hidden-section'); return; }
+  document.getElementById('player-name').innerText = "Buscando..."; document.getElementById('player-level').innerText = ""; infoBox.classList.remove('hidden-section');
+  try {
+    let playerData = { name: `Jugador #${playerID.slice(-4)}`, level: '?', isFallback: true };
+    if(currentGameFilter === 'free-fire') {
+        try { const res = await fetch(`https://free-ff-api.jinix6.dev/api/v1/account?uid=${playerID}&region=latam`, { mode: 'cors' }); if (res.ok) { const data = await res.json(); if (data?.data?.nickname) playerData = { name: data.data.nickname, level: data.data.level || '--', avatar: null }; } } catch(e) { console.log("API FF falló:", e.message); }
+    }
+    document.getElementById('player-name').innerText = playerData.name; document.getElementById('player-level').innerText = `Nivel: ${playerData.level}`;
+    document.getElementById('player-avatar').innerText = playerData.name.charAt(0).toUpperCase();
+    document.getElementById('player-verified').className = playerData.isFallback ? "fas fa-exclamation-circle text-yellow-400 ml-auto text-2xl" : "fas fa-check-circle text-green-400 ml-auto text-2xl";
+    if(playerData.isFallback) document.getElementById('player-level').innerText += " • Verifica visualmente";
+  } catch (e) { errorText.innerText = "No se pudo verificar. Confirma manualmente."; errorBox.classList.remove('hidden-section'); document.getElementById('player-name').innerText = `ID: ${playerID}`; document.getElementById('player-level').innerText = "Verificación manual"; document.getElementById('player-verified').className = "fas fa-exclamation-circle text-yellow-400 ml-auto text-2xl"; infoBox.classList.remove('hidden-section'); }
 };
-async function fetchHistory() {
-const list = document.getElementById('user-history-list');
-list.innerHTML = '<p class="text-center text-gray-500">Cargando tus pedidos...</p>';
-try {
-const q = query(
-collection(db, 'pedidos'),
-where('userId', '==', currentUser.uid),
-orderBy('timestamp', 'desc')
-);
-const snap = await getDocs(q);
-list.innerHTML = '';
-if(snap.empty) {
-list.innerHTML = '<p class="text-center text-gray-500 py-10">No tienes pedidos aún.</p>';
-return;
-}
-snap.forEach(docSnap => {
-const data = docSnap.data();
-list.innerHTML += `
-<div class="glass-morphism p-5 rounded-2xl flex justify-between items-center border border-white/5">
-<div>
-<p class="text-white font-bold text-sm">${data.pack}</p>
-<p class="text-[10px] text-gray-500">${data.fecha} • ID: ${data.playerID}</p>
-<p class="text-[10px] text-cyan-400">Ref: ${data.ref} | Método: ${data.metodo}</p>
-</div>
-<div class="flex items-center gap-2">
-<span class="status-pill status-${data.status}">${data.status}</span>
-<button onclick="openChatModal('${docSnap.id}', '${data.email}', '${data.pack}')" class="chat-btn">
-<i class="fas fa-comments"></i> Chat
-</button>
-</div>
-</div>`;
-});
-} catch (e) {
-console.error("Error fetching history:", e);
-list.innerHTML = '<p class="text-center text-red-400 py-10">Error al cargar pedidos.</p>';
-}
-}
-async function startAdminDashboard() {
-if(currentUser.email !== MASTER_ADMIN) return showSection('home');
-const allOrdersQuery = query(collection(db, 'pedidos'), orderBy('timestamp', 'desc'));
-onSnapshot(allOrdersQuery, (snap) => {
-let pendingCount = 0;
-let completedCount = 0;
-let totalSales = 0;
-const pendingOrders = [];
-const completedOrders = [];
-snap.forEach(d => {
-const data = d.data();
-if(data.status === 'pendiente') {
-pendingCount++;
-pendingOrders.push({ id: d.id, ...data });
-} else if(data.status === 'completado') {
-completedCount++;
-totalSales += data.precio || 0;
-completedOrders.push({ id: d.id, ...data });
-}
-});
-document.getElementById('stat-pending').innerText = pendingCount;
-document.getElementById('stat-completed').innerText = completedCount;
-document.getElementById('stat-total-sales').innerText = '$' + totalSales.toFixed(2);
-document.getElementById('stat-total-orders').innerText = snap.size;
-const pendingList = document.getElementById('admin-orders-pending');
-pendingList.innerHTML = '';
-if(pendingOrders.length === 0) {
-pendingList.innerHTML = '<p class="text-center text-gray-500 py-10">No hay pedidos pendientes.</p>';
-} else {
-pendingOrders.forEach(order => {
-pendingList.innerHTML += `
-<div class="glass-morphism p-6 rounded-3xl border border-white/10">
-<div class="flex justify-between items-start mb-4">
-<div>
-<p class="text-cyan-400 font-bold">${order.pack}</p>
-<p class="text-xs text-gray-400">Usuario: ${order.email}</p>
-<p class="text-lg font-mono text-white mt-2">ID PLAYER: ${order.playerID}</p>
-<p class="text-xs text-yellow-500">Ref: ${order.ref} (${order.metodo})</p>
-${order.pais ? `<p class="text-xs text-cyan-400">País: ${order.pais} | Precio: $${order.precio}</p>` : ''}
-</div>
-<span class="status-pill status-${order.status}">${order.status}</span>
-</div>
-<div class="flex gap-2">
-<button onclick="acceptPayment('${order.id}')" class="bg-green-600/20 text-green-400 px-4 py-2 rounded-xl text-[10px] font-bold uppercase flex-1 border border-green-600/30 hover:bg-green-600/30 transition">
-<i class="fas fa-check mr-1"></i> Aceptar
-</button>
-<button onclick="rejectPayment('${order.id}')" class="bg-red-600/20 text-red-400 px-4 py-2 rounded-xl text-[10px] font-bold uppercase flex-1 border border-red-600/30 hover:bg-red-600/30 transition">
-<i class="fas fa-times mr-1"></i> Rechazar
-</button>
-<button onclick="openChatModal('${order.id}', '${order.email}', '${order.pack}')" class="chat-btn">
-<i class="fas fa-comments"></i> Chat
-</button>
-</div>
-</div>`;
-});
-}
-const completedList = document.getElementById('admin-orders-completed');
-completedList.innerHTML = '';
-if(completedOrders.length === 0) {
-completedList.innerHTML = '<p class="text-center text-gray-500 py-10">No hay pedidos aceptados.</p>';
-} else {
-completedOrders.forEach(order => {
-completedList.innerHTML += `
-<div class="glass-morphism p-6 rounded-3xl border border-green-500/20">
-<div class="flex justify-between items-start mb-4">
-<div>
-<p class="text-green-400 font-bold">${order.pack}</p>
-<p class="text-xs text-gray-400">Usuario: ${order.email}</p>
-<p class="text-lg font-mono text-white mt-2">ID PLAYER: ${order.playerID}</p>
-<p class="text-xs text-yellow-500">Ref: ${order.ref} (${order.metodo})</p>
-${order.pais ? `<p class="text-xs text-cyan-400">País: ${order.pais} | Precio: $${order.precio}</p>` : ''}
-<p class="text-xs text-gray-500 mt-2">${order.fecha}</p>
-</div>
-<span class="status-pill status-completado">Completado</span>
-</div>
-<div class="flex gap-2">
-<button onclick="openChatModal('${order.id}', '${order.email}', '${order.pack}')" class="chat-btn">
-<i class="fas fa-comments"></i> Chat
-</button>
-</div>
-</div>`;
-});
-}
-}, (error) => {
-console.error("Error Admin Dashboard:", error);
-});
-}
-// ==================== CHAT SYSTEM ====================
-window.openChatModal = (orderId, orderEmail, orderPack) => {
-currentChatOrderId = orderId;
-currentChatOrderEmail = orderEmail;
-currentChatOrderPack = orderPack;
-document.getElementById('chat-order-info').innerText = `${orderPack} - ${orderEmail}`;
-document.getElementById('chat-modal').classList.remove('hidden-section');
-loadChatMessages(orderId);
+window.clearPlayerInfo = () => { document.getElementById('player-info').classList.add('hidden-section'); document.getElementById('player-error').classList.add('hidden-section'); };
+
+// 🔥 CORRECCIÓN: CONFIRMACIÓN DE PEDIDO 🔥
+const originalConfirmPurchase = async () => {
+    const btn = document.getElementById('confirm-btn');
+    const pid = document.getElementById('playerID').value.trim();
+    const ref = document.getElementById('payRef').value.trim();
+    
+    if(!selectedPack || !selectedPack.price) { alert("❌ Error: Paquete no válido"); return; }
+    if(!currentUser) { alert("❌ Sesión expirada"); return showSection('login-form'); }
+    if(!selectedMethod) { alert("❌ Selecciona un método de pago"); return; }
+    if(!pid || pid.length < 6) { alert("❌ Ingresa un ID de jugador válido"); return; }
+    if(!ref || ref.length < 4) { alert("❌ Ingresa la referencia de pago (mínimo 4 dígitos)"); return; }
+    
+    btn.disabled = true;
+    btn.innerHTML = `<i class="fas fa-spinner fa-spin mr-2"></i> Procesando...`;
+    
+    try {
+        await addDoc(collection(db, 'pedidos'), { 
+            userId: currentUser.uid, 
+            email: currentUser.email, 
+            playerID: pid, 
+            pack: selectedPack.name, 
+            precio: selectedPack.price, 
+            pais: currentCountry, 
+            moneda: currentCurrency, 
+            metodo: selectedMethod, 
+            ref: ref, 
+            gameId: currentGameFilter, 
+            status: 'pendiente', 
+            fecha: new Date().toLocaleString('es-ES'), 
+            timestamp: serverTimestamp() 
+        });
+        
+        alert("✅ ¡Pago enviado con éxito! Revisaremos tu pedido en breve.");
+        showSection('history');
+        document.getElementById('playerID').value = ''; 
+        document.getElementById('payRef').value = ''; 
+        selectedPack = null; selectedMethod = null;
+        clearPlayerInfo();
+        document.querySelectorAll('.payment-card').forEach(c => c.classList.remove('active'));
+        document.getElementById('payment-instructions').classList.add('hidden-section');
+        
+    } catch(e) {
+        console.error("❌ Error FIRESTORE:", e.code, e.message);
+        let msg = e.message;
+        if(e.code === 'permission-denied') msg = "❌ Permiso denegado. Verifica las reglas de Firestore.";
+        else if(e.code === 'unavailable') msg = "❌ Sin conexión. Verifica tu internet.";
+        alert("❌ Error al guardar pedido: " + msg);
+    } finally {
+        btn.disabled = false;
+        btn.innerHTML = `Confirmar Pago`;
+    }
 };
-window.closeChatModal = () => {
-document.getElementById('chat-modal').classList.add('hidden-section');
-if(chatUnsubscribe) {
-chatUnsubscribe();
-chatUnsubscribe = null;
-}
-currentChatOrderId = null;
-currentChatOrderEmail = null;
-currentChatOrderPack = null;
+
+window.confirmPurchase = async () => { 
+    if(!selectedPack) { alert("❌ Selecciona un paquete primero"); return showSection('home'); }
+    const playerID = document.getElementById('playerID').value.trim(); 
+    const playerName = document.getElementById('player-name').innerText; 
+    const verifiedEl = document.getElementById('player-verified');
+    if (verifiedEl && verifiedEl.classList.contains('fa-exclamation-circle')) { 
+        const confirmed = confirm(`⚠️ Verificación manual\n\nID: ${playerID}\nNombre: ${playerName}\n\n¿Estás SEGURO de que esta es TU cuenta correcta?`); 
+        if (!confirmed) return; 
+    } 
+    await originalConfirmPurchase(); 
 };
-function loadChatMessages(orderId) {
-const chatMessagesContainer = document.getElementById('chat-messages');
-chatMessagesContainer.innerHTML = '<p class="no-messages">Cargando mensajes...</p>';
-const q = query(
-collection(db, 'mensajes'),
-where('orderId', '==', orderId),
-orderBy('timestamp', 'asc')
-);
-if(chatUnsubscribe) {
-chatUnsubscribe();
+
+// 🔥 CORRECCIÓN: HISTORIAL USUARIO SIN ÍNDICE 🔥
+async function fetchHistory() { 
+    const list = document.getElementById('user-history-list'); 
+    list.innerHTML = '<p class="text-center text-gray-500"><i class="fas fa-spinner fa-spin mr-2"></i>Cargando...</p>'; 
+    
+    try {
+        const q = query(collection(db, 'pedidos'), where('userId', '==', currentUser.uid));
+        const snap = await getDocs(q);
+        
+        const pedidos = [];
+        snap.forEach(d => pedidos.push({ id: d.id, ...d.data() }));
+        pedidos.sort((a, b) => {
+            const timeA = a.timestamp?.seconds || 0;
+            const timeB = b.timestamp?.seconds || 0;
+            return timeB - timeA;
+        });
+
+        list.innerHTML = '';
+        if (pedidos.length === 0) { 
+            list.innerHTML = '<div class="empty-state"><i class="fas fa-receipt block"></i><p>Sin pedidos aún</p></div>'; 
+            return; 
+        }
+        
+        pedidos.forEach(o => {
+            const statusClass = o.status === 'completado' ? 'status-completado' : o.status === 'rechazado' ? 'status-rechazado' : 'status-pendiente';
+            list.innerHTML += `
+            <div class="glass-morphism p-5 rounded-2xl flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+                <div>
+                    <p class="text-white font-bold text-sm">${o.pack}</p>
+                    <p class="text-[10px] text-gray-500">${o.fecha || 'Reciente'} • ID: ${o.playerID}</p>
+                    <p class="text-[10px] text-cyan-400">Ref: ${o.ref} | ${o.metodo} | $${o.precio?.toFixed(2)}</p>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="status-pill ${statusClass}">${o.status?.toUpperCase()}</span>
+                    ${o.status !== 'rechazado' ? `<button onclick="openChatModal('${o.id}','${o.email}','${o.pack}')" class="chat-btn"><i class="fas fa-comments"></i></button>` : ''}
+                </div>
+            </div>`;
+        });
+    } catch(e) {
+        console.error("⚠️ Error historial:", e);
+        list.innerHTML = '<p class="text-center text-red-400">Error cargando historial.</p>';
+    }
 }
-chatUnsubscribe = onSnapshot(q, (snap) => {
-chatMessagesContainer.innerHTML = '';
-if(snap.empty) {
-chatMessagesContainer.innerHTML = '<p class="no-messages"><i class="fas fa-comment-dots text-3xl mb-3 block"></i>No hay mensajes aún. ¡Comienza la conversación!</p>';
-} else {
-snap.forEach(docSnap => {
-const msg = docSnap.data();
-const isAdmin = msg.sender === 'admin';
-let time = '';
-if(msg.timestamp) {
-const date = msg.timestamp.toDate();
-time = date.toLocaleTimeString('es-VE', {hour: '2-digit', minute:'2-digit'});
+
+// 🔥 CORRECCIÓN: ADMIN DASHBOARD SIN ÍNDICE 🔥
+function startAdminDashboard() {
+    const unsub = onSnapshot(collection(db, 'pedidos'), (snap) => {
+        const pedidos = [];
+        let pend=0, comp=0, sales=0; const pArr=[], cArr=[];
+        
+        snap.forEach(d => { 
+            const o = d.data(); 
+            pedidos.push({ id: d.id, ...o });
+        });
+
+        pedidos.sort((a,b) => (b.timestamp?.seconds || 0) - (a.timestamp?.seconds || 0));
+
+        pedidos.forEach(o => {
+            if(o.status==='pendiente') { pend++; pArr.push({id:o.id,...o}); } 
+            else if(o.status==='completado') { comp++; sales+=o.precio||0; cArr.push({id:o.id,...o}); } 
+        });
+        
+        document.getElementById('stat-pending').innerText = pend; 
+        document.getElementById('stat-completed').innerText = comp; 
+        document.getElementById('stat-total-sales').innerText = '$'+sales.toFixed(2);
+        const totalOrdersEl = document.getElementById('stat-total-orders');
+        if(totalOrdersEl) totalOrdersEl.innerText = snap.size;
+        
+        document.getElementById('admin-orders-pending').innerHTML = pArr.length ? pArr.map(o=>`
+        <div class="glass-morphism p-6 rounded-3xl border border-white/10">
+            <div class="flex justify-between items-start mb-4">
+                <div>
+                    <p class="text-cyan-400 font-bold">${o.pack}</p>
+                    <p class="text-xs text-gray-400">${o.email}</p>
+                    <p class="text-lg font-mono mt-2">ID: ${o.playerID}</p>
+                    <p class="text-xs text-yellow-500">Ref: ${o.ref} (${o.metodo})</p>
+                    <p class="text-xs text-cyan-400">${o.pais} | $${o.precio?.toFixed(2)}</p>
+                </div>
+                <span class="status-pill status-${o.status}">${o.status}</span>
+            </div>
+            <div class="flex gap-2">
+                <button onclick="acceptPayment('${o.id}')" class="bg-green-600/20 text-green-400 px-4 py-2 rounded-xl text-[10px] font-bold uppercase flex-1 hover:bg-green-600/30 transition">Aceptar</button>
+                <button onclick="rejectPayment('${o.id}')" class="bg-red-600/20 text-red-400 px-4 py-2 rounded-xl text-[10px] font-bold uppercase flex-1 hover:bg-red-600/30 transition">Rechazar</button>
+                <button onclick="openChatModal('${o.id}','${o.email}','${o.pack}')" class="chat-btn"><i class="fas fa-comments"></i></button>
+            </div>
+        </div>`).join('') : '<p class="text-center text-gray-500 py-10">✅ Sin pendientes</p>';
+        
+        document.getElementById('admin-orders-completed').innerHTML = cArr.length ? cArr.map(o=>`
+        <div class="glass-morphism p-6 rounded-3xl border border-green-500/20">
+            <div class="flex justify-between items-start mb-4">
+                <div>
+                    <p class="text-green-400 font-bold">${o.pack}</p>
+                    <p class="text-xs text-gray-400">${o.email}</p>
+                    <p class="text-lg font-mono mt-2">ID: ${o.playerID}</p>
+                    <p class="text-xs text-yellow-500">Ref: ${o.ref}</p>
+                    <p class="text-xs text-gray-500 mt-2">${o.fecha || 'Reciente'}</p>
+                </div>
+                <span class="status-pill status-completado">Listo</span>
+            </div>
+            <button onclick="openChatModal('${o.id}','${o.email}','${o.pack}')" class="chat-btn"><i class="fas fa-comments mr-1"></i> Chat</button>
+        </div>`).join('') : '<p class="text-center text-gray-500 py-10">Sin completados</p>';
+    }, (err) => { console.error("Admin error:", err); });
+    
+    setInterval(loadActiveUsers, 30000);
 }
-chatMessagesContainer.innerHTML += `
-<div class="chat-message ${isAdmin ? 'chat-message-admin' : 'chat-message-user'}">
-<p class="chat-message-text">${escapeHtml(msg.message)}</p>
-<p class="chat-message-time">${time}</p>
-</div>
-`;
-});
-}
-chatMessagesContainer.scrollTop = chatMessagesContainer.scrollHeight;
-}, (error) => {
-console.error("Error loading chat:", error);
-chatMessagesContainer.innerHTML = '<p class="no-messages text-red-400">Error al cargar mensajes.</p>';
-});
-}
-window.sendMessage = async () => {
-const input = document.getElementById('chat-input');
-const message = input.value.trim();
-if(!message || !currentChatOrderId) {
-alert("Escribe un mensaje válido");
-return;
-}
-try {
-await addDoc(collection(db, 'mensajes'), {
-orderId: currentChatOrderId,
-orderEmail: currentChatOrderEmail,
-message: message,
-sender: currentUser.email === MASTER_ADMIN ? 'admin' : 'user',
-senderEmail: currentUser.email,
-timestamp: serverTimestamp(),
-read: false
-});
-input.value = '';
-} catch (e) {
-alert("Error al enviar mensaje: " + e.message);
-console.error(e);
-}
+
+// 🔥 CORRECCIÓN: CHAT SYSTEM SIN ÍNDICE 🔥
+window.openChatModal = (oid, oem, opk) => { 
+    currentChatOrderId = oid; 
+    currentChatOrderEmail = oem; 
+    currentChatOrderPack = opk; 
+    document.getElementById('chat-order-info').innerText = `${opk} - ${oem}`; 
+    document.getElementById('chat-modal').classList.remove('hidden-section'); 
+    loadChatMessages(oid); 
 };
-window.handleChatKeyPress = (event) => {
-if(event.key === 'Enter') {
-window.sendMessage();
-}
+
+window.closeChatModal = () => { 
+    document.getElementById('chat-modal').classList.add('hidden-section'); 
+    if(chatUnsubscribe) { chatUnsubscribe(); chatUnsubscribe = null; } 
 };
-function escapeHtml(text) {
-const div = document.createElement('div');
-div.textContent = text;
-return div.innerHTML;
+
+// 🔥 CORRECCIÓN PRINCIPAL: CARGA DE MENSAJES SIN ORDENAR EN FIREBASE 🔥
+function loadChatMessages(oid) { 
+    const box = document.getElementById('chat-messages'); 
+    box.innerHTML = '<p class="no-messages"><i class="fas fa-spinner fa-spin text-2xl mb-3 block"></i>Cargando mensajes...</p>'; 
+    
+    if(chatUnsubscribe) {
+        chatUnsubscribe();
+        chatUnsubscribe = null;
+    }
+    
+    if(!oid) {
+        box.innerHTML = '<p class="no-messages text-red-400">Error: ID de orden no válido</p>';
+        return;
+    }
+    
+    try {
+        // Consulta SIN orderBy para evitar índice
+        const q = query(
+            collection(db, 'mensajes'), 
+            where('orderId', '==', oid)
+        );
+        
+        chatUnsubscribe = onSnapshot(q, 
+            (snap) => { 
+                box.innerHTML = ''; 
+                
+                if(snap.empty) { 
+                    box.innerHTML = '<p class="no-messages"><i class="fas fa-comment-dots text-3xl mb-3 block opacity-50"></i>Sin mensajes aún</p>'; 
+                    return; 
+                } 
+                
+                // Ordenar manualmente por timestamp
+                const mensajes = [];
+                snap.forEach(d => {
+                    const data = d.data();
+                    mensajes.push({ 
+                        id: d.id, 
+                        ...data,
+                        timestamp: data.timestamp 
+                    });
+                });
+                
+                // Orden ascendente (más antiguo primero)
+                mensajes.sort((a, b) => {
+                    const timeA = a.timestamp?.seconds || a.timestamp?.toMillis?.() || 0;
+                    const timeB = b.timestamp?.seconds || b.timestamp?.toMillis?.() || 0;
+                    return timeA - timeB;
+                });
+
+                mensajes.forEach(m => { 
+                    const admin = m.sender === 'admin'; 
+                    let timeStr = '';
+                    if(m.timestamp) {
+                        try {
+                            const date = m.timestamp.toDate ? m.timestamp.toDate() : new Date(m.timestamp);
+                            timeStr = date.toLocaleTimeString('es-VE', {hour:'2-digit', minute:'2-digit'});
+                        } catch(e) {
+                            timeStr = '';
+                        }
+                    }
+                    
+                    box.innerHTML += `
+                        <div class="chat-message ${admin ? 'chat-message-admin' : 'chat-message-user'}">
+                            <p class="chat-message-text">${escapeHtml(m.message)}</p>
+                            ${timeStr ? `<p class="chat-message-time">${timeStr}</p>` : ''}
+                        </div>
+                    `; 
+                }); 
+                
+                // Scroll al final
+                setTimeout(() => {
+                    box.scrollTop = box.scrollHeight;
+                }, 100);
+            }, 
+            (error) => {
+                console.error("❌ Error en chat:", error.code, error.message);
+                box.innerHTML = `
+                    <div class="no-messages text-center">
+                        <i class="fas fa-exclamation-triangle text-3xl text-red-400 mb-3 block"></i>
+                        <p class="text-red-400 text-sm">Error al cargar mensajes</p>
+                        <p class="text-xs text-gray-500 mt-2">${error.message}</p>
+                        <button onclick="loadChatMessages('${oid}')" class="mt-3 px-4 py-2 bg-cyan-600/20 text-cyan-400 rounded-lg text-xs hover:bg-cyan-600/30">
+                            <i class="fas fa-redo mr-1"></i>Reintentar
+                        </button>
+                    </div>
+                `;
+            }
+        );
+    } catch(err) {
+        console.error("Error creando query:", err);
+        box.innerHTML = '<p class="no-messages text-red-400">Error interno del chat</p>';
+    }
 }
-// Función para FAQ accordion
-window.toggleFaq = (element) => {
-const faqItem = element.parentElement;
-faqItem.classList.toggle('active');
+
+window.sendMessage = async () => { 
+    const inp = document.getElementById('chat-input'); 
+    const msg = inp.value.trim(); 
+    if(!msg || !currentChatOrderId) return; 
+    try { 
+        await addDoc(collection(db, 'mensajes'), { 
+            orderId: currentChatOrderId, 
+            orderEmail: currentChatOrderEmail, 
+            message: msg, 
+            sender: currentUser.email===MASTER_ADMIN?'admin':'user', 
+            senderEmail: currentUser.email, 
+            timestamp: serverTimestamp(), 
+            read: false 
+        }); 
+        inp.value = ''; 
+    } catch(e) { alert("❌ Error al enviar"); } 
 };
+
+function escapeHtml(t) { const d=document.createElement('div'); d.textContent=t; return d.innerHTML; }
+
+// 🔥 SAFE ADSENSE INIT 🔥
+setTimeout(() => { try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {} }, 1500);
+
+// Inicializar
+renderGameSelector();
 renderPackages();
+loadTrustTicker();
 </script>
 </body>
 </html>
-
-
 
 
 
